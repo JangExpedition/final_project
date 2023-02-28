@@ -45,6 +45,9 @@
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="${pageContext.request.contextPath}/admin/admin.do">Admin</a>
+      </li>
     </ul>
   </div>
 </nav>
