@@ -6,13 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
+@Slf4j
 @RequestMapping("/admin")
 public class AdminController {
-
+	
+	
 	@GetMapping("/admin.do")
 	public void admin() {
-		log.debug("어드민 페이지 요청!!");
+		log.debug("Admin 페이지 요청!");
 	}
+
 }
