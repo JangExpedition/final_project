@@ -64,9 +64,6 @@
 .searchBtn{
 	background-color: #fff;
 	border: none;
-}
-
-.searchBtn:hover{
 	cursor: pointer;
 }
 
