@@ -1,0 +1,136 @@
+/* 예매 섹션 */
+.reservation-section{
+	width: 100%;
+	height: 650px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #f2f0e5;
+}
+
+/* 초기화 구간 */
+.reset-wrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 50px;
+}
+
+.reset-box{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 950px;
+	height: 50px;
+}
+
+#resetBtn{
+	border: 1px solid #333;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 10px;
+	border-radius: 5px;
+	background-color: #f2f0e5;
+	cursor: pointer;
+}
+
+/* 예매 구간 */
+.steps{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 950px;
+	height: 600px;
+	box-sizing: boarder-box;
+	border-left: 1px solid #cdcdcd;
+	border-right: 2px solid #cdcdcd;
+}
+
+.step{
+	width: 25%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: #f2f0e5;
+	border-right: 2px solid #cdcdcd;
+}
+
+.click{
+	color: #333;
+}
+
+.non-click{
+	color: #cdcdcd;
+}
+
+.movie-filter{
+	width: 100%;
+	height: 30px;
+	font-size: 13px;
+	border-bottom: 2px solid #333;
+}
+
+.filter{
+	cursor: pointer;
+}
+
+.step3{
+	width: 10% !important;
+}
+
+.step4{
+	width: 40% !important;
+	border: none;
+}
+
+.table-head{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #333;
+	width: 100%;
+	height: 30px;
+	color: #cdcdcd;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.table-body{
+	width: 100%;
+	height: 570px;
+	padding: 10px;
+}
+
+/* 예매확인 세션 */
+.reservation-check-section{
+	width: 100%;
+	height: 130px;
+	background-color: #1d1d1c;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.check-box{
+	display: flex;
+	width: 950px;
+	height: 100%;
+}
+
+.check{
+	width: 25%;
+	height: 100%;
+}
+
+.check3{
+	width: 10% !important;
+}
+
+.check4{
+	width: 40% !important;
+}
