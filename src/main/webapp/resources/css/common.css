@@ -26,6 +26,13 @@
 	width: 650px;
 }
 
+.p-2>a{
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	flex-direction: column;
+}
+
 /* 네비바 CSS */
 .navbar{
 	background-color: #fff !important;
@@ -35,16 +42,14 @@
 	justify-content: center !important;
 }
 
-.p-2>a{
-	display: flex;
-	align-items: center;
-	justify-content: center;	
-	flex-direction: column;
-}
-
 #navbarSupportedContent{
 	display: flex;
 	width: 950px !important;
+}
+
+.nav-item{
+	margin-right: 20px;
+	font-weight: bold;
 }
 
 #searchMovie{
@@ -59,8 +64,9 @@
 .searchBtn{
 	background-color: #fff;
 	border: none;
+	cursor: pointer;
 }
 
-.searchBtn:hover{
-	cursor: pointer;
+.red{
+	color: #fb4357 !important;
 }
