@@ -35,7 +35,7 @@
       <div class="font-bold flex justify-center">
         <ul class="flex flex-col">
           <li class="p-2">
-            <a href="${pageContext.request.contextPath}">
+            <a href="${ pageContext.request.contextPath }">
               메인 메뉴 이동
             </a>
           </li>
@@ -63,8 +63,16 @@
       </div>
     </aside>
   </div>
+  
+  
+  
  <div class="shadow-xl border border-gray-200 rounded-xl w-full min-h-screen ml-2 mb-4">
+
     <table class="admMemberList w-11/12 mx-auto mt-4">
+    
+     <br><br>
+				<h1 align="center" > 블랙리스트 관리 </h1>
+				
       <thead>
         <tr class="bg-gray-600 text-white grid-adm-members text-center font-bold py-2 px-1">
         <!--   <td>
@@ -73,9 +81,9 @@
           <td>번호</td>
           <td>아이디</td>
           <td>이름</td>
-          <td>가입 일시</td>
-          <td>권한 변경</td>
-          <td>추방</td>
+          <!-- <td>가입 일시</td>
+          <td>권한 변경</td> -->
+          <td>해제</td>
         </tr>
       </thead>
       <tbody class="shadow">
@@ -86,8 +94,6 @@
           <td>1</td>
           <td>mbappe</td>
           <td>음바페</td>
-          <td>관리자</td>
-          <td>관리자 변경</td>
           <td>
             <a href="#">
               <i class="fas fa-user-times"></i>
@@ -98,11 +104,9 @@
           <td>2</td>
           <td>haaland</td>
           <td>홀란드</td>
-          <td>매니저</td>
-          <td>관리자 변경</td>
           <td>
             <a href="#">
-              <i class="fas fa-user-times"></i>
+              <i class="fa-solid fa-user-plus"></i>
             </a>
           </td>
         </tr>
