@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <jsp:include page="/WEB-INF/views/common/header.jsp">
-	<jsp:param value="영화 그 이상의 감동. J3L" name="title"/>
+	<jsp:param value="예매|영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
 
 </body>
