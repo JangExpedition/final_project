@@ -53,6 +53,7 @@
 		  </div>
 		  <div class="p-2">
 		  	<a href="#">
+		  		<img alt="" src="">
 			  	<span>로그인</span>
 		  	</a>
 		  </div>
@@ -72,7 +73,9 @@
 		  <a class="nav-link" href="#">극장</a>
 		</li>
 		<li class="nav-item active">
-		  <a class="nav-link" href="${ pageContext.request.contextPath }/reservation/reservation.do">예매</a>
+		  <a class="nav-link 
+		  	<c:if test="${ pageContext.request.servletPath eq '/WEB-INF/views/reservation/reservation.jsp' }">red</c:if>" 
+		  	href="${ pageContext.request.contextPath }/reservation/reservation.do">예매</a>
 		</li>
 		<li class="nav-item">
 		   <a class="nav-link disabled" href="${ pageContext.request.contextPath }/admin/admin.do">관리자</a>
