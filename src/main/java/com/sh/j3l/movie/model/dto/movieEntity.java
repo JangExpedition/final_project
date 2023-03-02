@@ -1,27 +1,18 @@
-package com.sh.j3l.admin.model.dto;
-
-import java.time.LocalDateTime;
-
+package com.sh.j3l.movie.model.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-//@Data
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class movie {
+public class movieEntity {
 	private int no;
 	private String title;
-	private String genre;
+	private genre genre;
 	private String director;
 	private String actors;
 	private String synopsis;
 	private int limit_age;
-
 }

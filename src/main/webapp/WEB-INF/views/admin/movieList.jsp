@@ -26,7 +26,12 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 
-
+<style>
+/*글쓰기버튼*/
+input#btn-add{float:right; margin: 0 0 15px;}
+tr[data-no] {cursor: pointer;}
+</style>
+<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
 
 <div class="flex container mx-auto pt-2">
   <div class="adm-side-bar">
@@ -36,15 +41,19 @@
       </div>
       <div class="font-bold flex justify-center">
         <ul class="flex flex-col">
-
+          <%-- <li class="p-2">
+            <a href="${pageContext.request.contextPath}">
+              메인 메뉴 이동
+            </a>
+          </li> --%>
           <li class="p-2">
-            <a href="${pageContext.request.contextPath}/member/members.do">
+             <a href="${pageContext.request.contextPath}/member/members.do">
               회원 목록 조회
             </a>
           </li>
           <li class="p-2">
-            <a href="${pageContext.request.contextPath}/movie/movieList.do">
-              영화 목록 관리
+            <a href="#">
+              영화 등록
             </a>
           </li>
         </ul>
@@ -59,40 +68,30 @@
             <input type="checkbox">
           </td> -->
           <td>번호</td>
-          <td>아이디</td>
-          <td>이름</td>
-          <td>가입 일시</td>
-          <td>권한 변경</td>
-          <td>추방</td>
+          <td>제목</td>
+          <td>장르</td>
+          <td>연령</td>
+          <td>주인공</td>
+          <td></td>
         </tr>
-      </thead>
-      <tbody class="shadow">
+        <c:forEach items="${members}" var="member">
+
         <tr class="grid-adm-members py-2 px-1 text-center">
-          <!-- <td>
-            <input type="checkbox">
-          </td> -->
-          <td>1</td>
-          <td>mbappe</td>
-          <td>음바페</td>
-          <td>2023.03.23</td>
-          <td>관리자 변경</td>
+         <td>${members.id }</td>
+          <td>${members.name}</td>
+          <td>${members.age}세</td>
+          <td>${members.email}</td>
+<%--           <td>${members.enrollDate}</td> --%>
+          <td>
+			<fmt:parseDate value="${members.enrollDate}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
+			<fmt:formatDate value="${enrollDate}" pattern="yy/MM/dd HH:mm"/>
+		  </td>
           <td>
             <a href="#">
               <i class="fas fa-user-times"></i>
             </a>
           </td>
-        </tr>
-        <tr class="grid-adm-members py-2 px-1 text-center">
-          <td>2</td>
-          <td>haaland</td>
-          <td>홀란드</td>
-          <td>2023.03.23</td>
-          <td>관리자 변경</td>
-          <td>
-            <a href="#">
-              <i class="fas fa-user-times"></i>
-            </a>
-          </td>
+          </c:forEach>
         </tr>
       </tbody>
     </table>

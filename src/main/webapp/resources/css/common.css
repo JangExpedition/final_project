@@ -70,3 +70,11 @@
 .red{
 	color: #fb4357 !important;
 }
+
+.video-banner {
+	width: 100%;
+	height: 498px;
+	background-color: black;
+	margin-left: auto;
+	margin-right: auto;
+}

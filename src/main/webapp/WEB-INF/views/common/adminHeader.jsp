@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
 <!-- 사용자작성 css -->
-<link rel="stylesheet" href="${ pageContext.request.contextPath}/resources/css/common.css"/>
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/common.css"/>
 <c:if test="${not empty msg}">
 <script>
 	alert("${msg}");
@@ -88,13 +88,3 @@
 	</div>
 </nav>
 <!-- 서브 메뉴 -->
-
-
-
-<banner>
-  <div class="video-banner">
-    <video autoplay muted controls>
-      <source src="https://adimg.cgv.co.kr/images/202207/BulletTrain/0812_BulletTrain_1080x608.mp4" type="video/mp4">
-    </video>
-  </div>
-</banner>
