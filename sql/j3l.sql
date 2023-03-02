@@ -33,31 +33,31 @@ values('admin', 'ROLE_ADMIN');
 -- 영화관 데이터
 --===============================
 -- 서울
-insert into cinema values('강남점', '서울', '서울특별시 강남구 강남대로 438 (역삼동, 스타플렉스)');
-insert into cinema values('건대입구점', '서울', '서울특별시 광진구 아차산로30길 26');
+insert into cinema values('강남점', 'SEOUL', '서울특별시 강남구 강남대로 438 (역삼동, 스타플렉스)');
+insert into cinema values('건대입구점', 'SEOUL', '서울특별시 광진구 아차산로30길 26');
 -- 경기
-insert into cinema values('광명역점', '경기', '경기도 광명시 일직동 514 GIDC B동 지하2층');
-insert into cinema values('범계점', '경기', '경기도 안양시 동안구 동안로 119 (호계동, 뉴코아 아울렛 11층)');
+insert into cinema values('광명역점', 'GYEONGGI', '경기도 광명시 일직동 514 GIDC B동 지하2층');
+insert into cinema values('범계점', 'GYEONGGI', '경기도 안양시 동안구 동안로 119 (호계동, 뉴코아 아울렛 11층)');
 -- 인천
-insert into cinema values('송도타임스페이스', '인천', '인천광역시 연수구 하모니로 158 지하1층');
-insert into cinema values('인천점', '인천', '인천광역시 남동구 예술로 198 (구월동, SEE"&"SEEE 4층)');
+insert into cinema values('송도타임스페이스', 'INCHEON', '인천광역시 연수구 하모니로 158 지하1층');
+insert into cinema values('인천점', 'INCHEON', '인천광역시 남동구 예술로 198 (구월동, SEE"&"SEEE 4층)');
 -- 강원
-insert into cinema values('강릉점', '강원', '강원도 강릉시 경강로 2120 (옥천동, 씨네몰 6층)');
-insert into cinema values('춘전점', '강원', '강원도 춘천시 지석로 80 (퇴계동, 투탑시티 3층)');
+insert into cinema values('강릉점', 'KANGWON', '강원도 강릉시 경강로 2120 (옥천동, 씨네몰 6층)');
+insert into cinema values('춘전점', 'KANGWON', '강원도 춘천시 지석로 80 (퇴계동, 투탑시티 3층)');
 -- 대전/충청
-insert into cinema values('대전점', '대전/충청', '대전광역시 중구 계백로 1700 (문화동, 세이2 6층)');
-insert into cinema values('천안점', '대전/충청', '충청남도 천안시 동남구 명동길 47, 5층 (대흥동)');
+insert into cinema values('대전점', 'CHUNGCHEONG', '대전광역시 중구 계백로 1700 (문화동, 세이2 6층)');
+insert into cinema values('천안점', 'CHUNGCHEONG', '충청남도 천안시 동남구 명동길 47, 5층 (대흥동)');
 -- 대구
-insert into cinema values('대구점', '대구', '대구광역시 북구 칠성동2가 20-1 스펙트럼시티 4층');
+insert into cinema values('대구점', 'DAEGU', '대구광역시 북구 칠성동2가 20-1 스펙트럼시티 4층');
 -- 부산/울산
-insert into cinema values('센텀시티점', '부산/울산', '부산광역시 해운대구 센텀남대로 35 (우동, 신세계센텀시티 7층)');
-insert into cinema values('울산동구', '부산/울산', '울산광역시 동구 등대로50');
+insert into cinema values('센텀시티점', 'BUSANULSAN', '부산광역시 해운대구 센텀남대로 35 (우동, 신세계센텀시티 7층)');
+insert into cinema values('울산동구', 'BUSANULSAN', '울산광역시 동구 등대로50');
 -- 경상
-insert into cinema values('창원점', '경상', '경상남도 창원시 의창구 창원대로397번길 6 (팔용동, 뉴코아아울렛 8층)');
-insert into cinema values('마산점', '경상', '경상남도 창원시 마산회원구 3·15대로 736 (합성동, 보보스존 8층)');
+insert into cinema values('창원점', 'GYEONGSANG', '경상남도 창원시 의창구 창원대로397번길 6 (팔용동, 뉴코아아울렛 8층)');
+insert into cinema values('마산점', 'GYEONGSANG', '경상남도 창원시 마산회원구 3·15대로 736 (합성동, 보보스존 8층)');
 -- 광주/전라/제주
-insert into cinema values('광주터미널', '광주/전라/제주', '광주광역시 서구 무진대로 904 (광천동, 유스퀘어 2층)');
-insert into cinema values('제주점', '광주/전라/제주', '제주특별자치도 제주시 이도2동 메카플러스 3~7층');
+insert into cinema values('광주터미널', 'JEONLLAJEJU', '광주광역시 서구 무진대로 904 (광천동, 유스퀘어 2층)');
+insert into cinema values('제주점', 'JEONLLAJEJU', '제주특별자치도 제주시 이도2동 메카플러스 3~7층');
 
 --===============================
 -- 테이블 및 시퀀스 생성

@@ -34,9 +34,9 @@
 			<div class="table-head">극장</div>
 			<div class="table-body flex-box">
 				<div class="location-box">
-					<c:forEach items="${ cinemaList }" var="cinema">
-						<div>
-							${ cinema.location }
+					<c:forEach items="${ locationList }" var="location">
+						<div class="location-tr">
+							${ location }
 						</div>
 					</c:forEach>
 				</div>
