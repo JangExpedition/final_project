@@ -32,7 +32,7 @@
   <div class="header-content">
 	  <div class="content">
 		<div class="logo-wrapper">
-		  <a href="${ pageContext.request.contextPath }/">J3L</a>
+		  <a href="${ pageContext.request.contextPath }"><img id="logo" src="${ pageContext.request.contextPath }/resources/images/J3L_logo.png"/></a>
 		  <span>CULTUREPLEX</span>
 		</div>
 		<div class="d-flex flex-row-reverse">

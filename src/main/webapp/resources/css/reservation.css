@@ -115,6 +115,15 @@
 	height: 100%;
 }
 
+.location-tr{
+	font-size: 12px;
+	background-color: #e6e4d9;
+	margin-bottom: 1px;
+	padding: 0 8px;
+	text-align: end;
+	cursor: pointer;
+}
+
 /* 날짜선택 구간 */
 .step3{
 	width: 10% !important;
