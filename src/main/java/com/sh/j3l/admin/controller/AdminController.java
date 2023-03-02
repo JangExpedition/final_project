@@ -16,5 +16,12 @@ public class AdminController {
 	public void admin() {
 		log.debug("Admin 페이지 요청!");
 	}
+	
+	
+	@GetMapping("/blackList.do")
+	public String blackList() {
+		
+		return "admin/blackList";		
+	}
 
 }
