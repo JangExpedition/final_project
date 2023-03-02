@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.movie.model.dao.MovieDao">
+	<select id="selectMovieList" resultMap="movieMap">
+		select 
+			m.*,
+			(select count(*) from attachment where movie_no = m.no) attach_count
+		from
+			movie m
+	</select>
+	<resultMap type="movie" id="movieMap"></resultMap>
+
+	<!-- <insert id="isertMovie">
+		영화 정보
+		insert into 
+			movie (no, title, genre, director, actor, synopsis, limit_age)
+		values (
+			seq_movie_no.nextval,
+			#{no}, 
+			#{title}, 
+			#{genre}, 
+			#{director}, 
+			#{actors}, 
+			#{synopsis}, 
+			#{limitAge}
+		)
+		
+		첨부파일 정보
+		<foreach collection="attachments" item="attachment" index="index">
+			insert into movie_attachment (no, movie_no, original_filename, renamed_filename)
+			values (#{attachment.no}, #{no}, #{attachment.originalFilename}, #{attachment.renamedFilename})
+		</foreach>
+	</insert> -->
+	
+
+</mapper>

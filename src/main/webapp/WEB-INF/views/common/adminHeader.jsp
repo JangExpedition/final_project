@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
 <!-- 사용자작성 css -->
-<link rel="stylesheet" href="${ pageContext.request.contextPath}/resources/css/common.css"/>
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/common.css"/>
 <c:if test="${not empty msg}">
 <script>
 	alert("${msg}");
@@ -32,7 +32,7 @@
   <div class="header-content">
 	  <div class="content">
 		<div class="logo-wrapper">
-		  <a href="${ pageContext.request.contextPath }"><img id="logo" src="${ pageContext.request.contextPath }/resources/images/J3L_logo.png"/></a>
+		  <a href="${ pageContext.request.contextPath }/">J3L</a>
 		  <span>CULTUREPLEX</span>
 		</div>
 		<div class="d-flex flex-row-reverse">
@@ -88,13 +88,3 @@
 	</div>
 </nav>
 <!-- 서브 메뉴 -->
-
-
-
-<banner>
-  <div class="video-banner">
-    <video autoplay muted controls>
-      <source src="https://adimg.cgv.co.kr/images/202207/BulletTrain/0812_BulletTrain_1080x608.mp4" type="video/mp4">
-    </video>
-  </div>
-</banner>
