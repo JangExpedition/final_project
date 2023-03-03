@@ -11,7 +11,7 @@
 
 	<!-- #7.1. 암호화 처리 빈 BCryptPasswordBean 등록 -->
 	<beans:bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
-		id="BCryptPasswordEncoder"></beans:bean>
+		id="bCryptPasswordEncoder"></beans:bean>
 
 	<!-- #7.2. 자원별 권한여부 설정 -->
 	<http pattern="/resources/**" security="none"/>
