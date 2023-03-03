@@ -66,26 +66,26 @@ insert into cinema values('제주점', '광주/전라/제주', '제주특별자�
 --===============================
 
 -- 액션
-insert into movie values(1, '범죄도시1', '액션', '강윤성', '마동석', '볼만해요', 15);
-insert into movie values(2, '범죄도시2', '액션', '이상용', '마동석', '재밌어요', 15);
+insert into movie values(1, '범죄도시1', '액션', '강윤성', '마동석', ' ', 15);
+insert into movie values(2, '범죄도시2', '액션', '이상용', '마동석', ' ', 15);
 -- 코미디
-insert into movie values(3, '극한직업', '코미디', '강윤성', '마동석', '볼만해요', 15);
-insert into movie values(4, '범죄도시1', '코미디', '강윤성', '마동석', '볼만해요', 15);
+insert into movie values(3, '극한직업', '코미디', '강윤성', '마동석', ' ', 15);
+insert into movie values(4, '범죄도시1', '코미디', '강윤성', '마동석', ' ', 15);
 -- 로맨스
-insert into movie values(5, '헤어질 결심', '멜로', '박찬욱', '박해일', '지루하진 않아요', 15);
-insert into movie values(6, '지금 만나러 갑니다', '멜로', '도이 노부히로', '다케우치 유코', '지루해요', 12);
+insert into movie values(5, '헤어질 결심', '멜로', '박찬욱', '박해일', ' ', 15);
+insert into movie values(6, '지금 만나러 갑니다', '멜로', '도이 노부히로', ' ', '지루해요', 12);
 -- 애니메이션;
-insert into movie values(7, '슬램덩크', '애니', '이노우에 다케히코', '키무라 스바루', '소름 돋아요', 12);
-insert into movie values(8, '너의 이름은', '애니', '신카이 마코토', '카미키 류노스케', '감동적이에요', 12);
+insert into movie values(7, '슬램덩크', '애니', '이노우에 다케히코', '키무라 스바루', ' ', 12);
+insert into movie values(8, '너의 이름은', '애니', '신카이 마코토', '카미키 류노스케', ' ', 12);
 -- 호러
 insert into movie values(9, '곡성', '공포', '나홍진', '황정민', '무서워요', 15);
-insert into movie values(10, '사일런트 힐', '공포', '크리스토프 강스', '숀 빈', '소름 돋아요', 18);
+insert into movie values(10, '사일런트 힐', '공포', '크리스토프 강스', '숀 빈', ' ', 18);
 -- 다큐멘터리
-insert into movie values(11, '멘 온 와이어', '다큐멘터리', '제임스 마쉬', '필립 프티', '실화에요?', 12);
+insert into movie values(11, '멘 온 와이어', '다큐멘터리', '제임스 마쉬', '필립 프티', ' ', 12);
 insert into movie values(12, '워낭소리', '다큐멘터리', '이충렬', '최원균', '감동적이에요', 12);
 -- 드라마
-insert into movie values(13, '행복을 찾아서', '드라마', '가브리엘 무치노', '윌 스미스', '너무 슬퍼요', 12);
-insert into movie values(14, '블라인드 사이드', '드라마', '존 리 핸콕', '산드라 블록', '재밌어요', 12);
+insert into movie values(13, '행복을 찾아서', '드라마', '가브리엘 무치노', '윌 스미스', ' ', 12);
+insert into movie values(14, '블라인드 사이드', '드라마', '존 리 핸콕', '산드라 블록', ' ', 12);
 
 select * from movie;
 commit;

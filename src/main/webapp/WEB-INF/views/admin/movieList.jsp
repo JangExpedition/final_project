@@ -74,16 +74,17 @@ tr[data-no] {cursor: pointer;}
           <td>주인공</td>
           <td></td>
         </tr>
-        <c:forEach items="${members}" var="member">
+        <c:forEach items="${movieList}" var="movie">
 
         <tr class="grid-adm-members py-2 px-1 text-center">
-         <td>${members.id }</td>
-          <td>${members.name}</td>
-          <td>${members.age}세</td>
-          <td>${members.email}</td>
+         <td>${movie.id }</td>
+          <td>${movie.title}</td>
+          <td>${movie.genre}</td>
+          <td>${movie.limit_age}세</td>
+          <td>${movie.email}</td>
 <%--           <td>${members.enrollDate}</td> --%>
           <td>
-			<fmt:parseDate value="${members.enrollDate}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
+			<fmt:parseDate value="${movie.enrollDate}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
 			<fmt:formatDate value="${enrollDate}" pattern="yy/MM/dd HH:mm"/>
 		  </td>
           <td>

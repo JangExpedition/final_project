@@ -67,7 +67,7 @@
           <td>나이</td>
           <td>가입 일시</td>
           <td>이메일</td>
-          <td>추방</td>
+<!--           <td>추방</td> -->
         </tr>
         <c:forEach items="${members}" var="member">
 

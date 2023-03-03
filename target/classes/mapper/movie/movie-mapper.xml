@@ -5,10 +5,10 @@
 <mapper namespace="com.sh.j3l.movie.model.dao.MovieDao">
 	<select id="selectMovieList" resultMap="movieMap">
 		select 
-			m.*,
-			(select count(*) from attachment where movie_no = m.no) attach_count
+			*
+			<!-- (select count(*) from attachment where movie_no = m.no) attach_count -->
 		from
-			movie m
+			movie
 	</select>
 	<resultMap type="movie" id="movieMap"></resultMap>
 
