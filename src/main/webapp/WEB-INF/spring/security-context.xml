@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -11,14 +10,14 @@
 
 	<!-- #7.1. 암호화 처리 빈 BCryptPasswordBean 등록 -->
 	<beans:bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
-		id="BCryptPasswordEncoder"></beans:bean>
+		id="bCryptPasswordEncoder"></beans:bean>
 
 	<!-- #7.2. 자원별 권한여부 설정 -->
 	<http pattern="/resources/**" security="none"/>
 	<http auto-config="true">
 		<intercept-url pattern="/" access="permitAll"/>
 		<intercept-url pattern="/index.jsp" access="permitAll"/>
-		<intercept-url pattern="/**" access="isAuthenticated()"/>
+		<!-- <intercept-url pattern="/**" access="isAuthenticated()"/> -->
 		
 		<!-- <form-login
 			login-page="/member/memberLogin.do"
@@ -40,16 +39,15 @@
 	<authentication-manager>
 		<authentication-provider user-service-ref="securityService">
 			<password-encoder ref="bCryptPasswordEncoder"/>
+			<!-- <user-service> -->
 			<!-- 
-			<user-service>
 				<user name="honggd"
 				password="$2a$10$YKnQp7/HpjU0d4pXDtILWOnVfbQSj5fNU.HLM58.j8YZeOrPSE3LG"
-				authorities="ROLE_USER"/>
-				<user name="admin"
-				password="$2a$10$5T3v62.wiUots1yl7vhcC.y0tAsRh4V4GOiV6xhhtENxVbyOO/rE."
-				authorities="ROLE_USER, ROLE_ADMIN"/>
-			</user-service> 
-			-->
+				authorities="ROLE_USER"/> -->
+				<!-- <user name="admin"
+				password="1234"
+				authorities="ROLE_USER, ROLE_ADMIN"/> -->
+			<!-- </user-service> --> 
 		</authentication-provider>
 	</authentication-manager>
 	
