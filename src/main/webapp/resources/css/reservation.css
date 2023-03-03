@@ -60,6 +60,31 @@
 	border-right: 2px solid #cdcdcd;
 }
 
+.table-head{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #333;
+	width: 100%;
+	height: 30px;
+	color: #cdcdcd;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.table-body{
+	width: 100%;
+	height: 570px;
+	padding: 10px;
+}
+
+.flex-box{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 영화선택 구간 */
 .click{
 	color: #333;
 }
@@ -79,31 +104,35 @@
 	cursor: pointer;
 }
 
+/* 극장선택 구간 */
+.location-box{
+	width: 50%;
+	height: 100%;
+}
+
+.cinema-box{
+	width: 50%;
+	height: 100%;
+}
+
+.location-tr{
+	font-size: 12px;
+	background-color: #e6e4d9;
+	margin-bottom: 1px;
+	padding: 0 8px;
+	text-align: end;
+	cursor: pointer;
+}
+
+/* 날짜선택 구간 */
 .step3{
 	width: 10% !important;
 }
 
+/* 시간선택 구간 */
 .step4{
 	width: 40% !important;
 	border: none;
-}
-
-.table-head{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #333;
-	width: 100%;
-	height: 30px;
-	color: #cdcdcd;
-	font-weight: bold;
-	font-size: 18px;
-}
-
-.table-body{
-	width: 100%;
-	height: 570px;
-	padding: 10px;
 }
 
 /* 예매확인 세션 */

@@ -18,6 +18,7 @@
 	</div>
 	<!-- 예매 구간 -->
 	<div class="steps">
+		<!-- 영화선택 구간 -->
 		<div class="step">
 			<div class="table-head">영화</div>
 			<div class="table-body">
@@ -27,9 +28,22 @@
 				</div>
 			</div>
 		</div>
+		<!-- 영화선택 구간 -->
+		<!-- 극장선택 구간 -->
 		<div class="step">
 			<div class="table-head">극장</div>
+			<div class="table-body flex-box">
+				<div class="location-box">
+					<c:forEach items="${ locationList }" var="location">
+						<div class="location-tr">
+							${ location }
+						</div>
+					</c:forEach>
+				</div>
+				<div class="cinema-box"></div>
+			</div>
 		</div>
+		<!-- 극장선택 구간 -->
 		<div class="step step3">
 			<div class="table-head">날짜</div>
 		</div>
