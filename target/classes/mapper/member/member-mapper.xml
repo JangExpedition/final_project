@@ -9,8 +9,13 @@
 		from
 			member
 	</select>
-	
 	<resultMap type="member" id="memberMap"></resultMap>
-	
-	
+	<select id="selectOneMember" resultMap="memberMap">
+		select
+			*
+		from
+			member
+		where
+			id = #{id}
+	</select>	
 </mapper>
