@@ -30,6 +30,10 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+
+	@GetMapping("/memberList.do")
+	public void memberList() {}
+	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
@@ -38,7 +42,7 @@ public class MemberController {
 		List<Member> members = memberService.selectAllMember();
 		model.addAttribute("members", members);
 		
-		return "members";
+		return "member/memberList";
 	}
 	
 	@GetMapping("/memberLogin.do")

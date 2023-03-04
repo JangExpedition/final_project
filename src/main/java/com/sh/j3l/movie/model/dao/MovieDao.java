@@ -8,23 +8,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
+import com.sh.j3l.movie.model.dto.MovieEntity;
 import com.sh.j3l.movie.model.service.MovieService;
 
 @Mapper
 public interface MovieDao {
 	
-	List<Movie> selectMovieList(RowBounds rowBounds);
+	List<Movie> selectAllMovie(RowBounds rowBounds);
 	
 	int insertMovie(Movie movie);
 
 	int insertAttachment(Attachment attach);
+//
+//	Movie selectOneMovie(int no);
+//
+//	List<Attachment> selectAttachmentListByMovieNo(int no);
+//
+//	Movie selectOneMovieCollection(int no);
+//
+//	Attachment selectOneAttachment(int no);
 
-	Movie selectOneMovie(int no);
 
-	List<Attachment> selectAttachmentListByMovieNo(int no);
-
-	Movie selectOneMovieCollection(int no);
-
-	Attachment selectOneAttachment(int no);
 
 }

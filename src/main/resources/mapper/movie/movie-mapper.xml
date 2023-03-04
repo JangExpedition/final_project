@@ -3,22 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sh.j3l.movie.model.dao.MovieDao">
-	<select id="selectMovieList" resultMap="movieMap">
+	<select id="selectAllMovie" resultMap="movieMap">
 		select 
-			m.*,
-			(select count(*) from attachment where movie_no = m.no) attach_count
+			*
 		from
-			movie m
+			movie
 	</select>
 	<resultMap type="movie" id="movieMap"></resultMap>
 
-	<!-- <insert id="isertMovie">
-		영화 정보
+	<insert id="insertMovie">
 		insert into 
-			movie (no, title, genre, director, actor, synopsis, limit_age)
-		values (
-			seq_movie_no.nextval,
-			#{no}, 
+			movie (no, title, genre, director, actors, synopsis, limit_age)
+		values 
+		(
+			seq_movie_no.nextval, 
 			#{title}, 
 			#{genre}, 
 			#{director}, 
@@ -26,13 +24,25 @@
 			#{synopsis}, 
 			#{limitAge}
 		)
-		
-		첨부파일 정보
-		<foreach collection="attachments" item="attachment" index="index">
-			insert into movie_attachment (no, movie_no, original_filename, renamed_filename)
-			values (#{attachment.no}, #{no}, #{attachment.originalFilename}, #{attachment.renamedFilename})
-		</foreach>
-	</insert> -->
+		<selectKey order="AFTER" resultType="_int" keyProperty="no">
+			select
+				seq_movie_no.currval
+			from
+				dual
+		</selectKey>
+	</insert>
+	
+	<insert id="insertAttachment">
+		insert into
+			movie_attachment
+		values 
+		(
+			seq_attachment_no.nextval,
+			#{movieNo},
+			#{originalFilename},
+			#{renamedFilename}
+		)
+	</insert>
 	
 
 </mapper>
