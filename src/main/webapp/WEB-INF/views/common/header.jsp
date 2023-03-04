@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,30 +35,43 @@
 	  <div class="content">
 		<div class="logo-wrapper">
 		  <a href="${ pageContext.request.contextPath }"><img id="logo" src="${ pageContext.request.contextPath }/resources/images/J3L_logo.png"/></a>
-		  <span>CULTUREPLEX</span>
+		  <span id="cultureplex">CULTUREPLEX</span>
 		</div>
 		<div class="d-flex flex-row-reverse">
 		  <div class="p-2">
 		  	<a href="${ pageContext.request.contextPath }/question/question.do">
+		  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginCustomer.png">
 			  	<span>고객센터</span>
 		  	</a>
 		  </div>
 		  <div class="p-2">
 		  	<a href="#">
+		  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginMember.png">
 			  	<span>MY J3L</span>
 		  	</a>
 		  </div>
 		  <div class="p-2">
 		  	<a href="#">
+		  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginJoin.png">
 			  	<span>회원가입</span>
 		  	</a>
 		  </div>
-		  <div class="p-2">
-		  	<a href="#">
-		  		<img alt="" src="">
-			  	<span>로그인</span>
-		  	</a>
-		  </div>
+		  <%-- <sec:authorize access="isAnonymous()"> --%>
+			  <div class="p-2">
+			  	<a href="${ pageContext.request.contextPath }/member/memberLogin.do">
+			  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginPassword.png">
+				  	<span>로그인</span>
+			  	</a>
+			  </div>
+		  <%-- </sec:authorize>
+		  <sec:authorize access="isAuthenticated()">
+			  <div class="p-2">
+			  	<a href="${ pageContext.request.contextPath }/member/memberLogout.do">
+			  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginPassword.png">
+				  	<span>로그아웃</span>
+			  	</a>
+			  </div>
+		  </sec:authorize> --%>
 		</div>
 	  </div>
   </div>
@@ -98,3 +113,6 @@
     </video>
   </div>
 </banner> -->
+
+<!-- 서브 메뉴 -->
+

@@ -23,6 +23,8 @@ select * from blackList;
 insert into member
 values('admin', '1234', '어드민', '01012341234', 'admin@gmail.com', '1993-08-03', default, 31, default);
 
+update member set password='$2a$10$Tk1XefztVv5IGUVOY3KiA.yH4mSCQ8c/.ytxD.t/lF5.Z0BIDZrLu' where id='admin';
+
 insert into authority
 values('admin', 'ROLE_USER');
 
@@ -295,45 +297,3 @@ CREATE TABLE FAQ (
 
 -- 자주묻는 질문 시퀀스
 create sequence seq_faq_no;
-
--- 블랙리스트 테이블
-create table blackList
-as
-(select 1 no, m.*, sysdate black_date from member m where 1 = 0);
-
-alter table blackList
-    add constraint pk_blackList_no primary key (no)
-    modify black_date default sysdate;
-
-create sequence seq_blackList_no;
-
--- 멤버 테이블에서 isBlackList 'O'로 변경시 트리거 발생
---create or replace trigger trig_member_blackList
---    after update of isBlackList on member
---    for each row
---begin
---    if inserting then
---        insert into
---            blackList
---        values(
---            seq_blackList_no,
---            :old.id,
---            :old.password,
---            :old.name,
---            :old.phone,
---            :old.phone,
---            :old.email,
---            :old.birth,
---            :old.isBlackList,
---            :old.age,
---            :old.enroll_date,
---            sysdate
---        );
---    end if;
---end;
-
-
-
-
-
-

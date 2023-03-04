@@ -9,19 +9,14 @@
 		from
 			member
 	</select>
-	
 	<resultMap type="member" id="memberMap"></resultMap>
-	
-<!-- 	<insert id="insertMovie">
-		insert into
-			movie
-		valeus (
-			seq_movie_no.nextval,
-			#{
-		
-		
-		
-		)
-	
-	</insert> -->
+
+	<select id="selectOneMember" resultMap="memberMap">
+		select
+			*
+		from
+			member
+		where
+			id = #{id}
+	</select>	
 </mapper>

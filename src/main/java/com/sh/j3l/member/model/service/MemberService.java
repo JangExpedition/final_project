@@ -8,9 +8,6 @@ public interface MemberService {
 
 	List<Member> selectAllMember();
 
-
-
-
-	
+	Member selectOneMember(String memberId);
 
 }

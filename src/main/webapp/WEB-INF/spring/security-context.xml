@@ -19,14 +19,14 @@
 		<intercept-url pattern="/index.jsp" access="permitAll"/>
 		<!-- <intercept-url pattern="/**" access="isAuthenticated()"/> -->
 		
-		<!-- <form-login
+		<form-login
 			login-page="/member/memberLogin.do"
 			login-processing-url="/member/memberLogin.do"
-			username-parameter="memberId"
+			username-parameter="id"
 			authentication-success-forward-url="/member/loginSuccess.do"/>
 		<logout
 			logout-url="/member/memberLogout.do"
-			logout-success-url="/"/> -->
+			logout-success-url="/"/>
 		<remember-me 
 			data-source-ref="dataSource" 
 			token-validity-seconds="1209600"/><!--  60s * 60m * 24h * 14d 2주  -->
@@ -39,15 +39,6 @@
 	<authentication-manager>
 		<authentication-provider user-service-ref="securityService">
 			<password-encoder ref="bCryptPasswordEncoder"/>
-			<!-- <user-service> -->
-			<!-- 
-				<user name="honggd"
-				password="$2a$10$YKnQp7/HpjU0d4pXDtILWOnVfbQSj5fNU.HLM58.j8YZeOrPSE3LG"
-				authorities="ROLE_USER"/> -->
-				<!-- <user name="admin"
-				password="1234"
-				authorities="ROLE_USER, ROLE_ADMIN"/> -->
-			<!-- </user-service> --> 
 		</authentication-provider>
 	</authentication-manager>
 	
