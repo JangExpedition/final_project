@@ -16,14 +16,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public List<Member> selectAllMember() {
-		// TODO Auto-generated method stub
 		return memberDao.selectAllMember();
 	}
 
-
-	
-	
-
-
+	@Override
+	public Member selectOneMember(String memberId) {
+		return memberDao.selectOneMember(memberId);
+	}
 
 }
