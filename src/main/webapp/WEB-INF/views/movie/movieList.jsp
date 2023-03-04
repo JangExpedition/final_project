@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<jsp:include page="/WEB-INF/views/common/adminHeader.jsp"/>
+<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"/>
 
 
 
@@ -26,12 +26,23 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 
-<style>
+<!-- <style>
 /*글쓰기버튼*/
 input#btn-add{float:right; margin: 0 0 15px;}
 tr[data-no] {cursor: pointer;}
 </style>
-<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
+<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/> -->
+
+<style>
+  /*글쓰기버튼*/
+  input#btn-add {float: right; margin: 0 0 15px; margin-left: 5cm;}
+  tr[data-no] {cursor: pointer;}
+</style>
+<input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/>
+
+</br>
+</br>
+</br>
 
 <div class="flex container mx-auto pt-2">
   <div class="adm-side-bar">
@@ -47,13 +58,13 @@ tr[data-no] {cursor: pointer;}
             </a>
           </li> --%>
           <li class="p-2">
-             <a href="${pageContext.request.contextPath}/member/members.do">
-              회원 목록 조회
+             <a href="${pageContext.request.contextPath}/member/memberList.do">
+              회원 관리
             </a>
           </li>
           <li class="p-2">
-            <a href="#">
-              영화 등록
+            <a href="${pageContext.request.contextPath}/movie/movieList.do">
+              영화 관리
             </a>
           </li>
         </ul>
@@ -70,31 +81,30 @@ tr[data-no] {cursor: pointer;}
           <td>번호</td>
           <td>제목</td>
           <td>장르</td>
+          <td>출연진</td>
+          <td>감독</td>
+<!--           <td>시놉시스</td> -->
           <td>연령</td>
-          <td>주인공</td>
-          <td></td>
         </tr>
         <c:forEach items="${movieList}" var="movie">
 
         <tr class="grid-adm-members py-2 px-1 text-center">
-         <td>${movie.id }</td>
+         <td>${movie.no}</td>
           <td>${movie.title}</td>
-          <td>${movie.genre}</td>
+		  <td>${movie.genre}</td>
+          <td>${movie.actors}</td>
+          <td>${movie.director}</td>
+<%--           <td>${movie.synopsis}</td> --%>
           <td>${movie.limit_age}세</td>
-          <td>${movie.email}</td>
-<%--           <td>${members.enrollDate}</td> --%>
-          <td>
-			<fmt:parseDate value="${movie.enrollDate}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
-			<fmt:formatDate value="${enrollDate}" pattern="yy/MM/dd HH:mm"/>
-		  </td>
-          <td>
-            <a href="#">
-              <i class="fas fa-user-times"></i>
-            </a>
-          </td>
           </c:forEach>
         </tr>
       </tbody>
     </table>
   </div>
+  
+<script>
+document.querySelector("#btn-add").addEventListener('click', (e) => {
+	location.href = '${pageContext.request.contextPath}/movie/movieForm.do';
+});
+</script>
 </div>

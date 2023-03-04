@@ -1,4 +1,4 @@
-package com.sh.j3l.customer;
+package com.sh.j3l.question;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,19 +9,19 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("/customer")
-public class CustomerController {
+@RequestMapping("/question")
+public class QuestionController {
 	
 //	@Autowired
 //	private CustomerService customerService;
 	
-	@GetMapping("customer.do")
-	public void customer() {}
+	@GetMapping("question.do")
+	public void question() {}
 	
 	@GetMapping("/faq.do")
 	public String faq() {
 		
-		return "customer/faq";
+		return "question/faq";
 	}
 
 }

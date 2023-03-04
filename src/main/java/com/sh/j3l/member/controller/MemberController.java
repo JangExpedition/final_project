@@ -21,12 +21,12 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("/members.do")
+	@GetMapping("/memberList.do")
 	public String selectAllMember(Model model) {
 		List<Member> members = memberService.selectAllMember();
 		model.addAttribute("members", members);
 		
-		return "members";
+		return "member/memberList";
 	}
 
 }

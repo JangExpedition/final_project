@@ -15,16 +15,16 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class Movie extends movieEntity {
+public class Movie extends MovieEntity {
 	
 	private int attachCount;
 	private List<Attachment> attachments = new ArrayList<>();
 	private Member member;
 	
 	
-	public Movie(int no, String title, com.sh.j3l.movie.model.dto.genre genre, String director, String actors,
+	public Movie(int no, String title, com.sh.j3l.movie.model.dto.Genre Genre, String director, String actors,
 			String synopsis, int limit_age) {
-		super(no, title, genre, director, actors, synopsis, limit_age);
+		super(no, title, Genre, director, actors, synopsis, limit_age);
 		this.attachCount = attachCount;
 	}
 	

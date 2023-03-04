@@ -12,5 +12,16 @@
 	
 	<resultMap type="member" id="memberMap"></resultMap>
 	
+<!-- 	<insert id="insertMovie">
+		insert into
+			movie
+		valeus (
+			seq_movie_no.nextval,
+			#{
+		
+		
+		
+		)
 	
+	</insert> -->
 </mapper>
