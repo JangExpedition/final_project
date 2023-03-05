@@ -30,39 +30,38 @@
 </c:if>
 </head>
 <body>
-<%-- <div class="header">
-  <!-- 서비스 메뉴 -->
-  <div class="header-content">
-	  <div class="content">
-		<div class="logo-wrapper">
-		  <a href="${ pageContext.request.contextPath }/">J3L</a>
-		  <span>CULTUREPLEX</span>
-		</div>
-		<div class="d-flex flex-row-reverse">
-		  <div class="p-2">
-		  	<a href="${ pageContext.request.contextPath }/question/question.do">
-			  	<span>고객센터</span>
-		  	</a>
-		  </div>
-		  <div class="p-2">
-		  	<a href="#">
-			  	<span>MY J3L</span>
-		  	</a>
-		  </div>
-		  <div class="p-2">
-		  	<a href="#">
-			  	<span>회원가입</span>
-		  	</a>
-		  </div>
-		  <div class="p-2">
-		  	<a href="#">
-		  		<img alt="" src="">
-			  	<span>로그인</span>
-		  	</a>
-		  </div>
-		</div>
-	  </div>
-  </div> --%>
+<div class="flex container mx-auto pt-2">
+  <div class="adm-side-bar">
+    <aside class="w-44 flex flex-col rounded-xl bg-gray-600 text-gray-100">
+      <div class="h-12 flex justify-center items-center p-4 text-lg font-bold border-b box-border">
+        <span>관리자 메뉴</span>
+      </div>
+      <div class="font-bold flex justify-center">
+        <ul class="flex flex-col">
+          <li class="p-2">
+             <a href="${pageContext.request.contextPath}/member/members.do">
+              회원 관리
+            </a>
+          </li>
+          <li class="p-2">
+            <a href="${pageContext.request.contextPath}/movie/movieList.do">
+              영화 관리
+            </a>
+          </li>
+          <li class="p-2">
+            <a href="#">
+              매출 관리
+            </a>
+          </li>
+          <li class="p-2">
+            <a href="#">
+              예매율 관리
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </div>
 <%--   <!-- 서비스 메뉴 -->
 </div>
 <!-- 서브 메뉴 -->

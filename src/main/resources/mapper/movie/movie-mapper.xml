@@ -22,14 +22,14 @@
 			#{director}, 
 			#{actors}, 
 			#{synopsis}, 
-			#{limitAge}
+			#{limit_age}
 		)
-		<selectKey order="AFTER" resultType="_int" keyProperty="no">
+<!-- 		<selectKey order="AFTER" resultType="_int" keyProperty="no">
 			select
 				seq_movie_no.currval
 			from
 				dual
-		</selectKey>
+		</selectKey> -->
 	</insert>
 	
 	<insert id="insertAttachment">
@@ -44,5 +44,41 @@
 		)
 	</insert>
 	
+	<select id="selectOneMovie" resultMap="movieMap">
+		select
+			*
+		from
+			movie
+		where
+			no = #{no}
+	</select>
+	
+<!-- 	<select id="selectOneMovieCollection" resultMap="movieCollectionMap">
+		select
+			m.*,
+			a.*,
+			a.no attach_no,
+			m.*,
+		from
+			movie m
+				left join movie_attachment a
+					on m.no = a.movie_no
+				left join movie m
+					on m.movie_
+	</select> -->
+	
+	<update id="updateMovie">
+		update
+			movie
+		set
+			title = #{title},
+			genre = #{genre},
+			director = #{director},
+			actors = #{actors},
+			synopsis = #{synopsis},
+			limit_age = #{limit_age}
+		where
+			no = #{no}
+	</update>
 
 </mapper>

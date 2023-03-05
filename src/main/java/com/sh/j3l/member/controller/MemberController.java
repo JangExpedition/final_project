@@ -41,7 +41,7 @@ public class MemberController {
 	public String selectAllMember(Model model) {
 		List<Member> members = memberService.selectAllMember();
 		model.addAttribute("members", members);
-		
+		log.debug("members = {}", members);
 		return "member/memberList";
 	}
 	

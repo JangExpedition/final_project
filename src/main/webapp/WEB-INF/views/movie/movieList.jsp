@@ -3,10 +3,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
+
+
 
 <jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"/>
 
 
+<style>
+  /*글쓰기버튼*/
+  input#btn-add {float: right; margin: 0 0 15px; margin-left: 5cm;}
+  tr[data-no] {cursor: pointer;}
+</style>
 
 
 <!-- 테일윈드 -->
@@ -26,6 +37,7 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 
+
 <!-- <style>
 /*글쓰기버튼*/
 input#btn-add{float:right; margin: 0 0 15px;}
@@ -33,18 +45,13 @@ tr[data-no] {cursor: pointer;}
 </style>
 <input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/> -->
 
-<style>
-  /*글쓰기버튼*/
-  input#btn-add {float: right; margin: 0 0 15px; margin-left: 5cm;}
-  tr[data-no] {cursor: pointer;}
-</style>
-<input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/>
+
 
 </br>
 </br>
 </br>
 
-<div class="flex container mx-auto pt-2">
+<%-- <div class="flex container mx-auto pt-2">
   <div class="adm-side-bar">
     <aside class="w-44 flex flex-col rounded-xl bg-gray-600 text-gray-100">
       <div class="h-12 flex justify-center items-center p-4 text-lg font-bold border-b box-border">
@@ -52,11 +59,6 @@ tr[data-no] {cursor: pointer;}
       </div>
       <div class="font-bold flex justify-center">
         <ul class="flex flex-col">
-          <%-- <li class="p-2">
-            <a href="${pageContext.request.contextPath}">
-              메인 메뉴 이동
-            </a>
-          </li> --%>
           <li class="p-2">
              <a href="${pageContext.request.contextPath}/member/memberList.do">
               회원 관리
@@ -67,44 +69,60 @@ tr[data-no] {cursor: pointer;}
               영화 관리
             </a>
           </li>
+          <li class="p-2">
+            <a href="#">
+              매출 관리
+            </a>
+          </li>
+          <li class="p-2">
+            <a href="#">
+              예매율 관리
+            </a>
+          </li>
         </ul>
       </div>
     </aside>
-  </div>
+  </div> --%>
  <div class="shadow-xl border border-gray-200 rounded-xl w-full min-h-screen ml-2 mb-4">
     <table class="admMemberList w-11/12 mx-auto mt-4">
       <thead>
         <tr class="bg-gray-600 text-white grid-adm-members text-center font-bold py-2 px-1">
-        <!--   <td>
-            <input type="checkbox">
-          </td> -->
           <td>번호</td>
           <td>제목</td>
           <td>장르</td>
           <td>출연진</td>
           <td>감독</td>
-<!--           <td>시놉시스</td> -->
           <td>연령</td>
         </tr>
         <c:forEach items="${movieList}" var="movie">
 
-        <tr class="grid-adm-members py-2 px-1 text-center">
+        <tr class="grid-adm-members py-2 px-1 text-center" data-no="${movie.no}">
+        	<%-- <tr data-no="${movie.no}"> --%>
          <td>${movie.no}</td>
           <td>${movie.title}</td>
 		  <td>${movie.genre}</td>
           <td>${movie.actors}</td>
           <td>${movie.director}</td>
-<%--           <td>${movie.synopsis}</td> --%>
-          <td>${movie.limit_age}세</td>
+          <td>${movie.limit_age}</td>
           </c:forEach>
         </tr>
       </tbody>
     </table>
   </div>
   
+  <input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/>
+  
 <script>
 document.querySelector("#btn-add").addEventListener('click', (e) => {
 	location.href = '${pageContext.request.contextPath}/movie/movieForm.do';
+});
+
+document.querySelectorAll("tr[data-no]").forEach((tr) => {
+	tr.addEventListener('click', (e) => {
+		const no = tr.dataset.no;
+		console.log(no);
+		location.href = '${pageContext.request.contextPath}/movie/movieDetail.do?no=' + no;
+	});
 });
 </script>
 </div>
