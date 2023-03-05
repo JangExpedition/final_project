@@ -12,6 +12,8 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Attachment {
 	private int no;
 	private int movieNo;
