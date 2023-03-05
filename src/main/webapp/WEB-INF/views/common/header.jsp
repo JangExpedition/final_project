@@ -39,7 +39,7 @@
 		</div>
 		<div class="d-flex flex-row-reverse">
 		  <div class="p-2">
-		  	<a href="${ pageContext.request.contextPath }/customer/customer.do">
+		  	<a href="${ pageContext.request.contextPath }/question/question.do">
 		  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginCustomer.png">
 			  	<span>고객센터</span>
 		  	</a>
@@ -93,7 +93,7 @@
 		  	href="${ pageContext.request.contextPath }/reservation/reservation.do">예매</a>
 		</li>
 		<li class="nav-item">
-		   <a class="nav-link disabled" href="${ pageContext.request.contextPath }/admin/admin.do">관리자</a>
+		   <a class="nav-link disabled" href="${ pageContext.request.contextPath }/member/memberList.do">관리자</a>
 		</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
@@ -103,3 +103,16 @@
 	</div>
 </nav>
 <!-- 서브 메뉴 -->
+
+
+
+<!-- <banner>
+  <div class="video-banner">
+    <video autoplay muted controls>
+      <source src="https://adimg.cgv.co.kr/images/202207/BulletTrain/0812_BulletTrain_1080x608.mp4" type="video/mp4">
+    </video>
+  </div>
+</banner> -->
+
+<!-- 서브 메뉴 -->
+

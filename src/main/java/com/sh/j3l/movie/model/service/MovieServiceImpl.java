@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sh.j3l.movie.model.dao.MovieDao;
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
+import com.sh.j3l.movie.model.dto.MovieEntity;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,48 +23,32 @@ public class MovieServiceImpl implements MovieService {
 	private MovieDao movieDao;
 	
 	@Override
-	public List<Movie> selectMovieList(RowBounds rowBounds) {
-		return movieDao.selectMovieList(rowBounds);
+	public List<Movie> selectAllMovie(RowBounds rowBounds) {
+		return movieDao.selectAllMovie(rowBounds);
 	}
 
 	@Override
 	public int insertMovie(Movie movie) {
-		
+		// 게시글 등록
 		int result = movieDao.insertMovie(movie);
 		log.debug("movie = {}", movie);
 		
 		// 첨부파일 등록
 		List<Attachment> attachments = movie.getAttachments();
 		if(attachments.size() > 0) {
-			for(Attachment attach : attachments) {
-				attach.setMovieNo(movie.getNo()); // fk 설정!
+			for(Attachment attach :attachments) {
+				attach.setMovieNo(movie.getNo());
 				result = insertAttachment(attach);
 			}
 		}
-		return result;
-	}
-	
-	private int insertAttachment(Attachment attach) {
-		// TODO Auto-generated method stub
-		return movieDao.insertAttachment(attach);
+		return movieDao.insertMovie(movie);
 	}
 
+
 	@Override
-	public Movie selectOneMovie(int no) {
-		Movie movie = movieDao.selectOneMovie(no);
-		List<Attachment> attachments = movieDao.selectAttachmentListByMovieNo(no);
-		movie.setAttachments(attachments);
-		return movie;	
-	}
-	
-	@Override
-	public Movie selectOneMovieCollection(int no) {
-		return movieDao.selectOneMovieCollection(no);
-	}
-	
-	@Override
-	public Attachment selectOneAttachment(int no) {
-		return movieDao.selectOneAttachment(no);
+	public int insertAttachment(Attachment attach) {
+		// TODO Auto-generated method stub
+		return movieDao.insertAttachment(attach);
 	}
 
 	

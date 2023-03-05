@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<jsp:include page="/WEB-INF/views/common/adminHeader.jsp"/>
+<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"/>
 
 
 
@@ -42,13 +42,13 @@
             </a>
           </li> --%>
           <li class="p-2">
-             <a href="${pageContext.request.contextPath}/member/members.do">
-              회원 목록 조회
+             <a href="${pageContext.request.contextPath}/member/memberList.do">
+              회원 목록
             </a>
           </li>
           <li class="p-2">
-            <a href="#">
-              영화 등록
+            <a href="${pageContext.request.contextPath}/movie/movieList.do">
+              영화 등록 / 조회
             </a>
           </li>
         </ul>
@@ -65,26 +65,26 @@
           <td>아이디</td>
           <td>이름</td>
           <td>나이</td>
-          <td>가입 일시</td>
           <td>이메일</td>
+          <td>가입 날짜</td>
           <td>추방</td>
         </tr>
         <c:forEach items="${members}" var="member">
 
         <tr class="grid-adm-members py-2 px-1 text-center">
-         <td>${members.id }</td>
-          <td>${members.name}</td>
-          <td>${members.age}세</td>
-          <td>${members.email}</td>
-<%--           <td>${members.enrollDate}</td> --%>
+         <td>${member.id }</td>
+          <td>${member.name}</td>
+          <td>${member.age}세</td>
+          <td>${member.email}</td>
+<%--           <td>${member.enrollDate}</td> --%>
           <td>
-			<fmt:parseDate value="${members.enrollDate}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
-			<fmt:formatDate value="${enrollDate}" pattern="yy/MM/dd HH:mm"/>
+ 			<fmt:parseDate value="${member.enrollDate}" pattern="yyyy-MM-dd" var="enrollDate"/>
+			<fmt:formatDate value="${enrollDate}" pattern="yy/MM/dd"/>
 		  </td>
-          <td>
+		  <td>
             <a href="#">
               <i class="fas fa-user-times"></i>
-            </a>
+            </a> 
           </td>
           </c:forEach>
         </tr>

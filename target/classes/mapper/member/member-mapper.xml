@@ -10,6 +10,7 @@
 			member
 	</select>
 	<resultMap type="member" id="memberMap"></resultMap>
+
 	<select id="selectOneMember" resultMap="memberMap">
 		select
 			*

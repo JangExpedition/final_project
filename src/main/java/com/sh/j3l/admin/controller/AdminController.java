@@ -34,5 +34,8 @@ public class AdminController {
 	
 	@GetMapping("/movieEnroll.do")
 	public void movieEnroll() {}
+	
+	
+	
 
 }
