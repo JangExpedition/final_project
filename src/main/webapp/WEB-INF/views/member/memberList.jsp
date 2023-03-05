@@ -28,7 +28,7 @@
 
 
 
-<div class="flex container mx-auto pt-2">
+<%-- <div class="flex container mx-auto pt-2">
   <div class="adm-side-bar">
     <aside class="w-44 flex flex-col rounded-xl bg-gray-600 text-gray-100">
       <div class="h-12 flex justify-center items-center p-4 text-lg font-bold border-b box-border">
@@ -36,25 +36,30 @@
       </div>
       <div class="font-bold flex justify-center">
         <ul class="flex flex-col">
-          <%-- <li class="p-2">
-            <a href="${pageContext.request.contextPath}">
-              메인 메뉴 이동
-            </a>
-          </li> --%>
           <li class="p-2">
-             <a href="${pageContext.request.contextPath}/member/memberList.do">
-              회원 목록
+             <a href="${pageContext.request.contextPath}/member/members.do">
+              회원 관리
             </a>
           </li>
           <li class="p-2">
             <a href="${pageContext.request.contextPath}/movie/movieList.do">
-              영화 등록 / 조회
+              영화 관리
+            </a>
+          </li>
+          <li class="p-2">
+            <a href="#">
+              매출 관리
+            </a>
+          </li>
+          <li class="p-2">
+            <a href="#">
+              예매율 관리
             </a>
           </li>
         </ul>
       </div>
     </aside>
-  </div>
+  </div> --%>
  <div class="shadow-xl border border-gray-200 rounded-xl w-full min-h-screen ml-2 mb-4">
     <table class="admMemberList w-11/12 mx-auto mt-4">
       <thead>

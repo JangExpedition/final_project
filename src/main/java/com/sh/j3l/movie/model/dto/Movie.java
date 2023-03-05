@@ -13,6 +13,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @ToString(callSuper = true)
 public class Movie extends MovieEntity {
@@ -31,6 +33,8 @@ public class Movie extends MovieEntity {
 	public void addAttachment(Attachment attach) {
 		this.attachments.add(attach);
 	}
+	
+	
 	
 	
 

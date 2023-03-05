@@ -93,7 +93,7 @@
 		  	href="${ pageContext.request.contextPath }/reservation/reservation.do">예매</a>
 		</li>
 		<li class="nav-item">
-		   <a class="nav-link disabled" href="${ pageContext.request.contextPath }/member/memberList.do">관리자</a>
+		   <a class="nav-link disabled" href="${ pageContext.request.contextPath }/member/members.do">관리자</a>
 		</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">

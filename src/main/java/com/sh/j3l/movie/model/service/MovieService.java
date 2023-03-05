@@ -17,9 +17,14 @@ public interface MovieService {
 	
 	int insertAttachment(Attachment attach);
 
+	Movie selectOneMovie(int no);
+	
+	Movie selectOneMovieCollection(int no);
+
+	int updateMovie(Movie movie);
+
 //	Movie selectOneMovie(int no);
 //
-//	Movie selectOneMovieCollection(int no);
 //
 //	Attachment selectOneAttachment(int no);
 

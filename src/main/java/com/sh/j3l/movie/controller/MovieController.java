@@ -116,5 +116,28 @@ public class MovieController {
 		
 		return "redirect:/movie/movieList.do";
 	}
+	
+	
+	@GetMapping("/movieDetail.do")
+	public void movieDetail(@RequestParam(defaultValue = "0") int no, Model model) {
+		
+		log.debug("no = {}", no);
+		Movie movie = movieService.selectOneMovie(no);
+		log.debug("movie = {}", movie);
+		
+		model.addAttribute("movie", movie);
+		
+	}
+	
+	@PostMapping("/updateMovie.do")
+	public String updateMovie(Movie movie, RedirectAttributes redirectAttr) {
+		
+		int result = movieService.updateMovie(movie);
+		log.debug("movie = {}", movie);
+			
+		redirectAttr.addFlashAttribute("msg", "영화 정보 수정 성공");
+		
+		return "redirect:/movie/movieDetail.do";
+	}
 
 }

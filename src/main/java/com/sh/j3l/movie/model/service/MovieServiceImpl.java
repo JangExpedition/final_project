@@ -47,9 +47,28 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public int insertAttachment(Attachment attach) {
-		// TODO Auto-generated method stub
 		return movieDao.insertAttachment(attach);
 	}
+
+	
+	@Override
+	public Movie selectOneMovie(int no) {
+//		Movie movie = movieDao.selectOneMovie(no);
+//		List<Attachment> atta
+		return movieDao.selectOneMovie(no);
+	}
+
+	@Override
+	public Movie selectOneMovieCollection(int no) {
+		return movieDao.selectOneMovieCollection(no);
+	}
+
+	@Override
+	public int updateMovie(Movie movie) {
+		return movieDao.updateMovie(movie);
+	}
+
+
 
 	
 
