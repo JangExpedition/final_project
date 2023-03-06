@@ -1,5 +1,6 @@
 package com.sh.j3l.member.model.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public Member selectOneMember(String memberId) {
 		return memberDao.selectOneMember(memberId);
+	}
+
+	@Override
+	public Member duplicationCheck(Member member) {
+		return memberDao.duplicationCheck(member);
 	}
 
 }

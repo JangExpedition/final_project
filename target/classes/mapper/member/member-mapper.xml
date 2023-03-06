@@ -19,4 +19,17 @@
 		where
 			id = #{id}
 	</select>	
+	
+	<select id="duplicationCheck" resultMap="memberMap">
+		select
+			*
+		from
+			member
+		where
+			name = #{name}
+			and
+			birth = #{birth}
+			and
+			phone = #{phone}
+	</select>
 </mapper>
