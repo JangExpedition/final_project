@@ -1,5 +1,7 @@
 package com.sh.j3l.member.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,9 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.member.model.service.MemberService;
@@ -30,12 +32,11 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-
-	@GetMapping("/memberList.do")
-	public void memberList() {}
-	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	@GetMapping("/memberList.do")
+	public void memberList() {}
 	
 	@GetMapping("/members.do")
 	public String selectAllMember(Model model) {
@@ -72,5 +73,28 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
-
+	
+	@GetMapping("/memberEnroll.do")
+	public void memberEnroll() {}
+	
+	@GetMapping("/insertMember.do")
+	public void insertMember() {}
+	
+	@GetMapping("/duplicationCheck.do")
+	public String duplicationCheck(@RequestParam String name, @RequestParam String _birth, @RequestParam String phone, Model model) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		LocalDate birth = LocalDate.parse(_birth, formatter);
+		phone = "010" + phone;
+		Member member = new Member(null, null, name, phone, null, birth, null, 0, null, null);
+		model.addAttribute("member", member);
+		member = memberService.duplicationCheck(member);
+		if(member != null) {
+			model.addAttribute(member.getId());
+			return "member/duplication";
+		}
+		return "member/memberEnroll";
+	}
+	
+	@GetMapping("/duplication.do")
+	public void duplication() {}
 }

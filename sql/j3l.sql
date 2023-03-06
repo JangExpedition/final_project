@@ -100,6 +100,16 @@ commit;
 -- 테이블 및 시퀀스 생성
 --===============================
 
+-- 로그인 테이블
+create table persistent_logins (
+    username varchar2(64) not null,
+    series varchar2(64) primary key,
+    token varchar2(64) not null, -- username, password, expiry time 등을 hashing한 값
+    last_used timestamp not null
+);
+
+select * from persistent_logins;
+
 -- 회원테이블
 CREATE TABLE member (
 	id varchar2(50)	NOT NULL,
