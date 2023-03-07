@@ -24,9 +24,12 @@
 		</div>
 		<div>
 			<form action="${ pageContext.request.contextPath }/member/duplicationCheck.do" id="duplicationFrm" name="duplicationFrm">
-				<input name="name" type="text" placeholder="이름을 입력해주세요."/>
-				<input name="_birth" type="text" placeholder="생년월일 8자리를 입력해주세요."/>
-				<input name="phone" type="text" placeholder="휴대전화 뒤 7~8자리를 입력해주세요 (010 제외)"/>
+				<input name="name" type="text" placeholder="이름을 입력해주세요." required/>
+				<p id="nameErr" class="err"></p>
+				<input name="_birth" type="text" placeholder="생년월일 8자리를 입력해주세요." required/>
+				<p id="birthErr" class="err"></p>
+				<input name="phone" type="text" placeholder="휴대전화 뒤 7~8자리를 입력해주세요 (010 제외)" required/>
+				<p id="phoneErr" class="err"></p>
 				<input id="submitBtn" type="submit" value="가입여부 확인"/>
 			</form>
 		</div>
@@ -35,31 +38,28 @@
 <script>
 document.duplicationFrm.addEventListener("submit", (e)=>{
 	e.preventDefault();
-	const err = document.createElement("p");
-    err.style.color = "red";
-    err.style.fontSize = "10px";
     const memberName = e.target.name;
     const _birth = e.target._birth;
     const phone = e.target.phone;
+    const nameErr = document.nameErr;
+    const birthErr = document.birthErr;
+    const phoneErr = document.phoneErr;
 	
 	// 이름검사 : 한글2글자 이상만 허용. 
     if(!/^[가-힣]{2,}$/.test(memberName.value)){
-        err.innerText = "한글 2글자이상 입력해주세요.";
-        memberName.insertAdjacentElement("afterend", err);
+        nameErr.innerHTML = "한글 2글자이상 입력해주세요.";
         return false;
     }
     
     // 생년월일 검사
     if(!/^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/g.test(_birth.value)){
-        err.innerText = "잘못된 생년월일입니다.";
-        _birth.insertAdjacentElement("afterend", err);
+        birthErr.innerText = "잘못된 생년월일입니다.";
         return false;
     }
     
     // 휴대폰번호 유효성검사
    	if(!/^[0-9]{8}$/.test(phone.value)){
-   		err.innerText = "잘못된 휴대폰 번호입니다.";
-        phone.insertAdjacentElement("afterend", err);
+   		phoneErr.innerText = "잘못된 휴대폰 번호입니다.";
         return false;
    	}
     
