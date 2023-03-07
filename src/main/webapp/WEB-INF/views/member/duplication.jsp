@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/duplication.css"/>
 <section id="duplicationSection">
 	<div id="duplicationCheck">
-		<h1>${ member.id }님! 이미 J3L 회원으로 등록되어 있습니다.</h1>
-		<p id="enrollIntro">회원 아이디(jwj53**)로 로그인 하시거나 아이디 찾기를 진행해 주세요.</p>
+		<h2><span id="pointColor">${ member.name }</span>님! 이미 J3L 회원으로 등록되어 있습니다.</h2>
+		<p id="enrollIntro">회원 아이디(${ member.id })로 로그인 하시거나 아이디 찾기를 진행해 주세요.</p>
 		<div id="findIdOrLogin">
-			<a><div>아이디 찾기</div></a>
-			<a href="${ pageContext.request.contextPath }/member/memberLogin"><div>로그인</div></a>
+			<a href="${ pageContext.request.contextPath }/member/findId.do"><div>아이디 찾기</div></a>
+			<a href="${ pageContext.request.contextPath }/member/memberLogin.do"><div>로그인</div></a>
 		</div>
 	</div>
 </section>

@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.sh.j3l.member.model.dto.Member;
+import com.sh.j3l.member.model.service.MailService;
 import com.sh.j3l.member.model.service.MemberService;
+import com.sun.mail.iap.Response;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,6 +34,9 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private MailService mailService;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -89,12 +95,30 @@ public class MemberController {
 		model.addAttribute("member", member);
 		member = memberService.duplicationCheck(member);
 		if(member != null) {
-			model.addAttribute(member.getId());
+			String _id = member.getId();
+			String id = _id.substring(0, 3);
+			for(int i = 0; i < _id.length()-3; i++) {
+				id += "*";
+			}
+			member.setId(id);
+			model.addAttribute("member", member);
 			return "member/duplication";
 		}
-		return "member/memberEnroll";
+		return "member/insertMember2";
 	}
 	
 	@GetMapping("/duplication.do")
 	public void duplication() {}
+	
+	@GetMapping("/findId")
+	public String findId() {
+		return "";
+	}
+	
+	@GetMapping("/authentication.do")
+	@ResponseBody
+	public String mailCheck(String email) {
+		return mailService.joinEmail(email);
+	}
+
 }
