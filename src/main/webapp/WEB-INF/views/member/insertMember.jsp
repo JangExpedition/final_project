@@ -26,9 +26,9 @@
 			<form action="${ pageContext.request.contextPath }/member/duplicationCheck.do" id="duplicationFrm" name="duplicationFrm">
 				<input name="name" type="text" placeholder="이름을 입력해주세요." required/>
 				<p id="nameErr" class="err"></p>
-				<input name="_birth" type="text" placeholder="생년월일 8자리를 입력해주세요." required/>
+				<input name="birth" type="text" placeholder="생년월일 8자리를 입력해주세요." required/>
 				<p id="birthErr" class="err"></p>
-				<input name="phone" type="text" placeholder="휴대전화 뒤 7~8자리를 입력해주세요 (010 제외)" required/>
+				<input name="phone" type="text" placeholder="휴대전화 뒤 8자리를 입력해주세요 (010 제외)" required/>
 				<p id="phoneErr" class="err"></p>
 				<input id="submitBtn" type="submit" value="가입여부 확인"/>
 			</form>
@@ -39,11 +39,16 @@
 document.duplicationFrm.addEventListener("submit", (e)=>{
 	e.preventDefault();
     const memberName = e.target.name;
-    const _birth = e.target._birth;
+    const birth = e.target.birth;
     const phone = e.target.phone;
-    const nameErr = document.nameErr;
-    const birthErr = document.birthErr;
-    const phoneErr = document.phoneErr;
+    const nameErr = document.querySelector("#nameErr");
+    const birthErr = document.querySelector("#birthErr");
+    const phoneErr = document.querySelector("#phoneErr");
+    
+    // 에러 메세지 초기화
+    nameErr.innerHTML = "";
+    birthErr.innerHTML = "";
+    phoneErr.innerHTML = "";
 	
 	// 이름검사 : 한글2글자 이상만 허용. 
     if(!/^[가-힣]{2,}$/.test(memberName.value)){
@@ -52,14 +57,14 @@ document.duplicationFrm.addEventListener("submit", (e)=>{
     }
     
     // 생년월일 검사
-    if(!/^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/g.test(_birth.value)){
-        birthErr.innerText = "잘못된 생년월일입니다.";
+    if(!/^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/g.test(birth.value)){
+    	birthErr.innerHTML = "생년월일 8자리를 입력해주세요.";
         return false;
     }
     
     // 휴대폰번호 유효성검사
    	if(!/^[0-9]{8}$/.test(phone.value)){
-   		phoneErr.innerText = "잘못된 휴대폰 번호입니다.";
+   		phoneErr.innerHTML = "잘못된 휴대폰 번호입니다.";
         return false;
    	}
     
