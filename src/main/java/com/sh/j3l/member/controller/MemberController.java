@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.member.model.service.MailService;
@@ -51,10 +52,12 @@ public class MemberController {
 		log.debug("members = {}", members);
 		return "member/memberList";
 	}
-	
+
+	// 로그인 페이지 이동 메서드
 	@GetMapping("/memberLogin.do")
 	public void memberLogin() {}
 	
+	// 로그인 메서드
 	@PostMapping("/loginSuccess.do")
 	public String loginSuccess(HttpSession session) {
 		log.debug("loginSuccess 핸들러 호출!");
@@ -71,6 +74,7 @@ public class MemberController {
 		return "redirect:" + location;
 	}
 	
+	// 로그아웃 메서드
 	@GetMapping("/memberLogout.do")
 	public String memberLogout(SessionStatus status) {
 		
@@ -80,18 +84,20 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	// 회원가입 관련 메서드들
+	// 회원가입 페이지 이동 메서드
 	@GetMapping("/memberEnroll.do")
 	public void memberEnroll() {}
 	
+	// 아이디 중복체크 페이지 이동 메서드
 	@GetMapping("/insertMember.do")
 	public void insertMember() {}
 	
+	// 아이디 중복체크 메서드
 	@GetMapping("/duplicationCheck.do")
-	public String duplicationCheck(@RequestParam String name, @RequestParam String _birth, @RequestParam String phone, Model model) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-		LocalDate birth = LocalDate.parse(_birth, formatter);
+	public String duplicationCheck(@RequestParam String name, @RequestParam String birth, @RequestParam String phone, Model model) {
 		phone = "010" + phone;
-		Member member = new Member(null, null, name, phone, null, birth, null, 0, null, null);
+		Member member = new Member(null, null, name, phone, null, birth, 0, null, null);
 		model.addAttribute("member", member);
 		member = memberService.duplicationCheck(member);
 		if(member != null) {
@@ -110,15 +116,25 @@ public class MemberController {
 	@GetMapping("/duplication.do")
 	public void duplication() {}
 	
+	// 인증메일 발송 메서드
+	@GetMapping("/authentication.do")
+	@ResponseBody
+	public String mailCheck(@RequestParam String email) {
+		return mailService.joinEmail(email);
+	}
+	
+	// 회원가입 메서드
+	@PostMapping("/enroll.do")
+	public String enrollMember(Member member, RedirectAttributes redirectAttr) {
+		log.debug("sadfasf");
+		int result = memberService.insertMember(member);
+		redirectAttr.addAttribute("msg", "회원가입 성공!");
+		return "redirect:/";
+	}
+	
 	@GetMapping("/findId")
 	public String findId() {
 		return "";
-	}
-	
-	@GetMapping("/authentication.do")
-	@ResponseBody
-	public String mailCheck(String email) {
-		return mailService.joinEmail(email);
 	}
 
 }

@@ -17,4 +17,6 @@ public interface MemberDao {
 
 	Member duplicationCheck(Member member);
 
+	int insertMember(Member member);
+
 }

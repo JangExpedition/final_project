@@ -20,8 +20,9 @@ select * from blackList;
 --===============================
 -- 관리자 계정 생성
 --===============================
+
 insert into member
-values('admin', '1234', '어드민', '01012341234', 'admin@gmail.com', '1993-08-03', default, 31, default);
+values('admin', '1234', '어드민', '01012341234', 'admin@gmail.com', '19930803', 29, default);
 
 update member set password='$2a$10$Tk1XefztVv5IGUVOY3KiA.yH4mSCQ8c/.ytxD.t/lF5.Z0BIDZrLu' where id='admin';
 
@@ -115,15 +116,15 @@ CREATE TABLE member (
 	id varchar2(50)	NOT NULL,
 	password varchar2(300) NOT NULL,
 	name varchar2(30) NOT NULL,
-	phone varchar2(20) NOT NULL,
+	phone char(11) NOT NULL,
 	email varchar2(50) NOT NULL,
-	birth Date NOT NULL,
-	isBlackList char(1) default 'X' not null,
+	birth char(8) NOT NULL,
 	age	number	NOT NULL,
     enroll_date Date default sysdate not null,
-    CONSTRAINT PK_MEMBER_ID PRIMARY KEY(ID),
-    constraint ck_member_isBlackList check(isBlackList in ('O', 'X'))
+    CONSTRAINT PK_MEMBER_ID PRIMARY KEY(ID)
 );
+
+--drop table member cascade constraints;
 
 
 -- 회원권한 테이블

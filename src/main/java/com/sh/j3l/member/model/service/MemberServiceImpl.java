@@ -30,4 +30,9 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.duplicationCheck(member);
 	}
 
+	@Override
+	public int insertMember(Member member) {
+		return memberDao.insertMember(member);
+	}
+
 }

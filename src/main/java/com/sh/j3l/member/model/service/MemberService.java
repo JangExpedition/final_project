@@ -13,4 +13,6 @@ public interface MemberService {
 
 	Member duplicationCheck(Member member);
 
+	int insertMember(Member member);
+
 }
