@@ -19,7 +19,7 @@
 		where
 			id = #{id}
 	</select>	
-	
+
 
 	
 	<delete id="deleteMember">
@@ -38,4 +38,25 @@
 	  	id like '%' || #{id} || '%'
 	</select>
 	
+
+	<select id="duplicationCheck" resultMap="memberMap">
+		select
+			*
+		from
+			member
+		where
+			name = #{name}
+			and
+			birth = #{birth}
+			and
+			phone = #{phone}
+	</select>
+	<insert id="insertMember">
+		insert into
+			member
+		values(
+			#{id}, #{password}, #{name}, #{phone}, #{email}, #{birth}, #{age}, default
+		)
+	</insert>
+>>>>>>> branch 'master' of https://github.com/Jangcccci/final_project.git
 </mapper>

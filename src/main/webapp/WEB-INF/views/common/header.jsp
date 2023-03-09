@@ -50,28 +50,39 @@
 			  	<span>MY J3L</span>
 		  	</a>
 		  </div>
+		  <sec:authorize access="isAnonymous()">
 		  <div class="p-2">
-		  	<a href="#">
+		  	<a href="${ pageContext.request.contextPath }/member/memberEnroll.do">
 		  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginJoin.png">
 			  	<span>회원가입</span>
 		  	</a>
 		  </div>
-		  <%-- <sec:authorize access="isAnonymous()"> --%>
+		  </sec:authorize>
+		  <sec:authorize access="isAnonymous()">
 			  <div class="p-2">
 			  	<a href="${ pageContext.request.contextPath }/member/memberLogin.do">
 			  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginPassword.png">
 				  	<span>로그인</span>
 			  	</a>
 			  </div>
-		  <%-- </sec:authorize>
+		  </sec:authorize>
 		  <sec:authorize access="isAuthenticated()">
 			  <div class="p-2">
-			  	<a href="${ pageContext.request.contextPath }/member/memberLogout.do">
+			  	<a onclick="memberLogout()" id="logoutBtn">
 			  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginPassword.png">
 				  	<span>로그아웃</span>
 			  	</a>
 			  </div>
-		  </sec:authorize> --%>
+			  <form:form name="logoutFrm" action="${ pageContext.request.contextPath }/member/memberLogout.do" method="post">
+			  </form:form>
+			  <script>
+			  	const memberLogout = () =>{
+			  		console.log("waejfio");
+			  		const frm = document.logoutFrm;
+			  		frm.submit();
+			  	}
+			  </script>
+		  </sec:authorize>
 		</div>
 	  </div>
   </div>

@@ -1,5 +1,7 @@
 package com.sh.j3l.member.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -15,12 +17,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.j3l.member.model.dto.Member;
+import com.sh.j3l.member.model.service.MailService;
 import com.sh.j3l.member.model.service.MemberService;
+import com.sun.mail.iap.Response;
 
 import lombok.experimental.PackagePrivate;
 import lombok.extern.slf4j.Slf4j;
@@ -35,11 +42,19 @@ public class MemberController {
 	private MemberService memberService;
 	
 
+
 //	@GetMapping("/memberList.do")
 //	public void memberList() {}
+
+	@Autowired
+	private MailService mailService;
+
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	@GetMapping("/memberList.do")
+	public void memberList() {}
 	
 	@GetMapping("/members.do")
 	public String selectAllMember(Model model) {
@@ -48,34 +63,12 @@ public class MemberController {
 		log.debug("members = {}", members);
 		return "member/members";
 	}
-	
+
+	// 로그인 페이지 이동 메서드
 	@GetMapping("/memberLogin.do")
 	public void memberLogin() {}
 	
-//	@PostMapping("/memberLogin.do")
-//	public String memberLogin(String memberId, String password, Model model, RedirectAttributes redirectAttr) {
-//		log.debug("memberId = {}", memberId);
-//		log.debug("password = {}", password);
-//		log.debug("encoded password = {}", passwordEncoder.encode(password));
-//		
-//		// 회원 1명 조회
-//		Member member = memberService.selectOneMember(memberId);
-//		log.debug("member = {}", member);
-//		
-//		// 인증
-//		// 1. 로그인 성공한 경우
-//		if(member != null && passwordEncoder.matches(password, member.getPassword())) {
-//			model.addAttribute("loginMember", member); // requestScope에 저장됨. -> sessionScope에 저장하기 위해 클래스 레벨에 선언해야된다.
-//			
-//		}
-//		// 2. 로그인 실패한 경우(아이디/비밀번호 불일치)
-//		else {
-//			redirectAttr.addFlashAttribute("msg", "사용자 아이디 또는 비밀번호가 일치하지 않습니다.");
-//		}
-//		
-//		return "redirect:/";
-//	}
-	
+	// 로그인 메서드
 	@PostMapping("/loginSuccess.do")
 	public String loginSuccess(HttpSession session) {
 		log.debug("loginSuccess 핸들러 호출!");
@@ -92,6 +85,7 @@ public class MemberController {
 		return "redirect:" + location;
 	}
 	
+	// 로그아웃 메서드
 	@GetMapping("/memberLogout.do")
 	public String memberLogout(SessionStatus status) {
 		
@@ -137,6 +131,61 @@ public class MemberController {
 	    model.addAttribute("members", searchMember);
 
 	    return "member/members";
+	    
+	}
+	
+	    
+	// 회원가입 관련 메서드들
+	// 회원가입 페이지 이동 메서드
+	@GetMapping("/memberEnroll.do")
+	public void memberEnroll() {}
+	
+	// 아이디 중복체크 페이지 이동 메서드
+	@GetMapping("/insertMember.do")
+	public void insertMember() {}
+	
+	// 아이디 중복체크 메서드
+	@GetMapping("/duplicationCheck.do")
+	public String duplicationCheck(@RequestParam String name, @RequestParam String birth, @RequestParam String phone, Model model) {
+		phone = "010" + phone;
+		Member member = new Member(null, null, name, phone, null, birth, 0, null, null);
+		model.addAttribute("member", member);
+		member = memberService.duplicationCheck(member);
+		if(member != null) {
+			String _id = member.getId();
+			String id = _id.substring(0, 3);
+			for(int i = 0; i < _id.length()-3; i++) {
+				id += "*";
+			}
+			member.setId(id);
+			model.addAttribute("member", member);
+			return "member/duplication";
+		}
+		return "member/insertMember2";
+	}
+	
+	@GetMapping("/duplication.do")
+	public void duplication() {}
+	
+	// 인증메일 발송 메서드
+	@GetMapping("/authentication.do")
+	@ResponseBody
+	public String mailCheck(@RequestParam String email) {
+		return mailService.joinEmail(email);
+	}
+	
+	// 회원가입 메서드
+	@PostMapping("/enroll.do")
+	public String enrollMember(Member member, RedirectAttributes redirectAttr) {
+		log.debug("sadfasf");
+		int result = memberService.insertMember(member);
+		redirectAttr.addAttribute("msg", "회원가입 성공!");
+		return "redirect:/";
+	}
+	
+	@GetMapping("/findId")
+	public String findId() {
+		return "";
 	}
 
 }

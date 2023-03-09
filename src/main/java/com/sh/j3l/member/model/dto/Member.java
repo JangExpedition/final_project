@@ -24,8 +24,7 @@ public class Member implements UserDetails{
 	private String name;
 	private String phone;
 	private String email;
-	private LocalDate birth;
-	private String isBlackList;
+	private String birth;
 	private int age;
 	private LocalDateTime enrollDate;
 	

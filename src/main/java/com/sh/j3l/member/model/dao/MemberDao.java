@@ -1,5 +1,6 @@
 package com.sh.j3l.member.model.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -18,6 +19,9 @@ public interface MemberDao {
 
 	List<Member> searchById(String id);
 
+	Member duplicationCheck(Member member);
+
+	int insertMember(Member member);
 
 
 }
