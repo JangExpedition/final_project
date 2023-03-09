@@ -39,7 +39,7 @@
 		</div>
 		<div class="d-flex flex-row-reverse">
 		  <div class="p-2">
-		  	<a href="${ pageContext.request.contextPath }/question/question.do">
+		  	<a href="${ pageContext.request.contextPath }/faq/main.do">
 		  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginCustomer.png">
 			  	<span>고객센터</span>
 		  	</a>

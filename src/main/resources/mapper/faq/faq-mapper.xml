@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.faq.model.dao.FaqDao">
+	<select id="selectAllFaq" resultMap="faqMap">
+		select
+			*
+		from
+			FAQ
+	</select>
+	
+	<resultMap type="faq" id="faqMap"></resultMap>
+	
+	<insert id="insertFaq">
+		insert into
+			FAQ (no, title, content, classify)
+		values
+		(
+			seq_faq_no.nextval,
+			#{title},
+			#{content},
+			#{classify}
+		)
+	</insert>
+	
+<!-- 	<delete id="deleteFaq">
+		delete from
+			FAQ
+		where
+			no = #{no}
+	</delete>
+	
+	<select id="searchByTitle" parameterType="String" resultType="Faq">
+		select
+			*
+		from
+			FAQ
+		where
+			title like '%' || #{title} || '%'
+	</select> -->
+
+</mapper>

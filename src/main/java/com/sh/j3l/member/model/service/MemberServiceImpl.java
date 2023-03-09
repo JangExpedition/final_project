@@ -24,4 +24,17 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.selectOneMember(memberId);
 	}
 
+	@Override
+	public int deleteMember(String id) {
+		return memberDao.deleteMember(id);
+	}
+
+	@Override
+	public List<Member> searchById(String id) {
+		// TODO Auto-generated method stub
+		return memberDao.searchById(id);
+	}
+
+
+
 }

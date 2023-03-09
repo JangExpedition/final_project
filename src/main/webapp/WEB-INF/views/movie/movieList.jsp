@@ -47,43 +47,16 @@ tr[data-no] {cursor: pointer;}
 
 
 
-</br>
-</br>
-</br>
 
-<%-- <div class="flex container mx-auto pt-2">
-  <div class="adm-side-bar">
-    <aside class="w-44 flex flex-col rounded-xl bg-gray-600 text-gray-100">
-      <div class="h-12 flex justify-center items-center p-4 text-lg font-bold border-b box-border">
-        <span>관리자 메뉴</span>
-      </div>
-      <div class="font-bold flex justify-center">
-        <ul class="flex flex-col">
-          <li class="p-2">
-             <a href="${pageContext.request.contextPath}/member/memberList.do">
-              회원 관리
-            </a>
-          </li>
-          <li class="p-2">
-            <a href="${pageContext.request.contextPath}/movie/movieList.do">
-              영화 관리
-            </a>
-          </li>
-          <li class="p-2">
-            <a href="#">
-              매출 관리
-            </a>
-          </li>
-          <li class="p-2">
-            <a href="#">
-              예매율 관리
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-  </div> --%>
  <div class="shadow-xl border border-gray-200 rounded-xl w-full min-h-screen ml-2 mb-4">
+  <form:form action="${pageContext.request.contextPath}/movie/searchMovie" method="get" class="mb-3">
+    <div class="input-group">
+      <input type="hidden" name="searchType" value="title" />
+      <input type="text" class="form-control" placeholder="영화 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+      <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
+    </div>
+  </form:form>
+	<div class="shadow-xl border border-gray-200 rounded-xl w-full min-h-screen ml-2 mb-4">
     <table class="admMemberList w-11/12 mx-auto mt-4">
       <thead>
         <tr class="bg-gray-600 text-white grid-adm-members text-center font-bold py-2 px-1">
@@ -109,6 +82,7 @@ tr[data-no] {cursor: pointer;}
       </tbody>
     </table>
   </div>
+</div>
   
   <input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/>
   
@@ -125,4 +99,3 @@ document.querySelectorAll("tr[data-no]").forEach((tr) => {
 	});
 });
 </script>
-</div>

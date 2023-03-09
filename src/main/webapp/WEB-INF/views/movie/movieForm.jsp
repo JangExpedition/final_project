@@ -34,48 +34,12 @@ div#movie-container label.custom-file-label{text-align:left;}
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 
 
-
-<%-- <div class="flex container mx-auto pt-2">
-  <div class="adm-side-bar">
-    <aside class="w-44 flex flex-col rounded-xl bg-gray-600 text-gray-100">
-      <div class="h-12 flex justify-center items-center p-4 text-lg font-bold border-b box-border">
-        <span>관리자 메뉴</span>
-      </div>
-      <div class="font-bold flex justify-center">
-        <ul class="flex flex-col">
-          <li class="p-2">
-            <a href="${pageContext.request.contextPath}">
-              메인 메뉴 이동
-            </a>
-          </li>
-          <li class="p-2">
-             <a href="${pageContext.request.contextPath}/member/members.do">
-              회원 목록
-            </a>
-          </li>
-          <li class="p-2">
-            <a href="${pageContext.request.contextPath}/movie/movieList.do">
-              영화 관리
-            </a>
-          </li>
-          <li class="p-2">
-            <a href="#">
-              매출 관리
-            </a>
-          </li>
-          <li class="p-2">
-            <a href="#">
-              예매율 관리
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-  </div>
-</div> --%>
-
 <div id="movie-container">
-	<form:form name="movieFrm" action="${pageContext.request.contextPath}/movie/movieEnroll.do" method="post" enctype="multipart/form-data">
+	<form:form 
+	ame="movieFrm" 
+	action="${pageContext.request.contextPath}/movie/movieEnroll.do" 
+	method="post" 
+	enctype="multipart/form-data">
 		<input type="text" class="form-control" placeholder="제목" name="title" id="title" required>
 		<input type="text" class="form-control" placeholder="출연진" name="actors" id="actors" required>
 		<input type="text" class="form-control" placeholder="감독" name="director" id="director" required>
@@ -102,7 +66,7 @@ div#movie-container label.custom-file-label{text-align:left;}
 			      <option value="DOCUMENTARY">다큐</option>
 			      <option value="DRAMA">드라마</option>
 			    </select>
-		  	</div>
+		  </div>
 		</div>
 		<!-- input:file소스 : https://getbootstrap.com/docs/4.1/components/input-group/#custom-file-input -->
 		<div class="input-group mb-3" style="padding:0px;">
@@ -121,23 +85,7 @@ div#movie-container label.custom-file-label{text-align:left;}
 	 </form:form>
 </div>
 
-<!-- 		<div class="input-group mb-3" style="padding:0px;">
-		  <div class="input-group-prepend" style="padding:0px;">
-		    <span class="input-group-text">첨부파일1</span>
-		  </div>
-		  <div class="custom-file">
-		    <input type="file" class="custom-file-input" name="upFile" id="upFile1" multiple>
-		    <label class="custom-file-label" for="upFile1">파일을 선택하세요</label>
-		  </div>
-		</div>
-		
-		
-	    <textarea class="form-control" name="content" placeholder="내용" required></textarea>
-		<br />
-		<input type="submit" class="btn btn-outline-success" onclick="insertMovie();" value="등록" >
-	</form>
-</div> -->
-<script>
+<!-- <script>
 document.querySelectorAll("[name=upFile]").forEach((input) => {
 	input.addEventListener('change', (e) => {
 		const file = e.target.files[0];
@@ -150,6 +98,6 @@ document.querySelectorAll("[name=upFile]").forEach((input) => {
 	});
 });
 
-</script>
+</script> -->
 <%-- <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
  --%>

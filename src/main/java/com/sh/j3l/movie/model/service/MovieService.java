@@ -23,6 +23,10 @@ public interface MovieService {
 
 	int updateMovie(Movie movie);
 
+	int deleteMovie(Integer no);
+
+	List<Movie> searchByTitle(String title);
+
 //	Movie selectOneMovie(int no);
 //
 //
