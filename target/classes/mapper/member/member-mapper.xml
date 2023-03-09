@@ -58,5 +58,4 @@
 			#{id}, #{password}, #{name}, #{phone}, #{email}, #{birth}, #{age}, default
 		)
 	</insert>
->>>>>>> branch 'master' of https://github.com/Jangcccci/final_project.git
 </mapper>
