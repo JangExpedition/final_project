@@ -36,46 +36,12 @@ div#movie-container label.custom-file-label{text-align:left;}
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 
 
-
-<%-- <div class="flex container mx-auto pt-2">
-  <div class="adm-side-bar">
-    <aside class="w-44 flex flex-col rounded-xl bg-gray-600 text-gray-100">
-      <div class="h-12 flex justify-center items-center p-4 text-lg font-bold border-b box-border">
-        <span>관리자 메뉴</span>
-      </div>
-      <div class="font-bold flex justify-center">
-        <ul class="flex flex-col">
-          <li class="p-2">
-             <a href="${pageContext.request.contextPath}/member/members.do">
-              회원 관리
-            </a>
-          </li>
-          <li class="p-2">
-            <a href="${pageContext.request.contextPath}/movie/movieList.do">
-              영화 관리
-            </a>
-          </li>
-          <li class="p-2">
-            <a href="#">
-              매출 관리
-            </a>
-          </li>
-          <li class="p-2">
-            <a href="#">
-              예매율 관리
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-  </div>
-</div> --%>
-
 <div id="movie-container">
 	<form:form 
 		name="movieUpdateFrm" 
 		action="${pageContext.request.contextPath}/movie/updateMovie.do"
 		method="post">
+		<input type="hidden" name="no" value="${movie.no}">
 		<input type="text" class="form-control" placeholder="제목" name="title" id="title" value="${movie.title}"required>
 		<input type="text" class="form-control" placeholder="출연진" name="actors" id="actors" value="${movie.actors}" required>
 		<input type="text" class="form-control" placeholder="감독" name="director" id="director" value="${movie.director}" required>
@@ -113,13 +79,23 @@ div#movie-container label.custom-file-label{text-align:left;}
 		  </div>
 		</div> -->
 		 
+
 		
 		<br />
 		
 		<input type="submit" class="btn btn-outline-success" value="수정">
+	<!-- 	<input type="submit" class="btn btn-outline-success" value="삭제"> -->
 		<!-- <button type="submit" class="btn btn-danger" onclick="deleteMovie()" >삭제</button> -->
 <!-- 		<input type="submit" class="btn btn-danger" onclick="insertMovie();" value="삭제"/> -->
  	</form:form> 
+ 	
+<form:form 
+	name="movieDeleteFrm" 
+	action="${pageContext.request.contextPath}/movie/deleteMovie.do"
+	method="post">
+	<input type="hidden" name="no" value="${movie.no}">
+	<input type="submit" class="btn btn-outline-success" value="삭제">
+</form:form>
 </div> 
 <!-- <script>
 document.querySelectorAll("[name=upFile]").forEach((input) => {
@@ -133,14 +109,6 @@ document.querySelectorAll("[name=upFile]").forEach((input) => {
 			label.innerHTML = '파일을 선택하세요';
 	});
 });
-
-
- function updateMovie() {
-  // 수정 버튼이 클릭되었을 때 실행될 코드 작성
-  location.href = "${ pageContext.request.contextPath }/movie/updateMovie.do";
-}
-
-
 </script> -->
 <%-- <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
  --%>

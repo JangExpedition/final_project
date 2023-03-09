@@ -68,6 +68,16 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.updateMovie(movie);
 	}
 
+	@Override
+	public int deleteMovie(Integer no) {
+		return movieDao.deleteMovie(no);
+	}
+
+	@Override
+	public List<Movie> searchByTitle(String title) {
+		return movieDao.searchByTitle(title);
+	}
+
 
 
 	

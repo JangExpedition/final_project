@@ -26,6 +26,19 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+
+	public int deleteMember(String id) {
+		return memberDao.deleteMember(id);
+	}
+
+	@Override
+	public List<Member> searchById(String id) {
+		// TODO Auto-generated method stub
+		return memberDao.searchById(id);
+	}
+
+
+
 	public Member duplicationCheck(Member member) {
 		return memberDao.duplicationCheck(member);
 	}
@@ -34,5 +47,6 @@ public class MemberServiceImpl implements MemberService {
 	public int insertMember(Member member) {
 		return memberDao.insertMember(member);
 	}
+
 
 }

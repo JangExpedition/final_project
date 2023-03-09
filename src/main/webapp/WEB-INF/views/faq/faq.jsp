@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"/>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -189,50 +194,11 @@
 <div id="cgvwrap">
     
     
-    <!-- <div class="cgv-ad-wrap" id="cgv_main_ad">
-        <div id="TopBarWrapper" class="sect-head-ad">
-            <div class="top_extend_ad_wrap">
-                <div class="adreduce" id="adReduce">                    
-                    <iframe src="//ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@TopBar_EX" width="100%" height="80" title="" frameborder="0" scrolling="no" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" name="TopBanner" id="TopBanner"></iframe>
-                </div> 
-                <div class="adextend" id="adExtend"></div>
-            </div>//.top_extend_ad_wrap
-        </div>    
-    </div>   -->  
-	
-      <!-- S Header
-        Description
-        - class 'nav' 에 class 'active' 추가시 서브메뉴노출
-        - class 'nav' 에 class 'fixed' 추가시 상단고정되며 스타일 변경됨
-     -->
+
 	<div class="header">			
             <!-- 서비스 메뉴 --> 
             
-<!-- <div class="header_content">
-    <div class="contents">
-        <h1 onclick=""><a href="/"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png" alt="CGV" /></a><span>CULTUREPLEX</span></h1>
-        <ul class="memberInfo_wrap">
-            Advertisement
-            
-			<div class="ad-partner">
-                <a href="http://www.cgv.co.kr/culture-event/event/detailViewUnited.aspx?seq=31426&menu=006"  >
-                    <img src="https://img.cgv.co.kr/WingBanner/2023/0208/16758461047540.png" alt="현대M포인트" onerror="this.onerror=null;javascript:;$('.ad-partner').hide();" />
-                </a>					
-			</div>
-            
-            /Advertisement
 
-            
-            <li><a href="/user/login/?returnURL=http%3a%2f%2fwww.cgv.co.kr%2fsupport%2ffaq%2fdefault.aspx"><img src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png" alt="로그인" /><span>로그인</span></a></li>
-            <li><a href="/user/join/"><img src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png" alt="회원가입" /><span>회원가입</span></a></li>
-            
-            
-            <li><a href="/user/mycgv/"><img src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png" alt="MY CGV" /><span>MY CGV</span></a></li>
-            <li><a href="/support/default.aspx"><img src="https://img.cgv.co.kr/R2014/images/common/ico/loginCustomer.png" alt="고객센터" /><span>고객센터</span></a></li>
-        </ul>
-    </div>
-</div>
- -->
 <script>
     //GA Analytics TopMenu 영역 LOG
     //빨강 CGV클릭
@@ -561,12 +527,12 @@
         고객센터 메뉴</h2>
     <div class="snb">
         <ul>
-            <li class=''><a href="/support/default.aspx">고객센터 메인<i></i></a></li>
-            <li class='on'><a href="/support/faq/default.aspx" title="현재선택">자주찾는 질문<i></i></a></li>
-            <li class=''><a href="/support/news/default.aspx">공지/뉴스<i></i></a></li>
-            <li class=''><a href="/support/qna/default.aspx">이메일 문의<i></i></a></li>
+            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
+            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faq.do" title="현재선택">자주찾는 질문<i></i></a></li>
+            <li class=''><a href="${ pageContext.request.contextPath }/notice/notice.do">공지/뉴스<i></i></a></li>
+<!--             <li class=''><a href="/support/qna/default.aspx">이메일 문의<i></i></a></li>
             
-            <li class=''><a href="/support/lease/default.aspx">단체/ 대관 문의<i></i></a></li>            
+            <li class=''><a href="/support/lease/default.aspx">단체/ 대관 문의<i></i></a></li>     -->        
             
             
           
@@ -591,6 +557,7 @@
 				<h2 class="tit">자주찾는 질문</h2>
 				<p class="stit">회원님들께서 가장 자주하시는 질문을 모았습니다. <br />궁금하신 내용에 대해 검색해보세요.</p>
 			</div>
+				<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
 			<div class="search_area">
 				<legend><label for="searchtext">검색</label></legend>
 				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" value="" style="width:275px;" />
@@ -612,27 +579,12 @@
                         
 				</div>
 			</div>
-			<div class="c_tab_wrap">
-				<ul class="c_tab type_free">
-					<li class='on'><a href="/support/faq/default.aspx?type=0&searchtext=" style="font-size: 11px;" title="선택된 탭메뉴">전체</a></li>
-					<li class=''><a href="/support/faq/default.aspx?type=101,239&searchtext=" style="font-size: 11px;" >예매/매표</a></li>
-					<li class=''><a href="/support/faq/default.aspx?type=243&searchtext=" style="font-size: 11px;" >관람권/결제수단</a></li>
-					<li class=''><a href="/support/faq/default.aspx?type=102,240&searchtext=" style="font-size: 11px;" >멤버쉽/클럽서비스</a></li>
-                    <li class=''><a href="/support/faq/default.aspx?type=1262&searchtext=" style="font-size: 11px;" >VIP관련</a></li>
-					<li class=''><a href="/support/faq/default.aspx?type=242&searchtext=" style="font-size: 11px;" >할인혜택</a></li>
-					<li class=''><a href="/support/faq/default.aspx?type=103,246&searchtext=" style="font-size: 11px;" >영화관이용</a></li>
-					<li class=''><a href="/support/faq/default.aspx?type=244&searchtext=" style="font-size: 11px;" >특별관</a></li>
-					<li class=''><a href="/support/faq/default.aspx?type=104,1259&searchtext=" style="font-size: 11px;" >기프트샵</a></li>
-					<li class=''><a href="/support/faq/default.aspx?type=105,245&searchtext=" style="font-size: 11px;" >홈페이지/모바일</a></li>
-                 
-				</ul>
-			</div>
-			<div class="search_result">
-				  총<span class="num">159건</span>이 검색되었습니다.
-			</div>
+			<br></br>
+	<!-- 		<br></br>
+			<br></br> -->
 			<div class="tbl_area">
 				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
-				<caption>목록</caption>
+ 				<caption>목록</caption>
 				<colgroup>
 					<col style="width:40px;" />
                     <col style="width:120px;" />
@@ -641,179 +593,24 @@
 				</colgroup>
 				<thead>
 					<tr>
-					<th scope="col">번호</th>
-                    <th scope="col">구분</th>
-					<th scope="col" class="tit">제목</th>
-					<th scope="col">조회수</th>
+						<th scope="col">번호</th>
+	                    <th scope="col">구분</th>
+						<th scope="col" class="tit">제목</th>
+						<th scope="col">조회수</th>
 					</tr>
 				</thead>
 				<tbody>
-                    
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>1</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title0" class="txt"><a href="/support/faq/detail-view.aspx?idx=951&type=245&searchtext=&page=1">인터넷 예매 후 CGV 현장에서 환불&#40;예매 취소&#41;이 가능한가요?</a></td>
-						    <td class="num">100504</td>
+					<c:forEach items="${faqList}" var="faq">
+                        <tr>
+						    <td>${faq.no }</td>
+                            <td>${faq.classyfy}</td>
+						    <td>${faq.title}</td>
 					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>2</td>
-                            <td>[VIP관련]</td>
-						    <td id="title1" class="txt"><a href="/support/faq/detail-view.aspx?idx=968&type=1262&searchtext=&page=1">VIP 등급별 유지, 선정의 VIP점수 기준을 알고 싶어요</a></td>
-						    <td class="num">95609</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>3</td>
-                            <td>[관람권/결제수단]</td>
-						    <td id="title2" class="txt"><a href="/support/faq/detail-view.aspx?idx=969&type=243&searchtext=&page=1">관람권 사용해서 예매했는데 현금영수증 발행을 못했어요!</a></td>
-						    <td class="num">95130</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>4</td>
-                            <td>[멤버쉽/클럽서비스]</td>
-						    <td id="title3" class="txt"><a href="/support/faq/detail-view.aspx?idx=980&type=240&searchtext=&page=1">생일콤보 받는 방법을 알려주세요. &#40;2020.04.01~&#41;</a></td>
-						    <td class="num">95078</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>5</td>
-                            <td>[VIP관련]</td>
-						    <td id="title4" class="txt"><a href="/support/faq/detail-view.aspx?idx=967&type=1262&searchtext=&page=1">VIP 선정 기준은 어떻게 되나요?</a></td>
-						    <td class="num">94947</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>6</td>
-                            <td>[멤버쉽/클럽서비스]</td>
-						    <td id="title5" class="txt"><a href="/support/faq/detail-view.aspx?idx=970&type=240&searchtext=&page=1">아이핀&#40;I-PIN&#41; 이 무엇인가요?</a></td>
-						    <td class="num">94761</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>7</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title6" class="txt"><a href="/support/faq/detail-view.aspx?idx=950&type=245&searchtext=&page=1">인터넷 예매 후 예매 내용 확인은 어떻게 하나요?</a></td>
-						    <td class="num">94135</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>8</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title7" class="txt"><a href="/support/faq/detail-view.aspx?idx=949&type=245&searchtext=&page=1">이미 예매한 내역의 결제수단을 변경하고 싶어요.</a></td>
-						    <td class="num">94090</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>9</td>
-                            <td>[관람권/결제수단]</td>
-						    <td id="title8" class="txt"><a href="/support/faq/detail-view.aspx?idx=971&type=243&searchtext=&page=1">CGV영화관람권&#40;무비머니&#41;은 어떻게 구매하나요?</a></td>
-						    <td class="num">93700</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>10</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title9" class="txt"><a href="/support/faq/detail-view.aspx?idx=942&type=245&searchtext=&page=1">내가 본 영화를 실수로 삭제했어요. 복구 가능한가요?</a></td>
-						    <td class="num">92466</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>11</td>
-                            <td>[특별관]</td>
-						    <td id="title10" class="txt"><a href="/support/faq/detail-view.aspx?idx=972&type=244&searchtext=&page=1">CINE&LIVING ROOM&#40;씨네앤리빙룸&#41; 상영관은 어떤 곳인가요?</a></td>
-						    <td class="num">92127</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>12</td>
-                            <td>[영화관이용]</td>
-						    <td id="title11" class="txt"><a href="/support/faq/detail-view.aspx?idx=996&type=246&searchtext=&page=1">LOLOL&#40;롤롤&#41; 운영시간은 어떻게되나요?</a></td>
-						    <td class="num">91935</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>13</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title12" class="txt"><a href="/support/faq/detail-view.aspx?idx=995&type=245&searchtext=&page=1">통신사&#40;SKT, KT, LGU+&#41; 예매 시 적립/내가 본 영화 등록/포토플레이 제작은 어떻게 하나요?</a></td>
-						    <td class="num">91219</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>14</td>
-                            <td>[영화관이용]</td>
-						    <td id="title13" class="txt"><a href="/support/faq/detail-view.aspx?idx=978&type=246&searchtext=&page=1">V버스터즈가 뭔가요?</a></td>
-						    <td class="num">90966</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>15</td>
-                            <td>[특별관]</td>
-						    <td id="title14" class="txt"><a href="/support/faq/detail-view.aspx?idx=979&type=244&searchtext=&page=1">PRIVATE BOX 상영관은 어떤 곳인가요?</a></td>
-						    <td class="num">90935</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>16</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title15" class="txt"><a href="/support/faq/detail-view.aspx?idx=992&type=245&searchtext=&page=1">포토플레이 제작 기준은 어떻게 되나요?</a></td>
-						    <td class="num">90918</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>17</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title16" class="txt"><a href="/support/faq/detail-view.aspx?idx=990&type=245&searchtext=&page=1">포토플레이 취소 및 환불 규정은 어떻게 되나요?</a></td>
-						    <td class="num">90864</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>18</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title17" class="txt"><a href="/support/faq/detail-view.aspx?idx=993&type=245&searchtext=&page=1">포토플레이 출력 가능 극장은 어떻게 되나요?</a></td>
-						    <td class="num">90833</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>19</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title18" class="txt"><a href="/support/faq/detail-view.aspx?idx=991&type=245&searchtext=&page=1">포토플레이 출력은 어떻게 하나요?</a></td>
-						    <td class="num">90815</td>
-					    </tr>
-                        
-                        <tr class="first">
-                            <!--순번 오름차순으로 변경-->
-						    <td>20</td>
-                            <td>[홈페이지/모바일]</td>
-						    <td id="title19" class="txt"><a href="/support/faq/detail-view.aspx?idx=994&type=245&searchtext=&page=1">예매대행업체&#40;맥스무비, 인터파크, YES24&#41; 예매 시 적립/내가 본 영화 등록/포토플레이 제작은 어떻게 하나요?</a></td>
-						    <td class="num">90610</td>
-					    </tr>
-                        
-				
-				</tbody>
+                     </c:forEach>   
+				</tbody>	
 				</table>
 			</div>
-            <?xml version="1.0" encoding="utf-8"?>
+<!--             <?xml version="1.0" encoding="utf-8"?>
 <div class="paging">
   <ul>
     <li class="on">
@@ -842,7 +639,7 @@
     </li>
   </ul>
   <button class="btn-paging end" type="button" onclick="location='/support/faq/default.aspx?page=8&amp;type=0&amp;searchtext='">끝</button>
-</div>
+</div> -->
 			<!-- <div class="search_order">
 				<ol>
 				<li><span class="ico_oder find_q">01 자주찾는 질문 검색</span></li>
@@ -1196,6 +993,18 @@
     })(window, document, 'script', 'dataLayer', 'GTM-NNNFR3');
 </script>
 <!-- End Google Tag Manager -->
+<script>
+document.querySelector("#btn-add").addEventListener('click', (e) => {
+	location.href = '${pageContext.request.contextPath}/faq/faqForm.do';
+});
 
+document.querySelectorAll("tr[data-no]").forEach((tr) => {
+	tr.addEventListener('click', (e) => {
+		const no = tr.dataset.no;
+		console.log(no);
+		location.href = '${pageContext.request.contextPath}/faq/faqDetail.do?no=' + no;
+	});
+});
+</script>
 </body>
 </html>

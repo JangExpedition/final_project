@@ -24,12 +24,6 @@
 			#{synopsis}, 
 			#{limit_age}
 		)
-<!-- 		<selectKey order="AFTER" resultType="_int" keyProperty="no">
-			select
-				seq_movie_no.currval
-			from
-				dual
-		</selectKey> -->
 	</insert>
 	
 	<insert id="insertAttachment">
@@ -80,5 +74,21 @@
 		where
 			no = #{no}
 	</update>
+	
+	<delete id="deleteMovie">
+		delete from 
+			movie
+		where
+			no = #{no}
+	</delete>
+	
+	<select id="searchByTitle" parameterType="String" resultType="Movie">
+		select
+			*
+		from
+			movie
+		where
+			title like '%' || #{title} || '%'
+	</select>
 
 </mapper>

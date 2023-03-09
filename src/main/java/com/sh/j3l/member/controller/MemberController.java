@@ -3,6 +3,7 @@ package com.sh.j3l.member.controller;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,10 +13,13 @@ import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -25,6 +29,7 @@ import com.sh.j3l.member.model.service.MailService;
 import com.sh.j3l.member.model.service.MemberService;
 import com.sun.mail.iap.Response;
 
+import lombok.experimental.PackagePrivate;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -36,8 +41,14 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+
+
+//	@GetMapping("/memberList.do")
+//	public void memberList() {}
+
 	@Autowired
 	private MailService mailService;
+
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -50,7 +61,7 @@ public class MemberController {
 		List<Member> members = memberService.selectAllMember();
 		model.addAttribute("members", members);
 		log.debug("members = {}", members);
-		return "member/memberList";
+		return "member/members";
 	}
 
 	// 로그인 페이지 이동 메서드
@@ -84,6 +95,46 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	
+	@PostMapping("/deleteMember.do")
+	public String deleteMember(@RequestParam("id") String id, RedirectAttributes redirecAttr) {
+		int result = memberService.deleteMember(id);
+		log.debug("id ={}", id);
+		
+		if(result > 0) {
+			redirecAttr.addFlashAttribute("msg", "회원 추방 성공");
+		} else {
+			redirecAttr.addFlashAttribute("msg", "회원 추방 실패");			
+		}
+		return "redirect:/member/members.do";
+	}
+	
+//	@GetMapping("/searchMember.do")
+//	public String searchMember(
+//			@RequestParam("keyword") String keyword,
+//			Model model) {
+//		
+//		List<Member> searchMember = memberService.searchById(keyword);
+//		log.debug("searchMember = {}", searchMember);
+//		
+//		model.addAttribute("searchMember", searchMember);
+//	
+//		return "member/members";	
+//	}
+	
+	@GetMapping("/searchMember")
+	public String searchMember(@RequestParam("id") String id, Model model) {
+	    
+		List<Member> searchMember = memberService.searchById(id);
+	    log.debug("searchMember = {}", searchMember);
+	    
+	    model.addAttribute("members", searchMember);
+
+	    return "member/members";
+	    
+	}
+	
+	    
 	// 회원가입 관련 메서드들
 	// 회원가입 페이지 이동 메서드
 	@GetMapping("/memberEnroll.do")

@@ -15,8 +15,13 @@ public interface MemberDao {
 
 	Member selectOneMember(String id);
 
+	int deleteMember(String id);
+
+	List<Member> searchById(String id);
+
 	Member duplicationCheck(Member member);
 
 	int insertMember(Member member);
+
 
 }

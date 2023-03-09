@@ -19,7 +19,26 @@
 		where
 			id = #{id}
 	</select>	
+
+
 	
+	<delete id="deleteMember">
+		delete from
+			member
+		where
+			id = #{id}
+	</delete>
+	
+	<select id="searchById" parameterType="String" resultType="Member">
+	  select 
+	  	*
+	  from 
+	  	member
+	  where 
+	  	id like '%' || #{id} || '%'
+	</select>
+	
+
 	<select id="duplicationCheck" resultMap="memberMap">
 		select
 			*

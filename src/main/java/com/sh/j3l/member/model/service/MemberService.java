@@ -11,8 +11,13 @@ public interface MemberService {
 
 	Member selectOneMember(String memberId);
 
+	int deleteMember(String id);
+
+	List<Member> searchById(String id);
+
 	Member duplicationCheck(Member member);
 
 	int insertMember(Member member);
+
 
 }
