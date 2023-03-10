@@ -559,10 +559,21 @@
 			</div>
 				<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
 			<div class="search_area">
-				<legend><label for="searchtext">검색</label></legend>
+			
+			
+			<form:form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
+			  <div class="input-group">
+			    <input type="hidden" name="searchType" value="title" />
+			    <input type="text" class="form-control" style="max-width: 200px;" placeholder="주제 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
+			  </div>
+			</form:form>
+	
+				 <!-- <legend><label for="searchtext">검색</label></legend>
 				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" value="" style="width:275px;" />
-				<button type="button" class="round inblack" title="검색하기" id="btn_search" ><span>검색하기</span></button>
+				<button type="button" class="round inblack" title="검색하기" id="btn_search" ><span>검색하기</span></button> --> 
 				<div class="qu_txt">
+				
 					<em>추천검색어 :</em>
                     
                             <span class='first'> <a href="#none" >현금영수증</a></span>

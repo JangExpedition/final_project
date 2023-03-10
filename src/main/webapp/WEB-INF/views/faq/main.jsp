@@ -456,10 +456,13 @@
 				<div class="c_box qna_search">
 					<strong class="c_tit">자주찾는 질문 빠른검색</strong>
 					<legend><label for="searchtext">검색</label></legend>
-					<div class="search_box">
-						<input id="searchtext" type="text" title="검색어 입력" placeholder="검색어를 입력해 주세요." />
-						<button type="button" class="btn_search" title="검색하기" id="btn_search">검색</button>
-					</div>
+					<form action="${pageContext.request.contextPath}/member/searchMember" method="get" class="mb-3">
+					     <div class="input-group">
+					       <input type="hidden" name="searchType" value="id" />
+					       <input type="text" class="form-control" placeholder="아이디 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="id" />
+					       <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
+					     </div>
+   					</form>
 					<div class="c_qu">
                        
 						    <a href="#none">현금영수증</a>                       

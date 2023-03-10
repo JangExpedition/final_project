@@ -25,6 +25,11 @@ public class FaqServiceImpl implements FaqService{
 		return faqDao.selectAllFaq(rowBounds);
 	}
 
+	@Override
+	public List<Faq> searchByTitle(String title) {
+		return faqDao.searchByTitle(title);
+	}
+
 
 
 }

@@ -42,10 +42,6 @@ public class MemberController {
 	private MemberService memberService;
 	
 
-
-//	@GetMapping("/memberList.do")
-//	public void memberList() {}
-
 	@Autowired
 	private MailService mailService;
 
@@ -109,18 +105,7 @@ public class MemberController {
 		return "redirect:/member/members.do";
 	}
 	
-//	@GetMapping("/searchMember.do")
-//	public String searchMember(
-//			@RequestParam("keyword") String keyword,
-//			Model model) {
-//		
-//		List<Member> searchMember = memberService.searchById(keyword);
-//		log.debug("searchMember = {}", searchMember);
-//		
-//		model.addAttribute("searchMember", searchMember);
-//	
-//		return "member/members";	
-//	}
+
 	
 	@GetMapping("/searchMember")
 	public String searchMember(@RequestParam("id") String id, Model model) {

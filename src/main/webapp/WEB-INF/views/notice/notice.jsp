@@ -475,6 +475,15 @@
 				<h2 class="tit">공지/뉴스</h2>
 				<p class="stit">CGV의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
 			</div>
+			
+			<form:form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
+			  <div class="input-group">
+			    <input type="hidden" name="searchType" value="title" />
+			    <input type="text" class="form-control" style="max-width: 200px;" placeholder="주제 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
+			  </div>
+			</form:form>
+		<%-- 	<form:form action="${pageContext.request.contextPath}/notice/searchNotice" method="get" class="mb-3">
 			<div class="search_area">
 			
 				<legend><label for="c_select">검색</label></legend>
@@ -487,6 +496,7 @@
 				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" style="width:185px;" value="" />
 				<button type="button" class="round inblack" title="검색하기" id="btn_search"><span>검색하기</span></button>
 			</div>
+			</form:form> --%>
 			<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
 			<div class="c_tab_wrap">
 				<!-- <ul class="c_tab">

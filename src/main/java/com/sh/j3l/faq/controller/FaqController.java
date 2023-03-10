@@ -66,4 +66,15 @@ public class FaqController {
 		
 	}
 	
+	@GetMapping("searchFaq")
+	public String searchFaq(@RequestParam(name = "title") String title, Model model) {
+	    
+	    List<Faq> searchFaq = faqService.searchByTitle(title);
+	    log.debug("searchFaq = {}", searchFaq);
+	    
+	    model.addAttribute("faqList", searchFaq);
+	    
+	    return "faq/faq";
+	}
+	
 }

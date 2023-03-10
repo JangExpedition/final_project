@@ -78,11 +78,40 @@ tr[data-no] {cursor: pointer;}
           <td>${movie.director}</td>
           <td>${movie.limit_age}</td>
           </c:forEach>
+          <div class="pagination">
+    <c:url var="prevUrl" value="/movieList.do">
+        <c:param name="cpage" value="${movieList.previousPage}" />
+    </c:url>
+    <c:if test="${not empty movieList.previousPage}">
+        <a href="${prevUrl}">&laquo;</a>
+    </c:if>
+
+    <c:forEach var="page" begin="1" end="${movieList.totalPages}">
+        <c:url var="pageUrl" value="/movieList.do">
+            <c:param name="cpage" value="${page}" />
+        </c:url>
+        <c:if test="${page eq movieList.pageNumber}">
+            <span class="current">${page}</span>
+        </c:if>
+        <c:if test="${page ne movieList.pageNumber}">
+            <a href="${pageUrl}">${page}</a>
+        </c:if>
+    </c:forEach>
+
+    <c:url var="nextUrl" value="/movieList.do">
+        <c:param name="cpage" value="${movieList.nextPage}" />
+    </c:url>
+    <c:if test="${not empty movieList.nextPage}">
+        <a href="${nextUrl}">&raquo;</a>
+    </c:if>
+</div>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+
   
   <input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/>
   
