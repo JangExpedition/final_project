@@ -24,13 +24,6 @@
 		)
 	</insert>
 	
-<!-- 	<delete id="deleteFaq">
-		delete from
-			FAQ
-		where
-			no = #{no}
-	</delete>
-	
 	<select id="searchByTitle" parameterType="String" resultType="Faq">
 		select
 			*
@@ -38,6 +31,6 @@
 			FAQ
 		where
 			title like '%' || #{title} || '%'
-	</select> -->
-
+	</select>
+	
 </mapper>

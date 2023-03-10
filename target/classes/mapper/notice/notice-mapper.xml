@@ -24,5 +24,14 @@
 			#{content}
 		)
 	</insert>
+	
+	<select id="searchByTitle" parameterType="String" resultType="Notice">
+		select
+			*
+		from
+			notice
+		where
+			title like '%' || #{title} || '%'
+	</select>
 
 </mapper>

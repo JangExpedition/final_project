@@ -14,5 +14,7 @@ public interface FaqDao {
 
 	List<Faq> selectAllFaq(RowBounds rowBounds);
 
+	List<Faq> searchByTitle(String title);
+
 
 }

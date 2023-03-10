@@ -12,4 +12,6 @@ public interface FaqService {
 
 	List<Faq> selectAllFaq(RowBounds rowBounds);
 
+	List<Faq> searchByTitle(String title);
+
 }

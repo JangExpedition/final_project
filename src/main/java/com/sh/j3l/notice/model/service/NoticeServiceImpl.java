@@ -24,6 +24,11 @@ public class NoticeServiceImpl implements NoticeService{
 	public int insertNotice(Notice notice) {
 		return noticeDao.insertNotice(notice);
 	}
+
+	@Override
+	public List<Notice> searchByTitle(String title) {
+		return noticeDao.searchByTitle(title);
+	}
 	
 
 }

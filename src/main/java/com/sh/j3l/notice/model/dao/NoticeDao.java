@@ -14,6 +14,8 @@ public interface NoticeDao {
 
 	int insertNotice(Notice notice);
 
+	List<Notice> searchByTitle(String title);
+
 	
 
 }

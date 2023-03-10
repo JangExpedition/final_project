@@ -63,5 +63,17 @@ public class NoticeController {
 		return "redirect:/notice/notice.do";
 		
 	}
+	
+	
+	@GetMapping("searchNotice")
+	public String searchNotice(@RequestParam(name = "title") String title, Model model) {
+	    
+	    List<Notice> searchNotice = noticeService.searchByTitle(title);
+	    log.debug("searchNotice = {}", searchNotice);
+	    
+	    model.addAttribute("noticeList", searchNotice);
+	    
+	    return "notice/notice";
+	}
 
 }

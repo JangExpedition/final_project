@@ -12,4 +12,6 @@ public interface NoticeService {
 
 	int insertNotice(Notice notice);
 
+	List<Notice> searchByTitle(String title);
+
 }
