@@ -19,5 +19,7 @@ public interface MemberService {
 
 	int insertMember(Member member);
 
+	Member overlapId(String id);
+
 
 }

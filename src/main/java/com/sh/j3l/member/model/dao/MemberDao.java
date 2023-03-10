@@ -23,5 +23,6 @@ public interface MemberDao {
 
 	int insertMember(Member member);
 
+	Member overlapId(String id);
 
 }
