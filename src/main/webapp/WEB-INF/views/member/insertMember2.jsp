@@ -111,6 +111,12 @@ document.enrollFrm.addEventListener("submit", (e)=>{
 		return false;
 	}
 	
+	/* 아이디 중복검사 */
+	if(overlapId(id) !== "false"){
+		idErr.innerHTML = "이미 사용중인 아이디 입니다.";
+		return false;
+	}
+	
 	/* 비밀번호 유효성 검사 */
 	// 숫자 검사
     if(!/\d/.test(password)){
@@ -161,6 +167,18 @@ const calAge = (birth) => {
 	 }
 	 
 	 return age;
+ }
+ 
+ const overlapId = (id) => {
+	 
+	 $.ajax({
+			url: "${pageContext.request.contextPath}/member/overlapId.do",
+			data: {id},
+			success(data){
+				return data;
+			},
+			error: console.log
+		});
  }
 </script>
 </body>

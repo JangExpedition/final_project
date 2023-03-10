@@ -48,5 +48,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.insertMember(member);
 	}
 
+	@Override
+	public Member overlapId(String id) {
+		return memberDao.overlapId(id);
+	}
+
 
 }

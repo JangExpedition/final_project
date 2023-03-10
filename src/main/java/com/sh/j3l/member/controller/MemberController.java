@@ -140,11 +140,11 @@ public class MemberController {
 	@GetMapping("/memberEnroll.do")
 	public void memberEnroll() {}
 	
-	// 아이디 중복체크 페이지 이동 메서드
+	// 회원정보 중복체크 페이지 이동 메서드
 	@GetMapping("/insertMember.do")
 	public void insertMember() {}
 	
-	// 아이디 중복체크 메서드
+	// 회원정보 중복체크 메서드
 	@GetMapping("/duplicationCheck.do")
 	public String duplicationCheck(@RequestParam String name, @RequestParam String birth, @RequestParam String phone, Model model) {
 		phone = "010" + phone;
@@ -166,6 +166,16 @@ public class MemberController {
 	
 	@GetMapping("/duplication.do")
 	public void duplication() {}
+	
+	@GetMapping("/overlapId.do")
+	@ResponseBody
+	public String overlapId(@RequestParam String id) {
+		Member member = memberService.overlapId(id);
+		if(member == null)
+			return "true";
+		else
+			return "false";
+	}
 	
 	// 인증메일 발송 메서드
 	@GetMapping("/authentication.do")
