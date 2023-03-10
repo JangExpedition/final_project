@@ -291,11 +291,15 @@ create sequence seq_question_comment_no;
 -- 공지사항 테이블
 CREATE TABLE notice (
 	no number NOT NULL,
-	id varchar2(50)	NOT NULL,
 	title varchar2(50) NOT NULL,
+    classifyy varchar2(50),
 	content varchar2(4000) NOT NULL,
     constraint pk_notice_no primary key(no)
 );
+
+
+select * from notice;
+
 
 -- 공지사항 테이블 시퀀스
 create sequence seq_notice_no;
@@ -307,8 +311,11 @@ CREATE TABLE FAQ (
 	no number	NOT NULL,
 	title varchar2(200)	NOT NULL,
 	content varchar2(4000) NOT NULL,
+    classify varchar2(50),
     constraint pk_faq_no primary key(no)
 );
+
+
 
 -- 자주묻는 질문 시퀀스
 create sequence seq_faq_no;

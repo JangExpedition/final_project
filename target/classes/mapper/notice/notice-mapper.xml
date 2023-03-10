@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.notice.model.dao.NoticeDao">
+	<select id="selectAllNotice" resultMap="noticeMap">
+	
+		select
+			*
+		from
+			notice
+	</select>
+
+	<resultMap type="notice" id="noticeMap"></resultMap>
+	
+	<insert id="insertNotice">
+		insert into
+			notice(no, title, classifyy, content)
+		values
+		(
+			seq_notice_no.nextval,
+			#{title},
+			#{classifyy},
+			#{content}
+		)
+	</insert>
+
+</mapper>

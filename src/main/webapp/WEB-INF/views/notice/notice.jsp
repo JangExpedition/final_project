@@ -416,27 +416,7 @@
 </script>
 
         <div class="totalSearch_wrap">
-<!--             <label for="totalSearch">
-                <input type="text" id="header_keyword" value="" />
-                <input type="hidden" id="header_ad_keyword" name="header_ad_keyword" />
-            </label> -->
-            <!-- <button type="button" class="btn_totalSearch" id="btn_header_search">검색</button> -->
-            <!-- <iframe src="//ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@Search_txt" width="0" height="0" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe> -->
-            <!--<div class="totalSearchAutocomplete_wrap">
-                <dl class="totalSearchAutocomplete_list">
-                    <dt>영화</dt>
-                    <dd><a href="#none"><strong>전지</strong>적 작가시점</a></dd>
-                    <dd><a href="#none">내언니 <strong>전지</strong>현과 나</a></dd>
-                    <dd><a href="#none">수호<strong>전지</strong> 영웅본색</a></dd>
-                </dl>
-                <dl class="totalSearchAutocomplete_list">
-                    <dt>인물</dt>
-                    <dd><a href="#none"><strong>전지</strong>현</a></dd>
-                    <dd><a href="#none"><strong>전지</strong>희</a></dd>
-                    <dd><a href="#none">이<strong>전지</strong></a></dd>
-                </dl>
-                <a href="#none" class="btn_totalSearchAutocomplete_close">닫기</a>
-            </div>//-->
+
         </div>
     </div>
 </div>
@@ -496,53 +476,55 @@
 				<p class="stit">CGV의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
 			</div>
 			<div class="search_area">
+			
 				<legend><label for="c_select">검색</label></legend>
 				<select name="selsearchfield" id="selsearchfield" class="c_select" style="width:100px;">
 					<option selected="selected" value="0">제목</option>
 					<option value="1">내용</option>
 				</select>
+				
 				<label for="searchtext" class="hidden">검색어 입력</label>
 				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" style="width:185px;" value="" />
 				<button type="button" class="round inblack" title="검색하기" id="btn_search"><span>검색하기</span></button>
 			</div>
+			<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
 			<div class="c_tab_wrap">
-				<ul class="c_tab">
+				<!-- <ul class="c_tab">
 					<li class='on'><a href="/support/news/default.aspx?type=&searchtext=" title="선택된 탭메뉴">전체</a></li>
 					<li class=''><a href="/support/news/default.aspx?type=1&searchtext=">시스템점검</a></li>
 					<li class=''><a href="/support/news/default.aspx?type=2&searchtext=">극장</a></li>
                     <li class=''><a href="/support/news/default.aspx?type=3&searchtext=">행사/이벤트</a></li>
                     <li class=''><a href="/support/news/default.aspx?type=5&searchtext=">제휴이벤트</a></li>
                     <li class=''><a href="/support/news/default.aspx?type=4&searchtext=">기타</a></li>
-				</ul>
+				</ul> -->
 			</div>
 			<div class="tbl_area">
 				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
-				<caption>목록</caption>
+ 				<caption>목록</caption>
 				<colgroup>
-					<col style="width:70px;" />
-                    <col style="width:160px;" />
-					<col style="auto;" />
-					<col style="width:140px;" />
-					<col style="width:120px" />
+					<col style="width:40px;" />
+                    <col style="width:120px;" />
+					<col style="width:560px;" />
+					<col style="auto" />
 				</colgroup>
 				<thead>
 					<tr>
-					<th scope="col">번호</th>
-                    <th scope="col">구분</th>
-					<th scope="col" class="tit">제목</th>
-					<th scope="col">등록일</th>
-					<th scope="col">조회수</th>
+						<th scope="col">번호</th>
+	                    <th scope="col">구분</th>
+						<th scope="col" class="tit">제목</th>
+						<th scope="col">조회수</th>
 					</tr>
 				</thead>
-				<tbody> 
-					    <tr class="first">
-						    <td>1</td>
-                            <td><button type="submit"><i class="fas fa-user-times"></i></button></td>
-						    <td class="txt"><a href="/support/news/detail-view.aspx?idx=7941&page=1&searchtext=&searchfield=0&type=1">kh정보교육원</a></td>
-						    <td>2023.03.07</td>
-						    <td class="num">1</td>
+				<tbody>
+					<c:forEach items="${noticeList}" var="notice">
+                        <tr>
+						    <td>${notice.no }</td>
+                            <td>${notice.classyfyy}</td>
+						    <td>${notice.title}</td>
+						    <td>${notice.readCount}</td>
 					    </tr>
-				</tbody>
+                     </c:forEach>   
+				</tbody>	
 				</table>
 			</div>
 			<?xml version="1.0" encoding="utf-8"?>
@@ -1023,7 +1005,7 @@
 
 <script>
 document.querySelector("#btn-add").addEventListener('click', (e) => {
-	location.href = '${pageContext.request.contextPath}notice/noticeForm.do';
+	location.href = '${pageContext.request.contextPath}/notice/noticeForm.do';
 });
 
 document.querySelectorAll("tr[data-no]").forEach((tr) => {
