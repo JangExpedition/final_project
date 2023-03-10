@@ -517,10 +517,10 @@
 					</ul>
 				</div>
 				<div class="notice_area">
-                    <a href="/support/news/default.aspx">
+                    <a href="${ pageContext.request.contextPath }/notice/notice.do">
 					    <span class="tit">공지/뉴스</span>
                     </a>
-					<ul class="txt">
+					<!-- <ul class="txt">
                     
                             <li><a href="/support/news/detail-view.aspx?idx=7941&type=1">[시스템점검] 2023년 3월 시스템 점검 안내</a><span class="day">2023.03.02</span></li>
                         
@@ -532,12 +532,12 @@
                         
                             <li><a href="/support/news/detail-view.aspx?idx=7934&type=3"> 2022 SVIP 스페셜기프트 언박싱 이벤트 진행 일정 변경 안내</a><span class="day">2022.12.19</span></li>
                         
-					</ul>
-					<a href="/support/news/default.aspx" class="more">공지/뉴스 더보기</a>
-					<div class="noti_ban_area">
-						<a href="/culture-event/event/preview/?menu=7" class="ban_preview">CGV PREVIEW 시사회/무대인사</a>
-						<a href="/discount/discountlist.aspx" class="ban_discount">DISCOUNT INFO 할인카드 및 혜택 안내</a>
-					</div>
+					</ul> -->
+					<a href="${pageContext.request.contextPath}/notice/noticeForm.do" class="more">공지/뉴스 더보기</a>
+					<!-- <div class="noti_ban_area">
+						<a href="" class="ban_preview"></a>
+						<a href="" class="ban_discount">DISCOUNT INFO 할인카드 및 혜택 안내</a>
+					</div> -->
 				</div>
 			</div>
 			<!-- <div class="shortcu_area">
@@ -794,7 +794,11 @@
 </script>
  
 
-
+<style>
+*, ::after, ::before {
+    box-sizing: content-box;
+}
+</style>
 
 
 

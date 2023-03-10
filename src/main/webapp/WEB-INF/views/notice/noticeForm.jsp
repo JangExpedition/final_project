@@ -294,11 +294,11 @@
 	<div class="header">			
             <!-- 서비스 메뉴 --> 
             
-<div class="header_content">
+<!-- <div class="header_content">
     <div class="contents">
         <h1 onclick=""><a href="/"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png" alt="CGV" /></a><span>CULTUREPLEX</span></h1>
         <ul class="memberInfo_wrap">
-            <!-- Advertisement -->
+            Advertisement
             
 			<div class="ad-partner">
                 <a href="http://www.cgv.co.kr/culture-event/event/detailViewUnited.aspx?seq=31426&menu=006"  >
@@ -306,7 +306,7 @@
                 </a>					
 			</div>
             
-            <!-- /Advertisement -->
+            /Advertisement
 
             
             <li><a href="/user/login/logout.aspx" class="logout" title="로그아웃" ><img src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png" alt="로그아웃" /><span>로그아웃</span></a></li>
@@ -317,7 +317,7 @@
         </ul>
     </div>
 </div>
-
+ -->
 <script>
     //GA Analytics TopMenu 영역 LOG
     //빨강 CGV클릭
@@ -520,107 +520,7 @@
     }
 
 </script>
-<div class="nav">
-    <div class="contents">
-        <h1><a href="/" tabindex="-1"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoWhite.png" alt="CGV" /></a></h1>
-        <ul class="nav_menu">
-            <li>
-                <h2><a href="/movies/?lt=1&ft=0">영화</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/movies/?lt=1&ft=0" tabindex="-1">영화</a></h2></dt>
-                    <dd><h3><a href="/movies/?lt=1&ft=0">무비차트</a></h3></dd>
-                    <dd><h3><a href="/arthouse/">아트하우스</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/detailViewUnited.aspx?seq=30717">ICECON</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2><a href="/theaters/">극장</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/theaters/" tabindex="-1">극장</a></h2></dt>
-                    <dd><h3><a href="/theaters/">CGV 극장</a></h3></dd>
-                    <dd><h3><a href="/theaters/special/defaultNew.aspx">특별관</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2><a href="/ticket/"><strong>예매</strong></a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/ticket/" tabindex="-1">예매</a></h2></dt>
-                    <dd><h3><a href="/ticket/">빠른예매</a></h3></dd>
-                    <dd><h3><a href="/reserve/show-times/">상영스케줄</a></h3></dd>
-                    <dd><h3><a href="/ticket/eng/newdefault.aspx">English Ticketing</a></h3></dd>
-                    <dd><h3><a href="/reserve/show-times/eng/">English Schedule</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2><a href="/culture-event/popcorn-store/">스토어</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/culture-event/popcorn-store/" tabindex="-1">스토어</a></h2></dt>
-                    
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=2">영화관람권</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=3">기프트카드</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=4">콤보</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=5">팝콘</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=6">음료</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=7">스낵</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=10">플레이존</a></h3></dd>
-                        
-                    <dd><h3><a href="https://brand.naver.com/cgv" class="arrowR" target="_blank">씨네샵</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2 onclick="gaEventLog('PC_GNB','주메뉴_이벤트','')"><a href="/culture-event/event/defaultNew.aspx">이벤트</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/culture-event/event/defaultNew.aspx?mCode=001" tabindex="-1">이벤트</a></h2></dt>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=001">SPECIAL</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=004">영화/예매</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=008">멤버십/CLUB</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=005">CGV 극장별</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=006">제휴할인</a></h3></dd>
-                    <dd><h3><a href="/user/mycgv/event/result_list.aspx">당첨자 발표</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/end-list.aspx">종료된 이벤트</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2 onclick="gaEventLog('PC_GNB','주메뉴_해택','')"><a href="/discount/discountlist.aspx">혜택</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/discount/discountlist.aspx" tabindex="-1">혜택</a></h2></dt>
-                    <dd><h3><a href="/discount/discountlist.aspx">CGV 할인정보</a></h3></dd>
-                    <dd><h3><a href="https://www.cgv.co.kr/user/memberShip/ClubService.aspx">CLUB 서비스</a></h3></dd>
-                    <dd><h3><a href="/user/vip-lounge/">VIP 라운지</a></h3></dd>
-                </dl>
-            </li>
-        </ul>
-        <div class="totalSearch_wrap">
-            <label for="totalSearch">
-                <input type="text" id="header_keyword" value="" />
-                <input type="hidden" id="header_ad_keyword" name="header_ad_keyword" />
-            </label>
-            <button type="button" class="btn_totalSearch" id="btn_header_search">검색</button>
-            <iframe src="//ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@Search_txt" width="0" height="0" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
-            <!--<div class="totalSearchAutocomplete_wrap">
-                <dl class="totalSearchAutocomplete_list">
-                    <dt>영화</dt>
-                    <dd><a href="#none"><strong>전지</strong>적 작가시점</a></dd>
-                    <dd><a href="#none">내언니 <strong>전지</strong>현과 나</a></dd>
-                    <dd><a href="#none">수호<strong>전지</strong> 영웅본색</a></dd>
-                </dl>
-                <dl class="totalSearchAutocomplete_list">
-                    <dt>인물</dt>
-                    <dd><a href="#none"><strong>전지</strong>현</a></dd>
-                    <dd><a href="#none"><strong>전지</strong>희</a></dd>
-                    <dd><a href="#none">이<strong>전지</strong></a></dd>
-                </dl>
-                <a href="#none" class="btn_totalSearchAutocomplete_close">닫기</a>
-            </div>//-->
-        </div>
-    </div>
-</div>
+
             <!-- 서브 메뉴 -->			
 	</div>
 	<!-- E Header -->
@@ -645,12 +545,9 @@
         고객센터 메뉴</h2>
     <div class="snb">
         <ul>
-            <li class=''><a href="/support/default.aspx">고객센터 메인<i></i></a></li>
-            <li class=''><a href="/support/faq/default.aspx" title="현재선택">자주찾는 질문<i></i></a></li>
-            <li class=''><a href="/support/news/default.aspx">공지/뉴스<i></i></a></li>
-            <li class='on'><a href="/support/qna/default.aspx">이메일 문의<i></i></a></li>
-            
-            <li class=''><a href="/support/lease/default.aspx">단체/ 대관 문의<i></i></a></li>            
+            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
+            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faq.do" title="현재선택">자주찾는 질문<i></i></a></li>
+            <li class=''><a href="${ pageContext.request.contextPath }/notice/notice.do">공지/뉴스<i></i></a></li>          
             
             
           
@@ -670,7 +567,7 @@
     </div>
 </div>
 
-		<div class="col-detail">
+		<%-- <div class="col-detail">
 			<div class="email_list_area">
 				<div class="customer_top">
 					<h2 class="tit">이메일 문의</h2>
@@ -684,7 +581,7 @@
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
 <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMTg2NjQxNTUxZGSeDpyMtHK/Zwe/eVXr2kc/8KgtFw==" />
-</div>
+</div> --%>
 
 <script type="text/javascript">
 //<![CDATA[
@@ -728,14 +625,15 @@ function __doPostBack(eventTarget, eventArgument) {
                     </div>
                 </form>
                 <!-- 팝업끝 -->
-			    <form id="form1" name="form1" method="post" novalidate="novalidate" enctype="multipart/form-data" >
+			    <form:form name="faqFrm" action="${pageContext.request.contextPath}/notice/noticeEnroll.do" method="post">
 					
                     <input type="hidden" id="hIsTemp" name="hIsTemp" value="N" />
                     <input type="hidden" id="hIdx" name="hIdx" value="" />
                     <fieldset>
 						<legend>이메일 문의</legend>
 						<div class="tbl_area">
-							<p class="tbl_info_txt">체크(<em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em>)된 항목은 필수 입력 사항입니다.</p>
+							<p class="tbl_info_txt"><em></em></p>
+
 
 							<table cellspacing="0" cellpadding="0" class="tbl_notice_list tbl_left">
 								<caption>목록</caption>
@@ -746,94 +644,43 @@ function __doPostBack(eventTarget, eventArgument) {
                                     <col style="width:303px" />
 								</colgroup>
 								<tbody>
-                                    <tr>
-										<th scope="row"><label for="inp_name">이름</label></th>
-										<td colspan="3"><strong>정인철</strong></td>
-                                        <input type="hidden" id="HiddenUserID"      name="HiddenUserID" value="79b92931ca3f9d98efe6462d2e73cfbf"/>
-                                        <input type="hidden" id="HiddenUserName" name="HiddenUserName" value="fcc4582036e39f0d"/>
-									</tr>
-									<tr>
-										<th scope="row">휴대전화</th>
-										<td><strong>010-****-6917</strong></td>
-                                            <input type="hidden" id="HiddenMobile1" name="HiddenMobile1" value="807e3bc4b9fbc073831d6d618affb790"/>
-										<th scope="row">이메일</th>
-										<td><span>ju**78978978@naver.com</span></td>
-                                            <input type="hidden" id="HiddenEmail1" name="HiddenEmail1" value="728bba025a70ce2c54153873f587b1c1e0ebb49324169d6d"/>
-									</tr>
-                                    <tr class="check_info">
-                                        <td colspan="4">
-                                            <div>
-                                                <strong>※  문의에 대한 빠른 답변을 위해 회원 가입 시 입력하신 연락처를 확인해주세요.</strong>
-                                                <a href="https://www.cjone.com/cjmweb/member/passwd.do?coopco_cd=7010&brnd_cd=1000" id="A1" class="round gray on" title="수정" target="_blank"><span>수정</span></a>
-                                            </div>
-                                            <div class="desc_miso">
-                                                <p class="desc_txt1">고객님의 문의에 답변하는 직원은 <em>고객 여러분의 가족 중 한 사람</em>일 수 있습니다.</p>
-                                                <p class="desc_txt2">CJ는 고객의 언어폭력(비하, 욕설, 반말, 성희롱 등)으로부터 고객상담직원을 보호하기 위해<br />관련 법에 따라 수사기관에 필요한 조치를요구할 수 있으며, 형법에 의해 처벌 대상이 될 수 있습니다.</p>
-                                            </div>
-                                        </td>
-                                    </tr>
-									<tr>
-										<th scope="row">문의유형 <em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em></th>
-										<td colspan="3">
-											<ul class="type_list">
-												<li id="li_ra_1" class="on"><input type="radio" checked="checked" id="inp_type01" name="sel_qnatype" value="1249"  /><label for="inp_type01">문의</label></li>
-												<li id="li_ra_2" ><input type="radio" id="inp_type02" name="sel_qnatype" value="1250" /><label for="inp_type02">불만</label></li>
-												<li id="li_ra_3" ><input type="radio" id="inp_type03" name="sel_qnatype" value="1251" /><label for="inp_type03">칭찬</label></li>
-												<li id="li_ra_4" ><input type="radio" id="inp_type04" name="sel_qnatype" value="1252" /><label for="inp_type04">제안</label></li>
-                                                <li id="li_ra_5" ><input type="radio" id="inp_type05" name="sel_qnatype" value="2991" /><label for="inp_type05">분실물</label></li>
-											</ul>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">영화관 선택</th>
-										<td colspan="3">
-											<ul class="type_list">
-												<li class="on"><input type="radio" id="no_sel" name="sel_theaterchoise" checked="checked" value="0"  /><label for="no_sel">선택하지 않음</label></li>
-												<li><input type="radio" id="sel" name="sel_theaterchoise" value="1"  /><label for="sel">선택함</label></li>
-											</ul>
-											<label for="sel_t_group" class="hidden">국내,국외 선택</label>
-											<select title="국내,국외 선택" class="sel01" id="sel_t_group" name="sel_t_group"  disabled="disabled" style="width: 96px;" >
-												<option value="dm">국내</option>
-                                                <option value="oc">국외</option>
-											</select>
-											<label for="sel_regioncode" class="hidden">지역 선택</label>
-											<select title="지역 선택" class="sel01" id="sel_regioncode" name="sel_regioncode"  disabled="disabled" style="width: 114px;">
-												<option value="">지역 선택</option>
-											</select>
-											<label for="sel_theatercode" class="hidden">영화관 선택</label>
-											<select title="영화관 선택" class="sel01" id="sel_theatercode" name="sel_theatercode"  disabled="disabled" style="width: 114px;">
-												<option value="">영화관 선택</option>
-											</select>
-										</td>
-									</tr>
 									<tr>
 										<th scope="row"><label for="inp_title">제목 <em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em></label></th>
 										<td colspan="3">
-											<input type="text" id="inp_title" name="inp_title" class="inp01" style="width: 672px;" />
+											<input type="text" id="title" name="title" class="inp01" style="width: 672px;" />
+										</td>
+									</tr>
+									
+									<tr>
+										<th scope="row">구분  <em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em></th>
+										<td colspan="3">
+											<select class="form-select" name="classifyy">
+										      <option value="JUMGUM" selected>점검</option>
+										      <option value="GITA" selected>기타</option>
+										      <option value="HAENGSA" selected>행사</option>
+										      <option value="EVENT">이벤트</option>
+										      <option value="GKJANG">극장</option>
+			    							</select>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="inp_textbox">내용 <em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em></label></th>
 										<td colspan="3">
-											<textarea cols="60" rows="5" id="inp_textbox" name="inp_textbox"  class="inp_txtbox01"  style=" height:94px !important;" onkeyup="javascript:checkByte(this,5000,'sp_ad_content_size_1', 'sp_ad_content_size_2');" placeholder="※문의 내용 및 첨부파일 내에 개인정보(신용카드번호, 계좌번호, 주민번호 등)가 포함되지 않도록 유의하시기 바랍니다. &#13;&#10;※ 이벤트 굿즈 재고 문의 안내  &#13;&#10;   경품 특성상 실시간으로 소진되어 재고 안내가 어려운 관계로 문의 글에 대한 답변이 어렵습니다.&#13;&#10;&#13;&#10;[재고 확인 불가 상품]&#13;&#10;- 관람 특전 굿즈 재고 (포스터/뱃지/엽서/필름 마크 등의 영화 관람 시 제공되는 굿즈 상품 모두 포함)&#13;&#10;- 씨네샵 재고/ 매점 프로모션 콤보 재고 (상품 판매 여부 및 재고 등)&#13;&#10;- 선재물 재고 (영화 전단지 비치 여부 및 재고 등)" ></textarea>
+											<textarea cols="60" rows="5" id="content" name="content"  class="inp_txtbox01"  style=" height:94px !important;" onkeyup="javascript:checkByte(this,5000,'sp_ad_content_size_1', 'sp_ad_content_size_2');" ></textarea>
 											<p class="byte_info"><span id="sp_ad_content_size_1">0</span>/5000BYTE <span>(<span id="sp_ad_content_size_2">0</span>/2500자)</span></p>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="voc_upload_file">첨부파일</label></th>
-										<td colspan="3">
-                                             <input type="file" id="voc_upload_file" name="voc_upload_file" title="voc파일 업로드" size="51" onclick="javascript:alert('주민번호 등 개인정보가 포함된 파일이 첨부되지 않도록 유의하시기 바랍니다.');" />
 										</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
+						<br>
+						</br>
 						<div class="box-btn qna_email">
-							<a style="margin-left:5px" href="/support/default.aspx" class="round gray"><span style="padding:0 14px;">취소</span></a>
+							<a style="margin-left:5px" href="${pageContext.request.contextPath}/notice/notice.do" class="round gray"><span style="padding:0 14px;">취소</span></a>
                             <button style="width:80px" class="round inred" type="submit" id="emailsubmit" ><span>등록하기</span></button>
 						</div>
 					</fieldset>
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</div>
@@ -853,8 +700,8 @@ function __doPostBack(eventTarget, eventArgument) {
                     return false;
                 }
 
-                if ($('input:radio[name="sel_qnatype"]:checked').length < 1) {
-                    alert("문의유형을 선택해 주세요.");
+                if ($('input:radio[name="sel_qnatype"]:checked').length > 1) {
+                    alert("구분을 선택해 주세요.");
                     return false;
                 }
 
