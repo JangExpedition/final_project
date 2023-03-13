@@ -10,11 +10,6 @@
 	<jsp:param value="회원가입<회원서비스|영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/insertMember2.css"/>
-<c:if test="${ msg != null }">
-	<script>
-		alert("${msg}");
-	</script>
-</c:if>
 <section id="insertMemberSection">
 	<h1>회원가입</h1>
 	<p id="enrollIntro">회원가입으로 혜택도 받고! 포인트도 쌓고!</p>
@@ -102,8 +97,8 @@ document.enrollFrm.addEventListener("submit", (e)=>{
 	const passwordCheck = e.target.passwordCheck.value;
 	const birth = e.target.birth.value;
 	const idErr = document.querySelector("#idErr");
-	const passwordError = document.querySelector("#passwordErr")
-	const passwordCheckError = document.querySelector("#passwordErr")
+	const passwordError = document.querySelector("#passwordErr");
+	const passwordCheckError = document.querySelector("#passwordCheckError");
 	
 	/* 아이디 유효성 검사 */
 	if(!/^[A-Za-z0-9]{4,12}$/.test(id)){
@@ -112,7 +107,9 @@ document.enrollFrm.addEventListener("submit", (e)=>{
 	}
 	
 	/* 아이디 중복검사 */
-	if(overlapId(id) !== "false"){
+	const isOK = overlapId(id); 
+	console.log(isOK);
+	if(isOK !== "true"){
 		idErr.innerHTML = "이미 사용중인 아이디 입니다.";
 		return false;
 	}
@@ -151,6 +148,7 @@ document.enrollFrm.addEventListener("submit", (e)=>{
 	e.target.submit();
  });
  
+ /* 만 나이 검사 메서드 */
 const calAge = (birth) => {
 	 const today = new Date();
 	 
@@ -169,16 +167,24 @@ const calAge = (birth) => {
 	 return age;
  }
  
+ /* 아이디 중복검사 메서드 */
  const overlapId = (id) => {
+	 
+	 let result;
 	 
 	 $.ajax({
 			url: "${pageContext.request.contextPath}/member/overlapId.do",
 			data: {id},
+			async : false,
 			success(data){
-				return data;
+				console.log(data, typeof data);
+				result = data;
 			},
 			error: console.log
 		});
+	 
+	 return result;
+	 
  }
 </script>
 </body>

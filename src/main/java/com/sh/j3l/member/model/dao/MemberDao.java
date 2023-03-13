@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.sh.j3l.member.model.dto.Member;
 
@@ -23,6 +24,10 @@ public interface MemberDao {
 
 	int insertMember(Member member);
 
-	Member overlapId(String id);
+	Member selectMemberById(String id);
+
+	int insertAuthority(String id);
+
+	int updateEmail(@Param("id") String id, @Param("email") String email);
 
 }

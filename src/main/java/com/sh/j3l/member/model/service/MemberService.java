@@ -19,7 +19,8 @@ public interface MemberService {
 
 	int insertMember(Member member);
 
-	Member overlapId(String id);
+	Member selectMemberById(String id);
 
+	int updateEmail(String id, String email);
 
 }
