@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+
+/*글쓰기버튼*/
+input#btn-add {float: right; margin: 0 0 15px; margin-left: 5cm;}
+tr[data-no] {cursor: pointer;}

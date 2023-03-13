@@ -14,12 +14,14 @@
 	
 	<insert id="insertFaq">
 		insert into
-			FAQ (no, title, content, classify)
+			FAQ (no, title, content, read_count, created_at, classify)
 		values
 		(
 			seq_faq_no.nextval,
 			#{title},
 			#{content},
+			#{readCount},
+			#{createdAt},
 			#{classify}
 		)
 	</insert>
@@ -31,6 +33,15 @@
 			FAQ
 		where
 			title like '%' || #{title} || '%'
+	</select>
+	
+	<select id="selectOneFaq" resultMap="faqMap">
+		select
+			*
+		from
+			faq
+		where
+			no = #{no}
 	</select>
 	
 </mapper>

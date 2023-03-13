@@ -7,11 +7,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
-    
+    	<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/noticeList.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Expires" content="-1" />
@@ -22,13 +19,13 @@
     <meta name="keywords" content="CGV, 시지브이, 영화관, 극장, 영화, 티켓, 박스오피스, 극장, Movie, Theater, Cinema, Cgv, cgv, 예매, 상영작" />
     <meta name="description" content="CGV는 선진화된 관람문화와 최고의 서비스로 고객에게 잊을 수 없는 감동을 선사합니다. CGV홈페이지를 통해 영화 예매뿐만 아니라 그 이상의 서비스와 감동을 전달하고, 다양한 즐거움과 특별한 경험을 제공하고자 합니다." />
     <meta property="og:site_name" content="영화 그 이상의 감동. CGV"/>
-    <meta id="ctl00_og_title" property="og:title" content="자주 찾는 질문 &lt; 고객센터 | 영화 그 이상의 감동. CGV"></meta>
+    <meta id="ctl00_og_title" property="og:title" content="공지/뉴스 &lt; 고객센터 | 영화 그 이상의 감동. CGV"></meta>
     
     
     <meta id="ctl00_og_image" property="og:image" content="https://img.cgv.co.kr/WebApp/images/common/logo_new_kakao_prevw.png"></meta>
     <link rel="alternate" href="http://m.cgv.co.kr" />
     <link rel="shortcut icon" href="https://img.cgv.co.kr/theater_img/favicon.ico" type="image/x-icon" />
-    <title id="ctl00_headerTitle">자주 찾는 질문 &lt; 고객센터 | 영화 그 이상의 감동. CGV</title>
+    <title id="ctl00_headerTitle">공지/뉴스 &lt; 고객센터 | 영화 그 이상의 감동. CGV</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://img.cgv.co.kr/R2014/images/favicon.ico" />
     <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/webfont.css" />
 	<link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/reset.css" />
@@ -41,7 +38,7 @@
     <link rel="stylesheet" media="print" type="text/css" href="https://img.cgv.co.kr/R2014/css/print.css" />    
     <link rel="stylesheet" type="text/css" href="https://img.cgv.co.kr/R2014/js/jquery.ui/smoothness/jquery-ui-1.10.4.custom.min.css" />
     
-    <script type="text/javascript" src="/common/js/extraTheaters.js"></script>
+<!--     <script type="text/javascript" src="/common/js/extraTheaters.js"></script> -->
     <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/app.config.js"></script>
     <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.plugin/jquery.tmpl.min.js"></script>
@@ -80,11 +77,11 @@
     <!--/각페이지 Header End--> 
     <script type="text/javascript">
         //<![CDATA[
-        _TRK_CP = "/고객센터/자주 찾는 질문";
+        _TRK_CP = "/고객센터/공지/뉴스";
 
-        app.config('staticDomain', 'https://img.cgv.co.kr/R2014/')
+    /*     app.config('staticDomain', 'https://img.cgv.co.kr/R2014/')
             .config('imageDomain', 'https://img.cgv.co.kr')
-            .config('isLogin', 'False');
+            .config('isLogin', 'False'); */
 
         
         // AD FLOAT
@@ -193,11 +190,27 @@
 </div>    
 <div id="cgvwrap">
     
-    
-
+  <!--   
+    <div class="cgv-ad-wrap" id="cgv_main_ad">
+        <div id="TopBarWrapper" class="sect-head-ad">
+            <div class="top_extend_ad_wrap">
+                <div class="adreduce" id="adReduce">                    
+                    <iframe src="//ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@TopBar_EX" width="100%" height="80" title="" frameborder="0" scrolling="no" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" name="TopBanner" id="TopBanner"></iframe>
+                </div> 
+                <div class="adextend" id="adExtend"></div>
+            </div>//.top_extend_ad_wrap
+        </div>    
+    </div>    
+	 -->
+      <!-- S Header
+        Description
+        - class 'nav' 에 class 'active' 추가시 서브메뉴노출
+        - class 'nav' 에 class 'fixed' 추가시 상단고정되며 스타일 변경됨
+     -->
 	<div class="header">			
             <!-- 서비스 메뉴 --> 
             
+
 
 <script>
     //GA Analytics TopMenu 영역 LOG
@@ -221,7 +234,7 @@
            
 			<!-- 서브 메뉴 -->
 			
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
         $('.nav_menu > li > h2 > a').on({
             mouseenter: function (e) {
@@ -239,8 +252,7 @@
                 }
             }
         });
- -->
-<!--  <script>
+
         /********************************************************
         //서브메뉴 구글 GA Analytics 로그 처리 - 2022.01.12 myilsan
         ********************************************************/
@@ -401,110 +413,15 @@
         // eval("try{trk_clickTrace('EVT', '" + title + "')}catch(_e){}");
     }
 
-</script> -->
-<!-- <div class="nav">
-    <div class="contents">
-        <h1><a href="/" tabindex="-1"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoWhite.png" alt="CGV" /></a></h1>
-        <ul class="nav_menu">
-            <li>
-                <h2><a href="/movies/?lt=1&ft=0">영화</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/movies/?lt=1&ft=0" tabindex="-1">영화</a></h2></dt>
-                    <dd><h3><a href="/movies/?lt=1&ft=0">무비차트</a></h3></dd>
-                    <dd><h3><a href="/arthouse/">아트하우스</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/detailViewUnited.aspx?seq=30717">ICECON</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2><a href="/theaters/">극장</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/theaters/" tabindex="-1">극장</a></h2></dt>
-                    <dd><h3><a href="/theaters/">CGV 극장</a></h3></dd>
-                    <dd><h3><a href="/theaters/special/defaultNew.aspx">특별관</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2><a href="/ticket/"><strong>예매</strong></a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/ticket/" tabindex="-1">예매</a></h2></dt>
-                    <dd><h3><a href="/ticket/">빠른예매</a></h3></dd>
-                    <dd><h3><a href="/reserve/show-times/">상영스케줄</a></h3></dd>
-                    <dd><h3><a href="/ticket/eng/newdefault.aspx">English Ticketing</a></h3></dd>
-                    <dd><h3><a href="/reserve/show-times/eng/">English Schedule</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2><a href="/culture-event/popcorn-store/">스토어</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/culture-event/popcorn-store/" tabindex="-1">스토어</a></h2></dt>
-                    
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=2">영화관람권</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=3">기프트카드</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=4">콤보</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=5">팝콘</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=6">음료</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=7">스낵</a></h3></dd>
-                        
-                            <dd><h3><a href="/culture-event/popcorn-store/store-category.aspx?CategoryIdx=10">플레이존</a></h3></dd>
-                        
-                    <dd><h3><a href="https://brand.naver.com/cgv" class="arrowR" target="_blank">씨네샵</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2 onclick="gaEventLog('PC_GNB','주메뉴_이벤트','')"><a href="/culture-event/event/defaultNew.aspx">이벤트</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/culture-event/event/defaultNew.aspx?mCode=001" tabindex="-1">이벤트</a></h2></dt>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=001">SPECIAL</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=004">영화/예매</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=008">멤버십/CLUB</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=005">CGV 극장별</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/defaultNew.aspx?mCode=006">제휴할인</a></h3></dd>
-                    <dd><h3><a href="/user/mycgv/event/result_list.aspx">당첨자 발표</a></h3></dd>
-                    <dd><h3><a href="/culture-event/event/end-list.aspx">종료된 이벤트</a></h3></dd>
-                </dl>
-            </li>
-            <li>
-                <h2 onclick="gaEventLog('PC_GNB','주메뉴_해택','')"><a href="/discount/discountlist.aspx">혜택</a></h2>
-                <dl class="nav_overMenu">
-                    <dt><h2><a href="/discount/discountlist.aspx" tabindex="-1">혜택</a></h2></dt>
-                    <dd><h3><a href="/discount/discountlist.aspx">CGV 할인정보</a></h3></dd>
-                    <dd><h3><a href="https://www.cgv.co.kr/user/memberShip/ClubService.aspx">CLUB 서비스</a></h3></dd>
-                    <dd><h3><a href="/user/vip-lounge/">VIP 라운지</a></h3></dd>
-                </dl>
-            </li>
-        </ul>
+</script>
+
         <div class="totalSearch_wrap">
-            <label for="totalSearch">
-                <input type="text" id="header_keyword" value="" />
-                <input type="hidden" id="header_ad_keyword" name="header_ad_keyword" />
-            </label>
-            <button type="button" class="btn_totalSearch" id="btn_header_search">검색</button>
-            <iframe src="//ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@Search_txt" width="0" height="0" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
-            <div class="totalSearchAutocomplete_wrap">
-                <dl class="totalSearchAutocomplete_list">
-                    <dt>영화</dt>
-                    <dd><a href="#none"><strong>전지</strong>적 작가시점</a></dd>
-                    <dd><a href="#none">내언니 <strong>전지</strong>현과 나</a></dd>
-                    <dd><a href="#none">수호<strong>전지</strong> 영웅본색</a></dd>
-                </dl>
-                <dl class="totalSearchAutocomplete_list">
-                    <dt>인물</dt>
-                    <dd><a href="#none"><strong>전지</strong>현</a></dd>
-                    <dd><a href="#none"><strong>전지</strong>희</a></dd>
-                    <dd><a href="#none">이<strong>전지</strong></a></dd>
-                </dl>
-                <a href="#none" class="btn_totalSearchAutocomplete_close">닫기</a>
-            </div>//
+
         </div>
     </div>
-</div> -->
+</div>
             <!-- 서브 메뉴 -->			
-	</div>
+
 	<!-- E Header -->
 
 	<!-- Contaniner -->
@@ -517,6 +434,7 @@
             
             <!-- Contents Start -->
 			
+   
 <!-- Contents Area -->
 <div id="contents">
 	<!-- Contents Start -->
@@ -528,17 +446,17 @@
     <div class="snb">
         <ul>
             <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faq.do" title="현재선택">자주찾는 질문<i></i></a></li>
-            <li class=''><a href="${ pageContext.request.contextPath }/notice/notice.do">공지/뉴스<i></i></a></li>
+            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+            <li class='on'><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
 <!--             <li class=''><a href="/support/qna/default.aspx">이메일 문의<i></i></a></li>
             
-            <li class=''><a href="/support/lease/default.aspx">단체/ 대관 문의<i></i></a></li>     -->        
+            <li class=''><a href="/support/lease/default.aspx">단체/ 대관 문의<i></i></a></li>   -->          
             
             
           
         </ul>
     </div>
-    <div class="ad-area">
+    <!-- <div class="ad-area">
         <div class="ad-partner01">
             <iframe src="http://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@C_Rectangle"
                 width="160" height="300" title="기업광고-하나TV쇼핑" frameborder="0" scrolling="no" marginwidth="0"
@@ -549,17 +467,14 @@
                 height="35" title="영화광고-꾸뻬씨의행복여행" frameborder="0" scrolling="no" marginwidth="0"
                 marginheight="0" name="Image_text" id="Image_text"></iframe>
         </div>
-    </div>
+    </div> -->
 </div>
 
 		<div class="col-detail">
 			<div class="customer_top">
-				<h2 class="tit">자주찾는 질문</h2>
-				<p class="stit">회원님들께서 가장 자주하시는 질문을 모았습니다. <br />궁금하신 내용에 대해 검색해보세요.</p>
+				<h2 class="tit">공지/뉴스</h2>
+				<p class="stit">CGV의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
 			</div>
-				<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
-			<div class="search_area">
-			
 			
 			<form:form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
 			  <div class="input-group">
@@ -568,31 +483,31 @@
 			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 			  </div>
 			</form:form>
-	
-				 <!-- <legend><label for="searchtext">검색</label></legend>
-				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" value="" style="width:275px;" />
-				<button type="button" class="round inblack" title="검색하기" id="btn_search" ><span>검색하기</span></button> --> 
-				<div class="qu_txt">
+		<%-- 	<form:form action="${pageContext.request.contextPath}/notice/searchNotice" method="get" class="mb-3">
+			<div class="search_area">
+			
+				<legend><label for="c_select">검색</label></legend>
+				<select name="selsearchfield" id="selsearchfield" class="c_select" style="width:100px;">
+					<option selected="selected" value="0">제목</option>
+					<option value="1">내용</option>
+				</select>
 				
-					<em>추천검색어 :</em>
-                    
-                            <span class='first'> <a href="#none" >현금영수증</a></span>
-                        
-                            <span class=''> <a href="#none" >관람권</a></span>
-                        
-                            <span class=''> <a href="#none" >예매</a></span>
-                        
-                            <span class=''> <a href="#none" >환불</a></span>
-                        
-                            <span class=''> <a href="#none" >취소</a></span>
-                        
-                            <span class=''> <a href="#none" ></a></span>
-                        
-				</div>
+				<label for="searchtext" class="hidden">검색어 입력</label>
+				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" style="width:185px;" value="" />
+				<button type="button" class="round inblack" title="검색하기" id="btn_search"><span>검색하기</span></button>
 			</div>
-			<br></br>
-	<!-- 		<br></br>
-			<br></br> -->
+			</form:form> --%>
+			<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
+			<div class="c_tab_wrap">
+				<!-- <ul class="c_tab">
+					<li class='on'><a href="/support/news/default.aspx?type=&searchtext=" title="선택된 탭메뉴">전체</a></li>
+					<li class=''><a href="/support/news/default.aspx?type=1&searchtext=">시스템점검</a></li>
+					<li class=''><a href="/support/news/default.aspx?type=2&searchtext=">극장</a></li>
+                    <li class=''><a href="/support/news/default.aspx?type=3&searchtext=">행사/이벤트</a></li>
+                    <li class=''><a href="/support/news/default.aspx?type=5&searchtext=">제휴이벤트</a></li>
+                    <li class=''><a href="/support/news/default.aspx?type=4&searchtext=">기타</a></li>
+				</ul> -->
+			</div>
 			<div class="tbl_area">
 				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
  				<caption>목록</caption>
@@ -606,101 +521,102 @@
 					<tr>
 						<th scope="col">번호</th>
 	                    <th scope="col">구분</th>
-						<th scope="col" class="tit">제목</th>
-						<th scope="col">조회수</th>
+						<th scope="col">제목</th>
+ 						<th scope="col">조회수</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${faqList}" var="faq">
-                        <tr>
-						    <td>${faq.no }</td>
-                            <td>${faq.classyfy}</td>
-						    <td>${faq.title}</td>
+					<c:forEach items="${noticeList}" var="notice">
+                        <tr data-no="${notice.no}">
+						    <td>${notice.no }</td>
+                            <td>${notice.classifyy.koreanNamee}</td>
+						    <td>${notice.title}</td>
+						    <td>${notice.readCount}</td>
 					    </tr>
                      </c:forEach>   
 				</tbody>	
 				</table>
 			</div>
-<!--             <?xml version="1.0" encoding="utf-8"?>
+			<?xml version="1.0" encoding="utf-8"?>
 <div class="paging">
   <ul>
     <li class="on">
       <a title="1 페이지 선택" href=" #pg">1</a>
     </li>
     <li>
-      <a href="/support/faq/default.aspx?page=2&amp;type=0&amp;searchtext=">2</a>
+      <a href="/support/news/default.aspx?page=2&amp;type=&amp;searchtext=&amp;searchfield=0">2</a>
     </li>
     <li>
-      <a href="/support/faq/default.aspx?page=3&amp;type=0&amp;searchtext=">3</a>
+      <a href="/support/news/default.aspx?page=3&amp;type=&amp;searchtext=&amp;searchfield=0">3</a>
     </li>
     <li>
-      <a href="/support/faq/default.aspx?page=4&amp;type=0&amp;searchtext=">4</a>
+      <a href="/support/news/default.aspx?page=4&amp;type=&amp;searchtext=&amp;searchfield=0">4</a>
     </li>
     <li>
-      <a href="/support/faq/default.aspx?page=5&amp;type=0&amp;searchtext=">5</a>
+      <a href="/support/news/default.aspx?page=5&amp;type=&amp;searchtext=&amp;searchfield=0">5</a>
     </li>
     <li>
-      <a href="/support/faq/default.aspx?page=6&amp;type=0&amp;searchtext=">6</a>
+      <a href="/support/news/default.aspx?page=6&amp;type=&amp;searchtext=&amp;searchfield=0">6</a>
     </li>
     <li>
-      <a href="/support/faq/default.aspx?page=7&amp;type=0&amp;searchtext=">7</a>
+      <a href="/support/news/default.aspx?page=7&amp;type=&amp;searchtext=&amp;searchfield=0">7</a>
     </li>
     <li>
-      <a href="/support/faq/default.aspx?page=8&amp;type=0&amp;searchtext=">8</a>
+      <a href="/support/news/default.aspx?page=8&amp;type=&amp;searchtext=&amp;searchfield=0">8</a>
+    </li>
+    <li>
+      <a href="/support/news/default.aspx?page=9&amp;type=&amp;searchtext=&amp;searchfield=0">9</a>
+    </li>
+    <li>
+      <a href="/support/news/default.aspx?page=10&amp;type=&amp;searchtext=&amp;searchfield=0">10</a>
     </li>
   </ul>
-  <button class="btn-paging end" type="button" onclick="location='/support/faq/default.aspx?page=8&amp;type=0&amp;searchtext='">끝</button>
-</div> -->
-			<!-- <div class="search_order">
-				<ol>
-				<li><span class="ico_oder find_q">01 자주찾는 질문 검색</span></li>
-				<li><span class="ico_oder email_i">02 이메일 문의</span><a href="/support/qna/default.aspx"><img src="http://img.cgv.co.kr/support/faq/btn_inquiry.png" alt="문의" /></a></li>	
-                <li style="text-align: left;"><span class="ico_oder tel_i">03 고객센터 전화문의</span><span class="num">1544-1122<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(상담가능 시간, 월~금 09:00~18:00)</span></li>
-				</ol>
-			</div> -->
+  <button class="btn-paging next" type="button" onclick="location='/support/news/default.aspx?page=11&amp;type=&amp;searchtext=&amp;searchfield=0'">다음</button>
+  <button class="btn-paging end" type="button" onclick="location='/support/news/default.aspx?page=142&amp;type=&amp;searchtext=&amp;searchfield=0'">끝</button>
+</div>
 		</div>
 	</div>
 	<!-- //Contents End -->
 </div>
 <!-- //Contents Area -->
-
 <script type="text/javascript">
+
 //<![CDATA[
 
     (function ($) {
         $(function () {
 
+            var searchfield = "0";
+
+            $('#selsearchfield').val(searchfield).attr("selected", "selected");
+
             $('#btn_search').on('click', function () {
-                
 //                if ($('#searchtext').val() == "") {
 //                    alert("검색어를 입력해 주세요.");
 //                    $('#searchtext').focus();
 //                    return false;
 //                } else {
-//                    
+//                    Search();
                 //                }
-              
+
                 Search();
             });
 			
 			$('#searchtext').keypress(function(event){
-                if (event.which == 13) {
-                    if ($('#searchtext').val() == "") {
-                        alert("검색어를 입력해 주세요.");
-                        $('#searchtext').focus();
-                        return false;
-                    } else {
-                        
-                        Search();
-                    }
-                }
-                
-                  
-                
+				if(event.which == 13){
+					if ($('#searchtext').val() == "") {
+						alert("검색어를 입력해 주세요.");
+						$('#searchtext').focus();
+						return false;
+					} else {
+						Search();
+					}
+				}
 			});
 
+
             function Search() {
-                location.href = "/support/faq/default.aspx?searchtext=" + escape($("#searchtext").val());
+                location.href = "/support/news/default.aspx?searchtext=" + escape($("#searchtext").val()) + "&searchfield=" + $('#selsearchfield option:selected').val();
                 return false;
             }
 
@@ -708,27 +624,10 @@
                 //$('.c_tab_wrap').children('.c_tab').children('li').removeClass("on");
                 //$(this).addClass("on");
 
-                location.href = $(this).children('a').attr("href") + escape("");
+                location.href = $(this).children('a').attr("href") + escape("") + "&searchfield=0";
                 return false;
             });
 
-            $('.qu_txt').children('span').children('a').on("click", function () {
-                location.href = "/support/faq/default.aspx?searchtext=" + escape($(this).html());
-                return false;
-            });
-            //SR 4020337 검색어 검색 시 검색결과에서 해당 검색어 붉은색으로 변경
-            var idx = 0;
-           
-            if ($('#searchtext').val()) {
-                for (idx = 0; idx < 20; idx++) {
-                    var search = $('#searchtext').val();
-                    search = search.toUpperCase();
-                    $("#title" + idx + " > a:contains('" + search + "')").each(function () {
-                        var regex = new RegExp(search, 'gi');
-                        $(this).html($(this).text().replace(regex, "<span style='color:red'>" + search + "</span>"));
-                    });
-                }
-            }     
 
         });
     })(jQuery);
@@ -787,12 +686,122 @@
     <!-- S 예매하기 및 TOP Fixed 버튼 -->
     <div class="fixedBtn_wrap">
      
-        <a href="/ticket/" class="btn_fixedTicketing">예매하기</a>
+       <!--  <a href="/ticket/" class="btn_fixedTicketing">예매하기</a> -->
         
         <a href="#none" class="btn_gotoTop"><img src="https://img.cgv.co.kr/R2014/images/common/btn/gotoTop.png" alt="최상단으로 이동" /></a>
     </div>
     
-  
+    <!-- E 예매하기 및 TOP Fixed 버튼 -->
+	
+    <!-- S Footer -->
+    <footer>
+		<!-- footer_area (s) -->
+		
+<div id="BottomWrapper" class="sect-ad">
+    <iframe src="https://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@Bottom" width="100%" height="240" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
+</div>
+<ul class="policy_list">
+    <li><a href="http://corp.cgv.co.kr/company/" target="_blank">회사소개</a></li>
+    <li><a href="http://corp.cgv.co.kr/company/ir/financial/financial_list.aspx" target="_blank">IR</a></li>
+    <li><a href="http://corp.cgv.co.kr/company/recruit/step/default.aspx" target="_blank">채용정보</a></li>
+    <li><a href="http://corp.cgv.co.kr/company/advertize/ad_Default.aspx" target="_blank">광고/제휴/출점문의</a></li>
+    <li><a href="http://www.cgv.co.kr/rules/service.aspx">이용약관</a></li>
+    <li><a href="http://www.cgv.co.kr/rules/organized.aspx">편성기준</a></li>
+    <li><a href="http://www.cgv.co.kr/rules/privacy.aspx"><strong>개인정보처리방침</strong></a></li>
+    <li><a href="http://www.cgv.co.kr/rules/disclaimer.aspx">법적고지</a></li>
+    <li><a href="http://www.cgv.co.kr/rules/emreject.aspx">이메일주소무단수집거부</a></li>
+    <li><a href="http://corp.cgv.co.kr/company/ethicalManagement/ceoMessage.aspx" target="_blank">윤리경영</a></li>
+    <li><a href="/company/cyberAudit.aspx" class="empha-red">사이버감사실</a></li>
+</ul>
+<article class="company_info_wrap">
+    <section class="company_info">
+        <address>(04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)</address>
+        <dl class="company_info_list">
+            <dt>대표이사</dt>
+            <dd>허민회</dd>
+            <dt>사업자등록번호</dt>
+            <dd>104-81-45690</dd>
+            <dt>통신판매업신고번호</dt>
+            <dd>2017-서울용산-0662 <a href="#none" onclick="goFtc()" class="btn_goFtc">사업자정보확인<a></a></a></dd>
+        </dl>
+        <dl class="company_info_list">
+            <dt>호스팅사업자</dt>
+            <dd>CJ올리브네트웍스</dd>
+            <dt>개인정보보호 책임자</dt>
+            <dd>심준범</dd>
+            <dt>대표이메일</dt>
+            <dd>cjcgvmaster@cj.net</dd>
+            
+        </dl>
+        <p class="copyright">&copy; CJ CGV. All Rights Reserved</p>
+    </section>
+    <section class="familysite_wrap">
+        <label for="familysite">CJ그룹 계열사 바로가기</label>
+        <select id="familysite">
+            <option value="" class="familysiteTitle">계열사 바로가기</option>
+            <optgroup label="CJ그룹">
+<option value="http://www.cj.net/">CJ주식회사</option>
+</optgroup><optgroup label="식품 & 식품서비스">
+<option value="https://www.cj.co.kr/kr/index">CJ제일제당</option>
+<option value="https://www.cjfoodville.co.kr/main.asp">CJ푸드빌</option>
+<option value="http://www.cjfreshway.com/index.jsp">CJ프레시웨이</option>
+</optgroup><optgroup label="생명공학">
+<option value="https://www.cj.co.kr/kr/about/business/bio">CJ제일제당 BIO사업부문</option>
+<option value="https://www.cj.co.kr/kr/about/business/bio">CJ Feed&Card</option>
+</optgroup><optgroup label="물류 & 신유통">
+<option value="https://www.cjlogistics.com/ko/main">CJ대한통운</option>
+<option value="http://www.cjenc.co.kr/kr/Default.asp">CJ대한통운 건설부문</option>
+<option value="https://www.oliveyoung.co.kr/store/company/brandStory.do">CJ올리브영</option>
+<option value="https://www.cjolivenetworks.co.kr:449/">CJ올리브네트웍스</option>
+<option value="https://www.cjoshopping.com:9002/index.asp">CJ ENM 커머스부문</option>
+</optgroup><optgroup label="엔터테인먼트 & 미디어">
+<option value="https://www.cjenm.com/ko/">CJ ENM 엔터테인먼트부문</option>
+<option value="http://corp.cgv.co.kr/">CJ CGV</option>
+</optgroup>
+
+        </select>
+        <a href="#none" class="btn_familysite" onclick="goFamilySite()">GO</a>
+    </section>
+</article>
+<script>
+    //footer GA Analytics 영역 LOG
+    $('.policy_list > li > a').on({
+        click: function (e) {
+            gaEventLog('PC_footer', this.text, '');
+        }
+    });
+</script>
+        <!-- footer_area (e) -->
+
+        <div class="adFloat" style="display:block">
+
+            <iframe src='//ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@Popicon' width='154' height='182' frameborder='0' scrolling='no' topmargin='0' leftmargin='0' marginwidth='0' marginheight='0' allowTransparency="true" id="ad_float1"></iframe>
+        </div>
+        <script type="text/javascript">            OpenAD();</script>
+        <!-- //Float Ad -->
+	</footer>
+	<!-- E Footer -->
+
+    <!-- Aside Banner :  -->
+    <!--
+	<div id="ctl00_sect_person_right" class="sect-aside-banner" style="padding:0; margin:0; position:fixed; z-index:1;display:none">
+		<div class="aside-content-top">
+			<div class="aside-content-btm">
+				<a href="/theaters/"><img src="https://img.cgv.co.kr/R2014/images/common/btn/btn_person_theater.gif" alt="CGV THEATER" /></a>
+				<a href="/arthouse/"><img src="https://img.cgv.co.kr/R2014/images/common/btn/btn_person_arthouse.gif" alt="CGV arthouse" /></a>
+				<a href="/theaters/special/"><img src="https://img.cgv.co.kr/R2014/images/common/btn/btn_person_special.gif" alt="CGV SPECIAL" /></a>
+
+				<a href="/user/mycgv/reserve/" class="required-login" data-url="/user/mycgv/reserve/"><img src="https://img.cgv.co.kr/R2014/images/common/btn/btn_person_ticket.gif" alt="CGV TICKET INFO" /></a>
+				<a href="/discount/discountlist.aspx"><img src="https://img.cgv.co.kr/R2014/images/common/btn/btn_person_discount.gif" alt="CGV DISCOUNT INFO" /></a>
+			</div>
+		</div>
+		<div class="btn-top">
+            <a href="#" onclick="window.scrollTo(0,0);return false;"><span>최상단으로 이동</span></a>
+		</div>
+	</div>
+    //-->
+	<!-- //Aside Banner -->
+    
 </div>
 
 
@@ -1003,19 +1012,20 @@
             '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-NNNFR3');
 </script>
-<!-- End Google Tag Manager -->
+
 <script>
 document.querySelector("#btn-add").addEventListener('click', (e) => {
-	location.href = '${pageContext.request.contextPath}/faq/faqForm.do';
+	location.href = '${pageContext.request.contextPath}/notice/noticeForm.do';
 });
 
 document.querySelectorAll("tr[data-no]").forEach((tr) => {
 	tr.addEventListener('click', (e) => {
 		const no = tr.dataset.no;
 		console.log(no);
-		location.href = '${pageContext.request.contextPath}/faq/faqDetail.do?no=' + no;
+		location.href = '${pageContext.request.contextPath}/notice/noticeDetail.do?no=' + no;
 	});
 });
 </script>
+
 </body>
 </html>

@@ -9,15 +9,10 @@
 
 
 
-
 <jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"/>
 
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movieList.css"/>
 
-<style>
-  /*글쓰기버튼*/
-  input#btn-add {float: right; margin: 0 0 15px; margin-left: 5cm;}
-  tr[data-no] {cursor: pointer;}
-</style>
 
 
 <!-- 테일윈드 -->
@@ -37,13 +32,6 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 
-
-<!-- <style>
-/*글쓰기버튼*/
-input#btn-add{float:right; margin: 0 0 15px;}
-tr[data-no] {cursor: pointer;}
-</style>
-<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/> -->
 
 
 
@@ -68,6 +56,7 @@ tr[data-no] {cursor: pointer;}
           <td>연령</td>
         </tr>
         <c:forEach items="${movieList}" var="movie">
+        
 
         <tr class="grid-adm-members py-2 px-1 text-center" data-no="${movie.no}">
         	<%-- <tr data-no="${movie.no}"> --%>
@@ -77,35 +66,40 @@ tr[data-no] {cursor: pointer;}
           <td>${movie.actors}</td>
           <td>${movie.director}</td>
           <td>${movie.limit_age}</td>
+          
           </c:forEach>
+          
+          <input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/>
+          
+          
           <div class="pagination">
-    <c:url var="prevUrl" value="/movieList.do">
-        <c:param name="cpage" value="${movieList.previousPage}" />
-    </c:url>
-    <c:if test="${not empty movieList.previousPage}">
-        <a href="${prevUrl}">&laquo;</a>
-    </c:if>
+		    <c:url var="prevUrl" value="/movieList.do">
+		        <c:param name="cpage" value="${movieList.previousPage}" />
+		    </c:url>
+		    <c:if test="${not empty movieList.previousPage}">
+		        <a href="${prevUrl}">&laquo;</a>
+		    </c:if>
 
-    <c:forEach var="page" begin="1" end="${movieList.totalPages}">
-        <c:url var="pageUrl" value="/movieList.do">
-            <c:param name="cpage" value="${page}" />
-        </c:url>
-        <c:if test="${page eq movieList.pageNumber}">
-            <span class="current">${page}</span>
-        </c:if>
-        <c:if test="${page ne movieList.pageNumber}">
-            <a href="${pageUrl}">${page}</a>
-        </c:if>
-    </c:forEach>
+		   <c:forEach var="page" begin="1" end="${movieList.totalPages}">
+		       <c:url var="pageUrl" value="/movieList.do">
+		           <c:param name="cpage" value="${page}" />
+		       </c:url>
+		       <c:if test="${page eq movieList.pageNumber}">
+		           <span class="current">${page}</span>
+		       </c:if>
+		       <c:if test="${page ne movieList.pageNumber}">
+		           <a href="${pageUrl}">${page}</a>
+		       </c:if>
+		   </c:forEach>
 
-    <c:url var="nextUrl" value="/movieList.do">
-        <c:param name="cpage" value="${movieList.nextPage}" />
-    </c:url>
-    <c:if test="${not empty movieList.nextPage}">
-        <a href="${nextUrl}">&raquo;</a>
-    </c:if>
-</div>
-        </tr>
+		    <c:url var="nextUrl" value="/movieList.do">
+		        <c:param name="cpage" value="${movieList.nextPage}" />
+		    </c:url>
+		    <c:if test="${not empty movieList.nextPage}">
+		        <a href="${nextUrl}">&raquo;</a>
+		    </c:if>
+		  </div>
+         </tr>
       </tbody>
     </table>
   </div>
