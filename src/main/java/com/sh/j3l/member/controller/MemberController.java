@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,14 +51,10 @@ public class MemberController {
 	private BCryptPasswordEncoder passwordEncoder;
 	
 	@GetMapping("/memberList.do")
-	public void memberList() {}
-	
-	@GetMapping("/members.do")
-	public String selectAllMember(Model model) {
+	public void memberList(Model model) {
 		List<Member> members = memberService.selectAllMember();
 		model.addAttribute("members", members);
 		log.debug("members = {}", members);
-		return "member/members";
 	}
 
 	// 로그인 페이지 이동 메서드
@@ -105,8 +102,6 @@ public class MemberController {
 		return "redirect:/member/members.do";
 	}
 	
-
-	
 	@GetMapping("/searchMember")
 	public String searchMember(@RequestParam("id") String id, Model model) {
 	    
@@ -118,7 +113,6 @@ public class MemberController {
 	    return "member/members";
 	    
 	}
-	
 	    
 	// 회원가입 관련 메서드들
 	// 회원가입 페이지 이동 메서드
@@ -155,7 +149,7 @@ public class MemberController {
 	@GetMapping("/overlapId.do")
 	@ResponseBody
 	public String overlapId(@RequestParam String id) {
-		Member member = memberService.overlapId(id);
+		Member member = memberService.selectMemberById(id);
 		if(member == null)
 			return "true";
 		else
@@ -172,15 +166,43 @@ public class MemberController {
 	// 회원가입 메서드
 	@PostMapping("/enroll.do")
 	public String enrollMember(Member member, RedirectAttributes redirectAttr) {
-		log.debug("sadfasf");
+		String password = passwordEncoder.encode(member.getPassword());
+		member.setPassword(password);
 		int result = memberService.insertMember(member);
-		redirectAttr.addAttribute("msg", "회원가입 성공!");
+		redirectAttr.addFlashAttribute("msg", "회원가입 성공!");
 		return "redirect:/";
 	}
 	
-	@GetMapping("/findId")
+	// 아이디 찾기 메서드
+	@GetMapping("/findId.do")
 	public String findId() {
 		return "";
 	}
+	
+	// 마이페이지 이동 메서드
+	@GetMapping("/myPage.do")
+	public void myPage() {}
 
+	// 회원정보 수정 관련 메서드
+	// 비밀번호 인증 메서드
+	@GetMapping("/certified.do")
+	@ResponseBody
+	public String certified(@RequestParam String id, @RequestParam String password, Model model) {
+		Member member = memberService.selectMemberById(id);
+		// 일치
+		if(member != null && passwordEncoder.matches(password, member.getPassword())) {
+			return "true";
+		}
+		// 불일치
+		else {
+			return "false";
+		}
+	}
+	
+	// 이메일 변경 메서드
+	@PostMapping("/updateEmail.do")
+	@ResponseBody
+	public int updateEmail(@RequestParam String id, @RequestParam String email) {
+		return memberService.updateEmail(id, email);
+	}
 }

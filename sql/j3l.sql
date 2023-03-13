@@ -17,6 +17,7 @@ select * from notice;
 select * from faq;
 select * from blackList;
 
+
 --===============================
 -- 관리자 계정 생성
 --===============================
@@ -126,14 +127,13 @@ CREATE TABLE member (
 
 --drop table member cascade constraints;
 
-
 -- 회원권한 테이블
 CREATE TABLE AUTHORITY(
     ID VARCHAR2(50),
     AUTH VARCHAR2(50),
-    CONSTRAINT PK_AUTHORITY PRIMARY KEY(AUTH),
+    CONSTRAINT PK_AUTHORITY PRIMARY KEY(ID, AUTH),
     CONSTRAINT FK_AUTHORITY_MEMBER_ID FOREIGN KEY(ID)
-                            REFERENCES MEMBER
+                            REFERENCES MEMBER(ID)
                             ON DELETE CASCADE
 );
 
@@ -196,6 +196,7 @@ CREATE TABLE movie (
 	director varchar2(50) NOT NULL,
 	actors varchar2(3000) NOT NULL,
 	synopsis varchar2(4000)	NOT NULL,
+    running_time number not null,
 	limit_age number NOT NULL,
     constraint pk_movie_no primary key(no)
 );

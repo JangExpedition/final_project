@@ -46,7 +46,6 @@ public class MovieController {
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
-	
 	@GetMapping("/movieList.do")
 	public String moiveList(@RequestParam(defaultValue = "1") int cpage, Model model) {
 		//페이징처리 RowBounds 이용 

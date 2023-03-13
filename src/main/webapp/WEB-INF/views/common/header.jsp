@@ -23,9 +23,9 @@
 <!-- 사용자작성 css -->
 <link rel="stylesheet" href="${ pageContext.request.contextPath}/resources/css/common.css"/>
 <c:if test="${not empty msg}">
-<script>
-	alert("${msg}");
-</script>
+	<script>
+		alert("${msg}");
+	</script>
 </c:if>
 </head>
 <body>
@@ -45,7 +45,12 @@
 		  	</a>
 		  </div>
 		  <div class="p-2">
-		  	<a href="#">
+			<sec:authorize access="isAuthenticated()">
+		  		<a href="${ pageContext.request.contextPath }/member/myPage.do">
+	  		</sec:authorize>
+			<sec:authorize access="isAnonymous()">
+		  		<a href="${ pageContext.request.contextPath }/member/memberLogin.do">
+	  		</sec:authorize>
 		  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginMember.png">
 			  	<span>MY J3L</span>
 		  	</a>
@@ -113,17 +118,3 @@
 		</form>
 	</div>
 </nav>
-<!-- 서브 메뉴 -->
-
-
-
-<!-- <banner>
-  <div class="video-banner">
-    <video autoplay muted controls>
-      <source src="https://adimg.cgv.co.kr/images/202207/BulletTrain/0812_BulletTrain_1080x608.mp4" type="video/mp4">
-    </video>
-  </div>
-</banner> -->
-
-<!-- 서브 메뉴 -->
-
