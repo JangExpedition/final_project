@@ -14,4 +14,6 @@ public interface FaqService {
 
 	List<Faq> searchByTitle(String title);
 
+	Faq selectOneFaq(int no);
+
 }

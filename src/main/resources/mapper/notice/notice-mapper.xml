@@ -15,13 +15,15 @@
 	
 	<insert id="insertNotice">
 		insert into
-			notice(no, title, classifyy, content)
+			notice(no, title, content, read_count, created_at, classifyy)
 		values
 		(
 			seq_notice_no.nextval,
 			#{title},
-			#{classifyy},
-			#{content}
+			#{content},
+			#{readCount},
+			#{createdAt},
+			#{classifyy}
 		)
 	</insert>
 	
@@ -32,6 +34,16 @@
 			notice
 		where
 			title like '%' || #{title} || '%'
+	</select>
+	
+	
+	<select id="selectOneNotice" resultMap="noticeMap">
+		select
+			*
+		from
+			notice
+		where
+			no = #{no}
 	</select>
 
 </mapper>

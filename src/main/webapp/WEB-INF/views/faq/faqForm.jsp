@@ -546,7 +546,7 @@
     <div class="snb">
         <ul>
             <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faq.do" title="현재선택">자주찾는 질문<i></i></a></li>
+            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
             <li class=''><a href="${ pageContext.request.contextPath }/notice/notice.do">공지/뉴스<i></i></a></li>          
             
             
@@ -676,7 +676,7 @@ function __doPostBack(eventTarget, eventArgument) {
 						<br>
 						</br>
 						<div class="box-btn qna_email">
-							<a style="margin-left:5px" href="${pageContext.request.contextPath}/faq/faq.do" class="round gray"><span style="padding:0 14px;">취소</span></a>
+							<a style="margin-left:5px" href="${pageContext.request.contextPath}/faq/faqList.do" class="round gray"><span style="padding:0 14px;">취소</span></a>
                             <button style="width:80px" class="round inred" type="submit" id="emailsubmit" ><span>등록하기</span></button>
 						</div>
 					</fieldset>

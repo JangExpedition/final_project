@@ -14,4 +14,6 @@ public interface NoticeService {
 
 	List<Notice> searchByTitle(String title);
 
+	Notice selectOneNotice(int no);
+
 }

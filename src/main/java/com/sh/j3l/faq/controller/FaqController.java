@@ -29,14 +29,11 @@ public class FaqController {
 	@GetMapping("/main.do")
 	public void main() {}
 	
-	@GetMapping("/faq.do")
-	public void faq() {}
-	
 	@GetMapping("/faqForm.do")
 	public void faqForm() {}
 	
 	@GetMapping("/faqList.do")
-	public String faqList(@RequestParam(defaultValue = "1") int cpage, Model model) {
+	public void faqList(@RequestParam(defaultValue = "1") int cpage, Model model) {
 		// 페이징처리 RowBounds
 		int limit = 15; // 한 페이지에 15개 출력
 		int offset = (cpage - 1) * limit;
@@ -45,8 +42,7 @@ public class FaqController {
 		List<Faq> faqList = faqService.selectAllFaq(rowBounds);
 		model.addAttribute("faqList", faqList);
 		log.debug("faqList = {}", faqList);
-		
-		return "faq/faqList";
+
 	}
 	
 	@PostMapping("/faqEnroll.do")
@@ -62,7 +58,7 @@ public class FaqController {
 			redirectAttr.addFlashAttribute("msg", "질문 등록 실패");
 		}
 		
-		return "redirect:/faq/faq.do";
+		return "redirect:/faq/faqList.do";
 		
 	}
 	
@@ -74,7 +70,18 @@ public class FaqController {
 	    
 	    model.addAttribute("faqList", searchFaq);
 	    
-	    return "faq/faq";
+	    return "faq/faqList";
+	}
+	
+	
+	@GetMapping("/faqDetail.do")
+	public void faqDetail(@RequestParam int no, Model model) {
+		log.debug("no = {}", no);
+		
+		Faq faq = faqService.selectOneFaq(no);
+		log.debug("faq = {}", faq);
+		
+		model.addAttribute("faq", faq);
 	}
 	
 }

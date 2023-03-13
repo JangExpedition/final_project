@@ -27,14 +27,14 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	
-	@GetMapping("/notice.do")
-	public void notice() {}
+//	@GetMapping("/notice.do")
+//	public void notice() {}
 	
 	@GetMapping("/noticeForm.do")
 	public void noticeForm() {}
 	
 	@GetMapping("/noticeList.do")
-	public String noticeList(@RequestParam(defaultValue = "1") int cpage, Model model) {
+	public void noticeList(@RequestParam(defaultValue = "1") int cpage, Model model) {
 		// 페이징처리 RowBounds
 		int limit = 15; // 한 페이지에 15개 출력
 		int offset = (cpage - 1) * limit;
@@ -43,8 +43,7 @@ public class NoticeController {
 		List<Notice> noticeList = noticeService.selectAllNotice(rowBounds);
 		model.addAttribute("noticeList", noticeList);
 		log.debug("noticeList = {}", noticeList);
-		
-		return "notice/noticeList";
+
 	}
 	
 	@PostMapping("/noticeEnroll.do")
@@ -60,7 +59,7 @@ public class NoticeController {
 			redirectAttr.addFlashAttribute("msg", "공지 등록 실패");
 		}
 		
-		return "redirect:/notice/notice.do";
+		return "redirect:/notice/noticeList.do";
 		
 	}
 	
@@ -73,7 +72,17 @@ public class NoticeController {
 	    
 	    model.addAttribute("noticeList", searchNotice);
 	    
-	    return "notice/notice";
+	    return "notice/noticeList";
+	}
+	
+	@GetMapping("/noticeDetail.do")
+	public void noticeDetail(@RequestParam int no, Model model) {
+		log.debug("no = {}", no);
+		
+		Notice notice = noticeService.selectOneNotice(no);
+		log.debug("notice = {}", notice);
+		
+		model.addAttribute("notice", notice);
 	}
 
 }

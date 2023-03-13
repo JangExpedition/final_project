@@ -30,6 +30,11 @@ public class FaqServiceImpl implements FaqService{
 		return faqDao.searchByTitle(title);
 	}
 
+	@Override
+	public Faq selectOneFaq(int no) {
+		return faqDao.selectOneFaq(no);
+	}
+
 
 
 }
