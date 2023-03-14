@@ -121,10 +121,12 @@ CREATE TABLE member (
 	birth char(8) NOT NULL,
 	age	number	NOT NULL,
     enroll_date Date default sysdate not null,
-    CONSTRAINT PK_MEMBER_ID PRIMARY KEY(ID)
+    CONSTRAINT PK_MEMBER_ID PRIMARY KEY(ID),
+    constraint uq_member_email unique(email)
 );
 
 --drop table member cascade constraints;
+--drop table authority;
 
 -- 회원권한 테이블
 CREATE TABLE AUTHORITY(

@@ -178,6 +178,24 @@ public class MemberController {
 		return memberService.findIdByEmail(email); 
 	}
 	
+	// 비밀번호 찾기 이동 메서드
+	@GetMapping("/findPassword.do")
+	public void findPassword() {}
+	
+	// 임시비밀번호 발급 메서드
+	@PostMapping("/resetPassword.do")
+	@ResponseBody
+	public String resetPassword(@RequestParam String id, @RequestParam String email) {
+		String password = mailService.resetPassword(email);
+		Member member = new Member();
+		member.setId(id);
+		member.setPassword(passwordEncoder.encode(password));
+		
+		int result = memberService.updateMember(member);
+		
+		return null;
+	}
+	
 	// 마이페이지 이동 메서드
 	@GetMapping("/myPage.do")
 	public void myPage() {}
