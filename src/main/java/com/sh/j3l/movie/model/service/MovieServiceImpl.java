@@ -41,7 +41,7 @@ public class MovieServiceImpl implements MovieService {
 				result = insertAttachment(attach);
 			}
 		}
-		return movieDao.insertMovie(movie);
+		return result;
 	}
 
 
@@ -54,7 +54,8 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public Movie selectOneMovie(int no) {
 //		Movie movie = movieDao.selectOneMovie(no);
-//		List<Attachment> atta
+//		List<Attachment> attachments = movieDao.selectAttachmentListByMovieNo(no);
+//		movie.setAttachments(attachments);
 		return movieDao.selectOneMovie(no);
 	}
 

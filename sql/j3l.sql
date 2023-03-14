@@ -328,3 +328,30 @@ select * from faq;
 
 -- 자주묻는 질문 시퀀스
 create sequence seq_faq_no;
+
+
+
+--채팅 테이블
+
+create table chat_member(
+    chatroom_id varchar2(50),
+    member_id varchar2(256),
+    last_check number default 0,
+    created_at date default sysdate,
+    deleted_at date,
+    constraint pk_chat_member primary key(chatroom_id, member_id),
+    constraint fk_chat_member_id foreign key(member_id) references member(id)
+);
+
+create table chat_log(
+    no number,
+    chatroom_id varchar2(50),
+    member_id varchar2(50),
+    msg varchar2(4000),
+    time number,
+    type varchar2(50), -- CAHT, FILE
+    constraint pk_chat_log_no primary key(no),
+    constraint fk_chat_log foreign key(chatroom_id, member_id) references chat_member(chatroom_id, member_id)
+);
+
+create sequence seq_chat_log_no;

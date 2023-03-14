@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.spring.chat.model.dao.ChatDao">
+
+	<select id="findAdminChatList" resultMap="chatLogMap">
+		select 
+		    no,
+		    chatroom_id,
+		    (select member_id from chat_member where chatroom_id = cl.chatroom_id and member_id != 'admin')  member_id,
+		    msg,
+		    time,
+		    type,
+		    (
+		        select 
+		            count(*) unread_count
+		        from 
+		            chat_log 
+		        where 
+		            chatroom_id = cl.chatroom_id
+		            and time > (select last_check from chat_member where chatroom_id = cl.chatroom_id and member_id = 'admin')
+		    ) unread_count
+		from (
+		    select
+		        cl.*,
+		        row_number() over(partition by chatroom_id order by no desc) rnum
+		    from
+		        chat_log cl
+		        ) cl
+		where
+		    rnum = 1
+	</select>
+	
+	<resultMap type="chatLog" id="chatLogMap"></resultMap>
+</mapper>

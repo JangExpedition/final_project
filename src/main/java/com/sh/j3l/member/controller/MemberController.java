@@ -44,6 +44,7 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
+	// 회원 목록 조회
 	@GetMapping("/memberList.do")
 	public void memberList(Model model) {
 		List<Member> members = memberService.selectAllMember();
@@ -82,7 +83,7 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	
+	// 회원 삭제 
 	@PostMapping("/deleteMember.do")
 	public String deleteMember(@RequestParam("id") String id, RedirectAttributes redirecAttr) {
 		int result = memberService.deleteMember(id);
@@ -93,9 +94,10 @@ public class MemberController {
 		} else {
 			redirecAttr.addFlashAttribute("msg", "회원 추방 실패");			
 		}
-		return "redirect:/member/members.do";
+		return "redirect:/member/memberList.do";
 	}
 	
+	// 회원 검색
 	@GetMapping("/searchMember")
 	public String searchMember(@RequestParam("id") String id, Model model) {
 	    
