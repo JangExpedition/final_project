@@ -3,6 +3,7 @@
 --===============================
 select * from member;
 select * from authority;
+select * from persistent_logins;
 select * from reservation;
 select * from cinema;
 select * from theater;

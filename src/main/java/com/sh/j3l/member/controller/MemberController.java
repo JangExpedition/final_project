@@ -247,4 +247,11 @@ public class MemberController {
 		return "redirect:/member/memberLogout.do";
 	}
 	
+	// 회원탈퇴 메서드
+	@PostMapping("/withdrawalMember.do")
+	public String withdrawalMember(@RequestParam String id, RedirectAttributes redirectAttr, SessionStatus session) {
+		int result = memberService.deleteMember(id);
+		redirectAttr.addFlashAttribute("msg", "정상적으로 탈퇴됐습니다. 이용해주셔서 감사합니다.");
+		return "redirect/member/memberLogout.do";
+	}
 }
