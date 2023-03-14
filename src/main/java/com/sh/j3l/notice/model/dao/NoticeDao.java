@@ -16,6 +16,8 @@ public interface NoticeDao {
 
 	List<Notice> searchByTitle(String title);
 
+	Notice selectOneNotice(int no);
+
 	
 
 }

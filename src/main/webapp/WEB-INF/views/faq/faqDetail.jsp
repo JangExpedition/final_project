@@ -7,7 +7,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
+    
+    
+    
     
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -19,13 +25,13 @@
     <meta name="keywords" content="CGV, 시지브이, 영화관, 극장, 영화, 티켓, 박스오피스, 극장, Movie, Theater, Cinema, Cgv, cgv, 예매, 상영작" />
     <meta name="description" content="CGV는 선진화된 관람문화와 최고의 서비스로 고객에게 잊을 수 없는 감동을 선사합니다. CGV홈페이지를 통해 영화 예매뿐만 아니라 그 이상의 서비스와 감동을 전달하고, 다양한 즐거움과 특별한 경험을 제공하고자 합니다." />
     <meta property="og:site_name" content="영화 그 이상의 감동. CGV"/>
-    <meta id="ctl00_og_title" property="og:title" content="공지/뉴스 &lt; 고객센터 | 영화 그 이상의 감동. CGV"></meta>
+    <meta id="ctl00_og_title" property="og:title" content="자주 찾는 질문 &lt; 고객센터 | 영화 그 이상의 감동. CGV"></meta>
     
     
     <meta id="ctl00_og_image" property="og:image" content="https://img.cgv.co.kr/WebApp/images/common/logo_new_kakao_prevw.png"></meta>
     <link rel="alternate" href="http://m.cgv.co.kr" />
     <link rel="shortcut icon" href="https://img.cgv.co.kr/theater_img/favicon.ico" type="image/x-icon" />
-    <title id="ctl00_headerTitle">공지/뉴스 &lt; 고객센터 | 영화 그 이상의 감동. CGV</title>
+    <title id="ctl00_headerTitle">자주 찾는 질문 &lt; 고객센터 | 영화 그 이상의 감동. CGV</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://img.cgv.co.kr/R2014/images/favicon.ico" />
     <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/webfont.css" />
 	<link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/reset.css" />
@@ -38,7 +44,7 @@
     <link rel="stylesheet" media="print" type="text/css" href="https://img.cgv.co.kr/R2014/css/print.css" />    
     <link rel="stylesheet" type="text/css" href="https://img.cgv.co.kr/R2014/js/jquery.ui/smoothness/jquery-ui-1.10.4.custom.min.css" />
     
-<!--     <script type="text/javascript" src="/common/js/extraTheaters.js"></script> -->
+    <script type="text/javascript" src="/common/js/extraTheaters.js"></script>
     <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/app.config.js"></script>
     <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.plugin/jquery.tmpl.min.js"></script>
@@ -77,11 +83,11 @@
     <!--/각페이지 Header End--> 
     <script type="text/javascript">
         //<![CDATA[
-        _TRK_CP = "/고객센터/공지/뉴스";
+        _TRK_CP = "/고객센터/자주 찾는 질문";
 
-    /*     app.config('staticDomain', 'https://img.cgv.co.kr/R2014/')
+        app.config('staticDomain', 'https://img.cgv.co.kr/R2014/')
             .config('imageDomain', 'https://img.cgv.co.kr')
-            .config('isLogin', 'False'); */
+            .config('isLogin', 'False');
 
         
         // AD FLOAT
@@ -190,18 +196,9 @@
 </div>    
 <div id="cgvwrap">
     
-  <!--   
-    <div class="cgv-ad-wrap" id="cgv_main_ad">
-        <div id="TopBarWrapper" class="sect-head-ad">
-            <div class="top_extend_ad_wrap">
-                <div class="adreduce" id="adReduce">                    
-                    <iframe src="//ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@TopBar_EX" width="100%" height="80" title="" frameborder="0" scrolling="no" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" name="TopBanner" id="TopBanner"></iframe>
-                </div> 
-                <div class="adextend" id="adExtend"></div>
-            </div>//.top_extend_ad_wrap
-        </div>    
-    </div>    
-	 -->
+    
+     
+	
       <!-- S Header
         Description
         - class 'nav' 에 class 'active' 추가시 서브메뉴노출
@@ -210,7 +207,6 @@
 	<div class="header">			
             <!-- 서비스 메뉴 --> 
             
-
 
 <script>
     //GA Analytics TopMenu 영역 LOG
@@ -415,13 +411,8 @@
 
 </script>
 
-        <div class="totalSearch_wrap">
-
-        </div>
-    </div>
-</div>
             <!-- 서브 메뉴 -->			
-	
+	</div>
 	<!-- E Header -->
 
 	<!-- Contaniner -->
@@ -434,29 +425,26 @@
             
             <!-- Contents Start -->
 			
-   
 <!-- Contents Area -->
 <div id="contents">
 	<!-- Contents Start -->
 	<div class="cols-content">
-		
+	    
 <div class="col-aside">
     <h2>
         고객센터 메뉴</h2>
     <div class="snb">
         <ul>
             <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-            <li class=''><a href="${ pageContext.request.contextPath }/faq/faq.do" title="현재선택">자주찾는 질문<i></i></a></li>
-            <li class='on'><a href="${ pageContext.request.contextPath }/notice/notice.do">공지/뉴스<i></i></a></li>
-<!--             <li class=''><a href="/support/qna/default.aspx">이메일 문의<i></i></a></li>
-            
-            <li class=''><a href="/support/lease/default.aspx">단체/ 대관 문의<i></i></a></li>   -->          
+            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+            <li class=''><a href="${ pageContext.request.contextPath }/notice/notice.do">공지/뉴스<i></i></a></li>
+   
             
             
           
         </ul>
     </div>
-    <!-- <div class="ad-area">
+    <div class="ad-area">
         <div class="ad-partner01">
             <iframe src="http://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@C_Rectangle"
                 width="160" height="300" title="기업광고-하나TV쇼핑" frameborder="0" scrolling="no" marginwidth="0"
@@ -467,113 +455,41 @@
                 height="35" title="영화광고-꾸뻬씨의행복여행" frameborder="0" scrolling="no" marginwidth="0"
                 marginheight="0" name="Image_text" id="Image_text"></iframe>
         </div>
-    </div> -->
+    </div>
 </div>
 
 		<div class="col-detail">
 			<div class="customer_top">
-				<h2 class="tit">공지/뉴스</h2>
-				<p class="stit">CGV의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
+				<h2 class="tit">자주찾는 질문</h2>
+				<p class="stit">회원님들께서 가장 자주하시는 질문을 모았습니다. <br />궁금하신 내용에 대해 검색해보세요.</p>
 			</div>
-			
-			<form:form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
-			  <div class="input-group">
-			    <input type="hidden" name="searchType" value="title" />
-			    <input type="text" class="form-control" style="max-width: 200px;" placeholder="주제 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
-			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
-			  </div>
-			</form:form>
-		<%-- 	<form:form action="${pageContext.request.contextPath}/notice/searchNotice" method="get" class="mb-3">
-			<div class="search_area">
-			
-				<legend><label for="c_select">검색</label></legend>
-				<select name="selsearchfield" id="selsearchfield" class="c_select" style="width:100px;">
-					<option selected="selected" value="0">제목</option>
-					<option value="1">내용</option>
-				</select>
-				
-				<label for="searchtext" class="hidden">검색어 입력</label>
-				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" style="width:185px;" value="" />
-				<button type="button" class="round inblack" title="검색하기" id="btn_search"><span>검색하기</span></button>
+			<div class="board_view_area">
+				<ul class="top_title_faq">
+					<li class="title">${faq.classify.koreanName} ${faq.title}</li>
+					<li class="stit_area">
+						<span>등록일<em class="regist_day"><fmt:formatDate value="${createdAt}" pattern="yy-MM-dd HH:mm"/></em></span>
+						<span class="check_tit_area">조회수<em class="check_num">${faq.readCount }</em></span>
+					</li>
+				</ul>
+				<div class="view_area">
+					<p>${faq.content}</p>
+				</div>
+				<a href="${pageContext.request.contextPath}/faq/faqList.do"><div class="customer_btn"><button type="button" class="round inblack"  id="btn_list"><span>목록으로</span></button></div></a>
+				<!-- 이전글,다음글 (s) -->
+				<div class="btm_sup_list">
+					<ul class="line_sup_next">
+						<li class="stit">이전글</li>
+						<li class="name"><a href='/support/faq/detail-view.aspx?idx=990&type=245&page=1&searchtext=' class="txt">포토플레이 취소 및 환불 규정은 어떻게 되나요?</a></li>
+                        <li class="check_writ_area">등록일<span class="check_num">${faq.createdAt}</span></li>
+					</ul>
+					<ul class="line_sup_prev">
+						<li class="stit">다음글</li>
+						<li class="name"><a href='/support/faq/detail-view.aspx?idx=950&type=245&page=1&searchtext=' class="txt">인터넷 예매 후 예매 내용 확인은 어떻게 하나요?</a></li>
+                        <li class="check_writ_area">등록일<span class="check_num">${faq.createdAt}</span></li>
+					</ul>
+				</div>
+				<!-- 이전글,다음글 (e) -->
 			</div>
-			</form:form> --%>
-			<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
-			<div class="c_tab_wrap">
-				<!-- <ul class="c_tab">
-					<li class='on'><a href="/support/news/default.aspx?type=&searchtext=" title="선택된 탭메뉴">전체</a></li>
-					<li class=''><a href="/support/news/default.aspx?type=1&searchtext=">시스템점검</a></li>
-					<li class=''><a href="/support/news/default.aspx?type=2&searchtext=">극장</a></li>
-                    <li class=''><a href="/support/news/default.aspx?type=3&searchtext=">행사/이벤트</a></li>
-                    <li class=''><a href="/support/news/default.aspx?type=5&searchtext=">제휴이벤트</a></li>
-                    <li class=''><a href="/support/news/default.aspx?type=4&searchtext=">기타</a></li>
-				</ul> -->
-			</div>
-			<div class="tbl_area">
-				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
- 				<caption>목록</caption>
-				<colgroup>
-					<col style="width:40px;" />
-                    <col style="width:120px;" />
-					<col style="width:560px;" />
-					<col style="auto" />
-				</colgroup>
-				<thead>
-					<tr>
-						<th scope="col">번호</th>
-	                    <th scope="col">구분</th>
-						<th scope="col" class="tit">제목</th>
-						<th scope="col">조회수</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${noticeList}" var="notice">
-                        <tr>
-						    <td>${notice.no }</td>
-                            <td>${notice.classyfyy}</td>
-						    <td>${notice.title}</td>
-						    <td>${notice.readCount}</td>
-					    </tr>
-                     </c:forEach>   
-				</tbody>	
-				</table>
-			</div>
-			<?xml version="1.0" encoding="utf-8"?>
-<div class="paging">
-  <ul>
-    <li class="on">
-      <a title="1 페이지 선택" href=" #pg">1</a>
-    </li>
-    <li>
-      <a href="/support/news/default.aspx?page=2&amp;type=&amp;searchtext=&amp;searchfield=0">2</a>
-    </li>
-    <li>
-      <a href="/support/news/default.aspx?page=3&amp;type=&amp;searchtext=&amp;searchfield=0">3</a>
-    </li>
-    <li>
-      <a href="/support/news/default.aspx?page=4&amp;type=&amp;searchtext=&amp;searchfield=0">4</a>
-    </li>
-    <li>
-      <a href="/support/news/default.aspx?page=5&amp;type=&amp;searchtext=&amp;searchfield=0">5</a>
-    </li>
-    <li>
-      <a href="/support/news/default.aspx?page=6&amp;type=&amp;searchtext=&amp;searchfield=0">6</a>
-    </li>
-    <li>
-      <a href="/support/news/default.aspx?page=7&amp;type=&amp;searchtext=&amp;searchfield=0">7</a>
-    </li>
-    <li>
-      <a href="/support/news/default.aspx?page=8&amp;type=&amp;searchtext=&amp;searchfield=0">8</a>
-    </li>
-    <li>
-      <a href="/support/news/default.aspx?page=9&amp;type=&amp;searchtext=&amp;searchfield=0">9</a>
-    </li>
-    <li>
-      <a href="/support/news/default.aspx?page=10&amp;type=&amp;searchtext=&amp;searchfield=0">10</a>
-    </li>
-  </ul>
-  <button class="btn-paging next" type="button" onclick="location='/support/news/default.aspx?page=11&amp;type=&amp;searchtext=&amp;searchfield=0'">다음</button>
-  <button class="btn-paging end" type="button" onclick="location='/support/news/default.aspx?page=142&amp;type=&amp;searchtext=&amp;searchfield=0'">끝</button>
-</div>
 		</div>
 	</div>
 	<!-- //Contents End -->
@@ -585,50 +501,14 @@
 
     (function ($) {
         $(function () {
-
-            var searchfield = "0";
-
-            $('#selsearchfield').val(searchfield).attr("selected", "selected");
-
-            $('#btn_search').on('click', function () {
-//                if ($('#searchtext').val() == "") {
-//                    alert("검색어를 입력해 주세요.");
-//                    $('#searchtext').focus();
-//                    return false;
-//                } else {
-//                    Search();
-                //                }
-
+            $('#btn_list').on('click', function () {
                 Search();
             });
-			
-			$('#searchtext').keypress(function(event){
-				if(event.which == 13){
-					if ($('#searchtext').val() == "") {
-						alert("검색어를 입력해 주세요.");
-						$('#searchtext').focus();
-						return false;
-					} else {
-						Search();
-					}
-				}
-			});
-
 
             function Search() {
-                location.href = "/support/news/default.aspx?searchtext=" + escape($("#searchtext").val()) + "&searchfield=" + $('#selsearchfield option:selected').val();
+                location.href = "/support/faq/default.aspx?searchtext=" + escape("") + "&page=1" + "&type=245";
                 return false;
             }
-
-            $('.c_tab_wrap').children('.c_tab').children('li').on('click', function () {
-                //$('.c_tab_wrap').children('.c_tab').children('li').removeClass("on");
-                //$(this).addClass("on");
-
-                location.href = $(this).children('a').attr("href") + escape("") + "&searchfield=0";
-                return false;
-            });
-
-
         });
     })(jQuery);
 
@@ -686,7 +566,7 @@
     <!-- S 예매하기 및 TOP Fixed 버튼 -->
     <div class="fixedBtn_wrap">
      
-       <!--  <a href="/ticket/" class="btn_fixedTicketing">예매하기</a> -->
+        <a href="/ticket/" class="btn_fixedTicketing">예매하기</a>
         
         <a href="#none" class="btn_gotoTop"><img src="https://img.cgv.co.kr/R2014/images/common/btn/gotoTop.png" alt="최상단으로 이동" /></a>
     </div>
@@ -1012,20 +892,7 @@
             '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-NNNFR3');
 </script>
-
-<script>
-document.querySelector("#btn-add").addEventListener('click', (e) => {
-	location.href = '${pageContext.request.contextPath}/notice/noticeForm.do';
-});
-
-document.querySelectorAll("tr[data-no]").forEach((tr) => {
-	tr.addEventListener('click', (e) => {
-		const no = tr.dataset.no;
-		console.log(no);
-		location.href = '${pageContext.request.contextPath}/notice/noticeDetail.do?no=' + no;
-	});
-});
-</script>
+<!-- End Google Tag Manager -->
 
 </body>
 </html>

@@ -16,5 +16,7 @@ public interface FaqDao {
 
 	List<Faq> searchByTitle(String title);
 
+	Faq selectOneFaq(int no);
+
 
 }

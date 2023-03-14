@@ -293,9 +293,13 @@ CREATE TABLE notice (
 	no number NOT NULL,
 	title varchar2(50) NOT NULL,
     classifyy varchar2(50),
+    read_count number default 0,
+    created_at date default sysdate,
 	content varchar2(4000) NOT NULL,
     constraint pk_notice_no primary key(no)
 );
+
+
 
 
 select * from notice;
@@ -312,10 +316,12 @@ CREATE TABLE FAQ (
 	title varchar2(200)	NOT NULL,
 	content varchar2(4000) NOT NULL,
     classify varchar2(50),
+    read_count number default 0,
+    created_at date default sysdate,
     constraint pk_faq_no primary key(no)
 );
 
-
+select * from faq;
 
 -- 자주묻는 질문 시퀀스
 create sequence seq_faq_no;
