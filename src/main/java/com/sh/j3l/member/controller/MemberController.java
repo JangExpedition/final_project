@@ -1,26 +1,22 @@
 package com.sh.j3l.member.controller;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -28,9 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.member.model.service.MailService;
 import com.sh.j3l.member.model.service.MemberService;
-import com.sun.mail.iap.Response;
 
-import lombok.experimental.PackagePrivate;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -199,10 +193,33 @@ public class MemberController {
 		}
 	}
 	
-	// 이메일 변경 메서드
+	// 회원정보 수정 메서드
 	@PostMapping("/updateEmail.do")
 	@ResponseBody
-	public int updateEmail(@RequestParam String id, @RequestParam String email) {
-		return memberService.updateEmail(id, email);
+	public int updateEmail(Member member, Authentication authentication) {
+		
+		int result = memberService.updateMember(member);
+		
+		Member newMember = memberService.selectOneMember(member.getId());
+		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(
+				newMember,
+				authentication.getCredentials(),
+				authentication.getAuthorities()
+				);
+		SecurityContextHolder.getContext().setAuthentication(newAuthentication);
+		
+		return result;
+	}
+	
+	@PostMapping("/updatePwd.do")
+	public String updatePwd(Member member, RedirectAttributes redirectAttr) {
+		
+		member.setPassword(passwordEncoder.encode(member.getPassword()));
+		
+		int result = memberService.updateMember(member);
+		
+		redirectAttr.addFlashAttribute("msg", "비밀번호를 성공적으로 수정했습니다. 다시 로그인 해주세요.");
+		
+		return "redirect:/member/memberLogout.do";
 	}
 }
