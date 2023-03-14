@@ -476,10 +476,10 @@
 				<p class="stit">CGV의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
 			</div>
 			
-			<form:form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
+			<form:form action="${pageContext.request.contextPath}/notice/searchNotice" method="get" class="mb-3">
 			  <div class="input-group">
 			    <input type="hidden" name="searchType" value="title" />
-			    <input type="text" class="form-control" style="max-width: 200px;" placeholder="주제 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+			    <input type="text" class="form-control" style="max-width: 200px;" placeholder="제목 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
 			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 			  </div>
 			</form:form>
@@ -538,7 +538,7 @@
 				</table>
 			</div>
 			<?xml version="1.0" encoding="utf-8"?>
-<div class="paging">
+<!-- <div class="paging">
   <ul>
     <li class="on">
       <a title="1 페이지 선택" href=" #pg">1</a>
@@ -573,7 +573,7 @@
   </ul>
   <button class="btn-paging next" type="button" onclick="location='/support/news/default.aspx?page=11&amp;type=&amp;searchtext=&amp;searchfield=0'">다음</button>
   <button class="btn-paging end" type="button" onclick="location='/support/news/default.aspx?page=142&amp;type=&amp;searchtext=&amp;searchfield=0'">끝</button>
-</div>
+</div> -->
 		</div>
 	</div>
 	<!-- //Contents End -->

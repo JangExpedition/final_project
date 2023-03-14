@@ -16,4 +16,8 @@ public interface FaqService {
 
 	Faq selectOneFaq(int no);
 
+	int updateFaq(Faq faq);
+
+	int deleteFaq(Integer no);
+
 }

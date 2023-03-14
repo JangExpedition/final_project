@@ -437,7 +437,7 @@
         <ul>
             <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
             <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
-            <li class=''><a href="${ pageContext.request.contextPath }/notice/notice.do">공지/뉴스<i></i></a></li>
+            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
    
             
             
@@ -474,9 +474,28 @@
 				<div class="view_area">
 					<p>${faq.content}</p>
 				</div>
-				<a href="${pageContext.request.contextPath}/faq/faqList.do"><div class="customer_btn"><button type="button" class="round inblack"  id="btn_list"><span>목록으로</span></button></div></a>
+				<%-- <a href="${pageContext.request.contextPath}/faq/faqList.do"><div class="customer_btn"><button type="button" class="round inblack"  id="btn_list"><span>목록으로</span></button></div></a>
+				<a href="${pageContext.request.contextPath}/faq/faqUpdate.do"><div class="customer_btn"><button type="button" class="round inblack"  id="btn_list"><span>수정</span></button></a> --%>
+				
+				<div class="button-group" style="text-align: right;">
+				  <a href="${pageContext.request.contextPath}/faq/faqList.do">
+				    <button type="button" class="round inblack" id="btn_list">
+				      <span>목록으로</span>
+				    </button>
+				  </a>
+				  
+				  
+				  
+				  <form:form 
+				  name="faqDeleteFrm" 
+					action="${pageContext.request.contextPath}/faq/deleteFaq.do"
+					method="post">
+				    <input type="hidden" name="no" value="${faq.no}"/>
+				    <input type="submit" class="round inblack" id="btn_list" value="삭제"/>
+				  </form:form>
+				</div>
 				<!-- 이전글,다음글 (s) -->
-				<div class="btm_sup_list">
+				<%-- <div class="btm_sup_list">
 					<ul class="line_sup_next">
 						<li class="stit">이전글</li>
 						<li class="name"><a href='/support/faq/detail-view.aspx?idx=990&type=245&page=1&searchtext=' class="txt">포토플레이 취소 및 환불 규정은 어떻게 되나요?</a></li>
@@ -487,7 +506,7 @@
 						<li class="name"><a href='/support/faq/detail-view.aspx?idx=950&type=245&page=1&searchtext=' class="txt">인터넷 예매 후 예매 내용 확인은 어떻게 하나요?</a></li>
                         <li class="check_writ_area">등록일<span class="check_num">${faq.createdAt}</span></li>
 					</ul>
-				</div>
+				</div> --%>
 				<!-- 이전글,다음글 (e) -->
 			</div>
 		</div>

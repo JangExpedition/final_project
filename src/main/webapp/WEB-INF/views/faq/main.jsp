@@ -8,10 +8,20 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
+<style>
+
+
+input[type='text'], input[type='password'] {
+    display: inline-block;
+    /* height: 25px; */
+    line-height: 22px;
+    padding-left: 10px;
+    border: 1px solid #b5b5b5;
+    }
+</style>
     
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -455,11 +465,12 @@
 			<div class="c_check_warp">
 				<div class="c_box qna_search">
 					<strong class="c_tit">자주찾는 질문 빠른검색</strong>
+					</br>
 					<legend><label for="searchtext">검색</label></legend>
-					<form action="${pageContext.request.contextPath}/member/searchMember" method="get" class="mb-3">
+					<form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
 					     <div class="input-group">
-					       <input type="hidden" name="searchType" value="id" />
-					       <input type="text" class="form-control" placeholder="아이디 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="id" />
+					       <input type="hidden" name="searchType" value="title" />
+					       <input type="text" class="form-control" placeholder="질문 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="id" />
 					       <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 					     </div>
    					</form>

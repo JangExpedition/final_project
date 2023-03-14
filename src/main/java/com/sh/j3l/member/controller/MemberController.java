@@ -104,7 +104,7 @@ public class MemberController {
 	    
 	    model.addAttribute("members", searchMember);
 
-	    return "member/members";
+	    return "member/memberList";
 	    
 	}
 	    

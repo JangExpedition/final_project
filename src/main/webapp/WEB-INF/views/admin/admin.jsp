@@ -42,7 +42,7 @@
             </a>
           </li> --%>
           <li class="p-2">
-             <a href="${pageContext.request.contextPath}/member/members.do">
+             <a href="${pageContext.request.contextPath}/member/memberList.do">
               회원 관리
             </a>
           </li>
