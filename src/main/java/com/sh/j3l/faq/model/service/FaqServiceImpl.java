@@ -35,6 +35,16 @@ public class FaqServiceImpl implements FaqService{
 		return faqDao.selectOneFaq(no);
 	}
 
+	@Override
+	public int updateFaq(Faq faq) {
+		return faqDao.updateFaq(faq);
+	}
+
+	@Override
+	public int deleteFaq(Integer no) {
+		return faqDao.deleteFaq(no);
+	}
+
 
 
 }

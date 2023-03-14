@@ -62,17 +62,17 @@
         	<%-- <tr data-no="${movie.no}"> --%>
          <td>${movie.no}</td>
           <td>${movie.title}</td>
-		  <td>${movie.genre}</td>
+		  <td>${movie.genre.movieName}</td>
           <td>${movie.actors}</td>
           <td>${movie.director}</td>
           <td>${movie.limit_age}</td>
           
           </c:forEach>
           
-          <input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/>
+    <!--       <input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/> -->
           
           
-          <div class="pagination">
+          <%-- <div class="pagination">
 		    <c:url var="prevUrl" value="/movieList.do">
 		        <c:param name="cpage" value="${movieList.previousPage}" />
 		    </c:url>
@@ -98,7 +98,7 @@
 		    <c:if test="${not empty movieList.nextPage}">
 		        <a href="${nextUrl}">&raquo;</a>
 		    </c:if>
-		  </div>
+		  </div> --%>
          </tr>
       </tbody>
     </table>

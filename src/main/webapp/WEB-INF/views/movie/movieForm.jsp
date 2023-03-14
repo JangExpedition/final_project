@@ -52,10 +52,20 @@ div#movie-container label.custom-file-label{text-align:left;}
 		    <option value="15세이용가">15세이용가</option>
 		    <option value="청소년관람불가">청소년관람불가</option>
 		  </select>
+		  
+			    <select class="form-select" name="genre">
+			      <option value="ACTION" selected>액션</option>
+			      <option value="COMEDY" selected>코미디</option>
+			      <option value="ROMANCE" selected>로맨스</option>
+			      <option value="ANIMATION">애니</option>
+			      <option value="HORROR">호러</option>
+			      <option value="DOCUMENTARY">다큐</option>
+			      <option value="DRAMA">드라마</option>
+			    </select>
+	
 		</div>
 		<!-- <input type="text" class="form-control" placeholder="장르" name="title" id="title" required> -->
-		<div class="form-group row">
-		  <label class="col-sm-2 col-form-label">장르</label>
+		<!-- <div class="form-group row">
 		  <div class="col-sm-10">
 			    <select class="form-select" name="genre">
 			      <option value="ACTION" selected>액션</option>
@@ -67,8 +77,9 @@ div#movie-container label.custom-file-label{text-align:left;}
 			      <option value="DRAMA">드라마</option>
 			    </select>
 		  </div>
-		</div>
+		</div> -->
 		<!-- input:file소스 : https://getbootstrap.com/docs/4.1/components/input-group/#custom-file-input -->
+		<br>
 		<div class="input-group mb-3" style="padding:0px;">
 			<div class="input-group-prepend" style="padding:0px;">
 			  <span class="input-group-text">첨부파일1</span>

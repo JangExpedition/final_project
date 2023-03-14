@@ -44,4 +44,24 @@
 			no = #{no}
 	</select>
 	
+<!-- 	<update id="updateFaq">
+		update 
+			FAQ
+		set
+			title = #{title},
+			content = #{content},
+			read_count = #{readCount},
+			created_at = #{createdAt},
+			classify = #{classify}
+		where
+			no = #{no}
+	</update> -->
+	
+	<delete id="deleteFaq">
+		delete from
+			FAQ
+		where 
+			no = #{no}
+	</delete>
+	
 </mapper>

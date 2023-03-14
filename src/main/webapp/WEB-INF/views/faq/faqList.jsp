@@ -43,7 +43,7 @@
     <link rel="stylesheet" media="print" type="text/css" href="https://img.cgv.co.kr/R2014/css/print.css" />    
     <link rel="stylesheet" type="text/css" href="https://img.cgv.co.kr/R2014/js/jquery.ui/smoothness/jquery-ui-1.10.4.custom.min.css" />
     
-    <script type="text/javascript" src="/common/js/extraTheaters.js"></script>
+
     <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/app.config.js"></script>
     <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.plugin/jquery.tmpl.min.js"></script>
@@ -84,9 +84,9 @@
         //<![CDATA[
         _TRK_CP = "/고객센터/자주 찾는 질문";
 
-        app.config('staticDomain', 'https://img.cgv.co.kr/R2014/')
+/*         app.config('staticDomain', 'https://img.cgv.co.kr/R2014/')
             .config('imageDomain', 'https://img.cgv.co.kr')
-            .config('isLogin', 'False');
+            .config('isLogin', 'False'); */
 
         
         // AD FLOAT
@@ -609,7 +609,7 @@
 						<th scope="col">번호</th>
 	                    <th scope="col">구분</th>
 						<th scope="col">제목</th>
- 						<th scope="col">조회수</th>
+ 						<th scope="col">등록일</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -618,7 +618,10 @@
 						    <td>${faq.no }</td>
                             <td>${faq.classify.koreanName}</td>
 						    <td>${faq.title}</td>
-  						    <td>${faq.readCount}</td>
+  						    <td>
+								<fmt:formatDate value="${faq.createdAt}" pattern="yy-MM-dd HH:mm"/>
+								<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
+							</td>
 					    </tr>
                      </c:forEach>   
 				</tbody>	

@@ -39,23 +39,23 @@
       <div class="font-bold flex justify-center">
         <ul class="flex flex-col">
           <li class="p-2">
-             <a href="${pageContext.request.contextPath}/member/members.do">
-              회원 관리
+             <a href="${pageContext.request.contextPath}/member/memberList.do">
+              회원관리
             </a>
           </li>
           <li class="p-2">
             <a href="${pageContext.request.contextPath}/movie/movieList.do">
-              영화 관리
+              영화관리
             </a>
           </li>
           <li class="p-2">
             <a href="#">
-              매출 관리
+              매출관리
             </a>
           </li>
           <li class="p-2">
             <a href="#">
-              예매율 관리
+              예매율관리
             </a>
           </li>
         </ul>
