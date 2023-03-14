@@ -17,7 +17,6 @@ select * from notice;
 select * from faq;
 select * from blackList;
 
-
 --===============================
 -- 관리자 계정 생성
 --===============================

@@ -167,10 +167,15 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	// 아이디 찾기 메서드
+	// 아이디 찾기 이동 메서드
 	@GetMapping("/findId.do")
-	public String findId() {
-		return "";
+	public void findId() {}
+	
+	// 아이디 찾기 메서드
+	@PostMapping("/findIdByEmail.do")
+	@ResponseBody
+	public String findIdByEmail(@RequestParam String email) {
+		return memberService.findIdByEmail(email); 
 	}
 	
 	// 마이페이지 이동 메서드
@@ -193,7 +198,7 @@ public class MemberController {
 		}
 	}
 	
-	// 회원정보 수정 메서드
+	// 이메일 수정 메서드
 	@PostMapping("/updateEmail.do")
 	@ResponseBody
 	public int updateEmail(Member member, Authentication authentication) {
@@ -211,6 +216,7 @@ public class MemberController {
 		return result;
 	}
 	
+	// 비밀번호 수정 메서드
 	@PostMapping("/updatePwd.do")
 	public String updatePwd(Member member, RedirectAttributes redirectAttr) {
 		
@@ -222,4 +228,5 @@ public class MemberController {
 		
 		return "redirect:/member/memberLogout.do";
 	}
+	
 }

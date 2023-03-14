@@ -23,4 +23,6 @@ public interface MemberService {
 
 	int updateMember(Member member);
 
+	String findIdByEmail(String email);
+
 }

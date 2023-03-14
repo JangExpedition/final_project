@@ -22,6 +22,11 @@
 
 <!-- 사용자작성 css -->
 <link rel="stylesheet" href="${ pageContext.request.contextPath}/resources/css/common.css"/>
+
+<script>
+const msg = "${msg}";
+console.log(msg);
+</script>
 <c:if test="${not empty msg}">
 	<script>
 		alert("${msg}");
