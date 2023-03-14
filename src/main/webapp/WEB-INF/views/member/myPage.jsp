@@ -68,6 +68,10 @@
 							<th>비밀번호</th>
 							<td><input id="updatePwdBtn" class="updateBtn" type="button" value="변경하기"/></td>
 						</tr>
+						<tr>
+							<th>회원탈퇴</th>
+							<td><input id="deleteMemberBtn" class="updateBtn" type="button" value="회원탈퇴"/></td>
+						</tr>
 					</tbody>
 				</table>
 				
@@ -134,6 +138,10 @@
 				  </div>
 				</div>
 				<!-- 비밀번호 변경 모달 -->
+				<!-- 회원탈퇴 폼 -->
+				<form:form name="deleteMemberFrm" method="post" action="${ pageContext.request.contextPath }/member/withdrawalMember.do">
+					<input type="hidden" name="id" value="${ loginMember.id }"/>
+				</form:form>
 				<script>
 				/* 이메일 변경 메서드들 */
 				let code = "";
@@ -268,7 +276,14 @@
 					
 					e.target.submit();
 				});
+				/* 비밀번호 변경 메서드들 end */
 				
+				/* 회원탈퇴 메서드 */
+				document.querySelector("#deleteMemberBtn").addEventListener("click", (e)=>{
+					if(confirm("정말로 탈퇴하시겠습니까?")){
+						document.deleteMemberFrm.submit();
+					}
+				});
 				</script> 
 			</div>
 		</div>
