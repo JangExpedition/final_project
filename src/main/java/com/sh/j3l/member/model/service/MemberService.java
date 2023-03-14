@@ -9,7 +9,7 @@ public interface MemberService {
 
 	List<Member> selectAllMember();
 
-	Member selectOneMember(String memberId);
+	Member selectOneMember(String id);
 
 	int deleteMember(String id);
 
@@ -21,6 +21,6 @@ public interface MemberService {
 
 	Member selectMemberById(String id);
 
-	int updateEmail(String id, String email);
+	int updateMember(Member member);
 
 }

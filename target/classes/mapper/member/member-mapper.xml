@@ -74,11 +74,17 @@
 		)
 	</insert>
 	
-	<update id="updateEmail">
+	<update id="updateMember">
 		update
 			member
-		set
-			email = #{email}
+		<set>
+			<if test="email != null and email != ''">
+				email = #{email},
+			</if>
+			<if test="password != null and password != ''">
+				password = #{password}
+			</if>
+		</set>
 		where
 			id = #{id}
 	</update>
