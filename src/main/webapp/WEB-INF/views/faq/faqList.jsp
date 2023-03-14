@@ -9,11 +9,17 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/faqList.css"/>
-    
+   <style>
+  #myElement {
+    max-width: 200px;
+    height: 38px;
+  }
+</style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Expires" content="-1" />
@@ -559,17 +565,19 @@
 				<h2 class="tit">자주찾는 질문</h2>
 				<p class="stit">회원님들께서 가장 자주하시는 질문을 모았습니다. <br />궁금하신 내용에 대해 검색해보세요.</p>
 			</div>
-				<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
-			<div class="search_area">
-			
-			
+				
+			<br>		
 			<form:form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
 			  <div class="input-group">
 			    <input type="hidden" name="searchType" value="title" />
-			    <input type="text" class="form-control" style="max-width: 200px;" placeholder="주제 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+			    <input type="text" class="form-control" id="myElement" placeholder="주제 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
 			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 			  </div>
 			</form:form>
+			
+			<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
+			<div class="search_area">
+			
 	
 				 <!-- <legend><label for="searchtext">검색</label></legend>
 				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" value="" style="width:275px;" />
@@ -801,9 +809,9 @@
     
     	<div class="search_order">
 				<ol>
-				<li><span class="ico_oder find_q">01 자주찾는 질문 검색</span></li>
-				<li><span class="ico_oder email_i">02 이메일 문의</span><a href="/support/qna/default.aspx"><img src="http://img.cgv.co.kr/support/faq/btn_inquiry.png" alt="문의" /></a></li>	
-                <li style="text-align: left;"><span class="ico_oder tel_i">03 고객센터 전화문의</span><span class="num">1544-1122<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(상담가능 시간, 월~금 09:00~18:00)</span></li>
+				<li><span class="ico_oder find_q">자주찾는 질문 검색</span></li>
+ 				<!-- <li><span class="ico_oder email_i"> 더욱 자세한 답변을 원할시 </span><a href="/support/qna/default.aspx"><img src="http://img.cgv.co.kr/support/faq/btn_inquiry.png" alt="문의" /></a></li> -->
+                <li style="text-align: left;"><span class="ico_oder tel_i">고객센터 전화문의</span><span class="num">1544-1122<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(상담가능 시간, 월~금 09:00~18:00)</span></li>
 				</ol>
 			</div>
 			
@@ -811,6 +819,8 @@
     
   
 </div>
+
+
 
 
 
