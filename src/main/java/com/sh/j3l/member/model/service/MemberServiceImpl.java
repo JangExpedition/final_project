@@ -25,8 +25,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member selectOneMember(String memberId) {
-		return memberDao.selectOneMember(memberId);
+	public Member selectOneMember(String id) {
+		return memberDao.selectOneMember(id);
 	}
 
 	@Override
@@ -56,8 +56,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int updateEmail(String id, String email) {
-		return memberDao.updateEmail(id, email);
+	public int updateMember(Member member) {
+		return memberDao.updateMember(member);
+	}
+
+	@Override
+	public String findIdByEmail(String email) {
+		return memberDao.findIdByEmail(email);
 	}
 
 

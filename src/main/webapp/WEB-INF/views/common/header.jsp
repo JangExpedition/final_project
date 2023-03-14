@@ -22,6 +22,11 @@
 
 <!-- 사용자작성 css -->
 <link rel="stylesheet" href="${ pageContext.request.contextPath}/resources/css/common.css"/>
+
+<script>
+const msg = "${msg}";
+console.log(msg);
+</script>
 <c:if test="${not empty msg}">
 	<script>
 		alert("${msg}");
@@ -45,14 +50,9 @@
 		  	</a>
 		  </div>
 		  <div class="p-2">
-			<sec:authorize access="isAuthenticated()">
-		  		<a href="${ pageContext.request.contextPath }/member/myPage.do">
-	  		</sec:authorize>
-			<sec:authorize access="isAnonymous()">
-		  		<a href="${ pageContext.request.contextPath }/member/memberLogin.do">
-	  		</sec:authorize>
-		  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginMember.png">
-			  	<span>MY J3L</span>
+	  		<a href="${ pageContext.request.contextPath }/member/myPage.do">
+	  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginMember.png">
+		  	<span>MY J3L</span>
 		  	</a>
 		  </div>
 		  <sec:authorize access="isAnonymous()">

@@ -28,6 +28,8 @@ public interface MemberDao {
 
 	int insertAuthority(String id);
 
-	int updateEmail(@Param("id") String id, @Param("email") String email);
+	int updateMember(Member member);
+
+	String findIdByEmail(String email);
 
 }

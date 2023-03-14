@@ -101,7 +101,41 @@
 				  </div>
 				</div>
 				<!-- 이메일 인증 모달창 -->
+				
+				<!-- 비밀번호 변경 모달 -->
+				<div id="passwordUpdateModal" class="modal" tabindex="-1" role="dialog">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title">본인인증</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <img id="emailImg" src="${ pageContext.request.contextPath }/resources/images/email.png"/>
+						<div id="updatePwdWrap" class="step">
+							<form:form id="updatePwdFrm" name="updatePwdFrm" method="post" action="${ pageContext.request.contextPath }/member/updatePwd.do">
+								<input name="id" value="${ loginMember.id }" type="hidden"/>
+								<input id="oldPwd" name="oldPwd" type="password" placeholder="비밀번호를 입력해주세요."/>
+								<p id="oldPwdErr" class="err"></p>
+								<input id="newPwd" name="password" type="password" placeholder="새로운 비밀번호를 입력해주세요."/>
+								<p id="newPwdErr" class="err"></p>
+								<input id="newPwdCheck" name="passwordCheck" type="password" placeholder="새로운 비밀번호를 다시 한번 입력해주세요."/>
+								<p id="newPwdCheckErr" class="err"></p>
+								<input id="updatePwdBtn" value="비밀번호 변경" type="submit" class="BtnStyle"/>
+							</form:form>
+						</div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<!-- 비밀번호 변경 모달 -->
 				<script>
+				/* 이메일 변경 메서드들 */
 				let code = "";
 				let newEmail = "";
 				
@@ -164,13 +198,75 @@
 							data: {email : newEmail, id},
 							headers,
 							success(data){
-								document.querySelector("#emailVal").innerText = email;
+								const btn = document.querySelector("#updateEmailBtn");
+								const emailVal = document.querySelector("#emailVal");
+								emailVal.innerText = newEmail;
+								emailVal.append(btn);
 								$('#emailModal').modal('hide');
 								alert("메일을 성공적으로 변경했습니다.");
 							},
 							error: console.log
 						});
 					}
+				});
+				/* 이메일 변경 메서드들 end */
+				
+				/* 비밀번호 변경 메서드들 */
+				document.querySelector("#updatePwdBtn").addEventListener("click", (e)=>{
+					$("#passwordUpdateModal").modal("show");
+				});
+				
+				document.updatePwdFrm.addEventListener("submit", (e)=>{
+					
+					e.preventDefault();
+					
+					const id = e.target.id.value;					
+					const password = e.target.oldPwd.value;
+					const newPwd = e.target.password.value;
+					const newPwdCheck = e.target.passwordCheck.value;
+					const newPwdErr = document.querySelector("#newPwdErr");
+					
+					const result = certifiedPwd(id, password);
+					
+					if(result !== "true"){
+						document.querySelector("#oldPwdErr").innerHTML = "비밀번호가 일치하지 않습니다.";
+						return false;
+					}
+					
+					if(password === newPwd){
+				    	newPwdErr.innerHTML = "현재 비밀번호와 동일합니다.";
+				        return false;
+					}
+					
+					// 숫자 검사
+				    if(!/\d/.test(newPwd)){
+				    	newPwdErr.innerHTML = "비밀번호는 하나 이상의 숫자를 반드시 포함해야 합니다.";
+				        return false;
+				    }
+				    
+				    // 문자 검사
+				    if(!/[a-zㅏ-ㅣㄱ-ㅎ]/i.test(newPwd)){
+				    	newPwdErr.innerHTML = "비밀번호는 하나 이상의 문자를 반드시 포함해야 합니다.";
+				    	return false;
+				    }
+				    
+				    // 특수문자 검사
+				    if(!/[!@#$%^&*()]/.test(newPwd)){
+				    	newPwdErr.innerHTML = "비밀번호는 하나 이상의 특수문자를 반드시 포함해야 합니다.";
+				    	return false;
+				    }
+					
+					if(!/^[a-zㅏ-ㅣㄱ-ㅎ0-9!@#$%^&*()]{4,}$/i.test(newPwd)){
+						newPwdErr.innerHTML = "비밀번호는 영문자/숫자/특수문자로 구성된 4글자이상이어야합니다.";
+						return false;
+					}
+					
+					if(newPwd !== newPwdCheck){
+						document.querySelector("#newPwdCheckErr").innerHTML = "비밀번호가 일치하지 않습니다.";
+						return false;
+					}
+					
+					e.target.submit();
 				});
 				
 				</script> 
@@ -185,23 +281,34 @@ document.querySelector("#authenticationPwdBtn").addEventListener("click", (e)=>{
 	const id = "<sec:authentication property='principal.username'/>";
 	const password = document.querySelector("#password").value;
 	
+	const result = certifiedPwd(id, password);
+	
+	if(result === "true"){
+		document.querySelector("#certifiedBox").style.display = "none";
+		document.querySelector("#userData").style.display = "inline-block";
+	}
+	else{
+		document.querySelector("#passwordErr").innerHTML = "비밀번호가 일치하지 않습니다.";
+	}
+	
+});
+
+// 비밀번호 확인 메서드
+const certifiedPwd = (id, password) => {
+	let result = "";
+	
 	$.ajax({
 		url: "${pageContext.request.contextPath}/member/certified.do",
+		async: false, 
 		data: {id: id, password: password},
 		success(data){
-			if(data === "true"){
-				document.querySelector("#certifiedBox").style.display = "none";
-				document.querySelector("#userData").style.display = "inline-block";
-			}
-			else{
-				document.querySelector("#passwordErr").innerHTML = "비밀번호가 일치하지 않습니다.";
-			}
-			
+			result = data;
 		},
 		error: console.log
 	});
 	
-});
+	return result;
+}
 </script>
 </body>
 </html>

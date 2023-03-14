@@ -35,7 +35,7 @@
 					<div class="saveOrFindIdBox">
 						<input type="checkbox" id="remember-me" name="remember-me"/>
 						<label for="remember-me" id="saveIdLabel">자동 로그인</label>
-						<a href="#">아이디 찾기</a>
+						<a href="${ pageContext.request.contextPath }/member/findId.do">아이디 찾기</a>
 						<a href="#">비밀번호 찾기</a>
 					</div>
 				</fieldset>

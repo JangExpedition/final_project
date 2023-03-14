@@ -17,6 +17,7 @@
 	<http auto-config="true">
 		<intercept-url pattern="/" access="permitAll"/>
 		<intercept-url pattern="/index.jsp" access="permitAll"/>
+		<intercept-url pattern="/member/myPage.do" access="isAuthenticated()"/>
 		<!-- <intercept-url pattern="/**" access="isAuthenticated()"/> -->
 		
 		<form-login
