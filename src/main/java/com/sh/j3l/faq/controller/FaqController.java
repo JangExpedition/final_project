@@ -63,7 +63,7 @@ public class FaqController {
 	}
 	
 	@GetMapping("searchFaq")
-	public String searchFaq(@RequestParam(name = "title") String title, Model model) {
+	public String searchFaq(@RequestParam(name = "title", required = false) String title, Model model) {
 	    
 	    List<Faq> searchFaq = faqService.searchByTitle(title);
 	    log.debug("searchFaq = {}", searchFaq);
@@ -83,5 +83,24 @@ public class FaqController {
 		
 		model.addAttribute("faq", faq);
 	}
+	
+	
+	@PostMapping("/deleteFaq.do")
+	public String deleteFaq(Integer no, RedirectAttributes redirectAttr) {
+		
+		int result = faqService.deleteFaq(no);
+		log.debug("no = {}", no);
+		
+		if(result > 0) {
+			redirectAttr.addFlashAttribute("msg", "faq 삭제 성공");
+		} else {
+			redirectAttr.addFlashAttribute("msg", "faq 삭제 실패");
+		}
+		return "redirect:/faq/faqList.do";
+	}
+
+	
+	
+
 	
 }

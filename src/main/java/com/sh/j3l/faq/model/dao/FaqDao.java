@@ -18,5 +18,9 @@ public interface FaqDao {
 
 	Faq selectOneFaq(int no);
 
+	int updateFaq(Faq faq);
+
+	int deleteFaq(Integer no);
+
 
 }
