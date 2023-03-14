@@ -476,10 +476,12 @@
 				<p class="stit">CGV의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
 			</div>
 			
+			<br>
+			
 			<form:form action="${pageContext.request.contextPath}/notice/searchNotice" method="get" class="mb-3">
 			  <div class="input-group">
 			    <input type="hidden" name="searchType" value="title" />
-			    <input type="text" class="form-control" style="max-width: 200px;" placeholder="제목 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+			    <input type="text" class="form-control" id="myElement" style="max-width: 200px;" placeholder="제목 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
 			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 			  </div>
 			</form:form>
@@ -499,6 +501,25 @@
 			</form:form> --%>
 			<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
 			<div class="c_tab_wrap">
+			
+			<div class="qu_txt">
+				
+					<em>추천검색어 :</em>
+                    
+                            <span class='first'> <a href="#none" >현금영수증</a></span>
+                        
+                            <span class=''> <a href="#none" >관람권</a></span>
+                        
+                            <span class=''> <a href="#none" >예매</a></span>
+                        
+                            <span class=''> <a href="#none" >환불</a></span>
+                        
+                            <span class=''> <a href="#none" >취소</a></span>
+                        
+                            <span class=''> <a href="#none" ></a></span>
+                        
+				</div>
+			
 				<!-- <ul class="c_tab">
 					<li class='on'><a href="/support/news/default.aspx?type=&searchtext=" title="선택된 탭메뉴">전체</a></li>
 					<li class=''><a href="/support/news/default.aspx?type=1&searchtext=">시스템점검</a></li>
@@ -522,7 +543,7 @@
 						<th scope="col">번호</th>
 	                    <th scope="col">구분</th>
 						<th scope="col">제목</th>
- 						<th scope="col">조회수</th>
+ 						<th scope="col">등록일</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -531,7 +552,10 @@
 						    <td>${notice.no }</td>
                             <td>${notice.classifyy.koreanNamee}</td>
 						    <td>${notice.title}</td>
-						    <td>${notice.readCount}</td>
+						    <td>
+								<fmt:formatDate value="${faq.createdAt}" pattern="yy-MM-dd HH:mm"/>
+								<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
+							</td>
 					    </tr>
                      </c:forEach>   
 				</tbody>	
@@ -697,7 +721,14 @@
     <footer>
 		<!-- footer_area (s) -->
 		
-<div id="BottomWrapper" class="sect-ad">
+		<div class="search_order">
+				<ol>
+				<li><span class="ico_oder find_q">자주찾는 질문 검색</span></li>
+ 				<!-- <li><span class="ico_oder email_i"> 더욱 자세한 답변을 원할시 </span><a href="/support/qna/default.aspx"><img src="http://img.cgv.co.kr/support/faq/btn_inquiry.png" alt="문의" /></a></li> -->
+                <li style="text-align: left;"><span class="ico_oder tel_i">고객센터 전화문의</span><span class="num">1544-1122<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(상담가능 시간, 월~금 09:00~18:00)</span></li>
+				</ol>
+			</div>
+<%-- <div id="BottomWrapper" class="sect-ad">
     <iframe src="https://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@Bottom" width="100%" height="240" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
 </div>
 <ul class="policy_list">
@@ -802,7 +833,7 @@
     //-->
 	<!-- //Aside Banner -->
     
-</div>
+</div> --%>
 
 
 <script type="text/template" id="temp_popup_movie_player">
