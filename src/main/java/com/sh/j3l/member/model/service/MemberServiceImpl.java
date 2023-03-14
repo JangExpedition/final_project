@@ -60,5 +60,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.updateMember(member);
 	}
 
+	@Override
+	public String findIdByEmail(String email) {
+		return memberDao.findIdByEmail(email);
+	}
+
 
 }

@@ -30,4 +30,6 @@ public interface MemberDao {
 
 	int updateMember(Member member);
 
+	String findIdByEmail(String email);
+
 }
