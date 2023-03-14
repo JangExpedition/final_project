@@ -46,6 +46,7 @@ public class MovieController {
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
+	// 영화 목록 조회
 	@GetMapping("/movieList.do")
 	public String moiveList(@RequestParam(defaultValue = "1") int cpage, Model model) {
 		//페이징처리 RowBounds 이용 
@@ -59,10 +60,11 @@ public class MovieController {
 		return "movie/movieList";
 	}
 	
+	// 영화 등록 폼
 	@GetMapping("/movieForm.do")
 	public void movieForm() {}
 	
-	
+	// 영화 등록
 	@PostMapping("/movieEnroll.do")
 	public String movieEnroll(
 			Movie movie, 
@@ -108,6 +110,7 @@ public class MovieController {
 	}
 	
 	
+	// 영화 수정폼
 	@GetMapping("/movieDetail.do")
 	public void movieDetail(@RequestParam(name = "no", required = false) Integer no, Model model) {
 		// no가 null인 경우에 대한 처리 추가하기..
@@ -127,6 +130,7 @@ public class MovieController {
 		
 	}
 	
+	// 영화 수정 요청
 	@PostMapping("/updateMovie.do")
 	public String updateMovie(Movie movie, RedirectAttributes redirectAttr) {
 		
@@ -142,7 +146,7 @@ public class MovieController {
 		return "redirect:/movie/movieList.do";
 	}
 	
-	
+	// 영화 삭제 요청
 	@PostMapping("deleteMovie.do")
 	public String deleteMovie(Integer no, RedirectAttributes redirecAttr) {
 		
@@ -158,7 +162,7 @@ public class MovieController {
 		
 	}
 	
-	
+	// 영화 검색
 	@GetMapping("searchMovie")
 	public String searchMovie(@RequestParam(name = "title") String title, Model model) {
 	    

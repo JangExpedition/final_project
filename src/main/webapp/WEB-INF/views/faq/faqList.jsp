@@ -582,9 +582,9 @@
 				 <!-- <legend><label for="searchtext">검색</label></legend>
 				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" value="" style="width:275px;" />
 				<button type="button" class="round inblack" title="검색하기" id="btn_search" ><span>검색하기</span></button> --> 
-				<div class="qu_txt">
+				<div class="qu_txt" id="se">
 				
-					<em>추천검색어 :</em>
+					<e>추천검색어 :</em>
                     
                             <span class='first'> <a href="#none" >현금영수증</a></span>
                         

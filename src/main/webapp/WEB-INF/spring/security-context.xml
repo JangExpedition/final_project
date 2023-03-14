@@ -18,6 +18,8 @@
 		<intercept-url pattern="/" access="permitAll"/>
 		<intercept-url pattern="/index.jsp" access="permitAll"/>
 		<intercept-url pattern="/member/myPage.do" access="isAuthenticated()"/>
+		<intercept-url pattern="/ws/**" access="permitAll"/>
+		<intercept-url pattern="/echo" access="permitAll"/> <!-- spring-websocket endpoint -->
 		<!-- <intercept-url pattern="/**" access="isAuthenticated()"/> -->
 		
 		<form-login

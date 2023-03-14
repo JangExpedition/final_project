@@ -52,8 +52,7 @@ div#movie-container label.custom-file-label{text-align:left;}
 		    <option value="15세이용가">15세이용가</option>
 		    <option value="청소년관람불가">청소년관람불가</option>
 		  </select>
-		  
-			    <select class="form-select" name="genre">
+		  <select class="form-select" name="genre">
 			      <option value="ACTION" selected>액션</option>
 			      <option value="COMEDY" selected>코미디</option>
 			      <option value="ROMANCE" selected>로맨스</option>
@@ -61,8 +60,7 @@ div#movie-container label.custom-file-label{text-align:left;}
 			      <option value="HORROR">호러</option>
 			      <option value="DOCUMENTARY">다큐</option>
 			      <option value="DRAMA">드라마</option>
-			    </select>
-	
+		  </select>
 		</div>
 		<!-- <input type="text" class="form-control" placeholder="장르" name="title" id="title" required> -->
 		<!-- <div class="form-group row">

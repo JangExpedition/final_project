@@ -38,6 +38,8 @@ public interface MovieDao {
 
 	List<Movie> searchByTitle(String title);
 
+//	List<Attachment> selectAttachmentListByMovieNo(int no);
+
 
 
 }
