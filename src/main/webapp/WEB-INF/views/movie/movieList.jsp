@@ -65,7 +65,7 @@
 		  <td>${movie.genre.movieName}</td>
           <td>${movie.actors}</td>
           <td>${movie.director}</td>
-          <td>${movie.limit_age}</td>
+          <td>${movie.limitAge}</td>
           
           </c:forEach>
           
