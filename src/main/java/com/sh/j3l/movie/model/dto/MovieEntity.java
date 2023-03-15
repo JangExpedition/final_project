@@ -18,6 +18,5 @@ public class MovieEntity {
 	private String director;
 	private String actors;
 	private String synopsis;
-	private int limit_age;
+	private int limitAge;
 }
-

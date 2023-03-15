@@ -70,42 +70,41 @@ public class MovieController {
 	// 영화 등록
 	@PostMapping("/movieEnroll.do")
 	public String movieEnroll(
-			Movie movie, 
-			RedirectAttributes redirectAttr,
-			@RequestParam("upFile") List<MultipartFile> upFiles) {
+			MovieEntity movie, 
+			RedirectAttributes redirectAttr) {
 		
-		
-		// ServletContext : application객체의 타입. DI. 스프링과 관계없는 servlet spec의 객체
-		String saveDirectory = application.getRealPath("/resources/upload/movie");
-		log.debug("saveDirectory = {}", saveDirectory);
-				
-		// 첨부파일 저장(서버컴퓨터) 및 Attachment객체 만들기
-		for(MultipartFile upFile : upFiles) {
-			log.debug("upFile = {}", upFile);
-	
-					
-			if(upFile.getSize() > 0) {
-				// 1. 저장 
-				String renamedFilename = HelloSpringUtils.renameMultipartFile(upFile);
-				String originalFilename = upFile.getOriginalFilename();
-				File destFile = new File(saveDirectory, renamedFilename);
-				try {
-					upFile.transferTo(destFile);
-				} catch (IllegalStateException | IOException e) {
-					log.error(e.getMessage(), e);
-				}
-						
-				// 2. attach객체생성 및 Board에 추가
-				Attachment attach = new Attachment();
-				attach.setRenamedFilename(renamedFilename);
-				attach.setOriginalFilename(originalFilename);
-				movie.addAttachment(attach);
-			}
-					
-					
-		}
-		
-		int result = movieService.insertMovie(movie);
+//		
+//		// ServletContext : application객체의 타입. DI. 스프링과 관계없는 servlet spec의 객체
+//		String saveDirectory = application.getRealPath("/resources/upload/movie");
+//		log.debug("saveDirectory = {}", saveDirectory);
+//				
+//		// 첨부파일 저장(서버컴퓨터) 및 Attachment객체 만들기
+//		for(MultipartFile upFile : upFiles) {
+//			log.debug("upFile = {}", upFile);
+//	
+//					
+//			if(upFile.getSize() > 0) {
+//				// 1. 저장 
+//				String renamedFilename = HelloSpringUtils.renameMultipartFile(upFile);
+//				String originalFilename = upFile.getOriginalFilename();
+//				File destFile = new File(saveDirectory, renamedFilename);
+//				try {
+//					upFile.transferTo(destFile);
+//				} catch (IllegalStateException | IOException e) {
+//					log.error(e.getMessage(), e);
+//				}
+//						
+//				// 2. attach객체생성 및 Board에 추가
+//				Attachment attach = new Attachment();
+//				attach.setRenamedFilename(renamedFilename);
+//				attach.setOriginalFilename(originalFilename);
+//				movie.addAttachment(attach);
+//			}
+//					
+//					
+//		}
+		log.debug("movie = {}", movie);
+//		int result = movieService.insertMovie(movie);
 		
 		redirectAttr.addFlashAttribute("msg", "영화 정보 등록 성공!");
 		
