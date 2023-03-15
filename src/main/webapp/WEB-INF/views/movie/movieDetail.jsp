@@ -6,34 +6,12 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-
 <jsp:include page="/WEB-INF/views/admin/adminHeader.jsp">
 <jsp:param value="영화 등록" name="title"/>
 </jsp:include>
-<style>
-div#movie-container{width:400px; margin:0 auto; text-align:center;}
-div#movie-container input{margin-bottom:15px;}
-/* 부트스트랩 : 파일라벨명 정렬*/
-div#movie-container label.custom-file-label{text-align:left;}	
-
-</style>
-
-<!-- 테일윈드 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
-
-<!-- 데이지UI -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/1.14.2/full.css">
-
-<!-- 폰트어썸 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-<!-- 제이쿼리 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- 반응형 메타태그 -->
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movieDetail.css"/>
 
 
 <div id="movie-container">
@@ -69,46 +47,17 @@ div#movie-container label.custom-file-label{text-align:left;}
 		    </select>
   		</div>
 	</div>
-		<!-- <div class="input-group mb-3" style="padding:0px;">
-		  <div class="input-group-prepend" style="padding:0px;">
-		    <span class="input-group-text">첨부파일1</span>
-		  </div>
-		  <div class="custom-file">
-		    <input type="file" class="custom-file-input" name="upFile" id="upFile1" multiple>
-		    <label class="custom-file-label" for="upFile1">파일을 선택하세요</label>
-		  </div>
-		</div> -->
-		 
-
-		
 		<br />
 		
 		<input type="submit" class="btn btn-outline-success" value="수정">
-	<!-- 	<input type="submit" class="btn btn-outline-success" value="삭제"> -->
-		<!-- <button type="submit" class="btn btn-danger" onclick="deleteMovie()" >삭제</button> -->
-<!-- 		<input type="submit" class="btn btn-danger" onclick="insertMovie();" value="삭제"/> -->
  	</form:form> 
  	
-<form:form 
-	name="movieDeleteFrm" 
-	action="${pageContext.request.contextPath}/movie/deleteMovie.do"
-	method="post">
-	<input type="hidden" name="no" value="${movie.no}">
-	<input type="submit" class="btn btn-outline-success" value="삭제">
-</form:form>
+	<form:form 
+		name="movieDeleteFrm" 
+		action="${pageContext.request.contextPath}/movie/deleteMovie.do"
+		method="post">
+		<input type="hidden" name="no" value="${movie.no}">
+		<input type="submit" class="btn btn-outline-success" value="삭제">
+	</form:form>
+
 </div> 
-<!-- <script>
-document.querySelectorAll("[name=upFile]").forEach((input) => {
-	input.addEventListener('change', (e) => {
-		const file = e.target.files[0];
-		const label = e.target.nextElementSibling;
-		
-		if(file)
-			label.innerHTML = file.name;
-		else 
-			label.innerHTML = '파일을 선택하세요';
-	});
-});
-</script> -->
-<%-- <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
- --%>

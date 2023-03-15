@@ -18,6 +18,8 @@ public interface NoticeDao {
 
 	Notice selectOneNotice(int no);
 
+	int deleteNotice(Integer no);
+
 	
 
 }

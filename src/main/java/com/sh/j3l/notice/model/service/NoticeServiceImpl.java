@@ -34,6 +34,11 @@ public class NoticeServiceImpl implements NoticeService{
 	public Notice selectOneNotice(int no) {
 		return noticeDao.selectOneNotice(no);
 	}
+
+	@Override
+	public int deleteNotice(Integer no) {
+		return noticeDao.deleteNotice(no);
+	}
 	
 
 }

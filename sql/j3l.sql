@@ -302,10 +302,11 @@ CREATE TABLE notice (
     constraint pk_notice_no primary key(no)
 );
 
-
-
+ALTER TABLE notice MODIFY title VARCHAR2(3000);
 
 select * from notice;
+
+update
 
 
 -- 공지사항 테이블 시퀀스
@@ -323,6 +324,8 @@ CREATE TABLE FAQ (
     created_at date default sysdate,
     constraint pk_faq_no primary key(no)
 );
+
+
 
 select * from faq;
 

@@ -6,24 +6,13 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-
-
-
 <jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"/>
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movieList.css"/>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 
 
-<!-- 반응형 메타태그 -->
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-
-
-
-
-
- <div class="shadow-xl border border-gray-200 rounded-xl w-full min-h-screen ml-2 mb-4">
+<div class="shadow-xl border border-gray-200 rounded-xl w-full min-h-screen ml-2 mb-4">
   <form:form action="${pageContext.request.contextPath}/movie/searchMovie" method="get" class="mb-3">
     <div class="input-group">
       <input type="hidden" name="searchType" value="title" />
@@ -46,13 +35,12 @@
         
 
         <tr class="grid-adm-members py-2 px-1 text-center" data-no="${movie.no}">
-        	<%-- <tr data-no="${movie.no}"> --%>
          <td>${movie.no}</td>
           <td>${movie.title}</td>
 		  <td>${movie.genre.movieName}</td>
           <td>${movie.actors}</td>
           <td>${movie.director}</td>
-          <td>${movie.limitAge}</td>
+          <td>${movie.limitAge}세</td>
           
           </c:forEach>
          </tr>

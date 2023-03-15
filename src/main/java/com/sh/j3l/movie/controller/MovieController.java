@@ -70,12 +70,12 @@ public class MovieController {
 	// 영화 등록
 	@PostMapping("/movieEnroll.do")
 	public String movieEnroll(
-			Movie movie, 
+			MovieEntity movie, 
 			RedirectAttributes redirectAttr,
-			@RequestParam(required = false) List<MultipartFile> upFiles) {
-		
+			@RequestParam("upfile") List<MultipartFile> upFiles) {
+
 		log.debug("movie ={}", movie);
-	
+		
 		// ServletContext : application객체의 타입. DI. 스프링과 관계없는 servlet spec의 객체
 		String saveDirectory = application.getRealPath("/resources/upload/movie");
 		log.debug("saveDirectory = {}", saveDirectory);
@@ -105,13 +105,14 @@ public class MovieController {
 					
 					
 		}
-		
+		log.debug("movie = {}", movie);
 		int result = movieService.insertMovie(movie);
 		
 		redirectAttr.addFlashAttribute("msg", "영화 정보 등록 성공!");
 		
 		return "redirect:/movie/movieList.do";
 	}
+
 	
 	
 	// 영화 수정폼

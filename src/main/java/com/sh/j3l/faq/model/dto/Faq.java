@@ -1,5 +1,6 @@
 package com.sh.j3l.faq.model.dto;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
@@ -14,6 +15,6 @@ public class Faq {
 	private String title;
 	private String content;
 	private int readCount;
-	private LocalDateTime createdAt;
+	private Date createdAt;
 	private Classify classify;
 }

@@ -8,22 +8,24 @@
 			*
 		from
 			movie
+		order by
+			no asc
 	</select>
 	<resultMap type="movie" id="movieMap"></resultMap>
 
 	<insert id="insertMovie">
-		insert into 
-			movie (no, title, genre, director, actors, synopsis, limit_age)
-		values 
-		(
-			seq_movie_no.nextval, 
-			#{title}, 
-			#{genre}, 
-			#{director}, 
-			#{actors}, 
-			#{synopsis}, 
-			#{limit_age}
-		)
+    insert into 
+        movie (no, title, genre, director, actors, synopsis, limit_age)
+    values 
+    (
+        seq_movie_no.nextval, 
+        #{title}, 
+        #{genre}, 
+        #{director}, 
+        #{actors}, 
+        #{synopsis}, 
+        #{limitAge}
+    )
 	</insert>
 	
 	<insert id="insertAttachment">
@@ -47,20 +49,6 @@
 			no = #{no}
 	</select>
 	
-<!-- 	<select id="selectOneMovieCollection" resultMap="movieCollectionMap">
-		select
-			m.*,
-			a.*,
-			a.no attach_no,
-			m.*,
-		from
-			movie m
-				left join movie_attachment a
-					on m.no = a.movie_no
-				left join movie m
-					on m.movie_
-	</select> -->
-	
 	<update id="updateMovie">
 		update
 			movie
@@ -70,7 +58,7 @@
 			director = #{director},
 			actors = #{actors},
 			synopsis = #{synopsis},
-			limit_age = #{limit_age}
+			limit_age = #{limitAge}
 		where
 			no = #{no}
 	</update>

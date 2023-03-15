@@ -45,5 +45,12 @@
 		where
 			no = #{no}
 	</select>
+	
+	<delete id="deleteNotice">
+		delete from
+			notice
+		where 
+			no = #{no}
+	</delete>
 
 </mapper>
