@@ -27,9 +27,9 @@
 			login-processing-url="/member/memberLogin.do"
 			username-parameter="id"
 			authentication-success-forward-url="/member/loginSuccess.do"/>
-		<logout
+		<!-- <logout
 			logout-url="/member/memberLogout.do"
-			logout-success-url="/"/>
+			logout-success-url="/"/> -->
 		<remember-me 
 			data-source-ref="dataSource" 
 			token-validity-seconds="1209600"/><!--  60s * 60m * 24h * 14d 2주  -->
