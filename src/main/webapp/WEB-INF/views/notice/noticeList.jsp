@@ -7,17 +7,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-<head>
 
-    <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/noticeList.css"/>
-    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/webfont.css" />
-	<link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/reset.css" /> 
-	<link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/layout.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/module.css?20211209" />
-	<link rel="stylesheet" media="all" type="text/css" href="http://img.cgv.co.kr/R2014/css/customer.css" />
-    
-</head>
-<body>
+<link rel="stylesheet" media="all" type="text/css" href="${ pageContext.request.contextPath }/resources/css/noticeList.css"/>
    
 
 <div id="contaniner">
@@ -50,7 +41,11 @@
 			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 			  </div>
 			</form:form>
-			<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/>
+			
+			<div class="parent">
+			<i class="fa-sharp fa-solid fa-pen-to-square" id="btn-add"></i>
+			</div>
+			
 			<div class="c_tab_wrap">
 			
 			<div class="qu_txt">
@@ -95,20 +90,13 @@
                             <td>${notice.classifyy.koreanNamee}</td>
 						    <td>${notice.title}</td>
 						    <td>
-								<fmt:formatDate value="${faq.createdAt}" pattern="yy-MM-dd HH:mm"/>
-								<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
+								<fmt:formatDate value="${notice.createdAt}" pattern="yy-MM-dd HH:mm"/>
+								<fmt:parseDate value="${notice.createdAt}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
 							</td>
 					    </tr>
                      </c:forEach>   
 				</tbody>	
 				</table>
-			</div>
-			<div class="search_order">
-				<ol>
-				<li><span class="ico_oder find_q">자주찾는 질문 검색</span></li>
- 				<!-- <li><span class="ico_oder email_i"> 더욱 자세한 답변을 원할시 </span><a href="/support/qna/default.aspx"><img src="http://img.cgv.co.kr/support/faq/btn_inquiry.png" alt="문의" /></a></li> -->
-                <li style="text-align: left;"><span class="ico_oder tel_i">고객센터 전화문의</span><span class="num">1544-1122<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(상담가능 시간, 월~금 09:00~18:00)</span></li>
-				</ol>
 			</div>
 		</div>
 	</div>

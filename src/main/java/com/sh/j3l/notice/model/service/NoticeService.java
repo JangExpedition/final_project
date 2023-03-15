@@ -16,4 +16,6 @@ public interface NoticeService {
 
 	Notice selectOneNotice(int no);
 
+	int deleteNotice(Integer no);
+
 }

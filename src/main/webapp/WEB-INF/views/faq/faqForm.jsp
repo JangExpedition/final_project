@@ -8,17 +8,7 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
-<head>
-    
-    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/webfont.css" />
-	<link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/reset.css" /> 
-	<link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/layout.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/module.css?20211209" />
-	<link rel="stylesheet" media="all" type="text/css" href="http://img.cgv.co.kr/R2014/css/customer.css" />
-</head>
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/faqForm.css"/>
 
 
 <div id="contaniner">
@@ -87,9 +77,9 @@
                             <button style="width:80px" class="round inred" type="submit" id="emailsubmit" ><span>등록하기</span></button>
 						</div>
 					</fieldset>
-				</form:form>
-			</div>
+			</form:form>
 		</div>
+	</div>
 </div>
 </body>
 </html>

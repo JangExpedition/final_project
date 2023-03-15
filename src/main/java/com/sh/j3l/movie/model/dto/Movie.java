@@ -19,16 +19,15 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class Movie extends MovieEntity {
 	
-	private int attachCount;
+	
 	private List<Attachment> attachments = new ArrayList<>();
 	private Member member;
 	
 	
-	public Movie(int no, String title, com.sh.j3l.movie.model.dto.Genre Genre, String director, String actors,
-			String synopsis, int limit_age) {
-		super(no, title, Genre, director, actors, synopsis, limit_age);
-		this.attachCount = attachCount;
-	}
+//	public Movie(int no, String title, Genre Genre, String director, String actors,
+//			String synopsis, int runnig_time, int limit_age) {
+//		super(no, title, Genre, director, actors, synopsis, runnig_time, limit_age);
+//	}
 	
 	public void addAttachment(Attachment attach) {
 		this.attachments.add(attach);

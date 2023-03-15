@@ -6,6 +6,7 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
 <!-- 사용자작성 css -->
-<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/common.css"/>
+ <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/adminHeader.css"/> 
+<%-- <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/common.css"/> --%>
 <c:if test="${not empty msg}">
 <script>
 	alert("${msg}");
@@ -38,22 +40,22 @@
       </div>
       <div class="font-bold flex justify-center">
         <ul class="flex flex-col">
-          <li class="p-2">
+          <li class="p-3">
              <a href="${pageContext.request.contextPath}/member/memberList.do">
               회원관리
             </a>
           </li>
-          <li class="p-2">
+          <li class="p-3">
             <a href="${pageContext.request.contextPath}/movie/movieList.do">
               영화관리
             </a>
           </li>
-          <li class="p-2">
+          <li class="p-3">
             <a href="#">
               매출관리
             </a>
           </li>
-          <li class="p-2">
+          <li class="p-3">
             <a href="#">
               예매율관리
             </a>

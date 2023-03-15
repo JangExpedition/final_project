@@ -84,5 +84,19 @@ public class NoticeController {
 		
 		model.addAttribute("notice", notice);
 	}
+	
+	@PostMapping("/deleteNotice.do")
+	public String deleteNotice(Integer no, RedirectAttributes redirectAttr) {
+		
+		int result = noticeService.deleteNotice(no);
+		log.debug("no = {}", no);
+		
+		if(result > 0) {
+			redirectAttr.addFlashAttribute("msg", "게시물 삭제 성공");
+		} else {
+			redirectAttr.addFlashAttribute("msg", "게시물 삭제 실패");
+		}
+		return "redirect:/notice/noticeList.do";
+	}
 
 }
