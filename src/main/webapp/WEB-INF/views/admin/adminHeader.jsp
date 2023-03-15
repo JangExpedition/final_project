@@ -62,32 +62,3 @@
       </div>
     </aside>
   </div>
-<%--   <!-- 서비스 메뉴 -->
-</div>
-<!-- 서브 메뉴 -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-		<li class="nav-item active">
-		  <a class="nav-link" href="#">영화</a>
-		</li>
-		<li class="nav-item active">
-		  <a class="nav-link" href="#">극장</a>
-		</li>
-		<li class="nav-item active">
-		  <a class="nav-link 
-		  	<c:if test="${ pageContext.request.servletPath eq '/WEB-INF/views/reservation/reservation.jsp' }">red</c:if>" 
-		  	href="${ pageContext.request.contextPath }/reservation/reservation.do">예매</a>
-		</li>
-		<li class="nav-item">
-		   <a class="nav-link disabled" href="${ pageContext.request.contextPath }/admin/admin.do">관리자</a>
-		</li>
-		</ul>
-		<form class="form-inline my-2 my-lg-0">
-			<input id="searchMovie" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
-			<button class="searchBtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-		</form>
-	</div>
-</nav>
-<!-- 서브 메뉴 -->
- --%>

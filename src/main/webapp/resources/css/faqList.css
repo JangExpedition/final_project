@@ -1,16 +1,15 @@
-@charset "UTF-8";
-
-tr[data-no] {cursor: pointer;}
+tr[data-no] {
+   cursor: pointer;
+}
 
 #myElement {
-    max-width: 200px;
-    height: 38px;
- }
+   max-width: 200px;
+   height: 38px;
+}
  
-#se{
-	
-     position: relative;
-    margin-top: 15px;
-    border-bottom: 2px solid #898987;
-    height: 35px;
+#se { 
+   position: relative;
+   margin-top: 15px;
+   border-bottom: 2px solid #898987;
+   height: 35px;
 }

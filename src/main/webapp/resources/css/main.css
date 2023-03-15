@@ -1,0 +1,11 @@
+input[type='text'], input[type='password'] {
+    display: inline-block;
+    /* height: 25px; */
+    line-height: 22px;
+    padding-left: 10px;
+    border: 1px solid #b5b5b5;
+}
+
+*, ::after, ::before {
+    box-sizing: content-box;
+}

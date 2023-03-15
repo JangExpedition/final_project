@@ -1,9 +1,8 @@
-@charset "UTF-8";
-
-tr[data-no] {cursor: pointer;}
-
+tr[data-no] {
+   cursor: pointer;
+}
 
 #myElement {
-    max-width: 200px;
-    height: 38px;
- }
+   max-width: 200px;
+   height: 38px;
+}
