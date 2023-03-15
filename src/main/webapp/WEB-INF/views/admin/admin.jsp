@@ -36,11 +36,6 @@
       </div>
       <div class="font-bold flex justify-center">
         <ul class="flex flex-col">
-          <%-- <li class="p-2">
-            <a href="${pageContext.request.contextPath}">
-              메인 메뉴 이동
-            </a>
-          </li> --%>
           <li class="p-2">
              <a href="${pageContext.request.contextPath}/member/memberList.do">
               회원 관리
