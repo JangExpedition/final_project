@@ -1,0 +1,7 @@
+
+div#movie-container{
+	width:400px; margin:0 auto; text-align:center;
+}
+div#movie-container input{margin-bottom:15px;}
+/* 부트스트랩 : 파일라벨명 정렬*/
+div#movie-container label.custom-file-label{text-align:left;}

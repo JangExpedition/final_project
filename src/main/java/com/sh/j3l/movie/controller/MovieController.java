@@ -72,9 +72,10 @@ public class MovieController {
 	public String movieEnroll(
 			Movie movie, 
 			RedirectAttributes redirectAttr,
-			@RequestParam("upFile") List<MultipartFile> upFiles) {
+			@RequestParam(required = false) List<MultipartFile> upFiles) {
 		
-		
+		log.debug("movie ={}", movie);
+	
 		// ServletContext : application객체의 타입. DI. 스프링과 관계없는 servlet spec의 객체
 		String saveDirectory = application.getRealPath("/resources/upload/movie");
 		log.debug("saveDirectory = {}", saveDirectory);

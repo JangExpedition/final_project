@@ -12,25 +12,12 @@
 <jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"/>
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movieList.css"/>
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 
-
-
-<!-- 테일윈드 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
-
-<!-- 데이지UI -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/1.14.2/full.css">
-
-<!-- 폰트어썸 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-<!-- 제이쿼리 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!-- 반응형 메타태그 -->
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 
 
 
@@ -65,40 +52,9 @@
 		  <td>${movie.genre.movieName}</td>
           <td>${movie.actors}</td>
           <td>${movie.director}</td>
-          <td>${movie.limit_age}</td>
+          <td>${movie.limitAge}</td>
           
           </c:forEach>
-          
-    <!--       <input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/> -->
-          
-          
-          <%-- <div class="pagination">
-		    <c:url var="prevUrl" value="/movieList.do">
-		        <c:param name="cpage" value="${movieList.previousPage}" />
-		    </c:url>
-		    <c:if test="${not empty movieList.previousPage}">
-		        <a href="${prevUrl}">&laquo;</a>
-		    </c:if>
-
-		   <c:forEach var="page" begin="1" end="${movieList.totalPages}">
-		       <c:url var="pageUrl" value="/movieList.do">
-		           <c:param name="cpage" value="${page}" />
-		       </c:url>
-		       <c:if test="${page eq movieList.pageNumber}">
-		           <span class="current">${page}</span>
-		       </c:if>
-		       <c:if test="${page ne movieList.pageNumber}">
-		           <a href="${pageUrl}">${page}</a>
-		       </c:if>
-		   </c:forEach>
-
-		    <c:url var="nextUrl" value="/movieList.do">
-		        <c:param name="cpage" value="${movieList.nextPage}" />
-		    </c:url>
-		    <c:if test="${not empty movieList.nextPage}">
-		        <a href="${nextUrl}">&raquo;</a>
-		    </c:if>
-		  </div> --%>
          </tr>
       </tbody>
     </table>

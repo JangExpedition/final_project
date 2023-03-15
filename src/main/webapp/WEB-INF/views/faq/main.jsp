@@ -21,14 +21,10 @@
 </head>
 
 
-<body class="">
+<body>
 
-<div id="cgvwrap">
-    
-    
 
-  	
-	</div>
+    
 
 	<div id="contaniner"  class="">
         
@@ -37,9 +33,7 @@
         
 
 <div id="contents">
-
 	<div class="cols-content">
-		
 <div class="col-aside">
     <h2>
         고객센터 메뉴</h2>
