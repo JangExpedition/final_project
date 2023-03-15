@@ -7,9 +7,9 @@ tr[data-no] {
    height: 38px;
 }
  
-#se { 
-   position: relative;
-   margin-top: 15px;
-   border-bottom: 2px solid #898987;
-   height: 35px;
+#se{
+    position: relative;
+    margin-top: 15px;
+    border-bottom: 2px solid #898987;
+    height: 35px;
 }

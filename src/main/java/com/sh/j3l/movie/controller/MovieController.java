@@ -46,6 +46,9 @@ public class MovieController {
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
+	@GetMapping("/movie.do")
+	public void movie() {}
+	
 	// 영화 목록 조회
 	@GetMapping("/movieList.do")
 	public String moiveList(@RequestParam(defaultValue = "1") int cpage, Model model) {

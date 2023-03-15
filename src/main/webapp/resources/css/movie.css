@@ -1,0 +1,23 @@
+#movieSection{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#movieChart{
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#movieChartTitle{
+	width: 100%;
+	padding: 10px;
+	text-align: start;
+	margin-top: 10px;
+	border-bottom: 3px solid #000;
+}

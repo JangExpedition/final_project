@@ -10,17 +10,15 @@
 </jsp:include>
 <!-- index.css -->
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/index.css"/>
-
-<!-- <banner>
-  <div class="video-banner">
-    <video autoplay muted controls>
-      <source src="https://adimg.cgv.co.kr/images/202207/BulletTrain/0812_BulletTrain_1080x608.mp4" type="video/mp4">
-    </video>
-  </div>
-</banner> -->
+<div id="previewBox">
+	<iframe width="980" height="489" 
+	src="https://www.youtube.com/embed/enPPU3GCSEM?autoplay=1&mute=1" 
+	title="YouTube video player" 
+	frameborder="0" 
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+	allowfullscreen></iframe>
+</div>
 
 
 </body>
-
-
 </html>

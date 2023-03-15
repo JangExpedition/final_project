@@ -28,6 +28,11 @@
 					<span class="filter non-click">예매율순</span>
 					<span class="filter non-click">가나다순</span>
 				</div>
+				<div class="movie-list">
+				<c:forEach items="${ movieList }" var="movie">
+				
+				</c:forEach>
+				</div>
 			</div>
 		</div>
 		<!-- 영화선택 구간 -->
