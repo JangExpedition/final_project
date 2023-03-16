@@ -11,4 +11,6 @@ public interface CinemaService {
 
 	List<Location> selectAllLocation();
 
+	Cinema selectOneCinema(String name);
+
 }

@@ -16,4 +16,7 @@ public interface CinemaDao {
 	@Select("select * from location order by no")
 	List<Location> selectAllLocation();
 
+	@Select("select * from cinema where name = #{name}")
+	Cinema selectOneCinema(String name);
+
 }
