@@ -34,7 +34,6 @@
 						<div class="tbl_area">
 							<p class="tbl_info_txt"><em></em></p>
 							<table cellspacing="0" cellpadding="0" class="tbl_notice_list tbl_left">
-								<caption>목록</caption>
 								<colgroup>
 									<col style="width:96px" />
                                     <col style="width:303px" />
@@ -64,8 +63,8 @@
 									<tr>
 										<th scope="row"><label for="inp_textbox">내용 <em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em></label></th>
 										<td colspan="3">
-											<textarea cols="60" rows="5" id="content" name="content"  class="inp_txtbox01"  style=" height:94px !important;" onkeyup="javascript:checkByte(this,5000,'sp_ad_content_size_1', 'sp_ad_content_size_2');" ></textarea>
-											<p class="byte_info"><span id="sp_ad_content_size_1">0</span>/5000BYTE <span>(<span id="sp_ad_content_size_2">0</span>/2500자)</span></p>
+											<textarea cols="60" rows="5" id="content" name="content"  class="inp_txtbox01" onkeyup="javascript:checkByte(this,5000,'sp_ad_content_size_1', 'sp_ad_content_size_2');" ></textarea>
+											<p class="byte_info"><span id="sp_ad_content_size_1"></span><span><span id="sp_ad_content_size_2"></span></span></p>
 										</td>
 									</tr>
 								</tbody>
@@ -73,8 +72,8 @@
 						</div>
 						<br>
 						</br>
-						<div class="box-btn qna_email">
-							<a style="margin-left:5px" href="${pageContext.request.contextPath}/notice/notice.do" class="round gray"><span style="padding:0 14px;">취소</span></a>
+						<div class="box-btn qna">
+							<a style="margin-left:5px" href="${pageContext.request.contextPath}/notice/noticeList.do" class="round gray"><span style="padding:0 14px;">취소</span></a>
                             <button style="width:80px" class="round inred" type="submit" id="emailsubmit" ><span>등록하기</span></button>
 						</div>
 					</fieldset>
@@ -83,4 +82,13 @@
 		</div>
 </div>
 </body>
+<!-- <script>
+document.getElementById("emailsubmit").addEventListener("click", function() {
+	  var title = document.getElementById("title").value;
+	  if (title.trim() == "") {
+	    alert("제목을 입력하세요.");
+	    return false;
+	  }
+	});
+</script> -->
 </html>
