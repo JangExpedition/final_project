@@ -45,7 +45,9 @@
             <fmt:formatDate value="${enrollDate}" pattern="yy/MM/dd"/>
           </td>
           <td>
-            <form:form action="${pageContext.request.contextPath}/member/deleteMember.do" method="post" onsubmit="return confirm('정말 추방하시겠습니까?')">
+            <form:form action="${pageContext.request.contextPath}/member/deleteMember.do" 
+            	method="post" 
+            	onsubmit="return confirm('해당 회원을 탈퇴시키시겠습니까?')">
               <input type="hidden" name="id" value="${member.id}">
               <button type="submit"><i class="fas fa-user-times"></i></button>
             </form:form>

@@ -30,6 +30,8 @@ public class MovieEntity {
 	
 	
 	public void addAttachment(Attachment attach) {
+		this.attachments.add(attach);
 	}
+	
 
 }

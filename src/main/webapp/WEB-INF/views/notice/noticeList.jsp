@@ -8,9 +8,8 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-<link rel="stylesheet" media="all" type="text/css" href="${ pageContext.request.contextPath }/resources/css/noticeList.css"/>
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/noticeList.css"/>
    
-
 <div id="contaniner">
   <div id="contents">
 	<div class="cols-content">
@@ -90,8 +89,8 @@
                             <td>${notice.classifyy.koreanNamee}</td>
 						    <td>${notice.title}</td>
 						    <td>
-								<fmt:formatDate value="${notice.createdAt}" pattern="yy-MM-dd HH:mm"/>
 								<fmt:parseDate value="${notice.createdAt}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
+								<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd HH:mm"/>
 							</td>
 					    </tr>
                      </c:forEach>   

@@ -8,8 +8,6 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-
-
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/faqList.css"/>
 
 <div id="contents" class="">

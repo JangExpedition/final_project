@@ -15,6 +15,6 @@ public class Faq {
 	private String title;
 	private String content;
 	private int readCount;
-	private Date createdAt;
+	private LocalDateTime createdAt;
 	private Classify classify;
 }

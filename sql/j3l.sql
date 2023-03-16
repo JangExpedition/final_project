@@ -294,7 +294,7 @@ create sequence seq_question_comment_no;
 -- 공지사항 테이블
 CREATE TABLE notice (
 	no number NOT NULL,
-	title varchar2(50) NOT NULL,
+	title varchar2(3000) NOT NULL,
     classifyy varchar2(50),
     read_count number default 0,
     created_at date default sysdate,
@@ -302,11 +302,8 @@ CREATE TABLE notice (
     constraint pk_notice_no primary key(no)
 );
 
-ALTER TABLE notice MODIFY title VARCHAR2(3000);
 
 select * from notice;
-
-update
 
 
 -- 공지사항 테이블 시퀀스
@@ -324,8 +321,6 @@ CREATE TABLE FAQ (
     created_at date default sysdate,
     constraint pk_faq_no primary key(no)
 );
-
-
 
 select * from faq;
 
