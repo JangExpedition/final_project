@@ -72,7 +72,7 @@ public class MovieController {
 	public String movieEnroll(
 			MovieEntity movie, 
 			RedirectAttributes redirectAttr,
-			@RequestParam List<MultipartFile> upFiles) {
+			@RequestParam("upFile") List<MultipartFile> upFiles) {
 
 		log.debug("movie ={}", movie);
 		

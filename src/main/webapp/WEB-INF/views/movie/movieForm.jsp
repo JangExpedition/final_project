@@ -50,8 +50,8 @@
 			  <span class="input-group-text">첨부파일</span>
 			</div>
 			<div class="custom-file">
-			  <input type="file" class="custom-file-input" name="upFile" id="upFile1" multiple>
-			  <label class="custom-file-label" for="upFile1">파일을 선택하세요</label>
+			  <input type="file" class="custom-file-input" name="upFile" id="upFile" multiple>
+			  <label class="custom-file-label" for="upFile">파일을 선택하세요</label>
 			</div>
 		</div> 
 		<textarea class="form-control" name="content" placeholder="내용" required></textarea>
