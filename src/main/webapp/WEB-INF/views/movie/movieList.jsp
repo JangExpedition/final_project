@@ -48,10 +48,6 @@
     </table>
   </div>
 </div>
-
-
-  
-  <input type="button" value="영화 등록" id="btn-add" class="btn btn-outline-success"/>
   
 <script>
 document.querySelector("#btn-add").addEventListener('click', (e) => {

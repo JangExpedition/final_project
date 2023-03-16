@@ -21,8 +21,9 @@
 			    <div class="snb">
 			        <ul class="ul1">
 			            <li class='on'><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
 			            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+			            <li class=''><a href="${ pageContext.request.contextPath }">이메일 문의<i></i></a></li>
 			        </ul>
 			    </div>
 			</div>
@@ -72,7 +73,20 @@
 						<div class="notice_area">
 	                    <a href="${ pageContext.request.contextPath }/notice/noticeList.do">
 						    <span class="tit">공지/뉴스</span>
-	                    </a>
+						</a>
+						    <ul class="txt">
+                    
+                            <li><a href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=85">[점검] 2023년 3월 시스템 점검 안내</a><span class="day">2023.03.16</span></li>
+                        
+                            <li><a href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=86">[기타] 개인정보처리방침 개정 안내 (1/16 字 시행)</a><span class="day">2023.03.16</span></li>
+                        
+                            <li><a href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=87">[기타] 23년 VIP 선정 기준 일부 변경 안내 (VIP점수, 조기승급)</a><span class="day">2023.01.09</span></li>
+                        
+                            <li><a href="/support/news/detail-view.aspx?idx=7935&type=1">[시스템점검] 2023년 1월 시스템 점검 안내</a><span class="day">2022.12.29</span></li>
+                        
+                            <li><a href="/support/news/detail-view.aspx?idx=7934&type=3"> 2022 SVIP 스페셜기프트 언박싱 이벤트 진행 일정 변경 안내</a><span class="day">2022.12.19</span></li>
+                        
+							</ul>
 						<a href="${pageContext.request.contextPath}/notice/noticeForm.do" class="more">공지/뉴스 더보기</a>
 						</div>
 					</div>
@@ -83,7 +97,6 @@
 </div>
 </body>
 </html>
-
 
 
 

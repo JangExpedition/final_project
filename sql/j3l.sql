@@ -189,6 +189,7 @@ CREATE TABLE cinema (
     constraint fk_location_name foreign key(location_name) references location on delete cascade
 );
 
+select * from cinema;
 
 -- 상영관 테이블
 CREATE TABLE theater (
@@ -200,6 +201,8 @@ CREATE TABLE theater (
                         REFERENCES CINEMA
                         ON DELETE CASCADE
 );
+
+select * from theater;
 
 -- 상영관 테이블 시퀀스
 create sequence seq_theater_no;
