@@ -5,8 +5,7 @@
 <mapper namespace="com.sh.j3l.faq.model.dao.FaqDao">
 	<select id="selectAllFaq" resultMap="faqMap">
 		select
-			no, title, content, classify, read_count,
-			TO_CHAR(created_at, 'yy-MM-dd HH24:mi') as created_at
+			*
 		from
 			FAQ
 	</select>
@@ -22,7 +21,7 @@
 			#{title},
 			#{content},
 			#{readCount},
-			#{createdAt},
+			default,
 			#{classify}
 		)
 	</insert>
