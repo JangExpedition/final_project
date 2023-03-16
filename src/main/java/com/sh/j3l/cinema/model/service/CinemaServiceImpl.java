@@ -25,4 +25,9 @@ public class CinemaServiceImpl implements CinemaService {
 		return cinemaDao.selectAllLocation();
 	}
 
+	@Override
+	public Cinema selectOneCinema(String name) {
+		return cinemaDao.selectOneCinema(name);
+	}
+
 }
