@@ -5,11 +5,20 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
 
 
-/*글쓰기버튼*/
-input#btn-add {
-	float: right; margin: 0 0 15px; margin-left: 5cm;
+div#movie-container {
+	width:400px; margin:0 auto; text-align:center;
 }
 
-tr[data-no] {
-	cursor: pointer;
+div#movie-container input {
+	margin-bottom:15px;
+}
+
+/* 부트스트랩 : 파일라벨명 정렬*/
+div#movie-container label.custom-file-label {
+	text-align:left;
+}	
+
+
+:root {
+  background-color: transparent;
 }

@@ -3,13 +3,3 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
-
-
-/*글쓰기버튼*/
-input#btn-add {
-	float: right; margin: 0 0 15px; margin-left: 5cm;
-}
-
-tr[data-no] {
-	cursor: pointer;
-}

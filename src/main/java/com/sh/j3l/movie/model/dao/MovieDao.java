@@ -16,7 +16,7 @@ public interface MovieDao {
 	
 	List<Movie> selectAllMovie(RowBounds rowBounds);
 	
-	int insertMovie(Movie movie);
+	int insertMovie(MovieEntity movie);
 
 	int insertAttachment(Attachment attach);
 //
@@ -38,7 +38,7 @@ public interface MovieDao {
 
 	List<Movie> searchByTitle(String title);
 
-//	List<Attachment> selectAttachmentListByMovieNo(int no);
+
 
 
 

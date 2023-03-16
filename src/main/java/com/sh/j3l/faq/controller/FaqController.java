@@ -92,9 +92,9 @@ public class FaqController {
 		log.debug("no = {}", no);
 		
 		if(result > 0) {
-			redirectAttr.addFlashAttribute("msg", "faq 삭제 성공");
+			redirectAttr.addFlashAttribute("msg", "게시물 삭제 성공");
 		} else {
-			redirectAttr.addFlashAttribute("msg", "faq 삭제 실패");
+			redirectAttr.addFlashAttribute("msg", "게시물 삭제 실패");
 		}
 		return "redirect:/faq/faqList.do";
 	}

@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum Classifyy {
-	JUMGUM("점검"),
-	GITA("[환불]"),
+	JUMGUM("[점검]"),
+	GITA("[기타]"),
 	HAENGSA("[행사]"),
 	EVENT("[이벤트]"),
 	GKJANG("[극장]");

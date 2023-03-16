@@ -28,7 +28,7 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public int insertMovie(Movie movie) {
+	public int insertMovie(MovieEntity movie) {
 		// 게시글 등록
 		int result = movieDao.insertMovie(movie);
 		log.debug("movie = {}", movie);

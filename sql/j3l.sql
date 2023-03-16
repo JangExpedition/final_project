@@ -323,15 +323,13 @@ create sequence seq_question_comment_no;
 -- 공지사항 테이블
 CREATE TABLE notice (
 	no number NOT NULL,
-	title varchar2(50) NOT NULL,
+	title varchar2(3000) NOT NULL,
     classifyy varchar2(50),
     read_count number default 0,
     created_at date default sysdate,
 	content varchar2(4000) NOT NULL,
     constraint pk_notice_no primary key(no)
 );
-
-
 
 
 select * from notice;

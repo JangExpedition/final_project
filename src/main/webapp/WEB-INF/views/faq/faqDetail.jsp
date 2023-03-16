@@ -1,40 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
-<head>
-    
-    
-    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/webfont.css" />
-	<link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/reset.css" /> 
-	<link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/layout.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/module.css?20211209" />
-	<link rel="stylesheet" media="all" type="text/css" href="http://img.cgv.co.kr/R2014/css/customer.css" />
-	
-</head>
-<body>
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/faqDetail.css"/>
 
-		 <div id="contents" class="">
 <div id="contents">
   <div class="cols-content">	    
 	<div class="col-aside">
-		    <h2>
-		        고객센터 메뉴</h2>
-		    <div class="snb">
-		        <ul>
-		            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-		            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
-		        </ul>
-		    </div>
+	    <h2>
+	        고객센터 메뉴</h2>
+	    <div class="snb">
+	        <ul>
+	            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
+	            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+	            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+	        </ul>
+	    </div>
 	</div>
 		<div class="col-detail">
 			<div class="customer_top">
@@ -43,36 +30,36 @@
 			</div>
 			<div class="board_view_area">
 				<ul class="top_title_faq">
-					<li class="title">${faq.classify.koreanName} ${faq.title}</li>
-					<li class="stit_area">
-						<span>등록일<em class="regist_day"><fmt:formatDate value="${createdAt}" pattern="yy-MM-dd HH:mm"/></em></span>
-						<span class="check_tit_area">조회수<em class="check_num">${faq.readCount }</em></span>
-					</li>
-				</ul>
+	<li class="title">${faq.classify.koreanName} ${faq.title}</li>
+	<li class="stit_area">
+		<span>등록일<em class="regist_day"><fmt:formatDate value="${faq.createdAt}" pattern="yy-MM-dd HH:mm"/></em></span>
+	</li>
+</ul>
 				<div class="view_area">
 					<p>${faq.content}</p>
 				</div>
-				<%-- <a href="${pageContext.request.contextPath}/faq/faqList.do"><div class="customer_btn"><button type="button" class="round inblack"  id="btn_list"><span>목록으로</span></button></div></a>
-				<a href="${pageContext.request.contextPath}/faq/faqUpdate.do"><div class="customer_btn"><button type="button" class="round inblack"  id="btn_list"><span>수정</span></button></a> --%>
-				
 				<div class="button-group" style="text-align: right;">
-				  <a href="${pageContext.request.contextPath}/faq/faqList.do">
-				    <button type="button" class="round inblack" id="btn_list">
-				      <span>목록으로</span>
-				    </button>
-				  </a>
-					  <form:form 
-					  name="faqDeleteFrm" 
-						action="${pageContext.request.contextPath}/faq/deleteFaq.do"
-						method="post">
-					    <input type="hidden" name="no" value="${faq.no}"/>
-					    <input type="submit" class="round inblack" id="btn_list" value="삭제"/>
-					  </form:form>
-				</div>
+				  <div style="display: inline-block; vertical-align: middle;">
+				    <form:form 
+				      name="faqDeleteFrm" 
+				      action="${pageContext.request.contextPath}/faq/deleteFaq.do"
+				      method="post"
+				      onsubmit="return confirm('해당 게시물을 삭제하시겠습니까?')" >
+				      <input type="hidden" name="no" value="${faq.no}"/>
+				      <input type="submit" class="round inblack" id="btn_delete" value="삭제"/>
+				    </form:form>
+				  </div>
+				  <div style="display: inline-block; vertical-align: middle;">
+				    <a href="${pageContext.request.contextPath}/faq/faqList.do">
+				      <button type="button" class="round inblack" id="btn_list">
+				        <span>목록으로</span>
+				      </button>
+				    </a>
+				  </div>
+				</div> 
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 </body>
 </html>

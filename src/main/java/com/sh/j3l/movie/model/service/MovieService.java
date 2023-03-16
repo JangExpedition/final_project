@@ -13,7 +13,7 @@ public interface MovieService {
 	
 	List<Movie> selectAllMovie(RowBounds rowBounds);
 	
-	int insertMovie(Movie movie);
+	int insertMovie(MovieEntity movie);
 	
 	int insertAttachment(Attachment attach);
 
