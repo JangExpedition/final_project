@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sh.j3l.cinema.model.dao.CinemaDao;
 import com.sh.j3l.cinema.model.dto.Cinema;
+import com.sh.j3l.cinema.model.dto.Location;
 
 @Service
 public class CinemaServiceImpl implements CinemaService {
@@ -17,6 +18,11 @@ public class CinemaServiceImpl implements CinemaService {
 	@Override
 	public List<Cinema> selectAllCinema() {
 		return cinemaDao.selectAllCinema();
+	}
+
+	@Override
+	public List<Location> selectAllLocation() {
+		return cinemaDao.selectAllLocation();
 	}
 
 }

@@ -1,13 +1,14 @@
 package com.sh.j3l.cinema.model.dto;
 
-public enum Location {
-	SEOUL,
-	GYEONGGI,
-	INCHEON,
-	KANGWON,
-	CHUNGCHEONG,
-	DAEGU,
-	BUSANULSAN,
-	GYEONGSANG,
-	JEONLLAJEJU
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Location {
+
+	private int no;
+	private LocationName locationName;
 }
