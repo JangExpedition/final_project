@@ -74,20 +74,11 @@ console.log(msg);
 		  </sec:authorize>
 		  <sec:authorize access="isAuthenticated()">
 			  <div class="p-2">
-			  	<a onclick="memberLogout()" id="logoutBtn">
+			  	<a href="${ pageContext.request.contextPath }/member/memberLogout.do" id="logoutBtn">
 			  		<img class="loginImages" src="${ pageContext.request.contextPath }/resources/images/loginPassword.png">
 				  	<span>로그아웃</span>
 			  	</a>
 			  </div>
-			  <form:form name="logoutFrm" action="${ pageContext.request.contextPath }/member/memberLogout.do" method="post">
-			  </form:form>
-			  <script>
-			  	const memberLogout = () =>{
-			  		console.log("waejfio");
-			  		const frm = document.logoutFrm;
-			  		frm.submit();
-			  	}
-			  </script>
 		  </sec:authorize>
 		</div>
 	  </div>

@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class Cinema {
 
 	private String name;
-	private Location location;
+	private LocationName locationName;
 	private String address;
 }
