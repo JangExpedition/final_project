@@ -32,7 +32,9 @@
 				<ul class="top_title_faq">
 	<li class="title">${faq.classify.koreanName} ${faq.title}</li>
 	<li class="stit_area">
-		<span>등록일<em class="regist_day"><fmt:formatDate value="${faq.createdAt}" pattern="yy-MM-dd HH:mm"/></em></span>
+		<span>등록일<em class="regist_day">
+		<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
+        <fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
 	</li>
 </ul>
 				<div class="view_area">

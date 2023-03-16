@@ -3,7 +3,6 @@ package com.sh.j3l.movie.model.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sh.j3l.member.model.dto.Member;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

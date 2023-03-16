@@ -59,29 +59,29 @@
 	                <div class="c_box talk_inquiry" style="cursor:pointer;">
 	                    <strong class="c_tit">1:1 문의 이용</strong>
 	                    <span class="c_txt">1:1문의를 이용해보세요.</span>
-	                    <a href="javascript:;">문의하기</a>
+	                    <a href="">문의하기</a>
 	                </div>
 					<div class="c_box email_inquiry" style="cursor:pointer;">
 						<strong class="c_tit">이메일 문의</strong>
 						<span class="c_txt">24시간 365일 언제든지 문의해주세요.</span>
-						<a href="/support/qna/default.aspx">문의하기</a>
+						<a href="">문의하기</a>
 	                </div>
 					<div class="c_box my_advice"  style="cursor:pointer;">
 						<strong class="c_tit">내 상담 내역 확인</strong>
 						<span class="c_txt">문의하신 내용을 확인하실 수 있습니다.</span>
-						<a href="/user/mycgv/inquiry/qna/list.aspx?g=1#contaniner"  target="_blank" title="새창열기" >문의내역 조회</a>
+						<a href=""  target="_blank" title="새창열기" >문의내역 조회</a>
 	                </div>
 				  </div>
 				  <div class="customer_notice_area">
 						<div class="service_area">
 							<span class="tit">자주찾는 서비스</span>
 							<ul class="list">
-								<li><a href="/user/mycgv/reserve/?g=1#contaniner" target="_blank" title="새창열기">신용카드<br/>영수증출력</a></li>
-								<li><a href="/user/login/find-account.aspx"  target="_blank" title="새창열기">아이디/<br/>비밀번호 찾기</a></li>
-								<li><a href="/user/mycgv/reserve/?g=1#contaniner"  target="_blank" title="새창열기">예매/<br/>취소내역 확인</a></li>
-								<li><a href="/user/guest/default.aspx"  target="_blank" title="새창열기">비회원<br/>예매/취소</a></li>
-								<li><a href="/user/mycgv/cjone-point/pointlist.aspx?g=1#contaniner"  target="_blank" title="새창열기">멤버십포인트<br/>사용안내</a></li>
-								<li><a href="/user/mycgv/coupon/movie-ticket/list.aspx?g=1#contaniner"  target="_blank" title="새창열기">관람권<br/>할인쿠폰 등록</a></li>
+								<li><a href="" target="_blank" title="새창열기">신용카드<br/>영수증출력</a></li>
+								<li><a href=""  target="_blank" title="새창열기">아이디/<br/>비밀번호 찾기</a></li>
+								<li><a href=""  target="_blank" title="새창열기">예매/<br/>취소내역 확인</a></li>
+								<li><a href=""  target="_blank" title="새창열기">비회원<br/>예매/취소</a></li>
+								<li><a href=""  target="_blank" title="새창열기">멤버십포인트<br/>사용안내</a></li>
+								<li><a href=""  target="_blank" title="새창열기">관람권<br/>할인쿠폰 등록</a></li>
 							</ul>
 						</div>
 						<div class="notice_area">

@@ -10,7 +10,7 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/faqList.css"/>
 
-<div id="contents" class="">
+<div id="contents">
   <div class="cols-content">
 		<div class="col-aside">
 		    <h2>
@@ -88,8 +88,8 @@
                             <td>${faq.classify.koreanName}</td>
 						    <td>${faq.title}</td>
 						    <td>
-								<fmt:formatDate value="${faq.createdAt}" pattern="yy-MM-dd HH:mm"/>
-								<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
+								<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
+            					<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
 							</td>
 					    </tr>
                      </c:forEach>   

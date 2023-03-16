@@ -89,8 +89,8 @@
                             <td>${notice.classifyy.koreanNamee}</td>
 						    <td>${notice.title}</td>
 						    <td>
-								<fmt:parseDate value="${notice.createdAt}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
-								<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd HH:mm"/>
+								<fmt:parseDate value="${notice.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
+        						<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
 							</td>
 					    </tr>
                      </c:forEach>   

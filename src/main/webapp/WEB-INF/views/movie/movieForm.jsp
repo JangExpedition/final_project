@@ -35,9 +35,9 @@
 		    <option value="18">청소년관람불가</option>
 		  </select>
 		  <select class="form-select" name="genre">
-			      <option value="ACTION" selected>액션</option>
-			      <option value="COMEDY" selected>코미디</option>
-			      <option value="ROMANCE" selected>로맨스</option>
+			      <option value="ACTION">액션</option>
+			      <option value="COMEDY">코미디</option>
+			      <option value="ROMANCE">로맨스</option>
 			      <option value="ANIMATION">애니</option>
 			      <option value="HORROR">호러</option>
 			      <option value="DOCUMENTARY">다큐</option>
@@ -45,8 +45,8 @@
 		  </select>
 		</div>
 		<br>
-		<div class="input-group mb-3" style="padding:0px;">
-			<div class="input-group-prepend" style="padding:0px;">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
 			  <span class="input-group-text">첨부파일</span>
 			</div>
 			<div class="custom-file">
