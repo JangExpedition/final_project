@@ -11,7 +11,22 @@
 </jsp:include>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/cinema.css"/>
 <section id="cinemaSection">
-	
+	<div id="cinemaBox">
+		<div id="location">
+			<div id="locationBox">
+				<c:forEach items="${ locationList }" var="location">
+					<div class="locationName">${ location.locationName.krName }</div>
+				</c:forEach>
+			</div>
+			<div id="cinemaList">
+				<ul>
+					<c:forEach items="${ cinemaList }" var="cinema">
+						<li>${ cinema.name }</li>						
+					</c:forEach>
+				</ul>
+			</div>
+		</div>
+	</div>
 </section>
 </body>
 </html>

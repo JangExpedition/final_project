@@ -78,12 +78,14 @@ public class MemberController {
 	
 	// 로그아웃 메서드
 	@GetMapping("/memberLogout.do")
-	public String memberLogout(HttpServletRequest request, HttpServletResponse response) {
+	public String memberLogout(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttr) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
 		if(authentication != null) {
 			new SecurityContextLogoutHandler().logout(request, response, authentication);
 		}
+		
+		log.debug("redirectAttr = {}", redirectAttr.getAttribute("msg"));
 		
 		return "redirect:/";
 	}
