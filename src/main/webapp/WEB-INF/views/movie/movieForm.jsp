@@ -17,10 +17,10 @@
 <div id="movie-container">
 
 	<form:form 
-	name="movieFrm" 
-	action="${pageContext.request.contextPath}/movie/movieEnroll.do" 
-	method="post"
-	enctype="multipart/form-data">
+		name="movieFrm" 
+		action="${pageContext.request.contextPath}/movie/movieEnroll.do" 
+		method="post"
+		enctype="multipart/form-data">
 		<input type="text" class="form-control" placeholder="제목" name="title" id="title" required>
 		<input type="text" class="form-control" placeholder="출연진" name="actors" id="actors" required>
 		<input type="text" class="form-control" placeholder="감독" name="director" id="director" required>
@@ -59,6 +59,7 @@
 		<input type="submit" class="btn btn-outline-success" value="저장" >
 	 </form:form>
 </div>
+
 <script>
 document.querySelectorAll("[name=upFile]").forEach((input) => {
 	input.addEventListener('change', (e) => {

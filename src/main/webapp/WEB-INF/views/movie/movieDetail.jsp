@@ -15,10 +15,11 @@
 
 
 <div id="movie-container">
-	<form:form 
+		<form:form 
 		name="movieUpdateFrm" 
 		action="${pageContext.request.contextPath}/movie/updateMovie.do"
 		method="post">
+		
 		<input type="hidden" name="no" value="${movie.no}">
 		<input type="text" class="form-control" placeholder="제목" name="title" id="title" value="${movie.title}"required>
 		<input type="text" class="form-control" placeholder="출연진" name="actors" id="actors" value="${movie.actors}" required>
@@ -34,30 +35,33 @@
 		  	</select>
 		</div>
  		<div class="form-group row">
-  		<div class="col-sm-10">
-		    <select class="form-select" name="genre">
-		      <option value="ACTION" selected>액션</option>
-		      <option value="COMEDY" selected>코미디</option>
-		      <option value="ROMANCE" selected>로맨스</option>
-		      <option value="ANIMATION">애니</option>
-		      <option value="HORROR">호러</option>
-		      <option value="FANTASY">판타지</option>		      
-		      <option value="DOCUMENTARY">다큐</option>
-		      <option value="DRAMA">드라마</option>
-		    </select>
-  		</div>
-	</div>
+	  		<div class="col-sm-10">
+			    <select class="form-select" name="genre">
+			      <option value="ACTION" selected>액션</option>
+			      <option value="COMEDY" selected>코미디</option>
+			      <option value="ROMANCE" selected>로맨스</option>
+			      <option value="ANIMATION">애니</option>
+			      <option value="HORROR">호러</option>
+			      <option value="FANTASY">판타지</option>		      
+			      <option value="DOCUMENTARY">다큐</option>
+			      <option value="DRAMA">드라마</option>
+			    </select>
+	  		</div>
+		</div>
 		<br />
-		
+ 
+		<input type="hidden" name="no" value="${movie.no}">
 		<input type="submit" class="btn btn-outline-success" value="수정">
- 	</form:form> 
- 	
+	</form:form>
+		
 	<form:form 
-		name="movieDeleteFrm" 
-		action="${pageContext.request.contextPath}/movie/deleteMovie.do"
-		method="post">
+			name="movieDeleteFrm" 
+			action="${pageContext.request.contextPath}/movie/deleteMovie.do"
+			method="post"
+			style="display: inline-block;">
 		<input type="hidden" name="no" value="${movie.no}">
 		<input type="submit" class="btn btn-outline-success" value="삭제">
 	</form:form>
+
 
 </div> 
