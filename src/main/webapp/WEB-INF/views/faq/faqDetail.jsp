@@ -30,18 +30,18 @@
 			</div>
 			<div class="board_view_area">
 				<ul class="top_title_faq">
-	<li class="title">${faq.classify.koreanName} ${faq.title}</li>
-	<li class="stit_area">
-		<span>등록일<em class="regist_day">
-		<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
-        <fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
-	</li>
-</ul>
+					<li class="title">${faq.classify.koreanName} ${faq.title}</li>
+						<li class="stit_area">
+							<span>등록일<em class="regist_day">
+							<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
+					        <fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
+						</li>
+				</ul>
 				<div class="view_area">
 					<p>${faq.content}</p>
 				</div>
-				<div class="button-group" style="text-align: right;">
-				  <div style="display: inline-block; vertical-align: middle;">
+				<div class="button-group">
+				  <div class="button2">
 				    <form:form 
 				      name="faqDeleteFrm" 
 				      action="${pageContext.request.contextPath}/faq/deleteFaq.do"
@@ -51,7 +51,7 @@
 				      <input type="submit" class="round inblack" id="btn_delete" value="삭제"/>
 				    </form:form>
 				  </div>
-				  <div style="display: inline-block; vertical-align: middle;">
+				  <div class="button">
 				    <a href="${pageContext.request.contextPath}/faq/faqList.do">
 				      <button type="button" class="round inblack" id="btn_list">
 				        <span>목록으로</span>

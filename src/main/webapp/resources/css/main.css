@@ -1,5 +1,9 @@
-*, ::after, ::before {
+::after, ::before {
     box-sizing: content-box;
+}
+
+.list1{
+	box-sizing: content-box;
 }
 
 .service_area .list la {
@@ -28,7 +32,7 @@ thead, tr, th, td {
 body, input, textarea, select, button, table {
 	font-size:13px; 
 	line-height:1.2; 
-	color:#666; 
+	/* color:#666; */ 
 	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
 	font-weight:400
 }
@@ -51,7 +55,7 @@ a {
 }
 
 *+ html a {
-	color:#666;
+	/* color:#666; */
 }
 
 a:focus, a:hover {
@@ -88,4 +92,25 @@ a:active {
 #contents {
 	clear:both; 
 	padding-bottom:50px;
+}
+
+::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px;
+    text-align: start;
+    text-align-last: start;
+}
+
+.btn-outline-secondary {
+	color: white;	
+}
+
+.ul1{
+	list-style:none;
+}
+
+.list {
+	list-style:none;
 }

@@ -19,7 +19,7 @@
 			    <h2>
 			        고객센터 메뉴</h2>
 			    <div class="snb">
-			        <ul>
+			        <ul class="ul1">
 			            <li class='on'><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
 			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
 			            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
@@ -40,21 +40,6 @@
 							       <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 							     </div>
 		   					</form>
-							<div class="c_qu">
-		                       
-								    <a href="#none">현금영수증</a>                       
-		                        
-								    <a href="#none">관람권</a>                       
-		                        
-								    <a href="#none">예매</a>                       
-		                        
-								    <a href="#none">환불</a>                       
-		                        
-								    <a href="#none">취소</a>                       
-		                        
-								    <a href="#none"></a>                       
-		                        
-							</div>
 						</div>
 	                <div class="c_box talk_inquiry" style="cursor:pointer;">
 	                    <strong class="c_tit">1:1 문의 이용</strong>
@@ -76,12 +61,12 @@
 						<div class="service_area">
 							<span class="tit">자주찾는 서비스</span>
 							<ul class="list">
-								<li><a href="" target="_blank" title="새창열기">신용카드<br/>영수증출력</a></li>
-								<li><a href=""  target="_blank" title="새창열기">아이디/<br/>비밀번호 찾기</a></li>
-								<li><a href=""  target="_blank" title="새창열기">예매/<br/>취소내역 확인</a></li>
-								<li><a href=""  target="_blank" title="새창열기">비회원<br/>예매/취소</a></li>
-								<li><a href=""  target="_blank" title="새창열기">멤버십포인트<br/>사용안내</a></li>
-								<li><a href=""  target="_blank" title="새창열기">관람권<br/>할인쿠폰 등록</a></li>
+								<li><a href="" target="_blank" title="새창열기" class="list1">신용카드<br/>영수증출력</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/findId.do"  target="_blank" title="새창열기" class="list1">아이디/<br/>비밀번호 찾기</a></li>
+								<li><a href=""  target="_blank" title="새창열기" class="list1">예매/<br/>취소내역 확인</a></li>
+								<li><a href=""  target="_blank" title="새창열기" class="list1">비회원<br/>예매/취소</a></li>
+								<li><a href=""  target="_blank" title="새창열기" class="list1">멤버십포인트<br/>사용안내</a></li>
+								<li><a href=""  target="_blank" title="새창열기" class="list1">관람권<br/>할인쿠폰 등록</a></li>
 							</ul>
 						</div>
 						<div class="notice_area">
