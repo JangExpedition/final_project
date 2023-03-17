@@ -37,7 +37,7 @@
         <tr class="grid-adm-members py-2 px-1 text-center" data-no="${movie.no}">
          <td>${movie.no}</td>
           <td>${movie.title}</td>
-		  <td>${movie.genre.movieName}</td>
+		  <td>${movie.genre.krName}</td>
           <td>${movie.actors}</td>
           <td>${movie.director}</td>
           <td>${movie.limitAge}세</td>
