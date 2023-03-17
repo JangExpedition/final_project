@@ -14,7 +14,7 @@
 	<resultMap type="movie" id="movieMap"></resultMap>
 	<insert id="insertMovie">
 	    insert into 
-	        movie
+	        movie (no, title, genre, director, actors, synopsis, limit_age, running_time)
 	    values 
 	    (
 	        seq_movie_no.nextval, 
@@ -22,9 +22,9 @@
 	        #{genre}, 
 	        #{director}, 
 	        #{actors}, 
-	        #{synopsis},
-	        #{runningTime},
+	        #{synopsis}, 
 	        #{limitAge},
+	        #{runningTime}
 	        #{openDt}
 	    )
 	    <selectKey order="AFTER" resultType="_int" keyProperty="no">
