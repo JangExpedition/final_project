@@ -15,7 +15,7 @@
 
 	<insert id="insertMovie">
 	    insert into 
-	        movie (no, title, genre, director, actors, synopsis, limit_age)
+	        movie (no, title, genre, director, actors, synopsis, limit_age, running_time)
 	    values 
 	    (
 	        seq_movie_no.nextval, 
@@ -24,7 +24,8 @@
 	        #{director}, 
 	        #{actors}, 
 	        #{synopsis}, 
-	        #{limitAge}
+	        #{limitAge},
+	        #{runningTime}
 	    )
 	    <selectKey order="AFTER" resultType="_int" keyProperty="no">
 			select
