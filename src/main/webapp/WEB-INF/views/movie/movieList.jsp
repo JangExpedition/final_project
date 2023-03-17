@@ -52,6 +52,7 @@
 	 						<th scope="col">감독</th>
 	 						<th scope="col">연령</th>
 	 						<th scope="col">러닝타임</th>
+	 						<th scope="col">개봉일</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -64,6 +65,7 @@
 							    <td>${movie.director}</td>
 							    <td>${movie.limitAge}세</td>
 							    <td>${movie.runningTime}분</td>
+							    <td>${movie.openDt}</td>
 						    </tr>
 	                     </c:forEach>   
 					</tbody>	
