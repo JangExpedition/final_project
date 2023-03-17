@@ -31,14 +31,12 @@ public class MovieServiceImpl implements MovieService {
 	public int insertMovie(Movie movie) {
 		
 		int result = movieDao.insertMovie(movie);
-		log.debug("movie = {}", movie);
 		
 		List<Attachment> attachments = movie.getAttachments();
 		if(attachments.size() > 0) {
 			for(Attachment attach :attachments) {
 				attach.setMovieNo(movie.getNo());
 				result = insertAttachment(attach);
-				log.debug("attach = {}", attach);
 			}
 		}
 		return result;

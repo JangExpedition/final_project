@@ -60,13 +60,11 @@ public class MovieController {
 	@PostMapping("/movieEnroll.do")
 	public String movieEnroll(Movie movie, RedirectAttributes redirectAttr, @RequestParam("upFile") List<MultipartFile> upFiles) {
 
-		log.debug("movie ={}", movie);
+		log.debug("movie.openDt ={}", movie.getOpenDt());
 		
 		String saveDirectory = application.getRealPath("/resources/upload/movie");
-		log.debug("saveDirectory = {}", saveDirectory);
 		
 		for(MultipartFile upFile : upFiles) {
-			log.debug("upFile = {}", upFile);
 			
 			if(upFile.getSize() > 0) {
 				
