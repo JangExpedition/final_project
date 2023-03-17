@@ -10,20 +10,18 @@
 	<jsp:param value="예매|영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
 <div id="movie-container">
-	<form:form name="movieFrm" action="${pageContext.request.contextPath}/movie/movieEnroll.do" method="POST" enctype="multipart/form-data">
-		<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
-		<input type="hidden" name="${_csrf.headerName}" value="${_csrf.token}"/>
+	<form:form name="movieFrm" action="${pageContext.request.contextPath}/movie/movieEnroll.do?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data">
 		<input type="text" placeholder="제목" name="title" id="title" required>
 		<input type="text" placeholder="출연진" name="actors" id="actors" required>
 		<input type="text" placeholder="감독" name="director" id="director" required>
-		<!-- <input type="text" placeholder="러닝타임" name="runningTime" id="runningTime" required> -->
+		<input type="text" placeholder="러닝타임" name="runningTime" id="runningTime" required>
 		<div>
-		  <!-- <select name="limitAge">
+		  <select name="limitAge">
 		    <option value="0">전체이용가</option>
 		    <option value="12">12세이용가</option>
 		    <option value="15">15세이용가</option>
 		    <option value="18">청소년관람불가</option>
-		  </select> -->
+		  </select>
 		  <select name="genre">
 		      <option value="ACTION">액션</option>
 		      <option value="COMEDY">코미디</option>
