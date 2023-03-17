@@ -6,62 +6,116 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp">
-<jsp:param value="영화 등록" name="title"/>
-</jsp:include>
 
+<jsp:include page="/WEB-INF/views/common/header.jsp">
+	<jsp:param value="예매|영화 그 이상의 감동. J3L" name="title"/>
+</jsp:include>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movieDetail.css"/>
 
 
-<div id="movie-container">
-		<form:form 
-		name="movieUpdateFrm" 
-		action="${pageContext.request.contextPath}/movie/updateMovie.do"
-		method="post">
+<div id="contents">
+  <div class="cols-content">
+		<div class="col-aside">	
+ 		    <div class="snb">
+		        <ul class="ul1">
+		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
+		            <li class='on'><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }">예매율 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }">매출 관리<i></i></a></li>
+		        </ul>
+		    </div>
+		    
+		<h1>영화 정보 수정/삭제</h1>
 		
-		<input type="hidden" name="no" value="${movie.no}">
-		<input type="text" class="form-control" placeholder="제목" name="title" id="title" value="${movie.title}"required>
-		<input type="text" class="form-control" placeholder="출연진" name="actors" id="actors" value="${movie.actors}" required>
-		<input type="text" class="form-control" placeholder="감독" name="director" id="director" value="${movie.director}" required>
-		<input type="text" class="form-control" placeholder="시놉시스" name="synopsis" id="synopsis" value="${movie.synopsis}" required>
-		<!-- <input type="text" class="form-control" placeholder="연령 제한" name="title" id="title" required> -->
-		<div>
-			<select name="limit_age">
-			    <option value="0">전체이용가</option>
-			    <option value="12">12세이용가</option>
-			    <option value="15">15세이용가</option>
-			    <option value="19">청소년관람불가</option>
-		  	</select>
-		</div>
- 		<div class="form-group row">
-	  		<div class="col-sm-10">
-			    <select class="form-select" name="genre">
-			      <option value="ACTION" selected>액션</option>
-			      <option value="COMEDY" selected>코미디</option>
-			      <option value="ROMANCE" selected>로맨스</option>
-			      <option value="ANIMATION">애니</option>
-			      <option value="HORROR">호러</option>
-			      <option value="FANTASY">판타지</option>		      
-			      <option value="DOCUMENTARY">다큐</option>
-			      <option value="DRAMA">드라마</option>
-			    </select>
-	  		</div>
-		</div>
-		<br />
- 
-		<input type="hidden" name="no" value="${movie.no}">
-		<input type="submit" class="btn btn-outline-success" value="수정">
-	</form:form>
-		
-	<form:form 
-			name="movieDeleteFrm" 
-			action="${pageContext.request.contextPath}/movie/deleteMovie.do"
-			method="post"
-			style="display: inline-block;">
-		<input type="hidden" name="no" value="${movie.no}">
-		<input type="submit" class="btn btn-outline-success" value="삭제">
-	</form:form>
-</div> 
+	  	<table class="ttbl">
+		    <colgroup>
+		      <col width="20%" />
+		      <col width="80%" />
+		    </colgroup>
+		    <tr>
+		      <td><input type="hidden" name="no" value="${movie.no}"></td>
+		    </tr>
+		    <tr>
+		      <td class="tit">제목</td>
+		      <td><input type="text" placeholder="제목" name="title" class="input_txt" maxlength="30" value="${movie.title}"required></td>
+		    </tr>
+		    <tr>
+		      <td class="tit">출연진</td>
+		      <td><input type="text" placeholder="출연진" name="actors" id="actors" class="input_txt" value="${movie.actors}"required ></td>
+		    </tr>
+		    <tr>
+		      <td class="tit">감독</td>
+		      <td>
+		        <input type="text" placeholder="감독" name="director" class="input_txt" value="${movie.director}" required />
+		      </td>
+		    </tr>
+		    <tr>
+		      <td class="tit">개봉일</td>
+		      <td>
+		        <input type="text" placeholder="개봉일" name="openDt" class="input_txt" value="${movie.synopsis}" required />
+		      </td>
+		    </tr>
+		    <tr>
+		      <td class="tit">러닝타임(분)</td>
+		      <td>
+		        <input type="text" placeholder="러닝타임" name="runningTime" class="input_txt" value="${movie.runningTime}" required />
+		      </td>
+		    </tr>
+		    <tr>
+		      <td class="tit" >장르</td>
+		      <td> 
+		        <input type="checkbox" value="ACTION" name="genre"/>액션
+		        <input type="checkbox" value="COMEDY" name="genre"/>코미디
+		        <input type="checkbox" value="ROMANCE" name="genre"/>로맨스
+		        <input type="checkbox" value="ANIMATION" name="genre"/>애니메이션
+		        <input type="checkbox" value="HORROR" name="genre"/>호러
+		        <input type="checkbox" value="DOCUMENTARY" name="genre"/>다큐
+		        <input type="checkbox" value="DRAMA" name="genre"/>드라마
+		      </td>
+		    </tr>
+		    <tr>
+		      <td class="tit">연령</td>
+		      <td>
+		        <select name="limitAge">
+				    <option value="0">전체이용가</option>
+				    <option value="12">12세이용가</option>
+				    <option value="15">15세이용가</option>
+				    <option value="18">청소년관람불가</option>
+			  	</select>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td class="tit">첨부파일</td>
+		      <td>
+		        <input type="file" name="upFile" id="upFile" multiple/>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td class="tit">시놉시스</td>
+		      <td>
+		        <textarea name="synopsis" placeholder="시놉시스"></textarea>
+		      </td>
+		    </tr>
+		  </table>
+		  	<div class="fn1">
+		      <form:form 
+				name="movieUpdateFrm" 
+				action="${pageContext.request.contextPath}/movie/updateMovie.do" 
+				method="POST" >
+		        <input type="submit" value="수정"/>
+		      </form:form>
+		      <form:form 
+					name="movieDeleteFrm" 
+					action="${pageContext.request.contextPath}/movie/deleteMovie.do"
+					method="post"
+					style="display: inline-block;">
+					<input type="hidden" name="no" value="${movie.no}">
+			        <input type="submit" value="삭제"/>
+		      </form:form>    
+		     </div>
+	   </div>
+	</div>
+</div>
 </body>
 </html>

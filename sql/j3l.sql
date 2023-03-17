@@ -235,6 +235,9 @@ CREATE TABLE movie (
     constraint pk_movie_no primary key(no)
 );
 
+
+select * from movie;
+
 -- 영화 테이블 시퀀스
 create sequence seq_movie_no;
 
@@ -249,6 +252,8 @@ CREATE TABLE movie_attachment (
                                     references movie
                                     on delete cascade
 );
+
+select * from movie_attachment;
 
 
 -- 영화 첨부파일 시퀀스
@@ -280,11 +285,14 @@ CREATE TABLE question (
 	title varchar2(1000)	NOT NULL,
 	content varchar2(4000)	NOT NULL,
 	reg_date Date DEFAULT sysdate NOT NULL,
+    type varchar2(50) NOT NULL,
     constraint pk_question_no primary key(no),
     constraint fk_question_member_id foreign key(id)
                                 references member
                                 on delete cascade
 );
+
+
 
 -- 문의게시판 테이블 시퀀스
 create sequence seq_question_no;

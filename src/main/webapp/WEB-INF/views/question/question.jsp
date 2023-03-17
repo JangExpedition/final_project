@@ -8,34 +8,36 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/faqList.css"/>
-
-<div id="contents">
-  <div class="cols-content">
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/noticeList.css"/>
+   
+<div id="contaniner">
+  <div id="contents">
+	<div class="cols-content">
 		<div class="col-aside">
 		    <h2>
 		        고객센터 메뉴</h2>
 		    <div class="snb">
 		        <ul class="ul1">
 		            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-		            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }/question/question.do">이메일 문의<i></i></a></li>
+		            <li class='on'><a href="${ pageContext.request.contextPath }/question/question.do">이메일 문의<i></i></a></li>
 		        </ul>
 		    </div>
 		</div>
+
 		<div class="col-detail">
 			<div class="customer_top">
-				<h2 class="tit">자주찾는 질문</h2>
-				<p class="stit">회원님들께서 가장 자주하시는 질문을 모았습니다. <br />궁금하신 내용에 대해 검색해보세요.</p>
+				<h2 class="tit">공지/뉴스</h2>
+				<p class="stit">CGV의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
 			</div>
 			
 			<br>
 			
-			<form:form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
+			<form:form action="${pageContext.request.contextPath}/notice/searchNotice" method="get" class="mb-3">
 			  <div class="input-group">
 			    <input type="hidden" name="searchType" value="title" />
-			    <input type="text" class="form-control" id="myElement" placeholder="제목 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+			    <input type="text" class="form-control" id="myElement" style="max-width: 200px;" placeholder="제목 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
 			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 			  </div>
 			</form:form>
@@ -45,7 +47,6 @@
     			<a href="#" id="btn-add">글쓰기</a>
 			</div>
 			</sec:authorize>
-			
 			
 			<div class="c_tab_wrap">
 			
@@ -84,14 +85,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${faqList}" var="faq">
-                        <tr data-no="${faq.no}">
-						    <td>${faq.no }</td>
-                            <td>${faq.classify.koreanName}</td>
-						    <td>${faq.title}</td>
+					<c:forEach items="${noticeList}" var="notice">
+                        <tr data-no="${notice.no}">
+						    <td>${notice.no }</td>
+                            <td>${notice.classifyy.koreanNamee}</td>
+						    <td>${notice.title}</td>
 						    <td>
-								<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
-            					<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
+								<fmt:parseDate value="${notice.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
+        						<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
 							</td>
 					    </tr>
                      </c:forEach>   
@@ -99,20 +100,20 @@
 				</table>
 			</div>
 		</div>
-  	</div>
-</div>	
-		
-		
+	</div>
+  </div>
+</div>
+
 <script>
 document.querySelector("#btn-add").addEventListener('click', (e) => {
-	location.href = '${pageContext.request.contextPath}/faq/faqForm.do';
+	location.href = '${pageContext.request.contextPath}/notice/noticeForm.do';
 });
 
 document.querySelectorAll("tr[data-no]").forEach((tr) => {
 	tr.addEventListener('click', (e) => {
 		const no = tr.dataset.no;
 		console.log(no);
-		location.href = '${pageContext.request.contextPath}/faq/faqDetail.do?no=' + no;
+		location.href = '${pageContext.request.contextPath}/notice/noticeDetail.do?no=' + no;
 	});
 });
 </script>

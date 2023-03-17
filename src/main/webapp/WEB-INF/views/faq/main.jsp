@@ -23,7 +23,7 @@
 			            <li class='on'><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
 			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
 			            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
-			            <li class=''><a href="${ pageContext.request.contextPath }">이메일 문의<i></i></a></li>
+			            <li class=''><a href="${ pageContext.request.contextPath }/question/question.do">이메일 문의<i></i></a></li>
 			        </ul>
 			    </div>
 			</div>
@@ -87,6 +87,7 @@
                             <li><a href="/support/news/detail-view.aspx?idx=7934&type=3"> 2022 SVIP 스페셜기프트 언박싱 이벤트 진행 일정 변경 안내</a><span class="day">2022.12.19</span></li>
                         
 							</ul>
+							
 						<a href="${pageContext.request.contextPath}/notice/noticeForm.do" class="more">공지/뉴스 더보기</a>
 						</div>
 					</div>

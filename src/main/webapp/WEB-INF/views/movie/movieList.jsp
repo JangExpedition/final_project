@@ -39,6 +39,10 @@
 			  </div>
 			</form:form>
 			
+			<div class="parent">
+    			<a href="#" id="btn-add">영화 등록</a>
+			</div>
+			
 			<div class="c_tab_wrap">
 			</div>
 			<div class="tbl_area">
@@ -57,11 +61,11 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${movieList}" var="movie">
-	                        <tr>
-							    <td>${movie.no }</td>
+	                        <tr data-no="${movie.no}">
+							    <td>${movie.no}</td>
 	                            <td>${movie.title}</td>
 							    <td>${movie.genre.krName}</td>
-							    <td>${movie.actors}</td>
+							    <td class="actors">${movie.actors}</td>
 							    <td>${movie.director}</td>
 							    <td>${movie.limitAge}세</td>
 							    <td>${movie.runningTime}분</td>
@@ -76,19 +80,19 @@
 </div>	
 		
 		
-<!-- <script>
+ <script>
 document.querySelector("#btn-add").addEventListener('click', (e) => {
-	location.href = '${pageContext.request.contextPath}/faq/faqForm.do';
+	location.href = '${pageContext.request.contextPath}/movie/movieForm.do';
 });
 
 document.querySelectorAll("tr[data-no]").forEach((tr) => {
 	tr.addEventListener('click', (e) => {
 		const no = tr.dataset.no;
 		console.log(no);
-		location.href = '${pageContext.request.contextPath}/faq/faqDetail.do?no=' + no;
+		location.href = '${pageContext.request.contextPath}/movie/movieDetail.do?no=' + no;
 	});
 });
 </script>
- -->
+
 </body>
 </html>

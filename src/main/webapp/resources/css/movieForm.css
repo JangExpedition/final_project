@@ -1,84 +1,102 @@
-/* @import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/daisyui/1.14.2/full.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css); */
-
-/* 
-div#movie-container {
-	width:400px; margin:0 auto; text-align:center;
+table { 
+	border-collapse: collapse;
 }
 
-div#movie-container input {
-	margin-bottom:15px;
+td { 
+	padding: 10px 10px  10px 10px; 
+	border: 1px solid #cccccc; 
+	border-left:none; 
+	border-right:none;
 }
 
-부트스트랩 : 파일라벨명 정렬
-div#movie-container label.custom-file-label {
-	text-align:left;
-}
-
-:root {
-  background-color: transparent;
+/* input, select { 
+	color:red;
 } */
 
-.input-group mb-3 {
-	padding:0px;
+.tit { 
+	border-right:1px solid #cccccc; 
+	background-color: darkgray;
 }
 
-.input-group-prepend {
-	padding:0px;
+.input_txt { 
+	width: 400px; 
+	height: 25px; 
+	border: 1px solid #cccccc; 
 }
 
+textarea { 
+	width:500px; 
+	height: 100px;
+}
 
+.cols-content .col-aside .snb a {
+	display:block; 
+	position:relative;
+}
 
+.cols-content .col-aside .snb > ul {
+	margin-bottom:10px;
+}
 
+.cols-content .col-aside .snb > ul > li:hover, 
+.cols-content .col-aside .snb > ul > li:focus, 
+.cols-content .col-aside .snb > ul > li.on {
+	margin-top:1px; 
+	border-top:0 none;
+}
 
+.cols-content .col-aside .snb > ul > li > a {
+	width:155px; 
+	height:34px; 
+	padding-left:5px; 
+	color:#222; 
+	font-weight:500; 
+	font-size:15px; 
+	line-height:34px;
+}
 
+.cols-content .col-aside .snb > ul > li:hover > a, 
+.cols-content .col-aside .snb > ul > li > a:focus,
+.cols-content .col-aside .snb > ul > li.on > a {
+	background-color: red; 
+	color:#fdfcf0;
+}
 
+.cols-content .col-aside .snb > ul > li > a > i {
+	display:none;
+}
 
+.cols-content .col-aside .snb > ul > li:hover > a > i, 
+.cols-content .col-aside .snb > ul > li > a:focus > i,
+.cols-content .col-aside .snb > ul > li.on > a > i {
+	display:block; 
+	position:absolute; 
+	top:0; left:-18px; 
+	width:18px; 
+	height:34px; 
+	background:url(../images/common/bg/ribon_left.png) no-repeat 0 0;
+}
 
+.ttbl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.cols-content .col-aside .snb > ul > li > a {
+    width: 155px;
+    height: 34px;
+    padding-left: 5px;
+    color: #222;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 34px;
+}
 
+h1 {
+  text-align: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* @import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/daisyui/1.14.2/full.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css); */
+.ul1 {
+	list-style:none;
+}

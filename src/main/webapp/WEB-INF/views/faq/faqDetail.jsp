@@ -20,6 +20,7 @@
 	            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
 	            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
 	            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+	            <li class=''><a href="${ pageContext.request.contextPath }/question/question.do">이메일 문의<i></i></a></li>
 	        </ul>
 	    </div>
 	</div>
@@ -32,7 +33,7 @@
 				<ul class="top_title_faq">
 					<li class="title">${faq.classify.koreanName} ${faq.title}</li>
 						<li class="stit_area">
-							<span>등록일<em class="regist_day">
+							<span>등록일<em class="regist_day"></em></span>
 							<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
 					        <fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
 						</li>
@@ -40,23 +41,23 @@
 				<div class="view_area">
 					<p>${faq.content}</p>
 				</div>
-				<div class="button-group">
-				  <div class="button2">
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<div class="button-group2">
+				  <div class="parent">
 				    <form:form 
 				      name="faqDeleteFrm" 
 				      action="${pageContext.request.contextPath}/faq/deleteFaq.do"
 				      method="post"
 				      onsubmit="return confirm('해당 게시물을 삭제하시겠습니까?')" >
 				      <input type="hidden" name="no" value="${faq.no}"/>
-				      <input type="submit" class="round inblack" id="btn_delete" value="삭제"/>
+				      <input type="submit" id="btn-add" value="삭제"/>
 				    </form:form>
 				  </div>
-				  <div class="button">
-				    <a href="${pageContext.request.contextPath}/faq/faqList.do">
-				      <button type="button" class="round inblack" id="btn_list">
-				        <span>목록으로</span>
-				      </button>
-				    </a>
+				  </div>
+				 </sec:authorize>
+				<div class="button-group">
+				  <div class="parent">
+				        <a href="${pageContext.request.contextPath}/faq/faqList.do" id="btn-add">목록으로</a>
 				  </div>
 				</div> 
 			</div>
