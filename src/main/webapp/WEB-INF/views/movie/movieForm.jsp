@@ -14,7 +14,7 @@
 		<input type="text" placeholder="제목" name="title" id="title" required>
 		<input type="text" placeholder="출연진" name="actors" id="actors" required>
 		<input type="text" placeholder="감독" name="director" id="director" required>
-		<input type="text" placeholder="러닝타임" name="runningTime" id="runningTime" required>
+		<input type="number" placeholder="러닝타임" name="runningTime" id="runningTime" required>
 		<div>
 		  <select name="limitAge">
 		    <option value="0">전체이용가</option>
@@ -32,6 +32,8 @@
 		      <option value="DRAMA">드라마</option>
 		  </select>
 		</div>
+		<label for="openDt">개봉일</label>
+		<input id="openDt" name="openDt" type="date"/>
 		<br>
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
