@@ -32,7 +32,9 @@
 				<ul class="top_title_faq">
 					<li class="title">${notice.classifyy.koreanNamee} ${notice.title}</li>
 					<li class="stit_area">
-						<span>등록일<em class="regist_day"><fmt:formatDate value="${createdAt}" pattern="yy-MM-dd HH:mm"/></em></span>
+						<span>등록일<em class="regist_day">
+						<fmt:parseDate value="${notice.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
+        				<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
 					</li>
 				</ul>
 				
@@ -40,8 +42,8 @@
 				<div class="view_area">
 					<p>${notice.content}</p>
 				</div>
-				<div class="button-group" style="text-align: right;">
-				  <div style="display: inline-block; vertical-align: middle;">
+				<div class="button-group">
+				  <div class="button2">
 				    <form:form 
 				      name="faqDeleteFrm" 
 				      action="${pageContext.request.contextPath}/notice/deleteNotice.do"
@@ -51,7 +53,7 @@
 				      <input type="submit" class="round inblack" id="btn_delete" value="삭제"/>
 				    </form:form>
 				  </div>
-				  <div style="display: inline-block; vertical-align: middle;">
+				  <div class="button">
 				    <a href="${pageContext.request.contextPath}/notice/noticeList.do">
 				      <button type="button" class="round inblack" id="btn_list">
 				        <span>목록으로</span>

@@ -10,16 +10,17 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/faqList.css"/>
 
-<div id="contents" class="">
+<div id="contents">
   <div class="cols-content">
 		<div class="col-aside">
 		    <h2>
 		        고객센터 메뉴</h2>
 		    <div class="snb">
-		        <ul>
+		        <ul class="ul1">
 		            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
 		            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }">이메일 문의<i></i></a></li>
 		        </ul>
 		    </div>
 		</div>
@@ -34,13 +35,13 @@
 			<form:form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
 			  <div class="input-group">
 			    <input type="hidden" name="searchType" value="title" />
-			    <input type="text" class="form-control" id="myElement" style="max-width: 200px;" placeholder="제목 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+			    <input type="text" class="form-control" id="myElement" placeholder="제목 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
 			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 			  </div>
 			</form:form>
 			
 			<div class="parent">
-			<i class="fa-sharp fa-solid fa-pen-to-square" id="btn-add"></i>
+    			<a href="#" id="btn-add">글쓰기</a>
 			</div>
 			
 			<!-- <input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/> -->
@@ -66,7 +67,6 @@
 			</div>
 			<div class="tbl_area">
 				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
- 				<caption>목록</caption>
 				<colgroup>
 					<col style="width:40px;" />
                     <col style="width:120px;" />
@@ -88,8 +88,8 @@
                             <td>${faq.classify.koreanName}</td>
 						    <td>${faq.title}</td>
 						    <td>
-								<fmt:formatDate value="${faq.createdAt}" pattern="yy-MM-dd HH:mm"/>
-								<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd'T'HH:mm" var="createdAt"/>
+								<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd" var="createdAt"/>
+            					<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd"/>
 							</td>
 					    </tr>
                      </c:forEach>   

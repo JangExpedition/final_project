@@ -21,7 +21,7 @@
 		        <ul>
 		            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
 		            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }/notice/notice.do">공지/뉴스<i></i></a></li>          
+		            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>          
 		        </ul>
 		    </div>
 		</div>
@@ -32,10 +32,7 @@
 						<legend>이메일 문의</legend>
 						<div class="tbl_area">
 							<p class="tbl_info_txt"><em></em></p>
-
-
 							<table cellspacing="0" cellpadding="0" class="tbl_notice_list tbl_left">
-								<caption>목록</caption>
 								<colgroup>
 									<col style="width:96px" />
                                     <col style="width:303px" />
@@ -65,8 +62,8 @@
 									<tr>
 										<th scope="row"><label for="inp_textbox">내용 <em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em></label></th>
 										<td colspan="3">
-											<textarea cols="60" rows="5" id="content" name="content"  class="inp_txtbox01"  style=" height:94px !important;" onkeyup="javascript:checkByte(this,5000,'sp_ad_content_size_1', 'sp_ad_content_size_2');" ></textarea>
-											<p class="byte_info"><span id="sp_ad_content_size_1">0</span>/5000BYTE <span>(<span id="sp_ad_content_size_2">0</span>/2500자)</span></p>
+											<textarea cols="60" rows="5" id="content" name="content"  class="inp_txtbox01"></textarea>
+											<p class="byte_info"><span id="sp_ad_content_size_1"></span><span><span id="sp_ad_content_size_2"></span></span></p>
 										</td>
 									</tr>
 								</tbody>

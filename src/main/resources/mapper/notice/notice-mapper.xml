@@ -22,7 +22,7 @@
 			#{title},
 			#{content},
 			#{readCount},
-			#{createdAt},
+			default,
 			#{classifyy}
 		)
 	</insert>

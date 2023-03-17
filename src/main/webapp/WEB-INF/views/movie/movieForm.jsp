@@ -23,6 +23,7 @@
 		    <option value="12">12세이용가</option>
 		    <option value="15">15세이용가</option>
 		    <option value="18">청소년관람불가</option>
+<<<<<<< HEAD
 		  </select> -->
 		  <select name="genre">
 		      <option value="ACTION">액션</option>
@@ -32,12 +33,29 @@
 		      <option value="HORROR">호러</option>
 		      <option value="DOCUMENTARY">다큐</option>
 		      <option value="DRAMA">드라마</option>
+=======
+		  </select>
+		  <select class="form-select" name="genre">
+			      <option value="ACTION">액션</option>
+			      <option value="COMEDY">코미디</option>
+			      <option value="ROMANCE">로맨스</option>
+			      <option value="ANIMATION">애니</option>
+			      <option value="HORROR">호러</option>
+			      <option value="DOCUMENTARY">다큐</option>
+			      <option value="DRAMA">드라마</option>
+>>>>>>> branch 'master' of https://github.com/Jangcccci/final_project.git
 		  </select>
 		</div>
 		<br>
+<<<<<<< HEAD
 		<div>
 			<div>
 			  <span>첨부파일</span>
+=======
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+			  <span class="input-group-text">첨부파일</span>
+>>>>>>> branch 'master' of https://github.com/Jangcccci/final_project.git
 			</div>
 			<div class="custom-file">
 			  <input type="file" name="upFile" id="upFile" multiple>

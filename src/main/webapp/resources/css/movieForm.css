@@ -8,6 +8,7 @@
 div#movie-container {
 	width:400px; margin:0 auto; text-align:center;
 }
+
 div#movie-container input {
 	margin-bottom:15px;
 }
@@ -20,6 +21,17 @@ div#movie-container label.custom-file-label {
 :root {
   background-color: transparent;
 } */
+
+.input-group mb-3 {
+	padding:0px;
+}
+
+.input-group-prepend {
+	padding:0px;
+}
+
+
+
 
 
 
