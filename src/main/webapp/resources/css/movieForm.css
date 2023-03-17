@@ -1,10 +1,10 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
+/* @import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/daisyui/1.14.2/full.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css); */
 
-
+/* 
 div#movie-container {
 	width:400px; margin:0 auto; text-align:center;
 }
@@ -13,14 +13,14 @@ div#movie-container input {
 	margin-bottom:15px;
 }
 
-/* 부트스트랩 : 파일라벨명 정렬*/
+부트스트랩 : 파일라벨명 정렬
 div#movie-container label.custom-file-label {
 	text-align:left;
 }
 
 :root {
   background-color: transparent;
-}
+} */
 
 .input-group mb-3 {
 	padding:0px;
@@ -77,8 +77,8 @@ div#movie-container label.custom-file-label {
 
 
 
-@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
+/* @import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/daisyui/1.14.2/full.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css); */
