@@ -77,6 +77,17 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.searchByTitle(title);
 	}
 
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public List<Movie> selectAllMovieList() {
+		List<Movie> movieList = movieDao.selectAllMovieList();
+		for(Movie movie : movieList) {
+			List<Attachment> attachList = movieDao.selectOneAttachment(movie.getNo());
+			movie.setAttachments(attachList);
+		}
+		return movieList;
+	}
+
 
 
 	

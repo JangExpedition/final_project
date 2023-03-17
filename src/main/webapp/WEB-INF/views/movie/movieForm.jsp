@@ -12,7 +12,7 @@
 <div id="movie-container">
 	<form:form name="movieFrm" action="${pageContext.request.contextPath}/movie/movieEnroll.do?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data">
 		<input type="text" placeholder="제목" name="title" id="title" required>
-		<input type="text" placeholder="출연진" name="actors" id="actors" required>
+		<input type="text" placeholder="출연진" name="actors" id="actors">
 		<input type="text" placeholder="감독" name="director" id="director" required>
 		<input type="number" placeholder="러닝타임" name="runningTime" id="runningTime" required>
 		<div>

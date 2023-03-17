@@ -3,13 +3,11 @@ package com.sh.j3l.movie.model.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
-import com.sh.j3l.movie.model.dto.MovieEntity;
-import com.sh.j3l.movie.model.service.MovieService;
 
 @Mapper
 public interface MovieDao {
@@ -38,8 +36,10 @@ public interface MovieDao {
 
 	List<Movie> searchByTitle(String title);
 
+	@Select("select * from movie")
+	List<Movie> selectAllMovieList();
 
-
-
+	@Select("select * from movie_attachment where movie_no = #{no}")
+	List<Attachment> selectOneAttachment(int no);
 
 }

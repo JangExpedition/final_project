@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -46,10 +47,16 @@ public class MovieController {
 		int offset = (cpage - 1) * limit; 
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		
-		
 		List<Movie> movieList = movieService.selectAllMovie(rowBounds);
 		model.addAttribute("movieList", movieList);
 		return "movie/movieList";
+	}
+	
+	// 영화 목록 가져오기 비동기
+	@GetMapping("/selectAllMovieList.do")
+	@ResponseBody
+	public List<Movie> selectAllMovieList() {
+		return movieService.selectAllMovieList();
 	}
 	
 	// 영화 등록 폼
