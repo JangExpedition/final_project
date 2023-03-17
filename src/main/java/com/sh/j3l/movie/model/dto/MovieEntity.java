@@ -10,13 +10,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class MovieEntity {
-	
-	private List<Attachment> attachments = new ArrayList<>();
 	
 	private int no;
 	private String title;
@@ -27,11 +23,4 @@ public class MovieEntity {
 	private int limitAge;
 	private int runningTime;
 	
-	
-	
-	public void addAttachment(Attachment attach) {
-		this.attachments.add(attach);
-	}
-	
-
 }

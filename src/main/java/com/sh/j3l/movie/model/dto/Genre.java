@@ -1,10 +1,7 @@
 package com.sh.j3l.movie.model.dto;
 
 
-import lombok.Getter;
 
-
-@Getter
 public enum Genre {
 	ACTION("액션"),
 	COMEDY("코미디"),
@@ -14,22 +11,14 @@ public enum Genre {
 	FANTASY("판타지"),
 	DOCUMENTARY("다큐"),
 	DRAMA("드라마");
-//	ACTION,
-//	COMEDY,
-//	ROMANCE,
-//	ANIMATION,
-//	HORROR,
-//	FANTASY,
-//	DOCUMENTARY,
-//	DRAMA
 	
-	private final String movieName;
+	private final String krName;
 	
-	private Genre(String movieName) {
-		this.movieName = movieName;
+	Genre(String krName) {
+		this.krName = krName;
 	}
 	
-	public String getMovieName() {
-		return movieName;
+	public String getKrName() {
+		return krName;
 	}
 }

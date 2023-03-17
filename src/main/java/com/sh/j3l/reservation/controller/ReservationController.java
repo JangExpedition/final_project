@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sh.j3l.cinema.model.dto.Cinema;
-import com.sh.j3l.cinema.model.dto.LocationName;
+import com.sh.j3l.cinema.model.dto.Location;
 import com.sh.j3l.cinema.model.service.CinemaService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,8 +25,8 @@ public class ReservationController {
 	@GetMapping("/reservation.do")
 	public void reservation(Model model) {
 		List<Cinema> cinemaList = cinemaService.selectAllCinema();
-		List<LocationName> locationList = null;
-		model.addAttribute("locationList", locationList);
+		List<Location> locationList = cinemaService.selectAllLocation();
 		model.addAttribute("cinemaList", cinemaList);
+		model.addAttribute("locationList", locationList);
 	}
 }

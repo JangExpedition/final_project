@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sh.j3l.movie.model.dao.MovieDao;
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
-import com.sh.j3l.movie.model.dto.MovieEntity;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,13 +26,12 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.selectAllMovie(rowBounds);
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int insertMovie(MovieEntity movie) {
-		// 게시글 등록
-		int result = movieDao.insertMovie(movie);
-		log.debug("movie = {}", movie);
+	public int insertMovie(Movie movie) {
 		
-		// 첨부파일 등록
+		int result = movieDao.insertMovie(movie);
+		
 		List<Attachment> attachments = movie.getAttachments();
 		if(attachments.size() > 0) {
 			for(Attachment attach :attachments) {

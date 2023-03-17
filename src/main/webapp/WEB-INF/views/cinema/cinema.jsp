@@ -7,7 +7,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <jsp:include page="/WEB-INF/views/common/header.jsp">
-	<jsp:param value="예매|영화 그 이상의 감동. J3L" name="title"/>
+	<jsp:param value="극장|영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/cinema.css"/>
 <section id="cinemaSection">
@@ -44,15 +44,14 @@ window.onload = () =>{
 // 지역선택 메서드
 document.querySelectorAll(".locationName").forEach((locationName)=>{
 	locationName.addEventListener("click", ()=>{
-		selectLocation(locationName.innerHTML);
+		selectLocation(locationName.innerText);
 	});
 });
 
 // 영화관 선택 메서드
 document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
 	cinemaName.addEventListener("click", ()=>{
-		console.log("aejfiowejio");
-		selectCinema(cinemaName.dataset.location, cinemaName.innerHTML);
+		selectCinema(cinemaName.dataset.location, cinemaName.innerText);
 	});
 });
 
@@ -60,7 +59,7 @@ document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
 const selectLocation = (location) => {
 	
 	document.querySelectorAll(".locationName").forEach((locationName)=>{
-		if(locationName.innerHTML == location){
+		if(locationName.innerText == location){
 			locationName.className += " selected";
 		}
 		else{
@@ -71,7 +70,7 @@ const selectLocation = (location) => {
 	document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
 		
 		if(cinemaName.dataset.location == location){
-			cinemaName.style.display = "list-item"
+			cinemaName.style.display = "list-item";
 		}
 		else{
 			cinemaName.style.display = "none";
@@ -85,7 +84,7 @@ const selectCinema = (location, name) => {
 	
 	document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
 		
-		if(cinemaName.innerHTML == name){
+		if(cinemaName.innerText == name){
 			cinemaName.className += " selected";
 		}
 		else{
@@ -99,9 +98,9 @@ const selectCinema = (location, name) => {
 		data: {name},
 		success(data){
 			const{name, locationName, address} = data;
-			document.querySelector("#cinemaTitle").innerHTML = name;
+			document.querySelector("#cinemaTitle").innerText = name;
 			document.querySelector("#cinemaImg").style.backgroundImage = "url('../resources/images/" + name + ".jpeg')";
-			document.querySelector("#cinemaAddr").innerHTML = address;
+			document.querySelector("#cinemaAddr").innerText = address;
 		},
 		error: console.log
 	});
