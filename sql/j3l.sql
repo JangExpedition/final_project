@@ -228,10 +228,11 @@ CREATE TABLE movie (
 	title varchar2(100)	NOT NULL,
 	genre varchar2(30) NOT NULL,
 	director varchar2(50) NOT NULL,
-	actors varchar2(3000) NOT NULL,
+	actors varchar2(3000),
 	synopsis varchar2(4000)	NOT NULL,
     running_time number not null,
 	limit_age number NOT NULL,
+    open_dt char(10) not null,
     constraint pk_movie_no primary key(no)
 );
 
@@ -249,7 +250,6 @@ CREATE TABLE movie_attachment (
                                     references movie
                                     on delete cascade
 );
-
 
 -- 영화 첨부파일 시퀀스
 create sequence seq_movie_attach_no;
