@@ -62,6 +62,6 @@
 		<input type="hidden" name="no" value="${movie.no}">
 		<input type="submit" class="btn btn-outline-success" value="삭제">
 	</form:form>
-
-
 </div> 
+</body>
+</html>

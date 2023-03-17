@@ -50,15 +50,25 @@
 </div>
   
 <script>
-document.querySelector("#btn-add").addEventListener('click', (e) => {
-	location.href = '${pageContext.request.contextPath}/movie/movieForm.do';
-});
+const addButton = document.querySelector("#btn-add");
+if (addButton) {
+  addButton.addEventListener('click', (e) => {
+    location.href = '${pageContext.request.contextPath}/movie/movieForm.do';
+  });
+}
 
-document.querySelectorAll("tr[data-no]").forEach((tr) => {
-	tr.addEventListener('click', (e) => {
-		const no = tr.dataset.no;
-		console.log(no);
-		location.href = '${pageContext.request.contextPath}/movie/movieDetail.do?no=' + no;
-	});
-});
+const tableRows = document.querySelectorAll("tr[data-no]");
+if (tableRows.length > 0) {
+  tableRows.forEach((tr) => {
+    tr.addEventListener('click', (e) => {
+      const no = tr.dataset.no;
+      console.log(no);
+      location.href = '${pageContext.request.contextPath}/movie/movieDetail.do?no=' + no;
+    });
+  });
+} else {
+  console.log("에러!!!");
+}
 </script>
+</body>
+</html>

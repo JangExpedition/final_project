@@ -73,3 +73,5 @@ document.querySelectorAll("[name=upFile]").forEach((input) => {
 	});
 });
 </script>
+</body>
+</html>
