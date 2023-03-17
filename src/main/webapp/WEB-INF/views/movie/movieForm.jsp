@@ -48,6 +48,18 @@
 	 </form:form>
 </div>
 <script>
+
+document.querySelectorAll("[name=upFile]").forEach((input) => {
+	input.addEventListener('change', (e) => {
+		const file = e.target.files[0];
+		const label = e.target.nextElementSibling;
+		
+		if(file)
+			label.innerHTML = file.name;
+		else 
+			label.innerHTML = '파일을 선택하세요';
+	});
+});
 </script>
 </body>
 </html>
