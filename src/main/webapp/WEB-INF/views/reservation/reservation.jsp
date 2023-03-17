@@ -43,11 +43,15 @@
 				<div class="location-box">
 					<c:forEach items="${ locationList }" var="location">
 						<div class="location-tr">
-							${ location }
+							${ location.locationName.krName }
 						</div>
 					</c:forEach>
 				</div>
-				<div class="cinema-box"></div>
+				<div class="cinema-box">
+					<c:forEach items="${ cinemaList }" var="cinema">
+						<div class="cinemaName" data-location="${ cinema.locationName.krName }">${ cinema.name }</div>
+					</c:forEach>
+				</div>
 			</div>
 		</div>
 		<!-- 극장선택 구간 -->
@@ -76,12 +80,86 @@
 </section>
 <!-- 예매확인 섹션 -->
 <script>
-document.querySelectorAll(".filter").forEach((span)=>{
-	span.addEventListener("click", (e)=>{
-		console.log("awejfio");
-		e.target.className += 'click';
+window.onload = () =>{
+	filterEffect("예매율순");
+	selectLocation("서울");
+}
+
+// 영화 필터 선택 메서드
+document.querySelectorAll(".filter").forEach((filter)=>{
+	filter.addEventListener("click", (e)=>{
+		filterEffect(e.target.innerText);
 	});
 });
+
+//지역선택 메서드
+document.querySelectorAll(".location-tr").forEach((locationName)=>{
+	locationName.addEventListener("click", ()=>{
+		selectLocation(locationName.innerText);
+	});
+});
+
+//영화관 선택 메서드
+document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
+	cinemaName.addEventListener("click", ()=>{
+		selectCinema(cinemaName.dataset.location, cinemaName.innerText);
+	});
+});
+
+// 영화 필터 효과 메서드
+const filterEffect = (filterName) =>{
+	
+	document.querySelectorAll(".filter").forEach((filter)=>{
+		
+			if(filter.innerText == filterName){
+				filter.className += 'click';
+			}
+			else{
+				filter.className = "filter non-click";	
+			}
+			
+	});
+	
+};
+
+// 지역선택 효과 메서드
+const selectLocation = (location) => {
+	
+	document.querySelectorAll(".location-tr").forEach((locationName)=>{
+		if(locationName.innerText == location){
+			locationName.className += " selected";
+		}
+		else{
+			locationName.className = "location-tr";
+		}
+	});
+	
+	document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
+		
+		if(cinemaName.dataset.location == location){
+			cinemaName.style.display = "inline-block";
+		}
+		else{
+			cinemaName.style.display = "none";
+		}
+		
+	});
+};
+
+// 영화관 선택 효과 메서드
+const selectCinema = (location, name) => {
+	
+	document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
+		
+		if(cinemaName.innerText == name){
+			cinemaName.className += " selectedCinema";
+		}
+		else{
+			cinemaName.className = "cinemaName";
+		}
+	});
+	
+};
 </script>
 </body>
 </html>
