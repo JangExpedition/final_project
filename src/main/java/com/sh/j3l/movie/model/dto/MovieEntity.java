@@ -22,5 +22,6 @@ public class MovieEntity {
 	private String synopsis;
 	private int limitAge;
 	private int runningTime;
+	private String openDt;
 	
 }
