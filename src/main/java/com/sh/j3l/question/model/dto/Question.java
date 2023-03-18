@@ -12,9 +12,11 @@ import lombok.NoArgsConstructor;
 public class Question {
 	
 	private int no;
-	private String id;
 	private String title;
 	private String content;
 	private LocalDateTime regDate;
 	private Type type;
+	private String name;
+	private String phone;
+	private String email;
 }

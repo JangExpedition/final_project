@@ -228,10 +228,11 @@ CREATE TABLE movie (
 	title varchar2(100)	NOT NULL,
 	genre varchar2(30) NOT NULL,
 	director varchar2(50) NOT NULL,
-	actors varchar2(3000) NOT NULL,
+	actors varchar2(3000),
 	synopsis varchar2(4000)	NOT NULL,
     running_time number not null,
 	limit_age number NOT NULL,
+    open_dt char(10) not null,
     constraint pk_movie_no primary key(no)
 );
 
@@ -252,6 +253,7 @@ CREATE TABLE movie_attachment (
                                     references movie
                                     on delete cascade
 );
+
 
 select * from movie_attachment;
 
@@ -281,7 +283,10 @@ create sequence seq_snack_no;
 -- 문의게시판 테이블
 CREATE TABLE question (
 	no number	NOT NULL,
+    name varchar2(50) NOT NULL,
 	id varchar2(50)	NOT NULL,
+    phone char(11),
+    email varchar2(50) NOT NULL,
 	title varchar2(1000)	NOT NULL,
 	content varchar2(4000)	NOT NULL,
 	reg_date Date DEFAULT sysdate NOT NULL,
@@ -291,6 +296,8 @@ CREATE TABLE question (
                                 references member
                                 on delete cascade
 );
+
+select * from question;
 
 
 

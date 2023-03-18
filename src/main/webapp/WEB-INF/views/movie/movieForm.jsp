@@ -9,7 +9,10 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="예매|영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
+
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movieForm.css"/>
+
+
 
 <div id="contents">
   <div class="cols-content">
@@ -18,7 +21,7 @@
 		        <ul class="ul1">
 		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
 		            <li class='on'><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }">예매율 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }">매출 관리<i></i></a></li>
 		        </ul>
 		    </div>

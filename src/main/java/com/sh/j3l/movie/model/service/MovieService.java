@@ -27,6 +27,8 @@ public interface MovieService {
 
 	List<Movie> searchByTitle(String title);
 
+	List<Movie> selectAllMovieList();
+
 //	Movie selectOneMovie(int no);
 //
 //
