@@ -20,7 +20,7 @@
 		            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
 		            <li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }">이메일 문의<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/question/question.do">이메일 문의<i></i></a></li>
 		        </ul>
 		    </div>
 		</div>
@@ -40,11 +40,13 @@
 			  </div>
 			</form:form>
 			
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
 			<div class="parent">
     			<a href="#" id="btn-add">글쓰기</a>
 			</div>
+			</sec:authorize>
 			
-			<!-- <input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success"/> -->
+			
 			<div class="c_tab_wrap">
 			
 			<div class="qu_txt">

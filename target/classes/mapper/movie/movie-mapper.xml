@@ -24,7 +24,7 @@
 	        #{actors}, 
 	        #{synopsis}, 
 	        #{limitAge},
-	        #{runningTime}
+	        #{runningTime},
 	        #{openDt}
 	    )
 	    <selectKey order="AFTER" resultType="_int" keyProperty="no">
@@ -65,7 +65,9 @@
 			director = #{director},
 			actors = #{actors},
 			synopsis = #{synopsis},
-			limit_age = #{limitAge}
+			limit_age = #{limitAge},
+			running_time = #{runningTime},
+			open_dt = #{openDt}
 		where
 			no = #{no}
 	</update>

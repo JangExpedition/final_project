@@ -80,7 +80,7 @@ html {
 }
 
 body, input, textarea, select, button, table {
-	font-size:13px; 
+	/* font-size:13px;  */
 	line-height:1.2; 
 	/* color:#666;  */
 	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
@@ -235,7 +235,7 @@ table caption {
 .cols-content .col-aside .snb > ul > li:hover > a, 
 .cols-content .col-aside .snb > ul > li > a:focus,
 .cols-content .col-aside .snb > ul > li.on > a {
-	background-color: blue; 
+	background-color: red; 
 	color:#fdfcf0;
 }
 
@@ -360,4 +360,25 @@ table caption {
 form {
   margin: auto;
   width: 50%;
+}
+
+.input-group {
+	width:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.actors{
+	width:20px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+.content2{
+	width:20px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }

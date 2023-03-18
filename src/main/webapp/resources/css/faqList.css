@@ -80,7 +80,7 @@ html {
 }
 
 body, input, textarea, select, button, table {
-	font-size:13px; 
+	/* font-size:13px;  */
 	line-height:1.2; 
 	/* color:#666;  */
 	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 

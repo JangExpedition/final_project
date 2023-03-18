@@ -23,6 +23,7 @@
 			            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
 			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
 			            <li class='on'><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>          
+			            <li class=''><a href="${ pageContext.request.contextPath }/question/question.do">이메일 문의<i></i></a></li>
 			        </ul>
 			    </div>
 		</div>
@@ -42,14 +43,14 @@
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="inp_title">제목 <em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em></label></th>
+										<th scope="row"><label for="inp_title">제목</label></th>
 										<td colspan="3">
 											<input type="text" id="title" name="title" class="inp01" style="width: 672px;" />
 										</td>
 									</tr>
 									
 									<tr>
-										<th scope="row">구분  <em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em></th>
+										<th scope="row">구분</th>
 										<td colspan="3">
 											<select class="form-select" name="classifyy">
 										      <option value="JUMGUM" selected>점검</option>
@@ -61,9 +62,9 @@
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="inp_textbox">내용 <em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em></label></th>
+										<th scope="row"><label for="inp_textbox">내용 <em><img src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png"/></em></label></th>
 										<td colspan="3">
-											<textarea cols="60" rows="5" id="content" name="content"  class="inp_txtbox01" onkeyup="javascript:checkByte(this,5000,'sp_ad_content_size_1', 'sp_ad_content_size_2');" ></textarea>
+											<textarea cols="60" rows="5" id="content" name="content" class="inp_txtbox01" onkeyup="javascript:checkByte(this,5000,'sp_ad_content_size_1', 'sp_ad_content_size_2');" ></textarea>
 											<p class="byte_info"><span id="sp_ad_content_size_1"></span><span><span id="sp_ad_content_size_2"></span></span></p>
 										</td>
 									</tr>
