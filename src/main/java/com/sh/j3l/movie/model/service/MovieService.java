@@ -1,5 +1,6 @@
 package com.sh.j3l.movie.model.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
@@ -28,6 +29,10 @@ public interface MovieService {
 	List<Movie> searchByTitle(String title);
 
 	List<Movie> selectAllMovieList();
+
+	List<Movie> selectAllOnScreen(String now);
+
+	List<Movie> selectAllMovieOrderByTitle(String now);
 
 //	Movie selectOneMovie(int no);
 //

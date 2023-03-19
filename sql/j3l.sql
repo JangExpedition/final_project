@@ -19,6 +19,8 @@ select * from notice;
 select * from faq;
 select * from blackList;
 
+select * from movie where open_dt < '2023-03-17';
+
 --===============================
 -- 관리자 계정 생성
 --===============================
@@ -233,6 +235,7 @@ CREATE TABLE movie (
     running_time number not null,
 	limit_age number NOT NULL,
     open_dt char(10) not null,
+    reservation_count number default 0 not null,
     constraint pk_movie_no primary key(no)
 );
 
