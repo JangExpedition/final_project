@@ -1,5 +1,6 @@
 package com.sh.j3l.movie.model.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -41,5 +42,8 @@ public interface MovieDao {
 
 	@Select("select * from movie_attachment where movie_no = #{no}")
 	List<Attachment> selectOneAttachment(int no);
+
+	@Select("select * from movie where open_dt < #{now}")
+	List<Movie> selectAllOnScreen(String now);
 
 }

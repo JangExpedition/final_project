@@ -1,5 +1,6 @@
 package com.sh.j3l.movie.model.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
@@ -81,6 +82,17 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public List<Movie> selectAllMovieList() {
 		List<Movie> movieList = movieDao.selectAllMovieList();
+		for(Movie movie : movieList) {
+			List<Attachment> attachList = movieDao.selectOneAttachment(movie.getNo());
+			movie.setAttachments(attachList);
+		}
+		return movieList;
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public List<Movie> selectAllOnScreen(String now) {
+		List<Movie> movieList = movieDao.selectAllOnScreen(now);
 		for(Movie movie : movieList) {
 			List<Attachment> attachList = movieDao.selectOneAttachment(movie.getNo());
 			movie.setAttachments(attachList);

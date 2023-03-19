@@ -30,7 +30,9 @@
 				</div>
 				<div class="movie-list">
 				<c:forEach items="${ movieList }" var="movie">
-				
+					<div class="movieTitle">
+						${ movie.title }
+					</div>
 				</c:forEach>
 				</div>
 			</div>

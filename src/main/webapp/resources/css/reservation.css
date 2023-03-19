@@ -111,6 +111,14 @@
 	cursor: pointer;
 }
 
+.movieTitle{
+	width: 100%;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
 /* 극장선택 구간 */
 .location-box{
 	width: 50%;
