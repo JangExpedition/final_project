@@ -30,15 +30,15 @@ tr[data-no] {
     height: 35px;
 }
 
-html, body, div, span,a, em, ol, 
-ul, li, form, label, legend, table,tbody,
+html, body, div, span, em,
+font, img, ins, ol, ul, li, fieldset, form, label, legend, table, tbody,
 tfoot, thead, tr, th, td {
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
-	font-size:100%;
-	margin:0;
-	padding:0;
-	border:0;
-	vertical-align:baseline;
+	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
+	/* font-size:100%;  */
+	margin:0; 
+	padding:0; 
+	border:0; 
+	vertical-align:baseline; 
 	word-break:break-all;
 }
 
@@ -80,7 +80,7 @@ html {
 }
 
 body, input, textarea, select, button, table {
-	font-size:13px; 
+	/* font-size:13px; */ 
 	line-height:1.2; 
 	/* color:#666;  */
 	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 

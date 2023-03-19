@@ -32,6 +32,8 @@ public interface MovieService {
 
 	List<Movie> selectAllOnScreen(String now);
 
+	List<Movie> selectAllMovieOrderByTitle(String now);
+
 //	Movie selectOneMovie(int no);
 //
 //

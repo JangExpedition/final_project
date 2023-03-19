@@ -119,6 +119,10 @@
 	cursor: pointer;
 }
 
+.badge{
+	margin-right: 5px;
+}
+
 /* 극장선택 구간 */
 .location-box{
 	width: 50%;
@@ -183,9 +187,34 @@
 	height: 100%;
 }
 
-.check{
+.check1{
 	width: 25%;
 	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ccc;
+	padding: 10px;
+}
+
+.check2{
+	width: 25%;
+	height: 100%;
+	color: #ccc;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.check2>p{
+	font-size: 12px;
+	display: none;
+}
+
+.check2>p>span{
+	font-weight: bold;
 }
 
 .check3{
@@ -194,4 +223,17 @@
 
 .check4{
 	width: 40% !important;
+}
+
+#moviePoster{
+	display: none;
+	width: 50%;
+	height: 100%;
+	backgorund-size: cover;
+	margin-right: 5px;
+}
+
+#reservationMovieTitle{
+	display: none;
+	font-size: 12px;
 }

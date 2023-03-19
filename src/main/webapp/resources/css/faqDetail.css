@@ -46,7 +46,7 @@ html {
 }
 
 body, input, textarea, select, button, table {
-	font-size:13px; 
+	/* font-size:13px; */ 
 	line-height:1.2; 
 	/* color:#666;  */
 	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
@@ -88,9 +88,20 @@ a {
 }
 
 
-#contaniner {/*overflow:hidden;*/ position:relative; width:100%; z-index:7}
-#contaniner.bg-bricks {background:url(https://img.cgv.co.kr/r2014/images/common/bg/bg_c_bricks.png) repeat-x 0 29px}
-#contaniner .contents{width:980px; height:100%; margin:0 auto}
+#contaniner {
+	position:relative; 
+	width:100%; z-index:7
+}
+
+#contaniner.bg-bricks {
+	background:url(https://img.cgv.co.kr/r2014/images/common/bg/bg_c_bricks.png) repeat-x 0 29px
+}
+
+#contaniner .contents {
+	width:980px; 
+	height:100%; 
+	margin:0 auto
+}
 
 
 
@@ -366,6 +377,11 @@ a {
 
 .button-group {
 	text-align: right;
+}
+
+.button-group2 {
+	text-align: left;
+	/* margin-top: 10px; */
 }
 
 .button2 {

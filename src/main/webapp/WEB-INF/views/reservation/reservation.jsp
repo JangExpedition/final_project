@@ -28,12 +28,8 @@
 					<span class="filter non-click">예매율순</span>
 					<span class="filter non-click">가나다순</span>
 				</div>
-				<div class="movie-list">
-				<c:forEach items="${ movieList }" var="movie">
-					<div class="movieTitle">
-						${ movie.title }
-					</div>
-				</c:forEach>
+				<div id="movieList" class="movie-list">
+				
 				</div>
 			</div>
 		</div>
@@ -70,13 +66,21 @@
 <!-- 예매확인 섹션 -->
 <section class="reservation-check-section">
 	<div class="check-box">
-		<div class="check">
+		<div id="MovieCheck" class="check1">
+			<h3>영화선택</h3>
+			<input id="reservationMovieNo" type="hidden"/>
+			<img id="moviePoster" src="">
+			<p id="reservationMovieTitle"></p>
 		</div>
-		<div class="check">
+		<div id="CheckInfo" class="check2">
+			<h3>극장선택</h3>
+			<p id="checkCinema">극장 <span></span></p>			
+			<p id="checkScheduel">일시 <span></span></p>			
+			<p id="checkTheater">상영관 <span></span></p>			
 		</div>
-		<div class="check check3">
+		<div class="check3">
 		</div>
-		<div class="check check4">
+		<div class="check4">
 		</div>
 	</div>
 </section>
@@ -94,21 +98,7 @@ document.querySelectorAll(".filter").forEach((filter)=>{
 	});
 });
 
-//지역선택 메서드
-document.querySelectorAll(".location-tr").forEach((locationName)=>{
-	locationName.addEventListener("click", ()=>{
-		selectLocation(locationName.innerText);
-	});
-});
-
-//영화관 선택 메서드
-document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
-	cinemaName.addEventListener("click", ()=>{
-		selectCinema(cinemaName.dataset.location, cinemaName.innerText);
-	});
-});
-
-// 영화 필터 효과 메서드
+//영화 필터 효과 메서드
 const filterEffect = (filterName) =>{
 	
 	document.querySelectorAll(".filter").forEach((filter)=>{
@@ -120,9 +110,77 @@ const filterEffect = (filterName) =>{
 				filter.className = "filter non-click";	
 			}
 			
+			$.ajax({
+				url: "${pageContext.request.contextPath}/reservation/selectAllMovieOrderBy.do",
+				data: {filterName},
+				success(data){
+					
+					const movieList = document.querySelector("#movieList");
+					
+					movieList.innerHTML = "";
+					
+					data.forEach((movie)=>{
+						
+						const {title, limitAge, attachments, no} = movie;
+						
+						const movieTitle = document.createElement("div");
+						movieTitle.classList = "movieTitle";
+						movieTitle.dataset.movieNo = no;
+						movieTitle.dataset.moviePoster = attachments[0].renamedFilename;
+						
+						const span = document.createElement("span");
+						span.classList = "badge";
+						switch(limitAge){
+						case 0 : span.classList = " badge-success"; span.innerText = "All"; break; 
+						case 12 : span.classList = " badge-primary"; span.innerText = limitAge; break; 
+						case 15 : span.classList = " badge-warning"; span.innerText = limitAge; break; 
+						case 18 : span.classList = " badge-danger"; span.innerText = limitAge; break; 
+						}
+						
+						movieTitle.append(span);
+						movieTitle.append(title);
+						movieList.append(movieTitle);
+						
+					});
+					
+				},
+				error: console.log
+			});
+			
 	});
 	
 };
+
+// 영화 선택 메서드
+$(document).on("click", ".movieTitle", function(e){
+	selectMovie(e.target);
+});
+
+// 영화선택 효과 메서드
+const selectMovie = (movie) => {
+	movie.style.backgroundColor = "#333";
+	movie.style.color = "#fff";
+	
+	document.querySelector("#MovieCheck h3").style.display = "none";
+	
+	document.querySelector("#reservationMovieNo").value = movie.dataset.movieNo;
+	
+	const poster = document.querySelector("#moviePoster");
+	poster.style.display = "inline";
+	poster.src = "${pageContext.request.contextPath}/resources/upload/movie/" + movie.dataset.moviePoster;
+	
+	const title = document.querySelector("#reservationMovieTitle");
+	title.innerHTML = movie.innerHTML;
+	title.style.display = "inline";
+	
+}
+
+//지역선택 메서드
+document.querySelectorAll(".location-tr").forEach((locationName)=>{
+	locationName.addEventListener("click", ()=>{
+		selectLocation(locationName.innerText);
+	});
+});
 
 // 지역선택 효과 메서드
 const selectLocation = (location) => {
@@ -148,8 +206,15 @@ const selectLocation = (location) => {
 	});
 };
 
+//영화관 선택 메서드
+document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
+	cinemaName.addEventListener("click", (e)=>{
+		selectCinema(cinemaName.dataset.location, cinemaName.innerText, e.target);
+	});
+});
+
 // 영화관 선택 효과 메서드
-const selectCinema = (location, name) => {
+const selectCinema = (location, name, target) => {
 	
 	document.querySelectorAll(".cinemaName").forEach((cinemaName)=>{
 		
@@ -159,8 +224,14 @@ const selectCinema = (location, name) => {
 		else{
 			cinemaName.className = "cinemaName";
 		}
+		
 	});
 	
+	document.querySelector("#CheckInfo h3").style.display = "none";
+	document.querySelectorAll("#CheckInfo p").forEach((p)=>{
+		p.style.display = "inline";
+	});
+	document.querySelector("#checkCinema span").innerText =  target.innerText;
 };
 </script>
 </body>
