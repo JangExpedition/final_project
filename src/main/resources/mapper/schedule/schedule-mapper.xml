@@ -3,45 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sh.j3l.schedule.model.dao.ScheduleDao">
-	<select id="selectAllSchedule" resultMap="scheduleMap">
+
+	<select id="selectAllCinema" resultMap="cinemaMap">
 		select
 			*
 		from
-			schedule
-	</select> 
+			cinema
+	</select>
 	
-	<resultMap type="schedule" id="scheduleMap"></resultMap>
+	<resultMap type="cinema" id="cinemaMap"></resultMap>
 
- 	<insert id="insertSchedule">
-		insert into
-			question (no, movie_no, theater_no, start_time, end_time)
-		values
-		(
-			seq_scheduel_no.nextval,
-			#{movieNo},
-			#{theaterNo},
-			#{startTime},
-			#{endTime},
-		)
-	</insert>
-	
-	<update id="updateSchedule">
-		update	
-			schedule
-		set
-			movie_no = #{movieNo},
-			theater_no = #{theaterNo},
-			start_titme = #{startTime},
-			end_time = #{endTime}
-	</update>
-	
-	<delete id="deleteSchedule">
-		delete from 
-			schedule
-		where
-			no = #{no}
-	</delete>
-
-	
+ 		
 
 </mapper>

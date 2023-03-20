@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sh.j3l.cinema.model.dto.Cinema;
+import com.sh.j3l.cinema.model.dto.Location;
 import com.sh.j3l.schedule.model.dao.ScheduleDao;
 import com.sh.j3l.schedule.model.dto.Schedule;
 
@@ -19,6 +21,16 @@ public class ScheduleServiceImpl implements ScheduleService{
 	@Override
 	public List<Schedule> selectAllSchedule() {
 		return scheduleDao.selectAllSchedule();
+	}
+
+	@Override
+	public List<Cinema> selectAllCinema() {
+		return scheduleDao.selectAllCinema();
+	}
+
+	@Override
+	public List<Location> selectAllLocation() {
+		return scheduleDao.selectAllLocation();
 	}
 
 }

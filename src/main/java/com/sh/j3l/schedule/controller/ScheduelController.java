@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sh.j3l.cinema.model.dto.Cinema;
+import com.sh.j3l.cinema.model.dto.Location;
 import com.sh.j3l.schedule.model.dto.Schedule;
 import com.sh.j3l.schedule.model.service.ScheduleService;
 
@@ -23,13 +25,15 @@ public class ScheduelController {
 	@Autowired
 	private ScheduleService scheduelService;
 	
-	@GetMapping("/scheduleForm.do")
-	public String scheduleList(Model model) {
+	@Autowired 
+	
+	@GetMapping("/CinemaList.do")
+	public void CinemaList(Model model) {
 		
-		List<Schedule> scheduleList = scheduelService.selectAllSchedule();
-		model.addAttribute("scheduleList", scheduleList);
-		
-		return "schedule/scheduleForm";
+		List<Cinema> cinemaList = scheduelService.selectAllCinema();
+		List<Location> locationList = scheduelService.selectAllLocation();
+		model.addAttribute("cinemaList", cinemaList);
+		model.addAttribute("locationList", locationList);
 	}
 	
 
