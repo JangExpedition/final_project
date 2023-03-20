@@ -91,8 +91,8 @@ public class MovieServiceImpl implements MovieService {
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public List<Movie> selectAllOnScreen(String now) {
-		List<Movie> movieList = movieDao.selectAllOnScreen(now);
+	public List<Movie> selectAllOnScreenOrderByReservationCnt(String now) {
+		List<Movie> movieList = movieDao.selectAllOnScreenOrderByReservationCnt(now);
 		for(Movie movie : movieList) {
 			List<Attachment> attachList = movieDao.selectOneAttachment(movie.getNo());
 			movie.setAttachments(attachList);
@@ -102,8 +102,28 @@ public class MovieServiceImpl implements MovieService {
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public List<Movie> selectAllMovieOrderByTitle(String now) {
-		List<Movie> movieList = movieDao.selectAllMovieOrderByTitle(now);
+	public List<Movie> selectAllMovieOnScreenOrderByTitle(String now) {
+		List<Movie> movieList = movieDao.selectAllMovieOnScreenOrderByTitle(now);
+		for(Movie movie : movieList) {
+			List<Attachment> attachList = movieDao.selectOneAttachment(movie.getNo());
+			movie.setAttachments(attachList);
+		}
+		return movieList;
+	}
+
+	@Override
+	public List<Movie> selectAllMovieOrderByReservationCnt() {
+		List<Movie> movieList = movieDao.selectAllMovieOrderByReservationCnt();
+		for(Movie movie : movieList) {
+			List<Attachment> attachList = movieDao.selectOneAttachment(movie.getNo());
+			movie.setAttachments(attachList);
+		}
+		return movieList;
+	}
+
+	@Override
+	public List<Movie> selectAllMovieToBeScreened(String now) {
+		List<Movie> movieList = movieDao.selectAllMovieToBeScreened(now);
 		for(Movie movie : movieList) {
 			List<Attachment> attachList = movieDao.selectOneAttachment(movie.getNo());
 			movie.setAttachments(attachList);

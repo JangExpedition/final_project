@@ -90,7 +90,7 @@ console.log(msg);
 	<div id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 		<li class="nav-item active">
-		  <a class="nav-link" href="${ pageContext.request.contextPath }/movie/movie.do">영화</a>
+		  <a class="nav-link" href="${ pageContext.request.contextPath }/movie/movie.do?checked=0">영화</a>
 		</li>
 		<li class="nav-item active">
 		  <a class="nav-link" href="${ pageContext.request.contextPath }/cinema/cinema.do">극장</a>

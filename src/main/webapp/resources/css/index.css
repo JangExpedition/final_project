@@ -64,14 +64,22 @@ body{
 .movieCard{
 	width: 180px;
 	margin-right: 20px;
-	cursor: pointer;
+/* 	cursor: pointer; */
 }
 
 .moviePoster{
+	position: relative;
 	width: 180px;
 	height: 250px;
-	background-size: cover;
 	border-radius: 10px;
+	background-size: cover;
+}
+
+.movieLimitAge{
+	position: absolute;
+	top: 1;
+	left: 1;
+	z-index: 2;
 }
 
 .movieName{
@@ -79,6 +87,17 @@ body{
 	font-size: 20px;
 	text-align: center;
 	margin: 10px 0;
+	white-space: nowrap;
+	text-overflow : ellipsis;
+	overflow: hidden;
+}
+
+.movieRank{
+	position: absolute;
+	top: 200px;
+	left: 5px;
+	color: #fff;
+	z-index: 2;
 }
 
 /* 이벤트 영역 */
