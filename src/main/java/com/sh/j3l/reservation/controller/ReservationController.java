@@ -45,10 +45,10 @@ public class ReservationController {
 		String now = LocalDate.now().toString();
 		List<Movie> movieList = new ArrayList<>();
 		if(filterName == "예매율순") {
-			movieList = movieService.selectAllOnScreen(now);
+			movieList = movieService.selectAllOnScreenOrderByReservationCnt(now);
 		}
 		else {
-			movieList = movieService.selectAllMovieOrderByTitle(now);
+			movieList = movieService.selectAllMovieOnScreenOrderByTitle(now);
 		}
 		model.addAttribute("movieList", movieList);
 		return movieList;

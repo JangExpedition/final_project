@@ -28,11 +28,20 @@ public interface MovieService {
 
 	List<Movie> searchByTitle(String title);
 
+	// 영화 목록 전체 가져오기
 	List<Movie> selectAllMovieList();
+	
+	// 영화 목록 전체 예매율순으로 가져오기
+	List<Movie> selectAllMovieOrderByReservationCnt();
 
-	List<Movie> selectAllOnScreen(String now);
+	// 현재 상영중인 영화 예매율 순으로 가져오기
+	List<Movie> selectAllOnScreenOrderByReservationCnt(String now);
 
-	List<Movie> selectAllMovieOrderByTitle(String now);
+	// 현재 상영중인 영화 가나다 순으로 가져오기
+	List<Movie> selectAllMovieOnScreenOrderByTitle(String now);
+
+	// 상영 예정작 예매율 순으로 불러오기
+	List<Movie> selectAllMovieToBeScreened(String now);
 
 //	Movie selectOneMovie(int no);
 //

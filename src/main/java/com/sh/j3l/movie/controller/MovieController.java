@@ -2,9 +2,13 @@ package com.sh.j3l.movie.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +19,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.sh.j3l.common.HelloSpringUtils;
 import com.sh.j3l.movie.model.dto.Attachment;
@@ -37,7 +43,40 @@ public class MovieController {
 	private ServletContext application;
 	
 	@GetMapping("/movie.do")
-	public void movie() {}
+	public void movie(HttpServletRequest request,@RequestParam int checked, Model model) {
+		
+		Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
+		List<Movie> movieList = new ArrayList<>();
+        if(null != inputFlashMap) {
+            movieList = (List<Movie>) inputFlashMap.get("movieList");
+            model.addAttribute("movieList", movieList);
+        }
+        else {
+        	movieList = (List<Movie>) movieService.selectAllMovieOrderByReservationCnt();
+        	model.addAttribute("movieList", movieList);
+        }
+        
+        model.addAttribute("checked", checked);
+	}
+	
+	// 현재 상영중인 영화 목록 가져오기 필터 분기 메서드
+	@GetMapping("/onScreenFilter.do")
+	public String onScreenFilter(@RequestParam(defaultValue = "0") int checked, RedirectAttributes redirectAttr) {
+		log.debug("checked = {}", checked);
+		List<Movie> movieList = new ArrayList<>();
+		if(checked == 0) {
+			 movieList = movieService.selectAllMovieOrderByReservationCnt();
+		}
+		else {
+			String now = LocalDate.now().toString();
+			movieList = movieService.selectAllOnScreenOrderByReservationCnt(now);
+		}
+		
+		redirectAttr.addAttribute("checked", checked);
+		redirectAttr.addFlashAttribute("movieList", movieList);
+		
+		return "redirect:/movie/movie.do";
+	}
 	
 	// 영화 목록 조회
 	@GetMapping("/movieList.do")
@@ -55,8 +94,15 @@ public class MovieController {
 	// 영화 목록 가져오기 비동기
 	@GetMapping("/selectAllMovieList.do")
 	@ResponseBody
-	public List<Movie> selectAllMovieList() {
-		return movieService.selectAllMovieList();
+	public List<Movie> selectAllMovieList(@RequestParam String name) {
+		
+		if("무비차트".equals(name)) {
+			return movieService.selectAllMovieOrderByReservationCnt();
+		}
+		else {
+			String now = LocalDate.now().toString();
+			return movieService.selectAllMovieToBeScreened(now);
+		}
 	}
 	
 	// 영화 등록 폼
