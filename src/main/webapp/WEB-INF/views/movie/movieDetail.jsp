@@ -22,7 +22,7 @@
 		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
 		            <li class='on'><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }">매출 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/schedule/scheduleForm.do">상영 시간 관리<i></i></a></li>
 		        </ul>
 		    </div>
 		    
@@ -53,7 +53,7 @@
 		    <tr>
 		      <td class="tit">개봉일</td>
 		      <td>
-		        <input type="text" placeholder="개봉일" name="openDt" class="input_txt" value="${movie.synopsis}" required />
+		        <input type="text" placeholder="개봉일" name="openDt" class="input_txt" value="${movie.openDt}" required />
 		      </td>
 		    </tr>
 		    <tr>
@@ -62,18 +62,18 @@
 		        <input type="text" placeholder="러닝타임" name="runningTime" class="input_txt" value="${movie.runningTime}" required />
 		      </td>
 		    </tr>
-		    <tr>
-		      <td class="tit" >장르</td>
-		      <td> 
-		        <input type="checkbox" value="ACTION" name="genre"/>액션
-		        <input type="checkbox" value="COMEDY" name="genre"/>코미디
-		        <input type="checkbox" value="ROMANCE" name="genre"/>로맨스
-		        <input type="checkbox" value="ANIMATION" name="genre"/>애니메이션
-		        <input type="checkbox" value="HORROR" name="genre"/>호러
-		        <input type="checkbox" value="DOCUMENTARY" name="genre"/>다큐
-		        <input type="checkbox" value="DRAMA" name="genre"/>드라마
-		      </td>
-		    </tr>
+		   <tr>
+			  <td class="tit">장르</td>
+			  <td> 
+			    <input type="checkbox" value="ACTION" ${movie.genre.krName == '액션' ? 'checked' : ''} name="genre"/>액션
+			    <input type="checkbox" value="COMEDY" ${movie.genre.krName == '코미디' ? 'checked' : ''} name="genre"/>코미디
+			    <input type="checkbox" value="ROMANCE" ${movie.genre.krName == '로맨스' ? 'checked' : ''} name="genre"/>로맨스
+			    <input type="checkbox" value="ANIMATION" ${movie.genre.krName == '애니' ? 'checked' : ''} name="genre"/>애니메이션
+			    <input type="checkbox" value="HORROR" ${movie.genre.krName == '호러' ? 'checked' : ''} name="genre"/>호러
+			    <input type="checkbox" value="DOCUMENTARY" ${movie.genre.krName == '다큐' ? 'checked' : ''} name="genre"/>다큐
+			    <input type="checkbox" value="DRAMA" ${movie.genre.krName == '드라마' ? 'checked' : ''} name="genre"/>드라마
+			  </td>
+			</tr>
 		    <tr>
 		      <td class="tit">연령</td>
 		      <td>
@@ -92,11 +92,11 @@
 		      </td>
 		    </tr>
 		    <tr>
-		      <td class="tit">시놉시스</td>
-		      <td>
-		        <textarea name="synopsis" placeholder="시놉시스"></textarea>
-		      </td>
-		    </tr>
+			  <td class="tit">시놉시스</td>
+			  <td>
+			    <textarea name="synopsis" placeholder="시놉시스">${movie.synopsis}</textarea>
+			  </td>
+			</tr>
 		  </table>
 		  	<div class="fn1">
 		      <form:form 

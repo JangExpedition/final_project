@@ -235,7 +235,7 @@ table caption {
 .cols-content .col-aside .snb > ul > li:hover > a, 
 .cols-content .col-aside .snb > ul > li > a:focus,
 .cols-content .col-aside .snb > ul > li.on > a {
-	background-color: red; 
+	background-color: #f54357; 
 	color:#fdfcf0;
 }
 

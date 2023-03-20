@@ -22,7 +22,7 @@
 		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
 		            <li class='on'><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }">매출 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/schedule/scheduleForm.do">상영 시간 관리<i></i></a></li>
 		        </ul>
 		    </div>
 	<h1>영화 정보 등록</h1>

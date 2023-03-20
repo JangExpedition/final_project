@@ -8,7 +8,7 @@ select * from reservation;
 select * from location;
 select * from cinema;
 select * from theater;
-select * from scheduel;
+select * from schedule;
 select * from movie;
 select * from movie_attachment;
 select * from snack;
@@ -210,7 +210,7 @@ select * from theater;
 create sequence seq_theater_no;
 
 -- 상영시간표 테이블
-CREATE TABLE scheduel (
+CREATE TABLE schedule (
 	no number NOT NULL,
 	movie_no number	NOT NULL,
 	theater_no number NOT NULL,
@@ -218,6 +218,11 @@ CREATE TABLE scheduel (
 	end_time Date NOT NULL,
     constraint pk_scheduel_no primary key(no)
 );
+
+select * from schedule;
+
+INSERT INTO schedule (no, movie_no, theater_no, start_time, end_time)
+VALUES (1, 123, 456, TO_DATE('2023-03-20 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2023-03-20 15:00:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 -- 상영시간표 테이블 시퀀스
 create sequence seq_scheduel_no;
@@ -238,6 +243,8 @@ CREATE TABLE movie (
     reservation_count number default 0 not null,
     constraint pk_movie_no primary key(no)
 );
+
+select * from movie;
 
 
 select * from movie;
