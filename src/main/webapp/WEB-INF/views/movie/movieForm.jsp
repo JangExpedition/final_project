@@ -39,7 +39,7 @@
 			    </tr>
 			    <tr>
 			      <td class="tit">출연진</td>
-			      <td><input type="text" placeholder="출연진" name="actors" id="actors" class="input_txt" required ></td>
+			      <td><input type="text" placeholder="출연진" name="actors" id="actors" class="input_txt"></td>
 			    </tr>
 			    <tr>
 			      <td class="tit">감독</td>
@@ -50,13 +50,13 @@
 			    <tr>
 			      <td class="tit">개봉일</td>
 			      <td>
-			        <input type="text" placeholder="개봉일" name="openDt" class="input_txt" required />
+			        <input type="date" placeholder="개봉일" name="openDt" class="input_txt" required />
 			      </td>
 			    </tr>
 			    <tr>
 			      <td class="tit">러닝타임(분)</td>
 			      <td>
-			        <input type="text" placeholder="러닝타임" name="runningTime" class="input_txt" required />
+			        <input type="number" placeholder="러닝타임" name="runningTime" class="input_txt" required />
 			      </td>
 			    </tr>
 			    <tr>
@@ -85,7 +85,7 @@
 			    <tr>
 			      <td class="tit">첨부파일</td>
 			      <td>
-			        <input type="file" name="upFile" id="upFile" multiple/>
+			        <input type="file" name="upFile" id="upFile" multiple required/>
 			      </td>
 			    </tr>
 			    <tr>
