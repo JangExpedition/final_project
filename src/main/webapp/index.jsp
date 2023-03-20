@@ -25,46 +25,7 @@
 		</div>
 		<div id="movieContainer">
 			<div id="movieConveyer">
-				<div id="movieCard1" class="movieCard">
-					<div id="moviePoster1" class="moviePoster"></div>
-					<h4 id="movieName1" class="movieName"></h4>
-				</div>
-				<div id="movieCard2" class="movieCard">
-					<div id="moviePoster2" class="moviePoster"></div>
-					<h4 id="movieName2" class="movieName"></h4>
-				</div>
-				<div id="movieCard3" class="movieCard">
-					<div id="moviePoster3" class="moviePoster"></div>
-					<h4 id="movieName3" class="movieName"></h4>
-				</div>
-				<div id="movieCard4" class="movieCard">
-					<div id="moviePoster4" class="moviePoster"></div>
-					<h4 id="movieName4" class="movieName"></h4>
-				</div>
-				<div id="movieCard5" class="movieCard">
-					<div id="moviePoster5" class="moviePoster"></div>
-					<h4 id="movieName5" class="movieName"></h4>
-				</div>
-				<div id="movieCard6" class="movieCard">
-					<div id="moviePoster6" class="moviePoster"></div>
-					<h4 id="movieName6" class="movieName"></h4>
-				</div>
-				<div id="movieCard7" class="movieCard">
-					<div id="moviePoster7" class="moviePoster"></div>
-					<h4 id="movieName7" class="movieName"></h4>
-				</div>
-				<div id="movieCard8" class="movieCard">
-					<div id="moviePoster8" class="moviePoster"></div>
-					<h4 id="movieName8" class="movieName"></h4>
-				</div>
-				<div id="movieCard9" class="movieCard">
-					<div id="moviePoster9" class="moviePoster"></div>
-					<h4 id="movieName9" class="movieName"></h4>
-				</div>
-				<div id="movieCard10" class="movieCard">
-					<div id="moviePoster10" class="moviePoster"></div>
-					<h4 id="movieName10" class="movieName"></h4>
-				</div>
+			
 			</div>
 		</div>
 	</div>
@@ -73,21 +34,6 @@
 </section>
 <script>
 window.onload = () => {
-	$.ajax({
-		url: "${pageContext.request.contextPath}/movie/selectAllMovieList.do",
-		success(data){
-			data.forEach((movie, index)=>{
-				console.log(movie);
-				const moviePoster = document.querySelector("#moviePoster" + (index + 1));
-				const movieName = document.querySelector("#movieName" + (index + 1));
-				const {renamedFilename} = movie.attachments[0];
-				moviePoster.style.backgroundImage = "url('${pageContext.request.contextPath}/resources/upload/movie/" + renamedFilename + "')";
-				movieName.innerText = movie.title;
-			});
-		},
-		error: console.log
-	});
-	
 	filterSelected("무비차트");
 }
 
@@ -100,6 +46,9 @@ document.querySelectorAll(".movieFilter").forEach((movieFilter)=>{
 
 // 영화필터 선택 효과 메서드
 const filterSelected = (name) => {
+	
+	console.log(name);
+	
 	document.querySelectorAll(".movieFilter").forEach((movieFilter)=>{
 		if(movieFilter.innerText === name){
 			movieFilter.classList += " filterSelected";
@@ -107,6 +56,56 @@ const filterSelected = (name) => {
 		else{
 			movieFilter.classList = "movieFilter";
 		}
+		
+		$.ajax({
+			url: "${pageContext.request.contextPath}/movie/selectAllMovieList.do",
+			data: {name: name},
+			success(data){
+				
+				
+				const movieConveyer = document.querySelector("#movieConveyer");
+				movieConveyer.innerHTML = "";
+				
+				data.forEach((movie, index)=>{
+					
+					const movieCard = document.createElement("div");
+					const moviePoster = document.createElement("div");
+					const movieLimitAge = document.createElement("span");
+					const movieName = document.createElement("h4");
+					const movieRank = document.createElement("h1");
+					
+					const {renamedFilename} = movie.attachments[0];
+					
+					moviePoster.style.backgroundImage = 
+						"linear-gradient(to bottom, #00000000, #000000cc), url('${pageContext.request.contextPath}/resources/upload/movie/" + renamedFilename + "')";
+					movieName.innerText = movie.title;
+					movieRank.innerText = index + 1;
+					
+					movieCard.classList = "movieCard";
+					moviePoster.classList = "moviePoster";
+					movieLimitAge.classList = "movieLimitAge badge";
+					movieName.classList = "movieName";
+					movieRank.classList = "movieRank";
+					
+					switch(movie.limitAge){
+					case 0 : movieLimitAge.classList += " badge-success"; movieLimitAge.innerText = "All"; break; 
+					case 12 : movieLimitAge.classList += " badge-primary"; movieLimitAge.innerText = movie.limitAge; break; 
+					case 15 : movieLimitAge.classList += " badge-warning"; movieLimitAge.innerText = movie.limitAge; break; 
+					case 18 : movieLimitAge.classList += " badge-danger"; movieLimitAge.innerText = movie.limitAge; break; 
+					}
+					
+					moviePoster.append(movieLimitAge);
+					moviePoster.append(movieRank);
+					
+					movieCard.append(moviePoster);
+					movieCard.append(movieName);
+					
+					movieConveyer.append(movieCard);
+				}); // forEach end
+			},
+			error: console.log
+		}); // ajax end
+		
 	});	
 };
 </script>

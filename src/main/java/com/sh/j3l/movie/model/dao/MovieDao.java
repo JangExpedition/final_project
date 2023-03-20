@@ -44,9 +44,15 @@ public interface MovieDao {
 	List<Attachment> selectOneAttachment(int no);
 
 	@Select("select * from movie where open_dt < #{now} order by reservation_count")
-	List<Movie> selectAllOnScreen(String now);
+	List<Movie> selectAllOnScreenOrderByReservationCnt(String now);
 
 	@Select("select * from movie where open_dt < #{now} order by title")
-	List<Movie> selectAllMovieOrderByTitle(String now);
+	List<Movie> selectAllMovieOnScreenOrderByTitle(String now);
+
+	@Select("select * from movie order by reservation_count")
+	List<Movie> selectAllMovieOrderByReservationCnt();
+
+	@Select("select * from movie where open_dt > #{now} order by reservation_count")
+	List<Movie> selectAllMovieToBeScreened(String now);
 
 }

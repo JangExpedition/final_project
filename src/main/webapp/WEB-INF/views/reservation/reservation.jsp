@@ -158,8 +158,16 @@ $(document).on("click", ".movieTitle", function(e){
 
 // 영화선택 효과 메서드
 const selectMovie = (movie) => {
-	movie.style.backgroundColor = "#333";
-	movie.style.color = "#fff";
+	
+	document.querySelectorAll(".movieTitle").forEach((movieTitle)=>{
+		
+		if(movie.dataset.movieNo === movieTitle.dataset.movieNo){
+			movieTitle.classList += " movieTitleSelected";
+		}
+		else{
+			movieTitle.classList = "movieTitle";
+		}
+	});
 	
 	document.querySelector("#MovieCheck h3").style.display = "none";
 	

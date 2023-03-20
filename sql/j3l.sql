@@ -204,10 +204,22 @@ CREATE TABLE theater (
                         ON DELETE CASCADE
 );
 
-select * from theater;
-
 -- 상영관 테이블 시퀀스
 create sequence seq_theater_no;
+
+create table seat (
+    theater_no number not null,
+    seat_no char(2) not null,
+    is_selected char(1) default 'X' not null,
+    constraint pk_seat primary key(theater_no, seat_no),
+    constraint fk_seat_theater_no foreign key(theater_no)
+                            references theater
+                            on delete cascade,
+    constraint ck_seat_no check(seat_no >= 'A1' and 'M15' >= seat_no),
+    constraint ck_is_selected check(is_selected in('X', 'O'))
+);
+
+
 
 -- 상영시간표 테이블
 CREATE TABLE schedule (
