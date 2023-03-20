@@ -118,3 +118,7 @@ a:active {
 .txt {
 	list-style:none;
 }
+
+.c_tit {
+	cursor:pointer;
+}

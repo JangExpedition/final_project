@@ -37,7 +37,7 @@
 			<form:form action="${pageContext.request.contextPath}/notice/searchNotice" method="get" class="mb-3">
 			  <div class="input-group">
 			    <input type="hidden" name="searchType" value="title" />
-			    <input type="text" class="form-control" id="myElement" style="max-width: 200px;" placeholder="제목 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+			    <input type="text" class="form-control" id="myElement" placeholder="제목 검색" aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
 			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 			  </div>
 			</form:form>

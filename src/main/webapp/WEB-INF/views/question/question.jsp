@@ -59,7 +59,7 @@
 									<tr>
 										<th scope="row">휴대전화<img src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png"/></th>
 										<td>
-											<input type="text" id="phone" name="phone" style="width: 200px;" />
+											<input type="text" id="phone" name="phone" placeholder="'-'은 제외하고 입력" style="width: 200px;"  />
 										</td>
                                             
 										<th scope="row">이메일<img src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png"/></th>
@@ -111,12 +111,15 @@
 							</table>
 						</div>
 						<div class="box-btn qna_email">
-							<a style="margin-left:5px" href="${pageContext.request.contextPath }/faq/main.do" class="round gray"><span style="padding:0 14px;">취소</span></a>
-                            <button style="width:80px" class="round inred" type="submit" id="emailsubmit" ><span>등록하기</span></button>
+						   <div class="parent2">
+						    	<a href="${pageContext.request.contextPath }/faq/main.do" id="btn-add">취소</a>
+						   </div>
+						   <div class="parent">
+						    	<a href="#" id="btn-add">등록</a>
+						   </div>
 						</div>
 					</fieldset>
 				  </form:form>
-				</form>
 			</div>
 		</div>
 	</div>

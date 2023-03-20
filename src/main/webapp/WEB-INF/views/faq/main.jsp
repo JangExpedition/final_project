@@ -42,17 +42,17 @@
 							     </div>
 		   					</form>
 						</div>
-	                <div class="c_box talk_inquiry" style="cursor:pointer;">
+	                <div class="c_box talk_inquiry">
 	                    <strong class="c_tit">1:1 문의 이용</strong>
 	                    <span class="c_txt">1:1문의를 이용해보세요.</span>
 	                    <a href="">문의하기</a>
 	                </div>
-					<div class="c_box email_inquiry" style="cursor:pointer;">
+					<div class="c_box email_inquiry">
 						<strong class="c_tit">이메일 문의</strong>
 						<span class="c_txt">24시간 365일 언제든지 문의해주세요.</span>
 						<a href="${pageContext.request.contextPath}/question/question.do">문의하기</a>
 	                </div>
-					<div class="c_box my_advice"  style="cursor:pointer;">
+					<div class="c_box my_advice">
 						<strong class="c_tit">내 상담 내역 확인</strong>
 						<span class="c_txt">문의하신 내용을 확인하실 수 있습니다.</span>
 						<a href=""  target="_blank" title="새창열기" >문의내역 조회</a>
@@ -105,4 +105,4 @@
 
 
 <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/module.css?20211209" />
- <link rel="stylesheet" media="all" type="text/css" href="http://img.cgv.co.kr/R2014/css/customer.css" />
+<link rel="stylesheet" media="all" type="text/css" href="http://img.cgv.co.kr/R2014/css/customer.css" />

@@ -44,36 +44,39 @@
 			</div>
 			<div class="tbl_area">
 				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
-					<thead>
-						<tr>
-							<th scope="col">번호</th>
-		                    <th scope="col">이름</th>
-							<th scope="col">문의유형</th>
-	 						<th scope="col">제목</th>
-	 						<th scope="col">내용</th>
-	 						<th scope="col">전화번호</th>
-	 						<th scope="col">이메일</th>
-	 						<th scope="col">문의일</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${questionList}" var="question">
-	                        <tr>
-							    <td>${question.no}</td>
-	                            <td>${question.name}</td>
-							    <td>${question.type.krName}</td>
-							    <td>${question.title}</td>
-							    <td class="content2">${question.content}</td>
-							    <td>${question.phone}</td>
-							    <td>${question.email}</td>
-							    <td>
-									<fmt:parseDate value="${question.regDate}" pattern="yyyy-MM-dd" var="regDate"/>
-	            					<fmt:formatDate value="${regDate}" pattern="yy/MM/dd"/>
-								</td>
-						    </tr>
-	                     </c:forEach>   
-					</tbody>	
-				</table>
+  <thead>
+    <tr>
+      <th scope="col"> </th> <!-- add an empty header for the checkbox -->
+      <th scope="col">번호</th>
+      <th scope="col">이름</th>
+      <th scope="col">문의유형</th>
+      <th scope="col">제목</th>
+<!--       <th scope="col">내용</th> -->
+<!--       <th scope="col">전화번호</th> -->
+      <th scope="col">이메일</th>
+      <th scope="col">문의일</th>
+    </tr>
+  </thead>
+  <tbody>
+    <c:forEach items="${questionList}" var="question">
+      <tr>
+        <td><input type="checkbox" name="selectedQuestions" value="${question.no}"></td> <!-- add a checkbox column -->
+        <td>${question.no}</td>
+        <td>${question.name}</td>
+        <td>${question.type.krName}</td>
+        <td>${question.title}</td>
+<%--         <td class="content2">${question.content}</td> --%>
+<%--         <td>${question.phone}</td> --%>
+        <td>${question.email}</td>
+        <td>
+          <fmt:parseDate value="${question.regDate}" pattern="yyyy-MM-dd" var="regDate"/>
+          <fmt:formatDate value="${regDate}" pattern="yy/MM/dd"/>
+        </td>
+      </tr>
+    </c:forEach>   
+  </tbody>  
+</table>
+
 			</div>
 		</div>
   	</div>
