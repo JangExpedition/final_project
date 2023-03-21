@@ -70,9 +70,13 @@
 								</tbody>
 							</table>
 						</div>
-						<div class="box-btn qna">
-							<a style="margin-left:5px" href="${pageContext.request.contextPath}/faq/faqList.do" class="round gray"><span style="padding:0 14px;">취소</span></a>
-                            <button style="width:80px" class="round inred" type="submit" id="emailsubmit" ><span>등록하기</span></button>
+						<div class="box-btn qna_email">
+						   <div class="parent2">
+						    	<a href="${pageContext.request.contextPath }/faq/faqList.do" id="btn-add">취소</a>
+						   </div>
+						   <div class="parent">
+						    	<a href="#" id="btn-add">등록</a>
+						   </div>
 						</div>
 					</fieldset>
 			</form:form>

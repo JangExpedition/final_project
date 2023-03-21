@@ -8,7 +8,7 @@ select * from reservation;
 select * from location;
 select * from cinema;
 select * from theater;
-select * from scheduel;
+select * from schedule;
 select * from movie;
 select * from movie_attachment;
 select * from snack;
@@ -176,6 +176,7 @@ create table location(
     location_name varchar2(30) not null,
     constraint pk_location_name primary key(location_name),
     constraint uq_location unique(no)
+    
 );
 
 -- 지역 테이블 시퀀스
@@ -201,8 +202,11 @@ CREATE TABLE theater (
     CONSTRAINT PK_THEATER_NO PRIMARY KEY(NO),
     CONSTRAINT FK_THEATER_CINEMA_NAME FOREIGN KEY(CINEMA_NAME)
                         REFERENCES CINEMA
-                        ON DELETE CASCADE
+                        ON DELETE CASCADE,
+    CONSTRAINT CK_THEATER_NO CHECK (theater_no >= 1 AND theater_no <= 10)
 );
+
+
 
 -- 상영관 테이블 시퀀스
 create sequence seq_theater_no;
@@ -221,8 +225,10 @@ create table seat (
 
 
 
+
+
 -- 상영시간표 테이블
-CREATE TABLE scheduel (
+CREATE TABLE schedule (
 	no number NOT NULL,
 	movie_no number	NOT NULL,
 	theater_no number NOT NULL,
@@ -231,8 +237,15 @@ CREATE TABLE scheduel (
     constraint pk_scheduel_no primary key(no)
 );
 
+select * from schedule;
+
+INSERT INTO schedule (no, movie_no, theater_no, start_time, end_time)
+VALUES (1, 123, 456, TO_DATE('2023-03-20 13:00:00', 'YYYY-
+MM-DD HH24:MI:SS'), TO_DATE('2023-03-20 15:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+
 -- 상영시간표 테이블 시퀀스
-create sequence seq_scheduel_no;
+create sequence seq_schedule_no;
+
 
 -- 영화나 상영관이 삭제되도 상영 시간표(기록)은 남아야될 것 같아서 외래키 안 씀
 
@@ -250,6 +263,8 @@ CREATE TABLE movie (
     reservation_count number default 0 not null,
     constraint pk_movie_no primary key(no)
 );
+
+select * from movie;
 
 
 select * from movie;
@@ -314,10 +329,23 @@ CREATE TABLE question (
 
 select * from question;
 
-
-
 -- 문의게시판 테이블 시퀀스
 create sequence seq_question_no;
+
+-- 문의 답변용 테이블
+CREATE TABLE question_answer (
+    no number NOT NULL,
+    answer varchar2(4000) NOT NULL,
+    reg_date Date DEFAULT sysdate NOT NULL,
+    constraint pk_admin_answer_no primary key(no),
+    constraint fk_admin_answer_question_no foreign key(no)
+                                references question
+                                on delete cascade
+);
+
+-- 문의 답변용 테이블 시퀀스
+create sequence seq_question_answer_no;
+
 
 -- 문의게시판 첨부파일 테이블
 CREATE TABLE question_attachment (
@@ -388,30 +416,3 @@ select * from faq;
 
 -- 자주묻는 질문 시퀀스
 create sequence seq_faq_no;
-
-
-
---채팅 테이블
-
-create table chat_member(
-    chatroom_id varchar2(50),
-    member_id varchar2(256),
-    last_check number default 0,
-    created_at date default sysdate,
-    deleted_at date,
-    constraint pk_chat_member primary key(chatroom_id, member_id),
-    constraint fk_chat_member_id foreign key(member_id) references member(id)
-);
-
-create table chat_log(
-    no number,
-    chatroom_id varchar2(50),
-    member_id varchar2(50),
-    msg varchar2(4000),
-    time number,
-    type varchar2(50), -- CAHT, FILE
-    constraint pk_chat_log_no primary key(no),
-    constraint fk_chat_log foreign key(chatroom_id, member_id) references chat_member(chatroom_id, member_id)
-);
-
-create sequence seq_chat_log_no;

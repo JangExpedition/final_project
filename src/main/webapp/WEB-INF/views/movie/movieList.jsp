@@ -20,11 +20,12 @@
 		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
 		            <li class='on'><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }">매출 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/schedule/cinemaList.do">상영 관리<i></i></a></li>
 		        </ul>
 		    </div>
 		</div>
 		<div class="col-detail">
+			<div class="movieForm">
 			<div class="customer_top">
 				<h2 class="tit">영화 관리</h2>
 			</div>
@@ -77,7 +78,8 @@
 			</div>
 		</div>
   	</div>
-</div>	
+</div>
+</div>
 		
 		
  <script>

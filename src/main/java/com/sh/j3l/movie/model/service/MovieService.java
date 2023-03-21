@@ -12,7 +12,7 @@ import com.sh.j3l.movie.model.dto.MovieEntity;
 
 public interface MovieService {
 	
-	List<Movie> selectAllMovie(RowBounds rowBounds);
+	List<Movie> selectAllMovie();
 	
 	int insertMovie(Movie movie);
 	
@@ -42,13 +42,5 @@ public interface MovieService {
 
 	// 상영 예정작 예매율 순으로 불러오기
 	List<Movie> selectAllMovieToBeScreened(String now);
-
-//	Movie selectOneMovie(int no);
-//
-//
-//	Attachment selectOneAttachment(int no);
-
-
-
 
 }

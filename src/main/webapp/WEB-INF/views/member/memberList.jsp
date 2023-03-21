@@ -20,7 +20,7 @@
 		            <li class='on'><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }">매출 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/schedule/cinemaList.do">상영 관리<i></i></a></li>
 		        </ul>
 		    </div>
 		</div>
@@ -84,21 +84,5 @@
 		</div>
   	</div>
 </div>	
-		
-		
-<!-- <script>
-document.querySelector("#btn-add").addEventListener('click', (e) => {
-	location.href = '${pageContext.request.contextPath}/faq/faqForm.do';
-});
-
-document.querySelectorAll("tr[data-no]").forEach((tr) => {
-	tr.addEventListener('click', (e) => {
-		const no = tr.dataset.no;
-		console.log(no);
-		location.href = '${pageContext.request.contextPath}/faq/faqDetail.do?no=' + no;
-	});
-});
-</script>
- -->
 </body>
 </html>

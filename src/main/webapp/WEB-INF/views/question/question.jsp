@@ -15,21 +15,21 @@
 <div id="contents">
   <div class="cols-content">
 	    <div class="col-aside">
-	    		<h2>
-	        		고객센터 메뉴</h2>
-		    		<div class="snb">
-				        <ul class="ul1">
-				            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-				            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
-				            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
-				            <li class='on'><a href="${ pageContext.request.contextPath }/question/question.do">이메일 문의<i></i></a></li>
-				        </ul>
-				    </div>
-		</div>
+			    <h2>
+			        고객센터 메뉴</h2>
+			    <div class="snb">
+			        <ul class="ul1">
+			            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
+			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
+			            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+			            <li class='on'><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+			        </ul>
+			    </div>
+			</div>
 		<div class="col-detail">
 			<div class="email_list_area">
 				<div class="customer_top">
-					<h2 class="tit">이메일 문의</h2>
+					<h2 class="tit">1:1 문의</h2>
 					<p class="stit">자주찾는 질문에서 원하는 답변을 찾지 못하셨군요 <br />
 					불편사항이나 문의사항을 남겨주시면 최대한 신속하게 답변 드리겠습니다.</p>
 				</div>
@@ -43,12 +43,6 @@
 							<p class="tbl_info_txt">체크(<em><img src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png" alt="필수" /></em>)된 항목은 필수 입력 사항입니다.</p>
 				
 							<table cellspacing="0" cellpadding="0" class="tbl_notice_list tbl_left">
-								<colgroup>
-									<col style="width:96px" />
-                                    <col style="width:303px" />
-                                    <col style="width:96px" />
-                                    <col style="width:303px" />
-								</colgroup>
 								<tbody>
                                     <tr>
 										<th scope="row"><label for="name">이름<img src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png"/></label></th>
@@ -59,12 +53,12 @@
 									<tr>
 										<th scope="row">휴대전화<img src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png"/></th>
 										<td>
-											<input type="text" id="phone" name="phone" style="width: 200px;" />
+											<input type="text" id="phone" name="phone" placeholder="'-'은 제외하고 입력" style="width: 200px;"  />
 										</td>
                                             
-										<th scope="row">이메일<img src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png"/></th>
+										<th scope="row">이메일</th>
 										<td>
-											<input type="text" id="email" name="email" style="width: 250px;" />
+											<input type="text" id="email" name="email" style="width: 195px;" />
 										</td>
                                            
 									</tr>
@@ -111,12 +105,15 @@
 							</table>
 						</div>
 						<div class="box-btn qna_email">
-							<a style="margin-left:5px" href="${pageContext.request.contextPath }/faq/main.do" class="round gray"><span style="padding:0 14px;">취소</span></a>
-                            <button style="width:80px" class="round inred" type="submit" id="emailsubmit" ><span>등록하기</span></button>
+						   <div class="parent2">
+						    	<a href="${pageContext.request.contextPath }/faq/main.do" id="btn-add">취소</a>
+						   </div>
+						   <div class="parent">
+						    	<a href="#" id="btn-add">등록</a>
+						   </div>
 						</div>
 					</fieldset>
 				  </form:form>
-				</form>
 			</div>
 		</div>
 	</div>

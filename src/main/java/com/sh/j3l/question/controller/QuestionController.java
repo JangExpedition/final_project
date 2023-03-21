@@ -36,6 +36,9 @@ public class QuestionController {
 		log.debug("questionList", questionList);
 	}
 	
+	@GetMapping("/questionDetail.do")
+	public void questionDetail() {}
+	
 	@PostMapping("/questionEnroll.do")
 	public String questionEnroll(Question question, RedirectAttributes redirecAttr) {
 		
