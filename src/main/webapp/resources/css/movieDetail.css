@@ -104,3 +104,11 @@ h1 {
   margin-top : 10px;
   gap: 10px;
 }
+
+.ul {
+  width: 170px;
+}
+
+.snb {
+   padding: 0 20px;
+}

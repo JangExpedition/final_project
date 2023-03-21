@@ -14,10 +14,11 @@ select * from movie_attachment;
 select * from snack;
 select * from question;
 select * from question_attachment;
-select * from question_comment;
+select * from question_answer;
 select * from notice;
 select * from faq;
-select * from blackList;
+
+select * from movie where open_dt < '2023-03-17';
 
 --===============================
 -- 관리자 계정 생성
@@ -107,6 +108,12 @@ insert into movie values(12, '워낭소리', 'DOCUMENTARY', '이충렬', '최원
 insert into movie values(13, '행복을 찾아서', 'DRAMA', '가브리엘 무치노', '윌 스미스, 제이든 스미스', '실존 인물인 크리스 가드너의 삶의 여정을 따라가며, 그의 어려움과 자존심 상실, 가족과의 갈등 등을 그린 영화', 12);
 insert into movie values(14, '블라인드 사이드', 'DRAMA', '존 리 핸콕', '산드라 블록', '대학 입시에 실패한 마이클 오어가, 좌절과 무기력함 속에서 우연히 만난 부유한 백인 가정의 가장인 리얼리에게 입양되며 벌어지게 된 이야기를 다룬 영화', 12);
 
+select * from movie;
+
+
+commit;
+
+
 --===============================
 -- 테이블 및 시퀀스 생성
 --===============================
@@ -118,6 +125,8 @@ create table persistent_logins (
     token varchar2(64) not null, -- username, password, expiry time 등을 hashing한 값
     last_used timestamp not null
 );
+
+select * from persistent_logins;
 
 -- 회원테이블
 CREATE TABLE member (
@@ -133,6 +142,9 @@ CREATE TABLE member (
     constraint uq_member_email unique(email)
 );
 
+--drop table member cascade constraints;
+--drop table authority;
+
 -- 회원권한 테이블
 CREATE TABLE AUTHORITY(
     ID VARCHAR2(50),
@@ -145,23 +157,17 @@ CREATE TABLE AUTHORITY(
 
 -- 예약 테이블
 CREATE TABLE reservation (
+    no VARCHAR(255)	NOT NULL,
 	id varchar2(50) NOT NULL,
-    theater_no number not null,
-	seat_no char(2) NOT NULL,
-    schedule_no number not null,
-    CONSTRAINT PK_RESERVATION PRIMARY KEY(seat_no, schedule_no),
+	schedule_no number NOT NULL,
+    CONSTRAINT PK_RESERVATION_NO PRIMARY KEY(NO),
     CONSTRAINT FK_RESERVATION_MEMBER_ID FOREIGN KEY(ID)
                             REFERENCES MEMBER
-                            ON DELETE SET NULL,
-    constraint fk_reservation_seat_no foreign key(theater_no, seat_no)
-                            references seat
-                            on delete set null,
-    constraint fk_reservation_schedule_no foreign key(schedule_no)
-                            references schedule
-                            on delete set null
+                            ON DELETE SET NULL
 );
 
-drop table reservation;
+-- 예약 테이블 시퀀스
+create sequence seq_reservation_no;
 
 -- 지역 테이블
 create table location(
@@ -185,6 +191,8 @@ CREATE TABLE cinema (
     constraint fk_location_name foreign key(location_name) references location on delete cascade
 );
 
+select * from cinema;
+
 -- 상영관 테이블
 CREATE TABLE theater (
 	no	number NOT NULL,
@@ -202,8 +210,6 @@ CREATE TABLE theater (
 -- 상영관 테이블 시퀀스
 create sequence seq_theater_no;
 
-
--- 좌석 테이블
 create table seat (
     theater_no number not null,
     seat_no char(2) not null,
@@ -215,6 +221,10 @@ create table seat (
     constraint ck_seat_no check(seat_no >= 'A1' and 'M15' >= seat_no),
     constraint ck_is_selected check(is_selected in('X', 'O'))
 );
+
+
+
+
 
 -- 상영시간표 테이블
 CREATE TABLE schedule (
@@ -234,6 +244,7 @@ MM-DD HH24:MI:SS'), TO_DATE('2023-03-20 15:00:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 -- 상영시간표 테이블 시퀀스
 create sequence seq_schedule_no;
+
 
 -- 영화나 상영관이 삭제되도 상영 시간표(기록)은 남아야될 것 같아서 외래키 안 씀
 
@@ -312,32 +323,15 @@ CREATE TABLE question (
     constraint pk_question_no primary key(no),
     constraint fk_question_member_id foreign key(id)
                                 references member
-                                on delete cascade,
-                                
+                                on delete cascade
 );
+
+
+
+select * from question;
 
 -- 문의게시판 테이블 시퀀스
 create sequence seq_question_no;
-
--- 문의 답변용 테이블
-CREATE TABLE question_answer (
-    no number NOT NULL,
-    answer varchar2(4000) NOT NULL,
-    reg_date Date DEFAULT sysdate NOT NULL,
-    admin_id varchar2(50)	NOT NULL, 
-    constraint pk_admin_answer_no primary key(no),
-    constraint fk_admin_answer_question_no foreign key(no)
-                                references question
-                                on delete cascade,
-    constraint fk_question_answer_admin_id foreign key(admin_id)
-    references member
-    on delete cascade
-);
-
-drop table question_answer;
-
--- 문의 답변용 테이블 시퀀스
-create sequence seq_question_answer_no;
 
 
 -- 문의게시판 첨부파일 테이블
@@ -355,24 +349,25 @@ CREATE TABLE question_attachment (
 -- 문의게시판 첨부파일 테이블 시퀀스
 create sequence seq_question_attach_no;
 
--- 문의게시판 댓글 테이블
-CREATE TABLE question_comment (
+-- 문의게시판 답변 테이블
+CREATE TABLE question_answer (
 	no number NOT NULL,
 	q_no number	NOT NULL,
 	content varchar2(4000) NOT NULL,
 	reg_date date DEFAULT sysdate NOT NULL,
 	id varchar2(50) NOT NULL,
-    constraint pk_comment_no primary key(no),
-    constraint fk_comment_q_no foreign key(q_no)
+    constraint pk_answer_no primary key(no),
+    constraint fk_answer_q_no foreign key(q_no)
                         references question
                         on delete cascade,
-    constraint fk_comment_member_id foreign key(id)
+    constraint fk_answer_member_id foreign key(id)
                         references member
                         on delete cascade
 );
 
+
 -- 문의게시판 댓글 테이블 시퀀스
-create sequence seq_question_comment_no;
+create sequence seq_question_answer_no;
 
 -- 공지사항 테이블
 CREATE TABLE notice (
@@ -384,6 +379,10 @@ CREATE TABLE notice (
 	content varchar2(4000) NOT NULL,
     constraint pk_notice_no primary key(no)
 );
+
+
+select * from notice;
+
 
 -- 공지사항 테이블 시퀀스
 create sequence seq_notice_no;

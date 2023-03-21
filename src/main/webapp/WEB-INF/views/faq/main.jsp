@@ -24,6 +24,7 @@
 			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
 			            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
 			            <li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+			            <li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 			        </ul>
 			    </div>
 			</div>
@@ -50,7 +51,7 @@
 					<div class="c_box my_advice">
 						<strong class="c_tit">내 문의 내역 확인</strong>
 						<span class="c_txt">문의하신 내용을 확인하실 수 있습니다.</span>
-						<a href=""  target="_blank" title="새창열기" >문의내역 조회</a>
+						<a href="${pageContext.request.contextPath}/question/myQuestionList.do"  target="_blank" title="새창열기" >문의내역 조회</a>
 	                </div>
 				  </div>
 				  <div class="customer_notice_area">

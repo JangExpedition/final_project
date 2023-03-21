@@ -27,5 +27,31 @@
 			#{title}
 		)
 	</insert>
+	
+	<select id="selectOneQuestion" resultMap="questionMap">
+		select
+			*
+		from
+			question
+		where
+			no = #{no}
+	</select>
+    
+    <select id="searchByName" parameterType="String" resultType="Question">
+    	select
+    		*
+    	from
+    		question
+    	where
+    		name like '%' || #{name} || '%'
+    </select>
+    
+    <delete id="deleteQuestion">
+    	delete from
+    		question
+   		where
+   			no = #{no}
+    </delete>
+    
 
 </mapper>

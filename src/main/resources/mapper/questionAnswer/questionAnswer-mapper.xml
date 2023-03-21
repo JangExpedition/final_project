@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.questionAnswer.model.dao.QuestionAnswerDao">
+	
+	<insert id="insertQuestionAnswer"> 
+		insert into
+			question_answer
+		values
+		(
+			seq_question_answer_no.nextval,
+			#{qNo},
+			#{content},
+			default,
+			#{id}
+		)
+	</insert>
+	
+	<resultMap type="questionAnswer" id="questionAnswerMap"></resultMap>
+	
+	<select id="selectOneQuestionAnswer" resultMap="questionAnswerMap">
+		select
+			*
+		from
+			question_answer
+		where
+			no = #{no}
+	</select>
+
+</mapper>
