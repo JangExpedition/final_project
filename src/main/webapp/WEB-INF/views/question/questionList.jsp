@@ -16,12 +16,12 @@
 		    <h2>
 		        고객센터 메뉴</h2>
 		    <div class="snb">
-		        <ul class="ul1">
+		         <ul class="ul1">
 		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
 		            <li class='on'><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }/scheduel/scheduelList.do">상영 시간 관리<i></i></a></li>
-		        </ul>
+		            <li class=''><a href="${ pageContext.request.contextPath }/schedule/cinemaList.do">상영 관리<i></i></a></li>
+		         </ul>
 		    </div>
 		</div>
 		<div class="col-detail">
@@ -37,10 +37,9 @@
 				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
 				  <thead>
 				    <tr>
-				      <th scope="col"> </th> 
-				      <th scope="col">번호</th>
+				      <th scope="col">문의 번호</th>
 				      <th scope="col">이름</th>
-				      <th scope="col">문의유형</th>
+				      <th scope="col">문의 유형</th>
 				      <th scope="col">제목</th>
 				      <th scope="col">이메일</th>
 				      <th scope="col">문의일</th>
@@ -48,8 +47,7 @@
 				  </thead>
 				  <tbody>
 				    <c:forEach items="${questionList}" var="question">
-				      <tr>
-				        <td><input type="checkbox" name="selectedQuestions" value="${question.no}"></td> <!-- add a checkbox column -->
+				      <tr data-no="${question.no}">
 				        <td>${question.no}</td>
 				        <td>${question.name}</td>
 				        <td>${question.type.krName}</td>
@@ -70,13 +68,13 @@
 		
 		
  <script>
-/* document.querySelectorAll("tr[data-no]").forEach((tr) => {
-	tr.addEventListener('click', (e) => {
-		const no = tr.dataset.no;
-		console.log(no);
-		location.href = '${pageContext.request.contextPath}/movie/movieDetail.do?no=' + no;
+document.querySelectorAll("tr[data-no]").forEach((tr) => {
+		tr.addEventListener('click', (e) => {
+			const no = tr.dataset.no;
+			console.log(no);
+			location.href = '${pageContext.request.contextPath}/question/questionDetail.do?no=' + no;
 	});
-}); */
+});
 </script>
 </body>
 </html>

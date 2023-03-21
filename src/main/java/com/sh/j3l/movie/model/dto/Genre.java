@@ -1,7 +1,5 @@
 package com.sh.j3l.movie.model.dto;
 
-
-
 public enum Genre {
 	ACTION("액션"),
 	COMEDY("코미디"),

@@ -123,6 +123,7 @@ table caption {
 	position:relative; 
 	width:980px; 
 	margin:0 auto;
+	display:flex;
 }
 
 .head h1, .sect-srh, .sect-booking,.sect-phototicket {

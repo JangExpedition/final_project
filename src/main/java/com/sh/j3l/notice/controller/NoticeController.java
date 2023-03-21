@@ -25,16 +25,12 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
-	
-	
-//	@GetMapping("/notice.do")
-//	public void notice() {}
+
 	
 	@GetMapping("/noticeForm.do")
 	public void noticeForm() {}
 	
 	@GetMapping("/noticeList.do")
-	
 	public void noticeList(@RequestParam(defaultValue = "1") int cpage, Model model) {
 		// 페이징처리 RowBounds
 		int limit = 15; // 한 페이지에 15개 출력

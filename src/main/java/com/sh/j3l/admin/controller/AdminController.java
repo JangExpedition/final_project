@@ -23,19 +23,7 @@ public class AdminController {
 		log.debug("Admin 페이지 요청!");
 	}
 
-//	@GetMapping("/memberList.do")
-//	public String memberList(Member member, Model model) {
-//		
-//		model.addAttribute("memberList", member);
-//		
-//		return "admin/memberList";
-//		
-//	}
-	
 	@GetMapping("/movieEnroll.do")
 	public void movieEnroll() {}
 	
-	
-	
-
 }

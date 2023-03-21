@@ -11,8 +11,37 @@
 			cinema
 	</select>
 	
+	<select id="selectAllMovie" resultMap="movieMap">
+		select
+			*
+		from
+			movie
+	</select>
+	
+	<select id="selectOneCinema" resultMap="cinemaMap">
+		select
+			*
+		from
+			cinema
+		where
+			name = #{name}
+	</select>
+	
 	<resultMap type="cinema" id="cinemaMap"></resultMap>
-
- 		
+	
+	<resultMap type="movie" id="movieMap"></resultMap>
+	
+	<insert id="insertSchedule">
+		insert into
+			schedule (no, movie_no, theater_no, start_time, end_time)
+		values
+		(
+			seq_schedule_no.nextval,
+			#{movieNo},
+			#{theaterNo},
+			default,
+			default
+		)
+	</insert>
 
 </mapper>
