@@ -324,7 +324,8 @@ CREATE TABLE question (
     constraint pk_question_no primary key(no),
     constraint fk_question_member_id foreign key(id)
                                 references member
-                                on delete cascade
+                                on delete cascade,
+                                
 );
 
 select * from question;
@@ -337,11 +338,17 @@ CREATE TABLE question_answer (
     no number NOT NULL,
     answer varchar2(4000) NOT NULL,
     reg_date Date DEFAULT sysdate NOT NULL,
+    admin_id varchar2(50)	NOT NULL, 
     constraint pk_admin_answer_no primary key(no),
     constraint fk_admin_answer_question_no foreign key(no)
                                 references question
-                                on delete cascade
+                                on delete cascade,
+    constraint fk_question_answer_admin_id foreign key(admin_id)
+    references member
+    on delete cascade
 );
+
+drop table question_answer;
 
 -- 문의 답변용 테이블 시퀀스
 create sequence seq_question_answer_no;
