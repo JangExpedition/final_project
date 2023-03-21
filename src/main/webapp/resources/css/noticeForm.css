@@ -343,3 +343,13 @@ a {
 .inp_txtbox01{
 	height:250px;
 }
+
+#btn-add {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #666666;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+}

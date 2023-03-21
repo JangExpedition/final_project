@@ -86,7 +86,7 @@ public class MovieController {
 		int offset = (cpage - 1) * limit; 
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		
-		List<Movie> movieList = movieService.selectAllMovie(rowBounds);
+		List<Movie> movieList = movieService.selectAllMovie();
 		model.addAttribute("movieList", movieList);
 		return "movie/movieList";
 	}

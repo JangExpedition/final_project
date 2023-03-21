@@ -12,8 +12,6 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movieForm.css"/>
 
-
-
 <div id="contents">
   <div class="cols-content">
 		<div class="col-aside">
@@ -22,17 +20,13 @@
 		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
 		            <li class='on'><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }">매출 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/schedule/cinemaList.do">상영 관리<i></i></a></li>
 		        </ul>
 		    </div>
 	<h1>영화 정보 등록</h1>
 	<br></br>
 			<form:form name="movieFrm" action="${pageContext.request.contextPath}/movie/movieEnroll.do?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data">
 		  	<table class="ttbl">
-			    <colgroup>
-			      <col width="20%" />
-			      <col width="80%" />
-			    </colgroup>
 			    <tr>
 			      <td class="tit">제목</td>
 			      <td><input type="text" placeholder="제목" name="title" class="input_txt" maxlength="30" required></td>

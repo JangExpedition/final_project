@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.schedule.model.dao.ScheduleDao">
+
+	<select id="selectAllCinema" resultMap="cinemaMap">
+		select
+			*
+		from
+			cinema
+	</select>
+	
+	<select id="selectAllMovie" resultMap="movieMap">
+		select
+			*
+		from
+			movie
+	</select>
+	
+	<select id="selectOneCinema" resultMap="cinemaMap">
+		select
+			*
+		from
+			cinema
+		where
+			name = #{name}
+	</select>
+	
+	<resultMap type="cinema" id="cinemaMap"></resultMap>
+	
+	<resultMap type="movie" id="movieMap"></resultMap>
+	
+	<insert id="insertSchedule">
+		insert into
+			schedule (no, movie_no, theater_no, start_time, end_time)
+		values
+		(
+			seq_schedule_no.nextval,
+			#{movieNo},
+			#{theaterNo},
+			default,
+			default
+		)
+	</insert>
+
+</mapper>

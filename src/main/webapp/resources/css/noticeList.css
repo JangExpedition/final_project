@@ -344,3 +344,7 @@ table caption {
 .ul1{
 	list-style:none;
 }
+
+.form-control {
+	max-width: 200px;
+}

@@ -23,8 +23,8 @@ public class MovieServiceImpl implements MovieService {
 	private MovieDao movieDao;
 	
 	@Override
-	public List<Movie> selectAllMovie(RowBounds rowBounds) {
-		return movieDao.selectAllMovie(rowBounds);
+	public List<Movie> selectAllMovie() {
+		return movieDao.selectAllMovie();
 	}
 
 	@Transactional(rollbackFor = Exception.class)
@@ -52,9 +52,6 @@ public class MovieServiceImpl implements MovieService {
 	
 	@Override
 	public Movie selectOneMovie(int no) {
-//		Movie movie = movieDao.selectOneMovie(no);
-//		List<Attachment> attachments = movieDao.selectAttachmentListByMovieNo(no);
-//		movie.setAttachments(attachments);
 		return movieDao.selectOneMovie(no);
 	}
 

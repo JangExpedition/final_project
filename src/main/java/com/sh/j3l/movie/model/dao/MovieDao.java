@@ -13,19 +13,11 @@ import com.sh.j3l.movie.model.dto.Movie;
 @Mapper
 public interface MovieDao {
 	
-	List<Movie> selectAllMovie(RowBounds rowBounds);
+	List<Movie> selectAllMovie();
 	
 	int insertMovie(Movie movie);
 
 	int insertAttachment(Attachment attach);
-//
-//	Movie selectOneMovie(int no);
-//
-//	List<Attachment> selectAttachmentListByMovieNo(int no);
-//
-//	Movie selectOneMovieCollection(int no);
-//
-//	Attachment selectOneAttachment(int no);
 
 	Movie selectOneMovie(int no);
 

@@ -123,6 +123,7 @@ table caption {
 	position:relative; 
 	width:980px; 
 	margin:0 auto;
+	display:flex;
 }
 
 .head h1, .sect-srh, .sect-booking,.sect-phototicket {
@@ -235,7 +236,7 @@ table caption {
 .cols-content .col-aside .snb > ul > li:hover > a, 
 .cols-content .col-aside .snb > ul > li > a:focus,
 .cols-content .col-aside .snb > ul > li.on > a {
-	background-color: red; 
+	background-color: #f54357; 
 	color:#fdfcf0;
 }
 
