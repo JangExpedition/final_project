@@ -13,6 +13,7 @@ public class QuestionAnswer {
 	
 	private int no;
 	private String answer;
+	private String id;
 	private LocalDateTime regDate;
 
 }
