@@ -20,14 +20,17 @@
  		    <div class="snb">
 		        <ul class="ul1">
 		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
-		            <li class='on'><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
+		            <li class='on'><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
 		            <li class=''><a href="${ pageContext.request.contextPath }/schedule/cinemaList.do">상영 관리<i></i></a></li>
 		        </ul>
 		    </div>
-		<h1>문의 답변</h1>
 		
-	  	<table class="ttbl">
+		
+	  	
+	   </div>
+	   <h1>문의 답변</h1>
+	   <table class="ttbl">
 		    <tr>
 		      <td><input type="hidden" name="no" value="${question.no}"></td>
 		    </tr>
@@ -81,7 +84,6 @@
 			        <input type="submit" value="삭제"/>
 		      </form:form>    
 		     </div>
-	   </div>
 	</div>
 </div>
 </body>

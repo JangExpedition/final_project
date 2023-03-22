@@ -78,13 +78,13 @@
 						    	<a href="${pageContext.request.contextPath }/notice/noticeList.do" id="btn-add">취소</a>
 						   </div>
 						   <div class="parent">
-						    	<a href="#" id="btn-add">등록</a>
+						    	<input type="submit" value="등록"/>
 						   </div>
 						</div>
 					</fieldset>
 				</form:form>
 			</div>
-		</div>
+	   </div>
 </div>
 </body>
 </html>

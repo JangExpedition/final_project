@@ -238,10 +238,6 @@ CREATE TABLE schedule (
 
 select * from schedule;
 
-INSERT INTO schedule (no, movie_no, theater_no, start_time, end_time)
-VALUES (1, 123, 456, TO_DATE('2023-03-20 13:00:00', 'YYYY-
-MM-DD HH24:MI:SS'), TO_DATE('2023-03-20 15:00:00', 'YYYY-MM-DD HH24:MI:SS'));
-
 -- 상영시간표 테이블 시퀀스
 create sequence seq_schedule_no;
 
@@ -326,8 +322,6 @@ CREATE TABLE question (
                                 on delete cascade
 );
 
-
-
 select * from question;
 
 -- 문의게시판 테이블 시퀀스
@@ -403,4 +397,22 @@ CREATE TABLE FAQ (
 select * from faq;
 
 -- 자주묻는 질문 시퀀스
+create sequence seq_faq_no;
+
+
+-- 영화관 단체 문의 테이블
+CREATE TABLE lease (
+    no number NOT NULL,
+    cinema_name varchar2(30) NOT NULL,
+    lease_date Date DEFAULT sysdate NOT NULL,
+    persons number(10) NOT NULL,
+    contents varchar2(500) NOT NULL,
+    name varchar2(50) NOT NULL,
+    phone varchar2(20) NOT NULL,
+    email varchar2(50) NOT NULL,
+    constraint pk_lease_no primary key(no),
+    constraint fk_cinema_name foreign key (cinema_name) references cinema(name) on delete cascade
+);
+
+-- 영화관 임대 문의 시퀀스
 create sequence seq_faq_no;

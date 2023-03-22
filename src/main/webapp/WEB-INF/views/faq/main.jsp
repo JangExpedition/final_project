@@ -46,12 +46,12 @@
 	                <div class="c_box talk_inquiry">
 	                    <strong class="c_tit">1:1 문의 이용</strong>
 	                    <span class="c_txt">1:1문의를 이용해보세요.</span>
-	                    <a href="">문의하기</a>
+	                    <a href="${pageContext.request.contextPath}/question/question.do">문의하기</a>
 	                </div>
 					<div class="c_box my_advice">
 						<strong class="c_tit">내 문의 내역 확인</strong>
 						<span class="c_txt">문의하신 내용을 확인하실 수 있습니다.</span>
-						<a href="${pageContext.request.contextPath}/question/myQuestionList.do"  target="_blank" title="새창열기" >문의내역 조회</a>
+						<a href="${pageContext.request.contextPath}/question/myQuestionList.do">문의내역 조회</a>
 	                </div>
 				  </div>
 				  <div class="customer_notice_area">

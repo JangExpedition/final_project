@@ -25,6 +25,54 @@ textarea {
 	height: 100px;
 }
 
+.cols-content {
+	margin-top:25px;
+}
+
+*+html .cols-content { 
+	zoom:1;
+}
+
+
+.cols-content:after { 
+	content:''; 
+	clear:both; 
+	display:block;
+}
+
+.cols-content .col-detail { 
+	position:relative; 
+	width:800px; 
+	float:left
+}
+
+.cols-content .col-aside {
+	width:160px; 
+	float:right
+}
+
+.cols-content .col-detail:first-child { 
+	float:left; 
+}
+
+.cols-content .col-detail + .col-aside { 
+	float:right;
+}
+
+.cols-content .col-aside:first-child { 
+	float:left;
+}
+
+.cols-content .col-aside + .col-detail { 
+	float:right;
+}
+
+.cols-content .col-aside h2 {
+	font:0/0 a; 
+	visibility:hidden; 
+	zoom:1;
+}
+
 .cols-content .col-aside .snb a {
 	display:block; 
 	position:relative;
@@ -110,5 +158,5 @@ h1 {
 }
 
 .snb {
-   padding: 0 20px;
+   padding: 0 300px;
 }

@@ -95,7 +95,6 @@ public class QuestionController {
 			
 			model.addAttribute("questionAnswer", questionAnswer);
 			model.addAttribute("question", question);
-			model.addAttribute("no", no);
 	}
 		
 	
