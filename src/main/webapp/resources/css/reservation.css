@@ -170,6 +170,41 @@
 	width: 10% !important;
 }
 
+#dayList{
+	overflow: scroll;
+}
+
+.reservationYear{
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	color: #666;
+	margin: 5px 0;
+}
+
+.reservationMonth{	
+	font-weight: bold;
+	text-align: center;
+	color: #666;
+	margin: 5px 0;
+}
+
+.reservationDay{
+	text-align: center;
+	cursor: pointer;
+	color: #333;
+}
+
+.reservationWeekday{
+	font-size: 12px;
+	margin-right: 10px;
+}
+
+.reservationDate{
+	font-size: 15px;
+	font-weight: bold;
+}
+
 /* 시간선택 구간 */
 .step4{
 	width: 40% !important;
