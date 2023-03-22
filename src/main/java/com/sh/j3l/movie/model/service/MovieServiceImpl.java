@@ -1,9 +1,7 @@
 package com.sh.j3l.movie.model.service;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,11 +10,8 @@ import com.sh.j3l.movie.model.dao.MovieDao;
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Transactional
 @Service
-@Slf4j
 public class MovieServiceImpl implements MovieService {
 	
 	@Autowired
@@ -126,6 +121,11 @@ public class MovieServiceImpl implements MovieService {
 			movie.setAttachments(attachList);
 		}
 		return movieList;
+	}
+
+	@Override
+	public int getMovieRunningTime(int movieNo) {
+		return movieDao.getMovieRunningTime(movieNo);
 	}
 
 

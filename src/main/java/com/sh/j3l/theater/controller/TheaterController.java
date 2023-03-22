@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sh.j3l.theater.model.dto.Theater;
-import com.sh.j3l.theater.model.service.TheaterlService;
+import com.sh.j3l.theater.model.service.TheaterService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,12 +19,12 @@ import lombok.extern.slf4j.Slf4j;
 public class TheaterController {
 	
 	@Autowired
-	private TheaterlService theaterlService;
+	private TheaterService theaterService;
 	
 	@GetMapping
 	public void theater(Model model) {
 		
-		List<Theater> theaterList = theaterlService.selectAllTheater();
+		List<Theater> theaterList = theaterService.selectAllTheater();
 		model.addAttribute("theaterList", theaterList);
 	}
 

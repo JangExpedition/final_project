@@ -3,9 +3,7 @@ package com.sh.j3l.movie.model.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.session.RowBounds;
 
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
@@ -46,5 +44,8 @@ public interface MovieDao {
 
 	@Select("select * from movie where open_dt > #{now} order by reservation_count")
 	List<Movie> selectAllMovieToBeScreened(String now);
+
+	@Select("select running_time from movie where no = #{movieNo}")
+	int getMovieRunningTime(int movieNo);
 
 }
