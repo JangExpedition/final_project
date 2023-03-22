@@ -8,7 +8,5 @@ import com.sh.j3l.questionAnswer.model.dao.QuestionAnswerDao;
 @Service
 public class QuestionAnswerImpl {
 	
-	@Autowired
-	private QuestionAnswerDao questionAnswerDao;
 
 }

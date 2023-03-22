@@ -1,10 +1,8 @@
 package com.sh.j3l.schedule.controller;
 
-import java.util.HashMap;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,17 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sh.j3l.cinema.model.dto.Cinema;
-import com.sh.j3l.cinema.model.dto.Location;
-import com.sh.j3l.cinema.model.service.CinemaService;
 import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.movie.model.service.MovieService;
 import com.sh.j3l.schedule.model.dto.Schedule;
 import com.sh.j3l.schedule.model.service.ScheduleService;
 import com.sh.j3l.theater.model.dto.Theater;
-import com.sh.j3l.theater.model.service.TheaterlService;
+import com.sh.j3l.theater.model.service.TheaterService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,77 +27,38 @@ import lombok.extern.slf4j.Slf4j;
 public class ScheduleController {
 	
 	@Autowired
-	private ScheduleService scheduelService;
-	
-	@Autowired
-	private CinemaService cinemaService;
-	
-	@Autowired
-	private TheaterlService theaterlService;
-	
-	@Autowired
 	private MovieService movieService;
 	
-	// 상영관 리스트 출력
-	@GetMapping("/cinemaList.do")
-	public void CinemaList(Model model) {
-		
-		List<Cinema> cinemaList = cinemaService.selectAllCinema();
-		List<Location> locationList = cinemaService.selectAllLocation();
-		List<Movie> movieList = movieService.selectAllMovie();
-		model.addAttribute("cinemaList", cinemaList);
-		model.addAttribute("locationList", locationList);
-	}
+	@Autowired
+	private TheaterService theaterService;
 	
-	// 상영관 상영 관리 폼
-	@GetMapping("/cinemaDetail.do")
-	public void cinemaDetail(@RequestParam(name = "name", required = false) String name, Model model) {
-		
-		if(name == null) {
-			
-		} else {
-			log.debug("name ={}", name);
-			Schedule schedule = scheduelService.selectOneCinema(name);
-			
-			log.debug("name", name);
-			
-			List<Cinema> cinema = cinemaService.selectAllCinema();
-			List<Location> location = cinemaService.selectAllLocation();
-			List<Movie> movie = movieService.selectAllMovie();
-			List<Theater> theater = theaterlService.selectAllTheater();
-			
-			Map<String, Object> modelMap = new HashMap<>();
-			modelMap.put("cinema", cinema);
-			modelMap.put("location", location);
-			modelMap.put("movie", movie);
-			modelMap.put("schedule", schedule);
-			modelMap.put("theater", theater);
-		}
-	}
+	@Autowired
+	private ScheduleService scheduleService;
 	
 	@GetMapping("/insertSchedule.do")
-	public void insertSchedule() {}
+	public void insertSchedule(Model model) {
+		String now = LocalDate.now().toString();
+		List<Movie> movieList = movieService.selectAllMovieOnScreenOrderByTitle(now);
+		List<Theater> theaterList = theaterService.selectAllTheater();
+		
+		model.addAttribute("movieList", movieList);
+		model.addAttribute("theaterList", theaterList);
+	}
 	
-	// 상영 일정 등록
-	@PostMapping("/insertSchedule.do")
-	public String insertSchedule(Schedule schedule, Model model, RedirectAttributes redirectAttr) {
-		
-		int result = scheduelService.insertSchedule(schedule);
-		
-		redirectAttr.addFlashAttribute("msg", "상영 일정 등록 성공");
-		
-		List<Cinema> cinema = cinemaService.selectAllCinema();
-		List<Location> location = cinemaService.selectAllLocation();
-		List<Theater> theater = theaterlService.selectAllTheater();
-		List<Movie> movie = movieService.selectAllMovie();
-		
-		Map<String, Object> modelMap = new HashMap<>();
-		modelMap.put("cinema", cinema);
-		modelMap.put("location", location);
-		modelMap.put("schedule", schedule);
-		modelMap.put("theater", theater);
-		
-		return "redirect:/schedule/insertSchedule.do";
+	// 런닝타임 불러오기 메서드
+	@GetMapping("/getMovieRunningTime.do")
+	@ResponseBody
+	public int getMovieRunningTime(@RequestParam int movieNo) {
+		return movieService.getMovieRunningTime(movieNo);
+	}
+	
+	// 스케쥴 입력 메서드
+	@PostMapping("insertSchedule.do")
+	public String insertSchedule(Schedule schedule, Model model) {
+		log.debug("schedule = {}", schedule);
+		int result = scheduleService.insertSchedule(schedule);
+		model.addAttribute("msg", "상영스케쥴 등록완료!");
+		return "schedule/insertSchedule";
 	}
 		
 }
