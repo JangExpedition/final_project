@@ -21,13 +21,13 @@
 			    <div class="snb">
 			        <ul>
 			            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
 			            <li class='on'><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>          
 			            <li class=''><a href="${ pageContext.request.contextPath }/question/question.do">이메일 문의<i></i></a></li>
 			        </ul>
 			    </div>
 		</div>
-			    <form:form name="faqFrm" action="${pageContext.request.contextPath}/notice/noticeEnroll.do" method="post">
+			    <form:form name="noticeFrm" action="${pageContext.request.contextPath}/notice/noticeEnroll.do" method="post">
                     <input type="hidden" id="hIsTemp" name="hIsTemp" value="N" />
                     <input type="hidden" id="hIdx" name="hIdx" value="" />
                     <fieldset>
@@ -53,9 +53,9 @@
 										<th scope="row">구분</th>
 										<td colspan="3">
 											<select class="form-select" name="classifyy">
-										      <option value="JUMGUM" selected>점검</option>
-										      <option value="GITA" selected>기타</option>
-										      <option value="HAENGSA" selected>행사</option>
+										      <option value="JUMGUM">점검</option>
+										      <option value="GITA">기타</option>
+										      <option value="HAENGSA">행사</option>
 										      <option value="EVENT">이벤트</option>
 										      <option value="GKJANG">극장</option>
 			    							</select>
@@ -64,7 +64,7 @@
 									<tr>
 										<th scope="row"><label for="inp_textbox">내용 <em><img src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png"/></em></label></th>
 										<td colspan="3">
-											<textarea cols="60" rows="5" id="content" name="content" class="inp_txtbox01" onkeyup="javascript:checkByte(this,5000,'sp_ad_content_size_1', 'sp_ad_content_size_2');" ></textarea>
+											<textarea cols="60" rows="5" id="content" name="content" class="inp_txtbox01"></textarea>
 											<p class="byte_info"><span id="sp_ad_content_size_1"></span><span><span id="sp_ad_content_size_2"></span></span></p>
 										</td>
 									</tr>
@@ -78,22 +78,13 @@
 						    	<a href="${pageContext.request.contextPath }/notice/noticeList.do" id="btn-add">취소</a>
 						   </div>
 						   <div class="parent">
-						    	<a href="#" id="btn-add">등록</a>
+						    	<input type="submit" value="등록"/>
 						   </div>
 						</div>
 					</fieldset>
 				</form:form>
 			</div>
-		</div>
+	   </div>
 </div>
 </body>
-<!-- <script>
-document.getElementById("emailsubmit").addEventListener("click", function() {
-	  var title = document.getElementById("title").value;
-	  if (title.trim() == "") {
-	    alert("제목을 입력하세요.");
-	    return false;
-	  }
-	});
-</script> -->
 </html>

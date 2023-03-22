@@ -32,4 +32,24 @@ public class QuestionServiceImpl implements QuestionService {
 		return questionDao.selectAllQuestion();
 	}
 
+	@Override
+	public Question selectOneQuestion(Integer no) {
+		return questionDao.selectOneQuestion(no);
+	}
+
+	@Override
+	public Question QuestionDetailsByName(String name) {
+		return questionDao.QuestionDetailsByName(name);
+	}
+
+	@Override
+	public List<Question> searchByName(String name) {
+		return questionDao.searchByName(name);
+	}
+
+	@Override
+	public int deleteQuestion(int no) {
+		return questionDao.deleteQuestion(no);
+	}
+
 }

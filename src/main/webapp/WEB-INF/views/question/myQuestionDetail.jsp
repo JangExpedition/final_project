@@ -16,36 +16,35 @@
 
 <div id="contents">
   <div class="cols-content">
-		<div class="col-aside">	
- 		    <div class="snb">
+		<div class="col-aside">
+		    <div class="snb">
 		        <ul class="ul1">
-		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
-		            <li class='on'><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }/schedule/cinemaList.do">상영 관리<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+		            <li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+		            <li class='on'><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 		        </ul>
 		    </div>
+		</div>
+		<h1>내 문의 내역</h1>
 		
-		
-	  	
-	   </div>
-	   <h1>문의 답변</h1>
-	   <table class="ttbl">
+	  	<table class="ttbl">
 		    <tr>
 		      <td><input type="hidden" name="no" value="${question.no}"></td>
 		    </tr>
-		    <tr>
-		      <td class="tit">제목</td>
-		      <td>${question.title}</td>
-		    </tr>
-		    <tr>
-		      <td class="tit">문의자</td>
-		      <td>${question.name}</td>
-		    </tr>
-		    <tr>
-		      <td class="tit">전화번호</td>
-		      <td>${question.phone}</td>
-		    </tr>
+			<tr>
+			  <td class="tit">제목</td>
+			  <td>${question.title}</td>
+			</tr>
+			<tr>
+			  <td class="tit">문의자</td>
+			  <td>${question.name}</td>
+			</tr>
+			<tr>
+			  <td class="tit">전화번호</td>
+			  <td>${question.phone}</td>
+			</tr>
 		    <tr>
 		      <td class="tit">문의일</td>
 		      <td>
@@ -61,19 +60,14 @@
 			  <td class="tit">문의 내용</td>
 			  <td>${question.content}</td>
 			</tr>
-			<form:form name="questionAnswerEnrollFrm" 
-			action="${pageContext.request.contextPath}/questionAnswer/questionAnswerEnroll.do" 
-			method="post">
+			<tr>
+		      <td class="tit">담당 관리자</td>
+		      <td type="text" placeholder="" name="id" class="input_txt" maxlength="30" value="" required /td>
+		    </tr>
 		    <tr>
 			  <td class="tit">답변 내용</td>
-			  <td>
-			    <textarea name="content" placeholder=""></textarea>
-			    <input type="hidden" value="${question.no}" name="qNo"/>
-			    <input type="hidden" value="admin" name="id"/>
-			    <input type="submit" value="답변 등록"/>
-			  </td>
+			  <td>${questionAnswer.content}</td>
 			</tr>
-			</form:form>
 		  </table>
 		  	<div class="fn1">
 		      <form:form 
@@ -81,10 +75,10 @@
 					action="${pageContext.request.contextPath}/question/deleteQuestion.do"
 					method="post">
 					<input type="hidden" name="no" value="${question.no}">
-			        <input type="submit" value="삭제"/>
+			        <input type="submit" value="문의 삭제"/>
 		      </form:form>    
 		     </div>
+	   </div>
 	</div>
-</div>
 </body>
 </html>

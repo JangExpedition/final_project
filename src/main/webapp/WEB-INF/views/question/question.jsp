@@ -23,6 +23,7 @@
 			            <li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
 			            <li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
 			            <li class='on'><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+			            <li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 			        </ul>
 			    </div>
 			</div>
@@ -34,7 +35,7 @@
 					불편사항이나 문의사항을 남겨주시면 최대한 신속하게 답변 드리겠습니다.</p>
 				</div>
 					
-					<form:form name="questionFrm" action="${pageContext.request.contextPath}/question/questionEnroll.do" method="post">
+					<form:form name="questionFrm" action="${pageContext.request.contextPath}/question/questionEnroll.do" method="POST">
                     <input type="hidden" id="hIsTemp" name="hIsTemp" value="N" />
                     <input type="hidden" id="hIdx" name="hIdx" value="" />
                     <fieldset>
@@ -109,7 +110,7 @@
 						    	<a href="${pageContext.request.contextPath }/faq/main.do" id="btn-add">취소</a>
 						   </div>
 						   <div class="parent">
-						    	<a href="#" id="btn-add">등록</a>
+						    	<input type="submit" value="등록"/>
 						   </div>
 						</div>
 					</fieldset>

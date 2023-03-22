@@ -17,4 +17,12 @@ public interface QuestionDao {
 
 	List<Question> selectAllQuestion();
 
+	Question selectOneQuestion(Integer no);
+
+	Question QuestionDetailsByName(String name);
+
+	List<Question> searchByName(String name);
+
+	int deleteQuestion(int no);
+
 }

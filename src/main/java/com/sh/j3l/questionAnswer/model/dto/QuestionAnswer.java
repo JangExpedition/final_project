@@ -12,7 +12,9 @@ import lombok.NoArgsConstructor;
 public class QuestionAnswer {
 	
 	private int no;
-	private String answer;
+	private int qNo;
+	private String content;
 	private LocalDateTime regDate;
+	private String id;
 
 }

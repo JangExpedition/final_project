@@ -150,12 +150,8 @@ public class MovieController {
 	
 	// 영화 수정폼
 	@GetMapping("/movieDetail.do")
-	public void movieDetail(@RequestParam(name = "no", required = false) Integer no, Model model) {
-		// no가 null인 경우에 대한 처리 추가하기..
-		// no가 null인 경우에는 처리하지 않고 그냥 넘어가도록 하기..
-		if(no == null) {
-			
-		} else {
+	public void movieDetail(@RequestParam int no, Model model) {
+
 			log.debug("no = {}", no);
 			Movie movie = movieService.selectOneMovie(no);
 			log.debug("movie = {}", movie);
@@ -164,9 +160,6 @@ public class MovieController {
 			model.addAttribute("no", no);
 			
 		}
-		
-		
-	}
 	
 	// 영화 수정 요청
 	@PostMapping("/updateMovie.do")
@@ -186,15 +179,15 @@ public class MovieController {
 	
 	// 영화 삭제 요청
 	@PostMapping("deleteMovie.do")
-	public String deleteMovie(Integer no, RedirectAttributes redirecAttr) {
+	public String deleteMovie(int no, RedirectAttributes redirectAttr) {
 		
 		int result = movieService.deleteMovie(no);
 		log.debug("no = {}", no);
 		
 		if(result > 0) {
-			redirecAttr.addFlashAttribute("msg", "영화 정보 삭제 성공");			
+			redirectAttr.addFlashAttribute("msg", "영화 정보 삭제 성공");			
 		} else {
-			redirecAttr.addFlashAttribute("msg", "영화 정보 삭제 실패");
+			redirectAttr.addFlashAttribute("msg", "영화 정보 삭제 실패");
 		}
 		return "redirect:/movie/movieList.do";
 		
