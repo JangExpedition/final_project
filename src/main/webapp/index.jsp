@@ -32,6 +32,7 @@
 	<div id="eventBox">
 	</div>
 </section>
+
 <script>
 window.onload = () => {
 	filterSelected("무비차트");

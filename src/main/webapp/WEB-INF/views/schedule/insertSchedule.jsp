@@ -24,6 +24,9 @@
 	<input id="endTime" name="endTime" type="datetime-local"/>
 	<input type="submit" value="등록"/>
 </form:form>
+
+
+
 <script>
 const startTime = document.querySelector("#startTime");
 let date = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16);

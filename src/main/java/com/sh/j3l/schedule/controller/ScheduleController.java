@@ -35,7 +35,7 @@ public class ScheduleController {
 	@Autowired
 	private ScheduleService scheduleService;
 	
-	@GetMapping("/insertSchedule.do")
+	@GetMapping("/insertSchedule2.do")
 	public void insertSchedule(Model model) {
 		String now = LocalDate.now().toString();
 		List<Movie> movieList = movieService.selectAllMovieOnScreenOrderByTitle(now);
@@ -58,7 +58,7 @@ public class ScheduleController {
 		log.debug("schedule = {}", schedule);
 		int result = scheduleService.insertSchedule(schedule);
 		model.addAttribute("msg", "상영스케쥴 등록완료!");
-		return "schedule/insertSchedule";
+		return "schedule/insertSchedule2";
 	}
 		
 }

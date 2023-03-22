@@ -29,8 +29,9 @@
 		<h2 id="cinemaTitle"></h2>
 		<div id="cinemaImg">
 			<div id="cinemaInfo">
-				<p id="cinemaAddr"></p>
-				<p>임시관 임시석</p>
+			  <p id="cinemaAddr">
+			  <p>임시관 임시석 <span id="span">
+			  <a id="notice" href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=85">[점검] 2023년 3월 시스템 점검 안내</a></span></p>
 			</div>
 		</div>
 	</div>
@@ -94,16 +95,23 @@ const selectCinema = (location, name) => {
 	
 	
 	$.ajax({
-		url: "${pageContext.request.contextPath}/cinema/selectOneCinema.do",
-		data: {name},
-		success(data){
-			const{name, locationName, address} = data;
-			document.querySelector("#cinemaTitle").innerText = name;
-			document.querySelector("#cinemaImg").style.backgroundImage = "url('../resources/images/" + name + ".jpeg')";
-			document.querySelector("#cinemaAddr").innerText = address;
-		},
-		error: console.log
-	});
+		  url: "${pageContext.request.contextPath}/cinema/selectOneCinema.do",
+		  data: {name},
+		  success(data){
+		    const{name, locationName, address} = data;
+		    document.querySelector("#cinemaTitle").innerText = name;
+		    document.querySelector("#cinemaImg").style.backgroundImage = "url('../resources/images/" + name + ".jpeg')";
+		    
+		    const noticeElem = document.createElement("span");
+		    noticeElem.innerText = "공지사항";
+		    noticeElem.style.float = "right";
+		    
+		    const cinemaAddrElem = document.querySelector("#cinemaAddr");
+		    cinemaAddrElem.innerText = address;
+		    cinemaAddrElem.appendChild(noticeElem);
+		  },
+		  error: console.log
+		});
 };
 </script>
 </body>

@@ -18,6 +18,7 @@ select * from question_answer;
 select * from notice;
 select * from faq;
 
+
 select * from movie where open_dt < '2023-03-17';
 
 --===============================
@@ -458,22 +459,4 @@ CREATE TABLE FAQ (
 select * from faq;
 
 -- 자주묻는 질문 시퀀스
-create sequence seq_faq_no;
-
-
--- 영화관 단체 문의 테이블
-CREATE TABLE lease (
-    no number NOT NULL,
-    cinema_name varchar2(30) NOT NULL,
-    lease_date Date DEFAULT sysdate NOT NULL,
-    persons number(10) NOT NULL,
-    contents varchar2(500) NOT NULL,
-    name varchar2(50) NOT NULL,
-    phone varchar2(20) NOT NULL,
-    email varchar2(50) NOT NULL,
-    constraint pk_lease_no primary key(no),
-    constraint fk_cinema_name foreign key (cinema_name) references cinema(name) on delete cascade
-);
-
--- 영화관 임대 문의 시퀀스
 create sequence seq_faq_no;
