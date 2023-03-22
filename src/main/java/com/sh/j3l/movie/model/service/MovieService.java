@@ -1,14 +1,9 @@
 package com.sh.j3l.movie.model.service;
 
-import java.time.LocalDate;
 import java.util.List;
-
-import org.apache.ibatis.session.RowBounds;
-import org.springframework.stereotype.Service;
 
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
-import com.sh.j3l.movie.model.dto.MovieEntity;
 
 public interface MovieService {
 	

@@ -55,6 +55,9 @@
 		<!-- 극장선택 구간 -->
 		<div class="step step3">
 			<div class="table-head">날짜</div>
+			<div id="dayList" class="table-body">
+			
+			</div>
 		</div>
 		<div class="step step4">
 			<div class="table-head">시간</div>
@@ -89,6 +92,135 @@
 window.onload = () =>{
 	filterEffect("예매율순");
 	selectLocation("서울");
+	
+	const today = new Date();
+	
+	const yearArr = [];
+	const monthArr = [];
+	const date = [];
+	const days = [];
+	
+	for(let i = 0; i < 21; i++){
+		
+		let day = null;
+		if(i === 0){
+			day = new Date(today.setDate(today.getDate()));
+		}
+		else{
+			day = new Date(today.setDate(today.getDate() + 1));
+		}
+		
+		yearArr.push(day.getFullYear());
+		monthArr.push(day.getMonth()+1);
+		date.push(day.getDate());
+		days.push(day.getDay());
+	}
+	
+	// 요일 지정
+	const weekday = [];
+	
+	days.forEach((day)=>{
+		switch(day){
+		case 0 : weekday.push("일"); break;
+		case 1 : weekday.push("월"); break;
+		case 2 : weekday.push("화"); break;
+		case 3 : weekday.push("수"); break;
+		case 4 : weekday.push("목"); break;
+		case 5 : weekday.push("금"); break;
+		case 6 : weekday.push("토"); break;
+		}	
+	});
+	
+	// 중복제거
+	const years = [];
+	const months = [];
+	
+	yearArr.forEach((year)=>{
+		if(!years.includes(year))
+			years.push(year);
+	});
+	
+	monthArr.forEach((month)=>{
+		if(!months.includes(month))
+			months.push(month);
+	});
+	
+	const dayList = document.querySelector("#dayList");
+	
+	// 년도가 하나인 경우
+	if(years.length === 1){
+		
+		// 년도가 하나이면서 월도 하나인 경우
+		if(months.length === 1){
+			
+			dayList.innerHTML = `
+			<div>
+				<p class="reservationYear">\${ years[0] }</p>
+			</div>
+			`;
+			
+			for(let i = 0; i < date.length; i++){
+				if(i === 0){
+					dayList.innerHTML += `
+					<div>
+						<h1 class="reservationMonth">\${ months[0] }</h1>
+						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+					`;
+				}
+				else {
+					dayList.innerHTML += `
+						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+					</div>
+					`;
+				}
+			};
+			
+		}
+		// 년도가 하나이면서 월은 두개인 경우
+		else{
+		
+			dayList.innerHTML = `
+			<div>
+				<p class="reservationYear">\${ years[0] }</p>
+			</div>
+			`;
+			
+			for(let i = 0; i < date.length; i++){
+				if(i === 0){
+					dayList.innerHTML += `
+					<div>
+						<h1 class="reservationMonth">\${ months[0] }</h1>
+						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+					`;
+				}
+				else if(date[i] > date[i-1]){
+					dayList.innerHTML += `
+						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+					`;
+				}
+				else{
+					dayList.innerHTML += `
+							<h1 class="reservationMonth">\${ months[1] }</h1>
+							<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						</div>
+						`;
+				}
+			};
+		}
+		
+	}
+	else{
+		// 귀찮..
+	}
+	
+	// 토요일, 일요일 색상 변경
+	document.querySelectorAll(".reservationDay").forEach((reservationDay)=>{
+		if(reservationDay.firstChild.innerText === "토")
+			reservationDay.style.color = "#31597e";
+		if(reservationDay.firstChild.innerText === "일")
+			reservationDay.style.color = "#ad2727";
+	});
 }
 
 // 영화 필터 선택 메서드
