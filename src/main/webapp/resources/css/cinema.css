@@ -80,3 +80,19 @@
 	font-size: 13px;
 	padding: 20px;
 }
+
+#cinemaInfo p:last-child {
+  text-align: left;
+}
+
+#cinemaAddr{
+	text-align: left;
+}
+
+#span{
+	float: right;
+}
+
+#notice{
+	color: white;
+}

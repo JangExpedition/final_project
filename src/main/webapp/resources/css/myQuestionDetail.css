@@ -24,14 +24,6 @@ textarea {
 	height: 100px;
 }
 
-#contents {
-  clear: both;
-  padding-bottom: 50px;
-  position: relative;
-  width: 980px;
-  margin: 0 auto;
-}
-
 .cols-content {
 	margin-top:25px;
 }

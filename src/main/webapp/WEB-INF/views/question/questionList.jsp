@@ -8,73 +8,76 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/memberList.css"/>
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/questionList.css"/>
 
 <div id="contents">
-  <div class="cols-content">
+	<div class="cols-content">
 		<div class="col-aside">
-		    <h2>
-		        고객센터 메뉴</h2>
-		    <div class="snb">
-		         <ul class="ul1">
-		            <li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
-		            <li class='on'><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
-		            <li class=''><a href="${ pageContext.request.contextPath }/schedule/cinemaList.do">상영 관리<i></i></a></li>
-		         </ul>
-		    </div>
+			<h2>
+				고객센터 메뉴</h2>
+			<div class="snb">
+				<ul class="ul1">
+					<li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a>
+					</li>
+					<li class=''><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
+					<li class='on'><a href="${ pageContext.request.contextPath }/question/questionList.do">문의
+							관리<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/schedule/insertSchedule2.do">상영
+							관리<i></i></a></li>
+				</ul>
+			</div>
 		</div>
 		<div class="col-detail">
 			<div class="customer_top">
 				<h2 class="tit">문의 관리</h2>
 			</div>
-			
+
 			<br>
-			
+
 			<div class="c_tab_wrap">
 			</div>
 			<div class="tbl_area">
 				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
-				  <thead>
-				    <tr>
-				      <th scope="col">문의 번호</th>
-				      <th scope="col">이름</th>
-				      <th scope="col">문의 유형</th>
-				      <th scope="col">제목</th>
-				      <th scope="col">이메일</th>
-				      <th scope="col">문의일</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				    <c:forEach items="${questionList}" var="question">
-				      <tr data-no="${question.no}">
-				        <td>${question.no}</td>
-				        <td>${question.name}</td>
-				        <td>${question.type.krName}</td>
-				        <td>${question.title}</td>
-				        <td>${question.email}</td>
-				        <td>
-				          <fmt:parseDate value="${question.regDate}" pattern="yyyy-MM-dd" var="regDate"/>
-				          <fmt:formatDate value="${regDate}" pattern="yy/MM/dd"/>
-				        </td>
-				      </tr>
-				    </c:forEach>   
-				  </tbody>  
+					<thead>
+						<tr>
+							<th scope="col">문의 번호</th>
+							<th scope="col">이름</th>
+							<th scope="col">문의 유형</th>
+							<th scope="col">제목</th>
+							<th scope="col">이메일</th>
+							<th scope="col">문의일</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${questionList}" var="question">
+							<tr data-no="${question.no}">
+								<td>${question.no}</td>
+								<td>${question.name}</td>
+								<td>${question.type.krName}</td>
+								<td>${question.title}</td>
+								<td>${question.email}</td>
+								<td>
+									<fmt:parseDate value="${question.regDate}" pattern="yyyy-MM-dd" var="regDate" />
+									<fmt:formatDate value="${regDate}" pattern="yy/MM/dd" />
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
 				</table>
 			</div>
 		</div>
-  	</div>
-</div>	
-		
-		
- <script>
-document.querySelectorAll("tr[data-no]").forEach((tr) => {
+	</div>
+</div>
+
+
+<script>
+	document.querySelectorAll("tr[data-no]").forEach((tr) => {
 		tr.addEventListener('click', (e) => {
 			const no = tr.dataset.no;
 			console.log(no);
 			location.href = '${pageContext.request.contextPath}/question/questionDetail.do?no=' + no;
+		});
 	});
-});
 </script>
 </body>
 </html>
