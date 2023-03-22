@@ -123,7 +123,7 @@
 							<th scope="col">구분</th>
 							<th scope="col">제목</th>
 							<th scope="col">등록일</th>
-							<th scope="col">조회수</th>
+<!-- 							<th scope="col">조회수</th> -->
 						</tr>
 					</thead>
 					<tbody>
@@ -136,7 +136,7 @@
 									<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd" var="createdAt" />
 									<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd" />
 								</td>
-								<td>${faq.readCount}</td>
+<%-- 								<td>${faq.readCount}</td> --%>
 							</tr>
 						</c:forEach>
 					</tbody>
