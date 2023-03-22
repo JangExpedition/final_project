@@ -43,4 +43,6 @@ public interface MovieService {
 	// 상영 예정작 예매율 순으로 불러오기
 	List<Movie> selectAllMovieToBeScreened(String now);
 
+	int getMovieRunningTime(int movieNo);
+
 }

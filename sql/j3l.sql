@@ -80,6 +80,65 @@ insert into cinema values('광주터미널점', 'JEONLLAJEJU', '광주광역시 
 insert into cinema values('제주점', 'JEONLLAJEJU', '제주특별자치도 제주시 이도2동 메카플러스 3~7층');
 
 
+--===============================
+-- 상영관 데이터
+--===============================
+-- 강남점
+insert into theater values(seq_theater_no.nextval, 1, '강남점');
+insert into theater values(seq_theater_no.nextval, 2, '강남점');
+insert into theater values(seq_theater_no.nextval, 3, '강남점');
+insert into theater values(seq_theater_no.nextval, 4, '강남점');
+insert into theater values(seq_theater_no.nextval, 5, '강남점');
+insert into theater values(seq_theater_no.nextval, 6, '강남점');
+insert into theater values(seq_theater_no.nextval, 7, '강남점');
+insert into theater values(seq_theater_no.nextval, 8, '강남점');
+insert into theater values(seq_theater_no.nextval, 9, '강남점');
+insert into theater values(seq_theater_no.nextval, 10, '강남점');
+-- 건대입구점
+insert into theater values(seq_theater_no.nextval, 1, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 2, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 3, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 4, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 5, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 6, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 7, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 8, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 9, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 10, '건대입구점');
+--광명역점
+insert into theater values(seq_theater_no.nextval, 1, '광명역점');
+insert into theater values(seq_theater_no.nextval, 2, '광명역점');
+insert into theater values(seq_theater_no.nextval, 3, '광명역점');
+insert into theater values(seq_theater_no.nextval, 4, '광명역점');
+insert into theater values(seq_theater_no.nextval, 5, '광명역점');
+insert into theater values(seq_theater_no.nextval, 6, '광명역점');
+insert into theater values(seq_theater_no.nextval, 7, '광명역점');
+insert into theater values(seq_theater_no.nextval, 8, '광명역점');
+insert into theater values(seq_theater_no.nextval, 9, '광명역점');
+insert into theater values(seq_theater_no.nextval, 10, '광명역점');
+--범계점
+insert into theater values(seq_theater_no.nextval, 1, '범계점');
+insert into theater values(seq_theater_no.nextval, 2, '범계점');
+insert into theater values(seq_theater_no.nextval, 3, '범계점');
+insert into theater values(seq_theater_no.nextval, 4, '범계점');
+insert into theater values(seq_theater_no.nextval, 5, '범계점');
+insert into theater values(seq_theater_no.nextval, 6, '범계점');
+insert into theater values(seq_theater_no.nextval, 7, '범계점');
+insert into theater values(seq_theater_no.nextval, 8, '범계점');
+insert into theater values(seq_theater_no.nextval, 9, '범계점');
+insert into theater values(seq_theater_no.nextval, 10, '범계점');
+--송도타임스페이스점
+insert into theater values(seq_theater_no.nextval, 1, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 2, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 3, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 4, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 5, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 6, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 7, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 8, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 9, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 10, '송도타임스페이스점');
+
 
 --===============================
 -- 영화 데이터 
@@ -194,10 +253,9 @@ CREATE TABLE theater (
     CONSTRAINT FK_THEATER_CINEMA_NAME FOREIGN KEY(CINEMA_NAME)
                         REFERENCES CINEMA
                         ON DELETE CASCADE,
-    CONSTRAINT CK_THEATER_NO CHECK (theater_no >= 1 AND theater_no <= 10)
+    CONSTRAINT CK_THEATER_NO CHECK (theater_no >= 1 AND theater_no <= 10),
+    constraint uq_theater unique (theater_no, cinema_name)
 );
-
-
 
 -- 상영관 테이블 시퀀스
 create sequence seq_theater_no;
@@ -221,16 +279,10 @@ CREATE TABLE schedule (
 	no number NOT NULL,
 	movie_no number	NOT NULL,
 	theater_no number NOT NULL,
-    start_time Date	NOT NULL,
-	end_time Date NOT NULL,
+    start_time char(16)	NOT NULL,
+	end_time char(16) NOT NULL,
     constraint pk_scheduel_no primary key(no)
 );
-
-select * from schedule;
-
-INSERT INTO schedule (no, movie_no, theater_no, start_time, end_time)
-VALUES (1, 123, 456, TO_DATE('2023-03-20 13:00:00', 'YYYY-
-MM-DD HH24:MI:SS'), TO_DATE('2023-03-20 15:00:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 -- 상영시간표 테이블 시퀀스
 create sequence seq_schedule_no;
