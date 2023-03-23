@@ -46,17 +46,19 @@
 
 
 				<div class="view_area">
-					<p>${notice.content}</p>
+					<p id="text">${notice.content}</p>
 				</div>
 				<div class="button-group">
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<div class="button2">
-						<form:form name="faqDeleteFrm"
+						<form:form name="noticeDeleteFrm"
 							action="${pageContext.request.contextPath}/notice/deleteNotice.do" method="post"
 							onsubmit="return confirm('해당 게시물을 삭제하시겠습니까?')">
 							<input type="hidden" name="no" value="${notice.no}" />
 							<input type="submit" class="round inblack" id="btn_delete" value="삭제" />
 						</form:form>
 					</div>
+					</sec:authorize>
 					<div class="button">
 						<a href="${pageContext.request.contextPath}/notice/noticeList.do">
 							<button type="button" class="round inblack" id="btn_list">

@@ -16,8 +16,8 @@ public class NoticeServiceImpl implements NoticeService{
 	private NoticeDao noticeDao;
 
 	@Override
-	public List<Notice> selectAllNotice(RowBounds rowBounds) {
-		return noticeDao.selectAllNotice(rowBounds);
+	public List<Notice> selectAllNotice() {
+		return noticeDao.selectAllNotice();
 	}
 
 	@Override
@@ -38,6 +38,11 @@ public class NoticeServiceImpl implements NoticeService{
 	@Override
 	public int deleteNotice(Integer no) {
 		return noticeDao.deleteNotice(no);
+	}
+
+	@Override
+	public Notice selectNoticeByNo(int i) {
+		return noticeDao.selectNoticeByNo(i);
 	}
 	
 

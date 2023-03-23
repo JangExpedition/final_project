@@ -8,7 +8,7 @@ import com.sh.j3l.notice.model.dto.Notice;
 
 public interface NoticeService {
 
-	List<Notice> selectAllNotice(RowBounds rowBounds);
+	List<Notice> selectAllNotice();
 
 	int insertNotice(Notice notice);
 
@@ -17,5 +17,7 @@ public interface NoticeService {
 	Notice selectOneNotice(int no);
 
 	int deleteNotice(Integer no);
+
+	Notice selectNoticeByNo(int i);
 
 }

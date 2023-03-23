@@ -53,5 +53,13 @@
    			no = #{no}
     </delete>
     
+    <select id="cinemaQues" resultMap="questionMap">
+    	select
+    		*
+    	from
+    		question
+    	where 
+    		no = #{no}
+    </select>
 
 </mapper>

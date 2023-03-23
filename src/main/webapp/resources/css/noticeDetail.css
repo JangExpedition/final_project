@@ -381,3 +381,7 @@ a {
     text-align: start;
     text-align-last: start;
 }
+
+#text{
+	white-space:pre-wrap;
+}

@@ -10,7 +10,6 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="예매|영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
-<%-- <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/admin.css"/> --%>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/myQuestionDetail.css"/>
 
 

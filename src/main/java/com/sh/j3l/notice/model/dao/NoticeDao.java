@@ -10,7 +10,7 @@ import com.sh.j3l.notice.model.dto.Notice;
 @Mapper
 public interface NoticeDao {
 
-	List<Notice> selectAllNotice(RowBounds rowBounds);
+	List<Notice> selectAllNotice();
 
 	int insertNotice(Notice notice);
 
@@ -19,6 +19,8 @@ public interface NoticeDao {
 	Notice selectOneNotice(int no);
 
 	int deleteNotice(Integer no);
+
+	Notice selectNoticeByNo(int i);
 
 	
 

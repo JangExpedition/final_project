@@ -104,3 +104,11 @@ h1 {
 .flex {
 	display:flex;
 }
+
+#contents {
+  clear: both;
+  padding-bottom: 50px;
+  position: relative;
+  width: 980px;
+  margin: 0 auto;
+}

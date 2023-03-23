@@ -21,5 +21,7 @@ public interface QuestionService {
 
 	int deleteQuestion(int no);
 
+	List<Question> cinemaQues();
+
 
 }

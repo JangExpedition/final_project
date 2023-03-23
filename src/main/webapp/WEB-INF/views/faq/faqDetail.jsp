@@ -49,24 +49,23 @@
 					</li>
 				</ul>
 				<div class="view_area">
-					<p>${faq.content}</p>
+					<div id="text">${faq.content}</div>
 				</div>
-				<sec:authorize access="hasRole('ROLE_ADMIN')">
-					<div class="button-group2">
-						<div class="parent">
-							<form:form name="faqDeleteFrm"
-								action="${pageContext.request.contextPath}/faq/deleteFaq.do"
-								method="post" onsubmit="return confirm('해당 게시물을 삭제하시겠습니까?')">
-								<input type="hidden" name="no" value="${faq.no}" />
-								<input type="submit" id="btn-add" value="삭제" />
-							</form:form>
-						</div>
-					</div>
-				</sec:authorize>
 				<div class="button-group">
-					<div class="parent">
-						<a href="${pageContext.request.contextPath}/faq/faqList.do"
-							id="btn-add">목록으로</a>
+					<div class="button2">
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+						  <form:form name="faqDeleteFrm" action="${pageContext.request.contextPath}/faq/deleteFaq.do" method="post" onsubmit="return confirm('해당 게시물을 삭제하시겠습니까?')">
+						    <input type="hidden" name="no" value="${faq.no}" />
+						    <input type="submit" class="round inblack" id="btn_delete" value="삭제" />
+						  </form:form>
+						</sec:authorize>
+					</div>
+					<div class="button">
+						<a href="${pageContext.request.contextPath}/faq/faqList.do">
+							<button type="button" class="round inblack" id="btn_list">
+								<span>목록으로</span>
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
