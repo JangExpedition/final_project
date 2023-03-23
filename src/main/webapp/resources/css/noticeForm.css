@@ -342,6 +342,8 @@ a {
 
 .inp_txtbox01{
 	height:250px;
+	width: 60%;
+	resize: vertical;
 }
 
 #btn-add {
@@ -352,4 +354,13 @@ a {
   text-decoration: none;
   border-radius: 5px;
   font-size: 14px;
+}
+
+/* #content3 {
+  width: 60ch; 
+  height: 15em;
+} */
+
+.customer_top {
+  text-align: center;
 }

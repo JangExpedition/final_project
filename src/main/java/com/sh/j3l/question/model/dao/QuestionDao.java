@@ -25,4 +25,6 @@ public interface QuestionDao {
 
 	int deleteQuestion(int no);
 
+	List<Question> cinemaQues();
+
 }

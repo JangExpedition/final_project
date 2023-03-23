@@ -52,4 +52,9 @@ public class QuestionServiceImpl implements QuestionService {
 		return questionDao.deleteQuestion(no);
 	}
 
+	@Override
+	public List<Question> cinemaQues() {
+		return questionDao.cinemaQues();
+	}
+
 }

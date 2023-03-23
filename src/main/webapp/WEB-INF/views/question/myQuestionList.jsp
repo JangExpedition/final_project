@@ -46,6 +46,7 @@
 					<button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 				</div>
 			</form:form>
+			<div id="pare"></div>
 
 
 			<div class="tbl_area">

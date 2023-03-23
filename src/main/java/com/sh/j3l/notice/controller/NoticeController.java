@@ -37,7 +37,7 @@ public class NoticeController {
 		int offset = (cpage - 1) * limit;
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		
-		List<Notice> noticeList = noticeService.selectAllNotice(rowBounds);
+		List<Notice> noticeList = noticeService.selectAllNotice();
 		model.addAttribute("noticeList", noticeList);
 		log.debug("noticeList = {}", noticeList);
 

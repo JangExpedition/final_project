@@ -128,7 +128,16 @@ public class QuestionController {
 			redirectAttr.addFlashAttribute("msg", "문의 삭제 실패");
 		}
 		return "redirect:/question/myQuestionList.do";
+	}
+	
+	// 극장탭 출력용
+	@RequestMapping("/cinema")
+	@GetMapping("/cinema.do")
+	public void cinemaQues(Model model) {
+		List<Question> questionList = questionService.cinemaQues();
 		
+		model.addAttribute("questionList", questionList);
+		log.debug("questionList", questionList);
 	}
 
 }

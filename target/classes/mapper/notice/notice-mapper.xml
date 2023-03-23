@@ -52,5 +52,14 @@
 		where 
 			no = #{no}
 	</delete>
+	
+	<select id="selectNoticeByNo" resultMap="noticeMap">
+		select
+			*
+		from
+			notice
+		where
+			no = #{no}
+	</select>
 
 </mapper>

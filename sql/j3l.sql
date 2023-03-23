@@ -292,6 +292,12 @@ CREATE TABLE schedule (
     constraint pk_scheduel_no primary key(no)
 );
 
+<<<<<<< HEAD
+select * from schedule;
+
+
+=======
+>>>>>>> branch 'master' of https://github.com/Jangcccci/final_project.git
 -- 상영시간표 테이블 시퀀스
 create sequence seq_schedule_no;
 
@@ -427,7 +433,6 @@ CREATE TABLE notice (
 	content varchar2(4000) NOT NULL,
     constraint pk_notice_no primary key(no)
 );
-
 
 select * from notice;
 

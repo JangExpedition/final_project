@@ -38,6 +38,15 @@
 	cursor: pointer;
 }
 
+.notice {
+	text-align: right;
+	/* margin-bottom: -2rem; */
+}
+
+.title {
+	margin-bottom: 1rem;
+}
+
 #cinemaList{
 	margin-top: 10px;
 }
@@ -95,4 +104,11 @@
 
 #notice{
 	color: white;
+}
+
+#test {
+	DISPLAY: FLEX;
+	ALIGN-ITEMS: CENTER;
+	justify-content: space-between;
+	cursor: pointer;
 }

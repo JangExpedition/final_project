@@ -85,27 +85,27 @@
 			<div class="c_tab_wrap">
 				<ul class="c_tab type_free">
 					<li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do"
-							style="font-size: 11px;" title="선택된 탭메뉴">전체</a></li>
+							 title="선택된 탭메뉴">전체</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=예매"
-							style="font-size: 11px;">예매/매표</a></li>
+							>예매/매표</a></li>
 					<li class=''><a
 							href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=결제수단"
-							style="font-size: 11px;">관람권/결제수단</a></li>
+							>관람권/결제수단</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=멤버쉽"
-							style="font-size: 11px;">멤버쉽/클럽서비</a></li>
+							>멤버쉽/클럽서비</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=VIP"
-							style="font-size: 11px;">VIP관련</a></li>
+							>VIP관련</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=할인"
-							style="font-size: 11px;">할인혜택</a></li>
+							>할인혜택</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=영화관"
-							style="font-size: 11px;">영화관이용</a></li>
+							>영화관이용</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=특별관"
-							style="font-size: 11px;">특별관</a></li>
+							>특별관</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=기프트"
-							style="font-size: 11px;">기프트샵</a></li>
+							>기프트샵</a></li>
 					<li class=''><a
 							href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=홈페이지"
-							style="font-size: 11px;">홈페이지/모바일</a></li>
+							>홈페이지/모바일</a></li>
 
 				</ul>
 			</div>

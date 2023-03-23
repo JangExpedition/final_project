@@ -353,3 +353,13 @@ a {
   border-radius: 5px;
   font-size: 14px;
 }
+
+#content {
+  width:60ch; 
+  height:15em;
+  white-space:pre-wrap;
+}
+
+.customer_top {
+  text-align: center;
+}
