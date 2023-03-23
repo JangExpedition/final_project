@@ -19,4 +19,9 @@ public class TheaterServiceImpl implements TheaterService {
 		return theaterDao.selectAllTheater();
 	}
 
+	@Override
+	public List<Theater> selectTheaterList(String cinemaName) {
+		return theaterDao.selectTheaterList(cinemaName);
+	}
+
 }

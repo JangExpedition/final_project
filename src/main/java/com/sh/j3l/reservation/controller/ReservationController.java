@@ -2,7 +2,9 @@ package com.sh.j3l.reservation.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,10 @@ import com.sh.j3l.cinema.model.dto.Location;
 import com.sh.j3l.cinema.model.service.CinemaService;
 import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.movie.model.service.MovieService;
+import com.sh.j3l.schedule.model.dto.Schedule;
+import com.sh.j3l.schedule.model.service.ScheduleService;
+import com.sh.j3l.theater.model.dto.Theater;
+import com.sh.j3l.theater.model.service.TheaterService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,6 +36,12 @@ public class ReservationController {
 	
 	@Autowired
 	private MovieService movieService;
+	
+	@Autowired
+	private TheaterService theaterService;
+	
+	@Autowired
+	private ScheduleService scheduleService;
 
 	@GetMapping("/reservation.do")
 	public void reservation(Model model) {
@@ -52,5 +64,22 @@ public class ReservationController {
 		}
 		model.addAttribute("movieList", movieList);
 		return movieList;
+	}
+	
+	@GetMapping("/selectTheaterList.do")
+	@ResponseBody
+	public List<Theater> selectTheaterList(@RequestParam String cinemaName){
+		return theaterService.selectTheaterList(cinemaName);
+	}
+	
+	@GetMapping("/selectScheduleList.do")
+	@ResponseBody
+	public List<Schedule> selectScheduleList(@RequestParam int movieNo, @RequestParam int theaterNo, @RequestParam String reservationDay){
+		log.debug("movieNo = {}, theaterNo = {}", movieNo, theaterNo);
+		List<Schedule> _scheduleList = scheduleService.selectScheduleList(movieNo, theaterNo);
+		List<Schedule> scheduleList = _scheduleList.stream()
+											.filter((schedule)-> schedule.getStartTime().substring(0, 9) == reservationDay)
+											.collect(Collectors.toList());
+		return scheduleList;
 	}
 }

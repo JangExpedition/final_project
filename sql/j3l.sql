@@ -18,9 +18,6 @@ select * from question_answer;
 select * from notice;
 select * from faq;
 
-
-select * from movie where open_dt < '2023-03-17';
-
 --===============================
 -- 관리자 계정 생성
 --===============================
@@ -295,9 +292,12 @@ CREATE TABLE schedule (
     constraint pk_scheduel_no primary key(no)
 );
 
+<<<<<<< HEAD
 select * from schedule;
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/Jangcccci/final_project.git
 -- 상영시간표 테이블 시퀀스
 create sequence seq_schedule_no;
 
