@@ -61,6 +61,9 @@
 		</div>
 		<div class="step step4">
 			<div class="table-head">시간</div>
+			<div id="scheduleList" class="table-body">
+			
+			</div>
 		</div>
 	</div>
 	<!-- 예매 구간 -->
@@ -89,7 +92,13 @@
 </section>
 <!-- 예매확인 섹션 -->
 <script>
+let isSelected1 = false;
+let isSelected2 = false;
+let isSelected3 = false;
+
+
 window.onload = () =>{
+	
 	filterEffect("예매율순");
 	selectLocation("서울");
 	
@@ -164,13 +173,13 @@ window.onload = () =>{
 					dayList.innerHTML += `
 					<div>
 						<h1 class="reservationMonth">\${ months[0] }</h1>
-						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					`;
 				}
 				else {
 					dayList.innerHTML += `
-						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					</div>
 					`;
 				}
@@ -191,18 +200,18 @@ window.onload = () =>{
 					dayList.innerHTML += `
 					<div>
 						<h1 class="reservationMonth">\${ months[0] }</h1>
-						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					`;
 				}
 				else if(date[i] > date[i-1]){
 					dayList.innerHTML += `
-						<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					`;
 				}
 				else{
 					dayList.innerHTML += `
 							<h1 class="reservationMonth">\${ months[1] }</h1>
-							<p class="reservationDay"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+							<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[1]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 						</div>
 						`;
 				}
@@ -210,8 +219,9 @@ window.onload = () =>{
 		}
 		
 	}
+	// 년도가 2개이면서 월이 2개인 경우
 	else{
-		// 귀찮..
+		// 귀찮.. 나중에
 	}
 	
 	// 토요일, 일요일 색상 변경
@@ -313,6 +323,12 @@ const selectMovie = (movie) => {
 	title.innerHTML = movie.innerHTML;
 	title.style.display = "inline";
 	
+	isSelected1 = true;
+	
+	if(isSelected1 && isSelected2 && isSelected3){
+		getSchedule();
+	}
+	
 }
 
 //지역선택 메서드
@@ -371,7 +387,93 @@ const selectCinema = (location, name, target) => {
 	document.querySelectorAll("#CheckInfo p").forEach((p)=>{
 		p.style.display = "inline";
 	});
+	
 	document.querySelector("#checkCinema span").innerText =  target.innerText;
+	
+	isSelected2 = true;
+	
+	if(isSelected1 && isSelected2 && isSelected3){
+		getSchedule();
+	}
+	
+};
+
+// 날짜 선택 메서드
+$(document).on("click", ".reservationDay", function(e){
+	let parentP = e.target;
+	while(parentP.tagName !== 'P')
+		parentP = parentP.parentElement;
+	
+	selectReservationDay(parentP)
+});
+
+// 날짜 선택 효과 메서드
+const selectReservationDay = (reservationDay) =>{
+	
+	document.querySelectorAll(".reservationDay").forEach((rd)=>{
+		
+		if(rd.dataset.reservationday === reservationDay.dataset.reservationday){
+			rd.className = "reservationDay selectedDay";
+		}
+		else{
+			rd.className = "reservationDay";
+		}
+	});
+	
+	document.querySelector("#CheckInfo h3").style.display = "none";
+	document.querySelectorAll("#CheckInfo p").forEach((p)=>{
+		p.style.display = "inline";
+	});
+	document.querySelector("#checkScheduel > span").innerText = reservationDay.dataset.reservationday; 
+	
+	isSelected3 = true;
+	
+	if(isSelected1 && isSelected2 && isSelected3){
+		getSchedule();
+	}
+	
+};
+
+const getSchedule = () => {
+
+	const movieNo = document.querySelector(".movieTitleSelected").dataset.movieNo;
+	const cinemaName = document.querySelector(".selectedCinema").innerText;
+	const reservationDay = document.querySelector(".selectedDay").dataset.reservationday;
+
+	console.log(movieNo, cinemaName, reservationDay);
+	
+	$.ajax({
+		url: "${pageContext.request.contextPath}/reservation/selectTheaterList.do",
+		data: {cinemaName},
+		success(theaterList){
+			
+			const scheduleList = document.querySelector("#scheduleList");
+			
+			scheduleList.innerHTML = "";
+			
+			theaterList.forEach((theater)=>{
+				const div = document.createElement("div");
+				div.className = "oneTheater";
+				const p = document.createElement("p");
+				p.className = "theaterName";
+				p.innerText = theater.theaterNo + "관";
+				div.append(p);
+				scheduleList.append(div);
+				
+				$.ajax({
+					url: "${pageContext.request.contextPath}/reservation/selectScheduleList.do",
+					data: {movieNo, theaterNo : theater.no, reservationDay},
+					success(scheduleList){
+						console.log(scheduleList);
+					},
+					error: console.log
+				});
+				
+			});
+			
+		},
+		error: console.log
+	});
 };
 </script>
 </body>
