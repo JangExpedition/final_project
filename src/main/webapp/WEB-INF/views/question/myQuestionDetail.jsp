@@ -73,7 +73,7 @@
 			<form:form name="questionDeleteFrm" action="${pageContext.request.contextPath}/question/deleteQuestion.do"
 				method="post">
 				<input type="hidden" name="no" value="${question.no}">
-				<input type="submit" value="문의 삭제" />
+				<input type="submit" id="submit" value="문의 삭제" />
 			</form:form>
 		</div>
 	</div>
