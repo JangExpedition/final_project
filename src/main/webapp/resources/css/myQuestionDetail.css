@@ -150,6 +150,7 @@ h1 {
   justify-content: center;
   margin-top : 10px;
   gap: 10px;
+  margin-left: 165px;
 }
 
 .ul {
@@ -162,4 +163,9 @@ h1 {
   position: relative;
   width: 980px;
   margin: 0 auto;
+}
+
+#submit{
+	display: flex;
+    justify-content: center;
 }
