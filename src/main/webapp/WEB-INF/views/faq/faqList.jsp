@@ -86,22 +86,14 @@
 							>예매/매표</a></li>
 					<li class=''><a
 							href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=결제수단"
-							>관람권/결제수</a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=멤버쉽"
-							>멤버쉽/클럽서</a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=VIP"
-							>VIP관련</a></li>
+							>결제 수단</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=할인"
-							>할인혜택</a></li>
+							>할인 혜택</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=영화관"
-							>영화관이용</a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=특별관"
-							>특별관</a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=기프트"
-							>기프트샵</a></li>
+							>영화관 이용</a></li>
 					<li class=''><a
 							href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=홈페이지"
-							>홈페이지/모바</a></li>
+							>홈페이지</a></li>
 
 				</ul>
 			</div>

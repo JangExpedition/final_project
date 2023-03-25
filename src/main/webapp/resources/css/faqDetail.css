@@ -393,3 +393,7 @@ a {
 #text{
 	white-space:pre-wrap;
 }
+
+.button-group {
+  margin-top: 20px;
+}
