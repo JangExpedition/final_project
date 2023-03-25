@@ -9,7 +9,7 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/question.css"/>    
-   
+<sec:authentication property="principal" var="loginMember"/>
 	
 
 <div id="contents">
@@ -21,16 +21,13 @@
 				<ul class="ul1">
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
-					</li>
-					<li class='on'><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a>
-					</li>
-					<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역
-							확인<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+					<li class='on'><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 				</ul>
 			</div>
 		</div>
-		<div class="col-detail">
+	 	<div class="col-detail">
 			<div class="email_list_area">
 				<div class="customer_top">
 					<h2 class="tit">1:1 문의</h2>
@@ -43,11 +40,14 @@
 					<input type="hidden" id="hIsTemp" name="hIsTemp" value="N" />
 					<input type="hidden" id="hIdx" name="hIdx" value="" />
 					<fieldset>
-						<legend>이메일 문의</legend>
 						<div class="tbl_area">
 							<p class="tbl_info_txt">체크(<em><img
 										src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png"
-										alt="필수" /></em>)된 항목은 필수 입력 사항입니다.</p>
+										alt="필수" /></em>)된 항목은 필수 입력 사항입니다.<br>
+														익명 문의를 원하실 경우 체크
+														(<em><img
+										src="http://img.cgv.co.kr/R2014/images/common/ico/ico_redstar.png"
+										alt="필수" /></em>)된 항목을 꼭 입력해주세요.</p>
 
 							<table cellspacing="0" cellpadding="0" class="tbl_notice_list tbl_left">
 								<tbody>
@@ -56,22 +56,21 @@
 													src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png" /></label>
 										</th>
 										<td colspan="3">
-											<input type="text" id="name" name="name" class="inp01"
-												style="width: 200px;" />
+											<input type="text" id="name" name="name" class="inp01" value="${ loginMember.name }"/>
 										</td>
 									</tr>
 									<tr>
-										<th scope="row">휴대전화<img
+										<th scope="row">휴대전화
+										</th>
+										<td>
+											<input type="text" id="phone" name="phone" value="${ loginMember.phone }"/>
+										</td>
+
+										<th scope="row">이메일<img
 												src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png" />
 										</th>
 										<td>
-											<input type="text" id="phone" name="phone" placeholder="'-'은 제외하고 입력"
-												style="width: 200px;" />
-										</td>
-
-										<th scope="row">이메일</th>
-										<td>
-											<input type="text" id="email" name="email" style="width: 195px;" />
+											<input type="text" id="email" name="email" value="${ loginMember.email }"/>
 										</td>
 
 									</tr>
@@ -110,8 +109,7 @@
 													src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png" /></label>
 										</th>
 										<td colspan="3">
-											<input type="text" id="title" name="title" class="inp01"
-												style="width: 672px;" />
+											<input type="text" id="title" name="title" class="inp01"/>
 										</td>
 									</tr>
 									<tr>

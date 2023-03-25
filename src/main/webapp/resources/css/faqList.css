@@ -14,9 +14,9 @@
   color: #138496;
 }
 
-tr[data-no] {
+/* tr[data-no] {
    cursor: pointer;
-}
+} */
 
 #myElement {
    max-width: 275px;
@@ -38,7 +38,6 @@ tr[data-no] {
 html, body, div, span,a, em, ol, 
 ul, li, form, label, legend, table,tbody,
 tfoot, thead, tr, th, td {
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
 	font-size:100%;
 	margin:0;
 	padding:0;
@@ -48,7 +47,7 @@ tfoot, thead, tr, th, td {
 }
 
 body {
-	line-height:1; 
+	line-height:1.5; 
 	color:black; 
 }
 
@@ -80,20 +79,8 @@ html, body {
 	height:100%;
 }
 
-html {
-	overflow-y:scroll;
-}
-
 body, input, textarea, select, button, table {
-	/* font-size:13px;  */
-	line-height:1.2; 
-	/* color:#666;  */
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
 	font-weight:400
-}
-
-table thead th {
-	/* font-weight:500; */
 }
 
 a:focus, a:hover {
@@ -128,6 +115,7 @@ table caption {
 	position:relative; 
 	width:980px; 
 	margin:0 auto;
+	line-height:1.5; 
 }
 
 .head h1, .sect-srh, .sect-booking,.sect-phototicket {
@@ -356,7 +344,7 @@ table caption {
 
 .c_tab_wrap {
     position: relative;
-    /* margin-top: 15px; */
+    margin-top: 15px;
     border-bottom: 2px solid #898987;
     height: 37px;
 }
@@ -399,9 +387,43 @@ p {
 
 .h2, h2 {
     font-size: 1.5rem;
-    /* font-weight: 500; */
 }
 
 .c_tab type_free {
 	font-size: 11px;	
+}
+
+.col {
+  width: 40px;
+}
+
+.col:nth-child(2) {
+  width: 120px;
+}
+
+.col:nth-child(3) {
+  width: 560px;
+}
+
+.col:last-child {
+  width: auto;
+}
+
+#myElement {
+  margin-right: 10px;
+}
+
+.tbl_notice_list tbody tr:hover td:nth-child(3) {
+  text-decoration: underline;
+  cursor: pointer;
+  color : black;
+  font-weight: bold;
+}
+
+.tbl_notice_list td {
+  color: gray;
+}
+
+.stit{
+	color: gray;
 }

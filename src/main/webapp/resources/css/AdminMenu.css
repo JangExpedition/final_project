@@ -43,7 +43,6 @@ tfoot, thead, tr, th, td {
 }
 
 body {
-	line-height:1; 
 	color:black; 
 }
 
@@ -81,7 +80,7 @@ html {
 
 body, input, textarea, select, button, table {
 	/* font-size:13px;  */
-	line-height:1.2; 
+	line-height:1.5; 
 	/* color:#666;  */
 	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
 	font-weight:400
@@ -156,7 +155,7 @@ table caption {
 
 #contents2 {
 	clear:both; 
-	width : 160px;
+	/* width : 160px; */
 	padding-bottom:50px;
 }
 
@@ -385,4 +384,8 @@ form {
 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
+}
+
+.tbl_notice_list {
+  margin: 0 auto;
 }

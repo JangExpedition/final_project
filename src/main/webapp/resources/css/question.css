@@ -1,5 +1,5 @@
 body {
-	line-height:1; 
+	line-height:1.5; 
 	color:black; 
 }
 
@@ -49,15 +49,9 @@ html, body {
 	height:100%;
 }
 
-html {
-	overflow-y:scroll;
-}
-
 body, input, textarea, select, button,table {
-	/* font-size:13px; */ 
-	line-height:1.2; 
+	line-height:1.5; 
 	color:#666; 
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
 	font-weight:400
 }
 
@@ -377,7 +371,6 @@ legend {
 
 .c_tab > li > a  {
 	display: block; 
-	/* font-size: 13px;  */
 }
 
 .tbl_info_txt { 
@@ -506,12 +499,10 @@ legend {
 html, body, div, span, em,
 font, img, ins, ol, ul, li, fieldset, form, label, legend, table, tbody,
 tfoot, thead, tr, th, td {
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
 	font-size:100%; 
 	margin:0; 
 	padding:0; 
 	border:0; 
-	vertical-align:baseline; 
 	word-break:break-all;
 }
 
@@ -538,7 +529,6 @@ p {
 #btn-add {
   display: inline-block;
   padding: 5px 10px;
-/*   background-color: #666666; */
   color: #ffffff;
   text-decoration: none;
   border-radius: 5px;
@@ -551,5 +541,29 @@ p {
 
 .h2, h2 {
     font-size: 1.5rem;
-    /* font-weight: 500; */
+}
+
+th[scope="row"] label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+td[colspan="2"] input[type="text"] {
+  width: calc(100% - 120px);
+}
+
+#name{
+	width: 200px;
+}
+
+#email{
+	width: 195px;
+}
+
+#title{
+	width: 590px;
+}
+
+#phone{
+	width: 200px;
 }

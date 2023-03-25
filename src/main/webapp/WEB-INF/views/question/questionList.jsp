@@ -52,9 +52,9 @@
 						<c:forEach items="${questionList}" var="question">
 							<tr data-no="${question.no}">
 								<td>${question.no}</td>
-								<td>${question.name}</td>
-								<td>${question.type.krName}</td>
 								<td>${question.title}</td>
+								<td>${question.type.krName}</td>
+								<td>${question.name}</td>
 								<td>${question.email}</td>
 								<td>
 									<fmt:parseDate value="${question.regDate}" pattern="yyyy-MM-dd" var="regDate" />

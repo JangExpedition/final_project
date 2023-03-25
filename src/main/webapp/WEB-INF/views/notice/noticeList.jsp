@@ -19,14 +19,10 @@
 				<div class="snb">
 					<ul class="ul1">
 						<li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-						<li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는
-								질문<i></i></a></li>
-						<li class='on'><a
-								href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
-						<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1
-								문의<i></i></a></li>
-						<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역
-								확인<i></i></a></li>
+						<li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+						<li class='on'><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+						<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+						<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 					</ul>
 				</div>
 			</div>
@@ -34,7 +30,7 @@
 			<div class="col-detail">
 				<div class="customer_top">
 					<h2 class="tit">공지/뉴스</h2>
-					<p class="stit">CGV의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
+					<p class="stit">J3L의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
 				</div>
 
 				<br>
@@ -80,18 +76,12 @@
 
 				<div class="tbl_area">
 					<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
-						<colgroup>
-							<col style="width:40px;" />
-							<col style="width:120px;" />
-							<col style="width:560px;" />
-							<col style="auto" />
-						</colgroup>
 						<thead>
 							<tr>
-								<th scope="col">번호</th>
-								<th scope="col">구분</th>
-								<th scope="col">제목</th>
-								<th scope="col">등록일</th>
+								<th class="col">번호</th>
+								<th class="col">구분</th>
+								<th class="col">제목</th>
+								<th class="col">등록일</th>
 							</tr>
 						</thead>
 						<tbody>
