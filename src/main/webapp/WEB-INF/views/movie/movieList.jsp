@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movieList.css"/>
 
+
 <div id="contents">
 	<div class="cols-content">
 		<div class="col-aside">
