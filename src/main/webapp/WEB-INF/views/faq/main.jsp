@@ -21,15 +21,10 @@
 						<ul class="ul1">
 							<li class='on'><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a>
 							</li>
-							<li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는
-									질문<i></i></a></li>
-							<li class=''><a
-									href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
-							</li>
-							<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1
-									문의<i></i></a></li>
-							<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역
-									확인<i></i></a></li>
+							<li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
+							<li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+							<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+							<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -40,15 +35,25 @@
 							<strong class="c_tit">자주찾는 질문 빠른검색</strong>
 							</br>
 							<legend><label for="searchtext">검색</label></legend>
-							<form action="${pageContext.request.contextPath}/faq/searchFaq" method="get" class="mb-3">
-								<div class="input-group">
-									<input type="hidden" name="searchType" value="title" />
-									<input type="text" class="form-control" placeholder="질문 검색"
-										aria-label="Recipient's username" aria-describedby="button-addon2" name="id" />
-									<button class="btn btn-outline-secondary" type="submit"
-										id="button-addon2">검색</button>
+								<div class="search_box">
+									<input id="searchtext" type="text" title="검색어 입력" placeholder="검색어를 입력해 주세요.">
+									<button type="button" class="btn_search" title="검색하기" id="btn_search">검색</button>
 								</div>
-							</form>
+								<div class="c_qu">
+                       
+						    <a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=현금영수증">현금영수증</a>                       
+                        
+						    <a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=관람권">관람권</a>                       
+                        
+						    <a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=예매">예매</a>                       
+                        
+						    <a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=환불">환불</a>                       
+                        
+						    <a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=취소">취소</a>                       
+                        
+						    <a href="#none"></a>                       
+                        
+							</div>
 						</div>
 						<div class="c_box talk_inquiry">
 							<strong class="c_tit">1:1 문의 이용</strong>
@@ -70,8 +75,8 @@
 										title="새창열기" class="list1">아이디/<br />비밀번호 찾기</a></li>
 								<li><a href="" target="_blank" title="새창열기" class="list1">예매/<br />취소내역 확인</a></li>
 								<li><a href="" target="_blank" title="새창열기" class="list1">비회원<br />예매/취소</a></li>
-								<li><a href="" target="_blank" title="새창열기" class="list1">멤버십포인트<br />사용안내</a></li>
-								<li><a href="" target="_blank" title="새창열기" class="list1">관람권<br />할인쿠폰 등록</a></li>
+<!-- 								<li><a href="" target="_blank" title="새창열기" class="list1">멤버십포인트<br />사용안내</a></li>
+								<li><a href="" target="_blank" title="새창열기" class="list1">관람권<br />할인쿠폰 등록</a></li> -->
 							</ul>
 						</div>
 						<div class="notice_area">
@@ -79,23 +84,11 @@
 								<span class="tit">공지/뉴스</span>
 							</a>
 							<ul class="txt">
-
-								<li><a href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=85">[점검] 2023년
-										3월 시스템 점검 안내</a><span class="day">2023.03.16</span></li>
-
-								<li><a href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=86">[기타]
-										개인정보처리방침 개정 안내 (1/16 字 시행)</a><span class="day">2023.03.16</span></li>
-
-								<li><a href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=87">[기타] 23년
-										VIP 선정 기준 일부 변경 안내 (VIP점수, 조기승급)</a><span class="day">2023.01.09</span></li>
-
-								<li><a href="/support/news/detail-view.aspx?idx=7935&type=1">[시스템점검] 2023년 1월 시스템 점검
-										안내</a><span class="day">2022.12.29</span></li>
-
-								<li><a href="/support/news/detail-view.aspx?idx=7934&type=3"> 2022 SVIP 스페셜기프트 언박싱 이벤트
-										진행 일정 변경 안내</a><span class="day">2022.12.19</span></li>
-
-							</ul>
+  <c:forEach var="notice" items="${noticeList}">
+    <li><a href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=${notice.no}">${notice.title}</a><fmt:parseDate value="${notice.createdAt}" pattern="yyyy-MM-dd" var="createdAt" />
+									<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd" />
+  </c:forEach>
+</ul>
 
 							<a href="${pageContext.request.contextPath}/notice/noticeForm.do" class="more">공지/뉴스 더보기</a>
 						</div>

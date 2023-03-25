@@ -1,7 +1,6 @@
 html, body, div, span,em, ol, ul, li, 
 fieldset, form, label, legend, table, 
 tbody, thead, tr, th, td {
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
 	font-size:100%; 
 	margin:0; 
 	padding:0; 
@@ -11,7 +10,8 @@ tbody, thead, tr, th, td {
 }
 
 body {
-	line-height:1; color:black; 
+	line-height:1.5; 
+	color:black; 
 }
 
 ol, ul {
@@ -41,15 +41,8 @@ html, body {
 	height:100%;
 }
 
-html {
-	overflow-y:scroll;
-}
-
 body,input,table {
-	/* font-size:13px;  */
-	line-height:1.2; 
-	/* color:#666;  */
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
+	line-height:1.5; 
 	font-weight:400
 }
 
@@ -356,11 +349,20 @@ a {
   font-size: 14px;
 }
 
-/* #content3 {
-  width: 60ch; 
-  height: 15em;
-} */
-
 .customer_top {
   text-align: center;
+}
+
+tbody > tr > td:nth-child(1),
+tbody > tr > td:nth-child(3) {
+  width: 96px;
+}
+
+tbody > tr > td:nth-child(2),
+tbody > tr > td:nth-child(4) {
+  width: 303px;
+}
+
+.box-btn.qna_email {
+  margin-top: 20px;
 }

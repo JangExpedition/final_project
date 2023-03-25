@@ -436,7 +436,6 @@ CREATE TABLE notice (
 
 select * from notice;
 
-
 -- 공지사항 테이블 시퀀스
 create sequence seq_notice_no;
 

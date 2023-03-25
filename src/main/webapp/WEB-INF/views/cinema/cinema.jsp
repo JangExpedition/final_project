@@ -32,13 +32,10 @@
 				<p id="cinemaAddr">
 				<div id="test">
 					<p>임시관 임시석</p>
-					<c:forEach items="${ noticeList }" var="notice">
-						<div class="notice">
-							<div class="title">${ notice.title }</div>
-						</div>
-					</c:forEach>
+					<div class="notice">
+   						<div class="title">${ noticeList[0].title }</div>
+					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
@@ -122,14 +119,13 @@
 	};
 
 
-
-	const titleElement = document.querySelector('.title');
-
-
-	titleElement.addEventListener('click', () => {
-
-		window.location.href = '${pageContext.request.contextPath}/notice/noticeDetail.do?no=85';
-	});
+		// 공지사항 클릭시 해당 페이지로 이동
+		const titleElement = document.querySelector('.title');
+	
+		titleElement.addEventListener('click', () => {
+	
+			window.location.href = '${pageContext.request.contextPath}/notice/noticeDetail.do?no=182';
+		});
 </script>
 </body>
 </html>

@@ -21,14 +21,10 @@
 			    <div class="snb">
 			        <ul>
 						<li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-						<li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는
-								질문<i></i></a></li>
-						<li class='on'><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
-						</li>
-						<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a>
-						</li>
-						<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역
-								확인<i></i></a></li>
+						<li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+						<li class='on'><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+						<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+						<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 					</ul>
 			    </div>
 		</div>
@@ -41,7 +37,6 @@
                     <input type="hidden" id="hIsTemp" name="hIsTemp" value="N" />
                     <input type="hidden" id="hIdx" name="hIdx" value="" />
                     <fieldset>
-						<legend>이메일 문의</legend>
 						<div class="tbl_area">
 							<table cellspacing="0" cellpadding="0" class="tbl_notice_list tbl_left">
 								<colgroup>
@@ -49,7 +44,7 @@
                                     <col style="width:303px" />
                                     <col style="width:96px" />
                                     <col style="width:303px" />
-								</colgroup>
+								</colgroup> 
 								<tbody>
 									<tr>
 										<th scope="row"><label for="inp_title">제목</label></th>

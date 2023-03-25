@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movieList.css"/>
 
+
 <div id="contents">
 	<div class="cols-content">
 		<div class="col-aside">
@@ -17,14 +18,10 @@
 				고객센터 메뉴</h2>
 			<div class="snb">
 				<ul class="ul1">
-					<li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a>
-					</li>
-					<li class='on'><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a>
-					</li>
-					<li class=''><a href="${ pageContext.request.contextPath }/question/questionList.do">문의
-							관리<i></i></a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/schedule/insertSchedule2.do">상영
-							관리<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/member/memberList.do">회원 관리<i></i></a></li>
+					<li class='on'><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/question/questionList.do">문의 관리<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/schedule/insertSchedule2.do">상영 관리<i></i></a></li>
 				</ul>
 			</div>
 		</div>
@@ -100,5 +97,6 @@
 		});
 	});
 </script>
+
 </body>
 </html>

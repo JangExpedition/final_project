@@ -18,14 +18,10 @@
 			<div class="snb">
 				<ul class="ul1">
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-					<li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는
-							질문<i></i></a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
-					</li>
-					<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a>
-					</li>
-					<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역
-							확인<i></i></a></li>
+					<li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 				</ul>
 			</div>
 		</div>
@@ -78,7 +74,7 @@
 			</sec:authorize>
 
 
-			<div class="c_tab_wrap">
+			<div class="c_tab_wrap2">
 
 				
 			</div>
@@ -90,9 +86,9 @@
 							>예매/매표</a></li>
 					<li class=''><a
 							href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=결제수단"
-							>관람권/결제수단</a></li>
+							>관람권/결제수</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=멤버쉽"
-							>멤버쉽/클럽서비</a></li>
+							>멤버쉽/클럽서</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=VIP"
 							>VIP관련</a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=할인"
@@ -105,25 +101,18 @@
 							>기프트샵</a></li>
 					<li class=''><a
 							href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=홈페이지"
-							>홈페이지/모바일</a></li>
+							>홈페이지/모바</a></li>
 
 				</ul>
 			</div>
 			<div class="tbl_area">
 				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
-					<colgroup>
-						<col style="width:40px;" />
-						<col style="width:120px;" />
-						<col style="width:560px;" />
-						<col style="auto" />
-					</colgroup>
 					<thead>
 						<tr>
-							<th scope="col">번호</th>
-							<th scope="col">구분</th>
-							<th scope="col">제목</th>
-							<th scope="col">등록일</th>
-<!-- 							<th scope="col">조회수</th> -->
+							<th class="col">번호</th>
+							<th class="col">구분</th>
+							<th class="col">제목</th>
+							<th class="col">등록일</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -136,7 +125,6 @@
 									<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd" var="createdAt" />
 									<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd" />
 								</td>
-<%-- 								<td>${faq.readCount}</td> --%>
 							</tr>
 						</c:forEach>
 					</tbody>

@@ -86,7 +86,7 @@ console.log(msg);
   <!-- 서비스 메뉴 -->
 </div>
 <!-- 서브 메뉴 -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
 	<div id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 		<li class="nav-item active">

@@ -20,12 +20,9 @@
 				<ul class="ul1">
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는 질문<i></i></a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
-					</li>
-					<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a>
-					</li>
-					<li class='on'><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역
-							확인<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+					<li class='on'><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 				</ul>
 			</div>
 		</div>

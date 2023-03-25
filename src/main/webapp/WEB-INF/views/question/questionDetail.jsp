@@ -66,7 +66,7 @@
 						<textarea name="content" placeholder=""></textarea>
 						<input type="hidden" value="${question.no}" name="qNo" />
 						<input type="hidden" value="admin" name="id" />
-						<input type="submit" value="답변 등록" />
+						<input type="submit" id="submit" value="답변 등록" />
 					</td>
 				</tr>
 			</form:form>

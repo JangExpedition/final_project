@@ -53,12 +53,11 @@
 				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
 					<thead>
 						<tr>
-							<th scope="col">문의 번호</th>
-							<th scope="col">제목</th>
-							<th scope="col">문의 유형</th>
-							<th scope="col">이름</th>
-							<!-- 				      <th scope="col">이메일</th> -->
-							<th scope="col">문의일</th>
+							<th class="col">문의 번호</th>
+							<th class="col">제목</th>
+							<th class="col">문의 유형</th>
+							<th class="col">이름</th>
+							<th class="col">문의일</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -68,7 +67,6 @@
 								<td>${question.title}</td>
 								<td>${question.type.krName}</td>
 								<td>${question.name}</td>
-								<%-- <td>${question.email}</td> --%>
 									<td>
 										<fmt:parseDate value="${question.regDate}" pattern="yyyy-MM-dd" var="regDate" />
 										<fmt:formatDate value="${regDate}" pattern="yy/MM/dd" />
