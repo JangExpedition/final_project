@@ -45,6 +45,7 @@
 				</div>
 				<div class="button-group">
 					<div class="button2">
+					
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
 						  <form:form name="faqDeleteFrm" action="${pageContext.request.contextPath}/faq/deleteFaq.do" method="post" onsubmit="return confirm('해당 게시물을 삭제하시겠습니까?')">
 						    <input type="hidden" name="no" value="${faq.no}" />
