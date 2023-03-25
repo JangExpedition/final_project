@@ -393,3 +393,7 @@ a {
 .col:last-child {
   width: auto;
 }
+
+.button-group {
+  margin-top: 20px;
+}
