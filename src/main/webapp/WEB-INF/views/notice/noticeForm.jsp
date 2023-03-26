@@ -44,12 +44,12 @@
 						<legend>이메일 문의</legend>
 						<div class="tbl_area">
 							<table cellspacing="0" cellpadding="0" class="tbl_notice_list tbl_left">
-								<colgroup>
+								<%-- <colgroup>
 									<col style="width:96px" />
                                     <col style="width:303px" />
                                     <col style="width:96px" />
                                     <col style="width:303px" />
-								</colgroup>
+								</colgroup> --%>
 								<tbody>
 									<tr>
 										<th scope="row"><label for="inp_title">제목</label></th>
