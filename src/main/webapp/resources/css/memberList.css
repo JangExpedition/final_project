@@ -19,8 +19,14 @@ tr[data-no] {
 }
 
 #myElement {
-   max-width: 200px;
-   height: 38px;
+    max-width: 275px;
+    height: 38px;
+    display: inline-block;
+    height: 25px;
+    line-height: 22px;
+    padding-left: 10px;
+    border: 1px solid #b5b5b5;
+    margin-right: 10px;
 }
  
 #se{
@@ -30,10 +36,9 @@ tr[data-no] {
     height: 35px;
 }
 
-html, body, div, span,a, em, ol, 
+html, em, ol, 
 ul, li, form, label, legend, table,tbody,
 tfoot, thead, tr, th, td {
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
 	font-size:100%;
 	margin:0;
 	padding:0;
@@ -43,7 +48,7 @@ tfoot, thead, tr, th, td {
 }
 
 body {
-	line-height:1; 
+	line-height:1.5; 
 	color:black; 
 }
 
@@ -75,21 +80,10 @@ html, body {
 	height:100%;
 }
 
-html {
-	overflow-y:scroll;
-}
-
 body, input, textarea, select, button, table {
-	/* font-size:13px;  */
-	line-height:1.2; 
-	/* color:#666;  */
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
+	line-height:1.5; 
 	font-weight:400
 }
-
-/* table thead th {
-	font-weight:500;
-} */
 
 a:focus, a:hover {
 	text-decoration:none;
@@ -361,10 +355,10 @@ table caption {
     justify-content: center;
 }
 
-form {
+/* form {
   margin: auto;
   width: 50%;
-}
+} */
 
 .input-group {
 	width:100%;
@@ -385,4 +379,15 @@ form {
 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
+}
+
+.btn-outline-secondary {
+    background: #222222;
+    border: 2px solid #222222;
+    color: #ffffff;
+    line-height: 21px;
+    padding: 0 12px;
+    border: 1px solid #5b5b58;
+    box-sizing: border-box;
+    font-size: 12px;
 }

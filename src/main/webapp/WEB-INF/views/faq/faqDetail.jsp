@@ -17,19 +17,11 @@
 				고객센터 메뉴</h2>
 			<div class="snb">
 				<ul>
-					<li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터
-							메인<i></i></a></li>
-					<li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do"
-							title="현재선택">자주찾는 질문<i></i></a></li>
-					<li class=''><a
-							href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
-					</li>
-					<li class=''><a
-							href="${ pageContext.request.contextPath }/question/question.do">1:1
-							문의<i></i></a></li>
-					<li class=''><a
-							href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의
-							내역 확인<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
+					<li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
+					</li><li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인<i></i></a></li>
 				</ul>
 			</div>
 		</div>
@@ -53,6 +45,7 @@
 				</div>
 				<div class="button-group">
 					<div class="button2">
+					
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
 						  <form:form name="faqDeleteFrm" action="${pageContext.request.contextPath}/faq/deleteFaq.do" method="post" onsubmit="return confirm('해당 게시물을 삭제하시겠습니까?')">
 						    <input type="hidden" name="no" value="${faq.no}" />

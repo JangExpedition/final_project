@@ -228,6 +228,39 @@
 	border: none;
 }
 
+/* 상영 시케쥴 확인 세션 */
+.theaterName{
+	margin: 0;
+}
+
+.scheduleList{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 10px;
+}
+
+.scheduleTime{
+	border: 1px solid #666;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	margin-right: 10px;
+	padding: 3px;
+	cursor: pointer;
+}
+
+.schduleEnd{
+	border: 1px solid #666;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	margin-right: 10px;
+	padding: 3px;
+	text-decoration: line-through;
+	cursor: default;
+}
+
 /* 예매확인 세션 */
 .reservation-check-section{
 	width: 100%;

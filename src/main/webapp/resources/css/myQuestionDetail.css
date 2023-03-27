@@ -169,3 +169,7 @@ h1 {
 	display: flex;
     justify-content: center;
 }
+
+body{
+  line-height: 1.5;
+}

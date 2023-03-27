@@ -150,8 +150,9 @@ window.onload = () =>{
 	});
 	
 	monthArr.forEach((month)=>{
-		if(!months.includes(month))
-			months.push(month);
+		const monthStr = ("0" + month).slice(-2);
+		if(!months.includes(monthStr))
+			months.push(monthStr);
 	});
 	
 	const dayList = document.querySelector("#dayList");
@@ -434,6 +435,7 @@ const selectReservationDay = (reservationDay) =>{
 	
 };
 
+// 상영스케쥴 가져오기 메서드
 const getSchedule = () => {
 
 	const movieNo = document.querySelector(".movieTitleSelected").dataset.movieNo;
@@ -447,33 +449,68 @@ const getSchedule = () => {
 		data: {cinemaName},
 		success(theaterList){
 			
-			const scheduleList = document.querySelector("#scheduleList");
+			const sche = document.querySelector("#scheduleList");
 			
 			scheduleList.innerHTML = "";
 			
 			theaterList.forEach((theater)=>{
-				const div = document.createElement("div");
-				div.className = "oneTheater";
-				const p = document.createElement("p");
-				p.className = "theaterName";
-				p.innerText = theater.theaterNo + "관";
-				div.append(p);
-				scheduleList.append(div);
 				
 				$.ajax({
 					url: "${pageContext.request.contextPath}/reservation/selectScheduleList.do",
 					data: {movieNo, theaterNo : theater.no, reservationDay},
 					success(scheduleList){
 						console.log(scheduleList);
-					},
+						
+						if(scheduleList.length > 0){
+							
+							const div = document.createElement("div");
+							div.className = "oneTheater";
+							const p = document.createElement("p");
+							p.className = "theaterName";
+							p.innerText = theater.theaterNo + "관";
+							const scheduleListDiv = document.createElement("div");
+							scheduleListDiv.className = "scheduleList";
+							div.append(p);
+							div.append(scheduleListDiv);
+							sche.append(div);
+						
+							scheduleList.forEach((schedule)=>{
+								const {startTime} = schedule;
+								const scheduleDiv = document.createElement("div");
+								scheduleDiv.innerText = startTime.substr(11);
+								
+								let nowTime = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(11, 16);
+								
+								scheduleDiv.dataset.theaterNo = theater.no;
+								
+								if(scheduleDiv.innerText < nowTime){
+									scheduleDiv.className = "schduleEnd";
+								}
+								else{
+									scheduleDiv.className = "scheduleTime";
+								}
+								
+								scheduleListDiv.append(scheduleDiv);
+							}); // scheduleList forEach end
+						} // if end
+					}, // second ajax success end
 					error: console.log
-				});
-				
-			});
-			
-		},
+				}); // second ajax end
+			}); // theaterList forEach end
+		}, // first ajax success end
 		error: console.log
-	});
+	}); // first ajax end
+}; // end method
+
+// 상영 스케쥴 선택 메서드
+$(document).on("click", ".scheduleTime", function(e){
+	selectSchedule(e.target);
+});
+
+// 상영 스케쥴 선택 효과 메서드
+const selectSchedule = (schedule) => {
+	document.querySelector("#checkScheduel span").innerText += " " + schedule.innerText;
+	document.querySelector("#checkTheater span").innerText = schedule.dataset.theaterNo + "관";
 };
 </script>
 </body>

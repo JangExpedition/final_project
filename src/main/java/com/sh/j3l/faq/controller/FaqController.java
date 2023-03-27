@@ -14,6 +14,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.j3l.faq.model.dto.Faq;
 import com.sh.j3l.faq.model.service.FaqService;
+import com.sh.j3l.notice.model.dto.Notice;
+import com.sh.j3l.notice.model.service.NoticeService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,9 +27,16 @@ public class FaqController {
 	@Autowired
 	private FaqService faqService;
 	
+	@Autowired
+	private NoticeService noticeService;
+	
 	
 	@GetMapping("/main.do")
-	public void main() {}
+	public void main(Model model) {
+		
+		List<Notice> noticeList = noticeService.selectAllNotice();
+		model.addAttribute("noticeList", noticeList);
+	}
 	
 	@GetMapping("/faqForm.do")
 	public void faqForm() {}

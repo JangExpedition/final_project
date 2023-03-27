@@ -38,7 +38,6 @@ tr[data-no] {
 html, body, div, span,a, em, ol, 
 ul, li, form, label, legend, table,tbody,
 tfoot, thead, tr, th, td {
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
 	font-size:100%;
 	margin:0;
 	padding:0;
@@ -48,7 +47,7 @@ tfoot, thead, tr, th, td {
 }
 
 body {
-	line-height:1; 
+	line-height:1.5; 
 	color:black; 
 }
 
@@ -80,20 +79,9 @@ html, body {
 	height:100%;
 }
 
-html {
-	overflow-y:scroll;
-}
-
 body, input, textarea, select, button, table {
-	/* font-size:13px;  */
-	line-height:1.2; 
-	/* color:#666;  */
-	font-family:'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif; 
+	line-height:1.5; 
 	font-weight:400
-}
-
-table thead th {
-	/* font-weight:500; */
 }
 
 a:focus, a:hover {
@@ -399,9 +387,23 @@ p {
 
 .h2, h2 {
     font-size: 1.5rem;
-    /* font-weight: 500; */
 }
 
 #pare{
 	margin : 25px;
+}
+
+#myElement {
+  margin-right: 10px;
+}
+
+.stit{
+	color: gray;
+}
+
+.tbl_notice_list tbody tr:hover td:nth-child(2) {
+  text-decoration: underline;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
 }
