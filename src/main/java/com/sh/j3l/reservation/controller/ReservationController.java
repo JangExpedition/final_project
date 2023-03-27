@@ -75,11 +75,11 @@ public class ReservationController {
 	@GetMapping("/selectScheduleList.do")
 	@ResponseBody
 	public List<Schedule> selectScheduleList(@RequestParam int movieNo, @RequestParam int theaterNo, @RequestParam String reservationDay){
-		log.debug("movieNo = {}, theaterNo = {}", movieNo, theaterNo);
 		List<Schedule> _scheduleList = scheduleService.selectScheduleList(movieNo, theaterNo);
 		List<Schedule> scheduleList = _scheduleList.stream()
-											.filter((schedule)-> schedule.getStartTime().substring(0, 9) == reservationDay)
+											.filter((schedule)-> schedule.getStartTime().substring(0, 10).equals(reservationDay))
 											.collect(Collectors.toList());
+		log.debug("scheduleList = {}", scheduleList);
 		return scheduleList;
 	}
 }
