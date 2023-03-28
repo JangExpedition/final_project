@@ -1,4 +1,4 @@
-package com.sh.j3l.reservation.model.dto;
+package com.sh.j3l.seat.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Seat {
 
-	private int theaterNo;
+	private int scheduleNo;
 	private SeatNo seatNo;
-	private IsSelected isSelected;
 }
