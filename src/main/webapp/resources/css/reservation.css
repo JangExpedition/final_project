@@ -261,6 +261,171 @@
 	cursor: default;
 }
 
+.scheduleSelected{
+	background-color : #333;
+	color: #fff;
+}
+
+/* 예매구간2 */
+.steps2{
+	display: none;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+/* 인원 선택 및 예약내역 재확인 */
+.personnelAndSeat{
+	width: 100%;
+	height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	border-bottom: 2px solid #d4d3c9;
+}
+
+.personnelAndSeat>div{
+	width: 50%;
+	height: 100%;
+	padding: 0 10px;
+}
+
+#personnel{
+	border-right: 1px solid #d4d3c9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 12px;
+	color: #666;
+}
+
+#limitPeopleCnt{
+	width: 100%;
+	text-align: end;
+	color: #FF0000;
+	font-size: 11px;
+	margin-bottom: 5px;
+}
+
+#personnel>div{
+	display: flex;
+	margin-bottom: 5px;
+}
+
+#personnel>div>div{
+	width: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#personnel>div>input{
+	height: 20px;	
+}
+
+#reChecked{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#reChecked>div{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 10px;
+}
+
+#reChecked>div:first-child>span{
+	margin-right: 5px;
+	color: #333;
+}
+
+#reChecked>div:last-child>h3{
+	font-size: 23px;
+	color: #333;
+	font-wieght: bold;
+}
+
+/* 좌석 선택 */
+.selectSeat{
+	width: 100%;
+	height: 450px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 30px 50px;
+}
+
+#screen{
+	width: 100%;
+	background-image: url('../images/screen.png');
+	text-align: center;
+	font-weight: bold;
+	padding: 3px 0;
+}
+
+.selectSeat>div:last-child{
+	width: 100%;
+	height: 366px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#seatList{
+	width: 300px;
+	height: 250px;
+}
+
+.row{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 16px;
+}
+
+.rowName{
+	width: 15px;
+	height: 15px;
+	font-size: 10px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid #666;
+	border-right: 1px solid #666;
+}
+
+.seat{
+	width: 15px;
+	height: 15px;
+	font-size: 10px;
+	background-color: #333;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #f2f0e5;
+	cursor: pointer;
+}
+
+.notAllow{
+	cursor: default !important;
+	background-color: #666 !important;
+	disabled: true;
+}
+
+.seatSelected{
+	background-color: #ff0000;
+}
+
+
 /* 예매확인 세션 */
 .reservation-check-section{
 	width: 100%;
@@ -301,6 +466,7 @@
 .check2>p{
 	font-size: 12px;
 	display: none;
+	margin-bottom: 5px;
 }
 
 .check2>p>span{
@@ -308,11 +474,70 @@
 }
 
 .check3{
-	width: 10% !important;
+	width: 20% !important;
+	height: 100%;
+	color: #ccc;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.check3>p{
+	font-size: 12px;
+	display: none;
+	margin-bottom: 5px;
+}
+
+.check3>p>span{
+	font-weight: bold;
 }
 
 .check4{
-	width: 40% !important;
+	width: 20% !important;
+	height: 100%;
+	color: #ccc;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.check4>p{
+	font-size: 12px;
+	display: none;
+	margin-bottom: 5px;
+}
+
+.check4>p>span{
+	font-weight: bold;
+}
+
+.nextStep{
+	width: 10%;
+	height: 100%;
+	padding: 10px;
+}
+
+#nextStepBtn{
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	background-color: #bf2828;
+	border-radius: 10px;
+	display: none;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	cursor: pointer;
+}
+
+#nextStepBtn>h3, #nextStepBtn>p{
+	text-align: center;
+	font-weight: bold;
+	width: 100%;
 }
 
 #moviePoster{

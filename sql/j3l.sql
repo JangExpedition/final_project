@@ -17,6 +17,7 @@ select * from question_attachment;
 select * from question_answer;
 select * from notice;
 select * from faq;
+select * from seat;
 
 --===============================
 -- 관리자 계정 생성
@@ -138,6 +139,218 @@ insert into theater values(seq_theater_no.nextval, 8, '송도타임스페이스�
 insert into theater values(seq_theater_no.nextval, 9, '송도타임스페이스점');
 insert into theater values(seq_theater_no.nextval, 10, '송도타임스페이스점');
 
+--===============================
+-- 좌석 데이터 
+--===============================
+insert into seat values(1, 'A1', default);
+insert into seat values(1, 'A2', default);
+insert into seat values(1, 'A3', default);
+insert into seat values(1, 'A4', default);
+insert into seat values(1, 'A5', default);
+insert into seat values(1, 'A6', default);
+insert into seat values(1, 'A7', default);
+insert into seat values(1, 'A8', default);
+insert into seat values(1, 'A9', default);
+insert into seat values(1, 'A10', default);
+insert into seat values(1, 'A11', default);
+insert into seat values(1, 'A12', default);
+insert into seat values(1, 'A13', default);
+insert into seat values(1, 'A14', default);
+insert into seat values(1, 'A15', default);
+
+insert into seat values(1, 'B1', default);
+insert into seat values(1, 'B2', default);
+insert into seat values(1, 'B3', default);
+insert into seat values(1, 'B4', default);
+insert into seat values(1, 'B5', default);
+insert into seat values(1, 'B6', default);
+insert into seat values(1, 'B7', default);
+insert into seat values(1, 'B8', default);
+insert into seat values(1, 'B9', default);
+insert into seat values(1, 'B10', default);
+insert into seat values(1, 'B11', default);
+insert into seat values(1, 'B12', default);
+insert into seat values(1, 'B13', default);
+insert into seat values(1, 'B14', default);
+insert into seat values(1, 'B15', default);
+
+insert into seat values(1, 'C1', default);
+insert into seat values(1, 'C2', default);
+insert into seat values(1, 'C3', default);
+insert into seat values(1, 'C4', default);
+insert into seat values(1, 'C5', default);
+insert into seat values(1, 'C6', default);
+insert into seat values(1, 'C7', default);
+insert into seat values(1, 'C8', default);
+insert into seat values(1, 'C9', default);
+insert into seat values(1, 'C10', default);
+insert into seat values(1, 'C11', default);
+insert into seat values(1, 'C12', default);
+insert into seat values(1, 'C13', default);
+insert into seat values(1, 'C14', default);
+insert into seat values(1, 'C15', default);
+
+insert into seat values(1, 'D1', default);
+insert into seat values(1, 'D2', default);
+insert into seat values(1, 'D3', default);
+insert into seat values(1, 'D4', default);
+insert into seat values(1, 'D5', default);
+insert into seat values(1, 'D6', default);
+insert into seat values(1, 'D7', default);
+insert into seat values(1, 'D8', default);
+insert into seat values(1, 'D9', default);
+insert into seat values(1, 'D10', default);
+insert into seat values(1, 'D11', default);
+insert into seat values(1, 'D12', default);
+insert into seat values(1, 'D13', default);
+insert into seat values(1, 'D14', default);
+insert into seat values(1, 'D15', default);
+
+insert into seat values(1, 'E1', default);
+insert into seat values(1, 'E2', default);
+insert into seat values(1, 'E3', default);
+insert into seat values(1, 'E4', default);
+insert into seat values(1, 'E5', default);
+insert into seat values(1, 'E6', default);
+insert into seat values(1, 'E7', default);
+insert into seat values(1, 'E8', default);
+insert into seat values(1, 'E9', default);
+insert into seat values(1, 'E10', default);
+insert into seat values(1, 'E11', default);
+insert into seat values(1, 'E12', default);
+insert into seat values(1, 'E13', default);
+insert into seat values(1, 'E14', default);
+insert into seat values(1, 'E15', default);
+
+insert into seat values(1, 'F1', default);
+insert into seat values(1, 'F2', default);
+insert into seat values(1, 'F3', default);
+insert into seat values(1, 'F4', default);
+insert into seat values(1, 'F5', default);
+insert into seat values(1, 'F6', default);
+insert into seat values(1, 'F7', default);
+insert into seat values(1, 'F8', default);
+insert into seat values(1, 'F9', default);
+insert into seat values(1, 'F10', default);
+insert into seat values(1, 'F11', default);
+insert into seat values(1, 'F12', default);
+insert into seat values(1, 'F13', default);
+insert into seat values(1, 'F14', default);
+insert into seat values(1, 'F15', default);
+
+insert into seat values(1, 'G1', default);
+insert into seat values(1, 'G2', default);
+insert into seat values(1, 'G3', default);
+insert into seat values(1, 'G4', default);
+insert into seat values(1, 'G5', default);
+insert into seat values(1, 'G6', default);
+insert into seat values(1, 'G7', default);
+insert into seat values(1, 'G8', default);
+insert into seat values(1, 'G9', default);
+insert into seat values(1, 'G10', default);
+insert into seat values(1, 'G11', default);
+insert into seat values(1, 'G12', default);
+insert into seat values(1, 'G13', default);
+insert into seat values(1, 'G14', default);
+insert into seat values(1, 'G15', default);
+
+insert into seat values(1, 'H1', default);
+insert into seat values(1, 'H2', default);
+insert into seat values(1, 'H3', default);
+insert into seat values(1, 'H4', default);
+insert into seat values(1, 'H5', default);
+insert into seat values(1, 'H6', default);
+insert into seat values(1, 'H7', default);
+insert into seat values(1, 'H8', default);
+insert into seat values(1, 'H9', default);
+insert into seat values(1, 'H10', default);
+insert into seat values(1, 'H11', default);
+insert into seat values(1, 'H12', default);
+insert into seat values(1, 'H13', default);
+insert into seat values(1, 'H14', default);
+insert into seat values(1, 'H15', default);
+
+insert into seat values(1, 'I1', default);
+insert into seat values(1, 'I2', default);
+insert into seat values(1, 'I3', default);
+insert into seat values(1, 'I4', default);
+insert into seat values(1, 'I5', default);
+insert into seat values(1, 'I6', default);
+insert into seat values(1, 'I7', default);
+insert into seat values(1, 'I8', default);
+insert into seat values(1, 'I9', default);
+insert into seat values(1, 'I10', default);
+insert into seat values(1, 'I11', default);
+insert into seat values(1, 'I12', default);
+insert into seat values(1, 'I13', default);
+insert into seat values(1, 'I14', default);
+insert into seat values(1, 'I15', default);
+
+insert into seat values(1, 'J1', default);
+insert into seat values(1, 'J2', default);
+insert into seat values(1, 'J3', default);
+insert into seat values(1, 'J4', default);
+insert into seat values(1, 'J5', default);
+insert into seat values(1, 'J6', default);
+insert into seat values(1, 'J7', default);
+insert into seat values(1, 'J8', default);
+insert into seat values(1, 'J9', default);
+insert into seat values(1, 'J10', default);
+insert into seat values(1, 'J11', default);
+insert into seat values(1, 'J12', default);
+insert into seat values(1, 'J13', default);
+insert into seat values(1, 'J14', default);
+insert into seat values(1, 'J15', default);
+
+insert into seat values(1, 'K1', default);
+insert into seat values(1, 'K2', default);
+insert into seat values(1, 'K3', default);
+insert into seat values(1, 'K4', default);
+insert into seat values(1, 'K5', default);
+insert into seat values(1, 'K6', default);
+insert into seat values(1, 'K7', default);
+insert into seat values(1, 'K8', default);
+insert into seat values(1, 'K9', default);
+insert into seat values(1, 'K10', default);
+insert into seat values(1, 'K11', default);
+insert into seat values(1, 'K12', default);
+insert into seat values(1, 'K13', default);
+insert into seat values(1, 'K14', default);
+insert into seat values(1, 'K15', default);
+
+insert into seat values(1, 'L1', default);
+insert into seat values(1, 'L2', default);
+insert into seat values(1, 'L3', default);
+insert into seat values(1, 'L4', default);
+insert into seat values(1, 'L5', default);
+insert into seat values(1, 'L6', default);
+insert into seat values(1, 'L7', default);
+insert into seat values(1, 'L8', default);
+insert into seat values(1, 'L9', default);
+insert into seat values(1, 'L10', default);
+insert into seat values(1, 'L11', default);
+insert into seat values(1, 'L12', default);
+insert into seat values(1, 'L13', default);
+insert into seat values(1, 'L14', default);
+insert into seat values(1, 'L15', default);
+
+insert into seat values(1, 'M1', default);
+insert into seat values(1, 'M2', default);
+insert into seat values(1, 'M3', default);
+insert into seat values(1, 'M4', default);
+insert into seat values(1, 'M5', default);
+insert into seat values(1, 'M6', default);
+insert into seat values(1, 'M7', default);
+insert into seat values(1, 'M8', default);
+insert into seat values(1, 'M9', default);
+insert into seat values(1, 'M10', default);
+insert into seat values(1, 'M11', default);
+insert into seat values(1, 'M12', default);
+insert into seat values(1, 'M13', default);
+insert into seat values(1, 'M14', default);
+insert into seat values(1, 'M15', default);
+
+
 
 --===============================
 -- 영화 데이터 
@@ -248,8 +461,6 @@ CREATE TABLE cinema (
     constraint fk_location_name foreign key(location_name) references location on delete cascade
 );
 
-select * from cinema;
-
 -- 상영관 테이블
 CREATE TABLE theater (
 	no	number NOT NULL,
@@ -267,20 +478,14 @@ CREATE TABLE theater (
 create sequence seq_theater_no;
 
 create table seat (
-    theater_no number not null,
-    seat_no char(2) not null,
-    is_selected char(1) default 'X' not null,
-    constraint pk_seat primary key(theater_no, seat_no),
-    constraint fk_seat_theater_no foreign key(theater_no)
-                            references theater
+    schedule_no number not null,
+    seat_no varchar2(3) not null,
+    constraint pk_seat primary key(schedule_no, seat_no),
+    constraint fk_seat_schedule_no foreign key(schedule_no)
+                            references schedule
                             on delete cascade,
-    constraint ck_seat_no check(seat_no >= 'A1' and 'M15' >= seat_no),
-    constraint ck_is_selected check(is_selected in('X', 'O'))
+    constraint ck_seat_no check(seat_no >= 'A1' and 'M9' >= seat_no)
 );
-
-
-
-
 
 -- 상영시간표 테이블
 CREATE TABLE schedule (
@@ -292,12 +497,6 @@ CREATE TABLE schedule (
     constraint pk_scheduel_no primary key(no)
 );
 
-<<<<<<< HEAD
-select * from schedule;
-
-
-=======
->>>>>>> branch 'master' of https://github.com/Jangcccci/final_project.git
 -- 상영시간표 테이블 시퀀스
 create sequence seq_schedule_no;
 
@@ -319,11 +518,6 @@ CREATE TABLE movie (
     constraint pk_movie_no primary key(no)
 );
 
-select * from movie;
-
-
-select * from movie;
-
 -- 영화 테이블 시퀀스
 create sequence seq_movie_no;
 
@@ -338,10 +532,6 @@ CREATE TABLE movie_attachment (
                                     references movie
                                     on delete cascade
 );
-
-
-select * from movie_attachment;
-
 
 -- 영화 첨부파일 시퀀스
 create sequence seq_movie_attach_no;
@@ -381,8 +571,6 @@ CREATE TABLE question (
                                 references member
                                 on delete cascade
 );
-
-select * from question;
 
 -- 문의게시판 테이블 시퀀스
 create sequence seq_question_no;
@@ -434,8 +622,6 @@ CREATE TABLE notice (
     constraint pk_notice_no primary key(no)
 );
 
-select * from notice;
-
 -- 공지사항 테이블 시퀀스
 create sequence seq_notice_no;
 
@@ -451,8 +637,6 @@ CREATE TABLE FAQ (
     created_at date default sysdate,
     constraint pk_faq_no primary key(no)
 );
-
-select * from faq;
 
 -- 자주묻는 질문 시퀀스
 create sequence seq_faq_no;

@@ -2,7 +2,6 @@ package com.sh.j3l.reservation.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +20,8 @@ import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.movie.model.service.MovieService;
 import com.sh.j3l.schedule.model.dto.Schedule;
 import com.sh.j3l.schedule.model.service.ScheduleService;
+import com.sh.j3l.seat.model.dto.Seat;
+import com.sh.j3l.seat.model.service.SeatService;
 import com.sh.j3l.theater.model.dto.Theater;
 import com.sh.j3l.theater.model.service.TheaterService;
 
@@ -42,6 +43,9 @@ public class ReservationController {
 	
 	@Autowired
 	private ScheduleService scheduleService;
+	
+	@Autowired
+	private SeatService seatService;
 
 	@GetMapping("/reservation.do")
 	public void reservation(Model model) {
@@ -81,5 +85,11 @@ public class ReservationController {
 											.collect(Collectors.toList());
 		log.debug("scheduleList = {}", scheduleList);
 		return scheduleList;
+	}
+	
+	@GetMapping("/selectAllSeat.do")
+	@ResponseBody
+	public List<Seat> selectAllSeat(@RequestParam int scheduleNo){
+		return seatService.selectAllSeat(scheduleNo);
 	}
 }
