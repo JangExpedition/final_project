@@ -18,8 +18,8 @@
 			<button id="resetBtn" type="button"><i class="fa-solid fa-rotate-right"></i> 예매 다시하기</button>
 		</div>
 	</div>
-	<!-- 예매 구간 -->
-	<div class="steps">
+	<!-- 예매 구간1 -->
+	<div class="steps steps1">
 		<!-- 영화선택 구간 -->
 		<div class="step">
 			<div class="table-head">영화</div>
@@ -66,7 +66,38 @@
 			</div>
 		</div>
 	</div>
-	<!-- 예매 구간 -->
+	<!-- 예매 구간1 -->
+	<!-- 예매 구간2 -->
+	<div class="steps steps2">
+		<div class="table-head">인원/좌석</div>
+		<div class="personnelAndSeat">
+			<div id="personnel">
+				<p id="limitPeopleCnt">* 최대 8명 선택 가능</p>
+				<div><div>일반 </div><input class="numberOfPeople" type="number" min="0"/></div>
+				<div><div>청소년 </div><input class="numberOfPeople" type="number" min="0"/></div>
+				<div><div>경로 </div><input class="numberOfPeople" type="number" min="0"/></div>
+			</div>
+			<div id="reChecked">
+				<div>
+					<span id="reCheckedCinema"></span>
+					<span id="reCheckedTheater"></span>
+					<span></span>
+				</div>
+				<div>
+					<h3 id="reCheckedSchedule"></h3>
+				</div>
+			</div>
+		</div>
+		<div class="selectSeat">
+			<div id="screen">SCREEN</div>
+			<div>
+				<div id="seatList">
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 예매 구간2 -->
 </section>
 <!-- 예매 섹션 -->
 <!-- 예매확인 섹션 -->
@@ -81,12 +112,23 @@
 		<div id="CheckInfo" class="check2">
 			<h3>극장선택</h3>
 			<p id="checkCinema">극장 <span></span></p>			
-			<p id="checkScheduel">일시 <span></span></p>			
+			<p id="checkSchedule">일시 <span></span></p>			
 			<p id="checkTheater">상영관 <span></span></p>			
+			<p id="checkPeople">인원 <span></span></p>			
 		</div>
-		<div class="check3">
+		<div id="seatCheck" class="check3">
+			<h3>좌석선택</h3>
+			<p id="checkSeatNumber">좌석번호 <span></span></p>
 		</div>
-		<div class="check4">
+		<div id="paymentCheck" class="check4">
+			<h3>결제</h3>
+			<p id="checkTotalPayment">총금액 <span></span></p>
+		</div>
+		<div class="check nextStep">
+			<div id="nextStepBtn">
+				<h3>></h3>
+				<p>좌석선택</p>
+			</div>
 		</div>
 	</div>
 </section>
@@ -174,13 +216,13 @@ window.onload = () =>{
 					dayList.innerHTML += `
 					<div>
 						<h1 class="reservationMonth">\${ months[0] }</h1>
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					`;
 				}
 				else {
 					dayList.innerHTML += `
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					</div>
 					`;
 				}
@@ -201,18 +243,18 @@ window.onload = () =>{
 					dayList.innerHTML += `
 					<div>
 						<h1 class="reservationMonth">\${ months[0] }</h1>
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					`;
 				}
 				else if(date[i] > date[i-1]){
 					dayList.innerHTML += `
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					`;
 				}
 				else{
 					dayList.innerHTML += `
 							<h1 class="reservationMonth">\${ months[1] }</h1>
-							<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[1]}-\${date[i]}"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+							<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[1]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 						</div>
 						`;
 				}
@@ -264,7 +306,7 @@ const filterEffect = (filterName) =>{
 					
 					data.forEach((movie)=>{
 						
-						const {title, limitAge, attachments, no} = movie;
+						const {title, limitAge, attachments, no, startTime, endTime} = movie;
 						
 						const movieTitle = document.createElement("div");
 						movieTitle.classList = "movieTitle";
@@ -425,7 +467,7 @@ const selectReservationDay = (reservationDay) =>{
 	document.querySelectorAll("#CheckInfo p").forEach((p)=>{
 		p.style.display = "inline";
 	});
-	document.querySelector("#checkScheduel > span").innerText = reservationDay.dataset.reservationday; 
+	document.querySelector("#checkSchedule > span").innerText = reservationDay.dataset.reservationday; 
 	
 	isSelected3 = true;
 	
@@ -440,10 +482,8 @@ const getSchedule = () => {
 
 	const movieNo = document.querySelector(".movieTitleSelected").dataset.movieNo;
 	const cinemaName = document.querySelector(".selectedCinema").innerText;
-	const reservationDay = document.querySelector(".selectedDay").dataset.reservationday;
+	const reservationDay = document.querySelector(".selectedDay").dataset.reservationday.slice(0,10);
 
-	console.log(movieNo, cinemaName, reservationDay);
-	
 	$.ajax({
 		url: "${pageContext.request.contextPath}/reservation/selectTheaterList.do",
 		data: {cinemaName},
@@ -459,7 +499,6 @@ const getSchedule = () => {
 					url: "${pageContext.request.contextPath}/reservation/selectScheduleList.do",
 					data: {movieNo, theaterNo : theater.no, reservationDay},
 					success(scheduleList){
-						console.log(scheduleList);
 						
 						if(scheduleList.length > 0){
 							
@@ -475,13 +514,15 @@ const getSchedule = () => {
 							sche.append(div);
 						
 							scheduleList.forEach((schedule)=>{
-								const {startTime} = schedule;
+								const {no, startTime, endTime} = schedule;
 								const scheduleDiv = document.createElement("div");
 								scheduleDiv.innerText = startTime.substr(11);
 								
 								let nowTime = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(11, 16);
 								
-								scheduleDiv.dataset.theaterNo = theater.no;
+								scheduleDiv.dataset.endTime = endTime.substr(11);
+								scheduleDiv.dataset.theaterNo = theater.theaterNo;
+								scheduleDiv.dataset.scheduleNo = no;
 								
 								if(scheduleDiv.innerText < nowTime){
 									scheduleDiv.className = "schduleEnd";
@@ -500,7 +541,7 @@ const getSchedule = () => {
 		}, // first ajax success end
 		error: console.log
 	}); // first ajax end
-}; // end method
+}; // 상영스케쥴 가져오기 메서드 end
 
 // 상영 스케쥴 선택 메서드
 $(document).on("click", ".scheduleTime", function(e){
@@ -509,9 +550,254 @@ $(document).on("click", ".scheduleTime", function(e){
 
 // 상영 스케쥴 선택 효과 메서드
 const selectSchedule = (schedule) => {
-	document.querySelector("#checkScheduel span").innerText += " " + schedule.innerText;
+	
+	document.querySelectorAll(".scheduleTime").forEach((scheduleTime)=>{
+		if(scheduleTime.dataset.theaterNo === schedule.dataset.theaterNo && scheduleTime.innerText === schedule.innerText){
+			scheduleTime.classList.add("scheduleSelected");
+		}
+		else{
+			if(scheduleTime.classList.contains("scheduleSelected"))
+				scheduleTime.classList.remove("scheduleSelected");
+		}
+	});
+	
+	const scheduleData = document.querySelector("#checkSchedule span");
+	const scheduleDate = scheduleData.innerText.slice(0, 13);
+	const title = document.querySelector("#reservationMovieTitle");
+	scheduleData.innerText = scheduleDate + " " + schedule.innerText;
+	title.dataset.endTime = schedule.dataset.endTime;
 	document.querySelector("#checkTheater span").innerText = schedule.dataset.theaterNo + "관";
+	document.querySelector("#checkSchedule span").dataset.scheduleNo = schedule.dataset.scheduleNo;
+	document.querySelector("#nextStepBtn").style.display = "flex";
+}; // 상영 스케쥴 선택 효과 메서드 end
+
+// 좌석선택 버튼 클릭 메서드
+document.querySelector("#nextStepBtn").addEventListener("click", (e)=>{
+	// 다음 페이지 넘기기
+	document.querySelector(".steps1").style.display = "none";
+	document.querySelector(".steps2").style.display = "flex";
+	
+	// 예약내역 재확인 정보 입력
+	document.querySelector("#reCheckedCinema").innerText = document.querySelector("#checkCinema span").innerText;
+	document.querySelector("#reCheckedTheater").innerText = document.querySelector("#checkTheater span").innerText; 
+	document.querySelector("#reCheckedSchedule").innerText = document.querySelector("#checkSchedule span").innerText
+															+ " ~ " 
+															+ document.querySelector("#reservationMovieTitle").dataset.endTime;
+	
+	// 상영관 예약된 좌석 정보 가져오기
+	const scheduleNo = document.querySelector("#checkSchedule span").dataset.scheduleNo;
+	$.ajax({
+		url: "${pageContext.request.contextPath}/reservation/selectAllSeat.do",
+		data: {scheduleNo},
+		success(notAllowSeatList){
+		
+			const seatList = document.querySelector("#seatList");
+			
+			for(let i = 65; i <= 77; i++){
+				const row = document.createElement("div");
+				row.className = "row";
+				const rowName = document.createElement("div");
+				rowName.className = "rowName";
+				rowName.innerText = String.fromCharCode(i);
+				row.append(rowName);
+				
+				for(let j = 1; j <= 15; j++){
+					
+					const seat = document.createElement("div");
+					seat.className = "seat";
+					seat.dataset.seatNo = String.fromCharCode(i) + j;
+					seat.innerText = j;
+					
+					// 이미 예약된 좌석인 경우
+					if(notAllowSeatList.includes(seat.innerText))
+						seat.classList.add("notAllow");
+					
+					row.append(seat);
+					
+				} // second for end
+				
+				seatList.append(row);
+				
+			} // first for end
+		},
+		error: console.log
+	}); // ajax end
+	
+	e.target.style.display = "none";
+	
+}); // 좌석선택 버튼 클릭 메서드 end
+
+// 인원 수 선택 메서드
+document.querySelectorAll(".numberOfPeople").forEach((numberOfPeople)=>{
+	numberOfPeople.addEventListener("change", (e)=>{
+		
+		// 인원수 제한 점검
+		cntPeople(e.target);
+		
+		// 예약정보 확인에 넣기
+		checkPeople();
+		
+	});
+});
+
+// 인원수 제한 메서드
+const cntPeople = (target) => {
+	let cntPeople = 0;
+	
+	document.querySelectorAll(".numberOfPeople").forEach((np)=>{
+		cntPeople += Number(np.value);
+	});
+	
+	if(cntPeople > 8){
+		alert("최대 8명까지만 가능합니다.");
+		target.value -= 1;
+	}
 };
+
+// 인원 예약정보 확인 메서드
+const checkPeople = () => {
+	
+	const checkPeople = document.querySelector("#checkPeople span");
+	
+	checkPeople.innerText = "";
+	
+	document.querySelectorAll(".numberOfPeople").forEach((np)=>{
+		
+		let general = "";
+		let teenager = "";
+		let oldman = "";
+		
+		if(np.value > 0){
+			
+			switch(np.previousSibling.innerText){
+			case "일반" : general = "일반 " + np.value + "명 "; break;
+			case "청소년" : teenager = "청소년 " + np.value + "명 "; break;
+			case "경로" : oldman = "경로 " + np.value + "명 "; break;
+			};
+		}
+		
+		if(general != ""){
+			checkPeople.innerText += checkPeople.innerText.length > 0 ? ", " + general : general;
+		}
+		else if(teenager != ""){
+			checkPeople.innerText += checkPeople.innerText.length > 0 ? ", " + teenager : teenager;
+		}
+		else if(oldman != ""){
+			checkPeople.innerText += checkPeople.innerText.length > 0 ? ", " + oldman : oldman;
+		}
+	}); // forEach end
+}; // 인원 예약정보 확인 메서드 end
+
+// 좌석 선택 메서드
+$(document).on("click", ".seat", function(e){
+	selectSeat(e.target);
+});
+
+// 좌석 선택 효과 메서드
+const selectSeat = (seat) => {
+	
+	let cntPeople = 0;
+	
+	document.querySelectorAll(".numberOfPeople").forEach((np)=>{
+		cntPeople += Number(np.value);
+	});
+	
+	if(cntPeople === 0){
+		alert("먼저 인원수 설정을 해주세요.");
+		return;
+	}
+	
+	// 선택 좌석 취소
+	if(seat.classList.contains("seatSelected"))
+		seat.classList.remove("seatSelected");
+	else
+		seat.classList.add("seatSelected");
+	
+	let seatSelectedCnt = 0;
+	
+	document.querySelectorAll(".seatSelected").forEach((seatSelected)=>{
+		seatSelectedCnt++;
+	});
+	
+	if(cntPeople < seatSelectedCnt){
+		alert("설정한 인원 수보다 많습니다.");
+		seat.classList.remove("seatSelected");
+		return;
+	}
+	
+	const checkSeatNumber = document.querySelector("#checkSeatNumber span");
+	checkSeatNumber.innerText = "";
+	document.querySelector("#seatCheck h3").style.display = "none";
+	document.querySelector("#checkSeatNumber").style.display = "inline-block";
+	document.querySelectorAll(".seatSelected").forEach((seatSelected)=>{
+		checkSeatNumber.innerText += checkSeatNumber.innerText.length > 0 ? ", " + seatSelected.dataset.seatNo : seatSelected.dataset.seatNo;
+	});
+	
+	// 결제금액 계산 및 효과 메서드
+	totalPayment();
+	
+}; // 좌석 선택 효과 메서드 end
+
+// 총결제 금액 계산 및 효과 메서드
+const totalPayment = () => {
+	
+	document.querySelector("#paymentCheck h3").style.display = "none";
+	const checkTotalPayment = document.querySelector("#checkTotalPayment");
+	checkTotalPayment.style.display = "inline-block";
+	
+	let totalPayment = 0;
+	
+	let generalCnt = 0;
+	let teenagerCnt = 0;
+	let oldmanCnt = 0;
+		
+	document.querySelectorAll(".numberOfPeople").forEach((np)=>{
+			
+			if(np.value > 0){
+				
+				switch(np.previousSibling.innerText){
+				case "일반" : generalCnt++; break;
+				case "청소년" : teenagerCnt++; break;
+				case "경로" : oldmanCnt++; break;
+				};
+			}
+	});
+	
+	let selectCnt = 0;
+	document.querySelectorAll(".seatSelected").forEach((seatSelected)=>{
+		selectCnt++;
+	});
+	
+	for(let i = 0; i < selectCnt; i++){
+		console.log(generalCnt, teenagerCnt, oldmanCnt);
+		
+		if(generalCnt > 0){
+			const generalP = document.createElement("p");
+			generalP.innerText = "일반 14,000원 X " + generalCnt;
+			document.querySelector("#paymentCheck").insertBefore(generalP, checkTotalPayment);
+			totalPayment += 14000 * generalCnt;
+			break;
+		}
+		if(teenagerCnt > 0){
+			const teenagerP = document.createElement("p");
+			teenagerP.innerText = "청소년 11,000원 X " + teenagerCnt;
+			document.querySelector("#paymentCheck").insertBefore(teenagerP, checkTotalPayment);
+			totalPayment += 11000 * teenagerCnt;
+			break;
+		}
+		if(oldmanCnt > 0){
+			const oldmanP = document.createElement("p");
+			oldmanP.innerText = "청소년 7,000원 X " + oldmanCnt;
+			document.querySelector("#paymentCheck").insertBefore(oldmanP, checkTotalPayment);
+			totalPayment += 7000 * generalCnt;
+			break;
+		}
+	}
+	
+	
+	
+};
+
 </script>
 </body>
 </html>
