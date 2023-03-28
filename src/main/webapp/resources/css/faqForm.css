@@ -374,3 +374,7 @@ col:nth-child(4) {
 .box-btn.qna_email {
   margin-top: 20px;
 }
+
+a:focus, a:hover {
+	text-decoration:none;
+}

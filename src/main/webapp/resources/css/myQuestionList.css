@@ -344,7 +344,6 @@ table caption {
 
 .c_tab_wrap {
     position: relative;
-    /* margin-top: 15px; */
     border-bottom: 2px solid #898987;
     height: 37px;
 }
