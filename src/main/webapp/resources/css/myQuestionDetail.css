@@ -173,3 +173,8 @@ h1 {
 body{
   line-height: 1.5;
 }
+
+a:link{
+	color:black;
+	text-decoration:none;
+}
