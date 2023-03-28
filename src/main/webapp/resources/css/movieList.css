@@ -386,10 +386,3 @@ table caption {
     box-sizing: border-box;
     font-size: 12px;
 }
-
-/* .tbl_notice_list tbody tr:hover td:nth-child(2) {
-  text-decoration: underline;
-  cursor: pointer;
-  color: black;
-  font-weight: bold;
-} */
