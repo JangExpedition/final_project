@@ -98,6 +98,27 @@
 		</div>
 	</div>
 	<!-- 예매 구간2 -->
+	<!-- 결제 구간 -->
+	<div class="steps steps3">
+		<div class="table-head">결제수단</div>
+		<div id="paymentMethod">
+			<form>
+				<input type="radio" value="카카오페이" id="kakaoPay" name="paymentMethod">
+				<lable for="kakaoPay" class="payLable">&nbsp;카카오페이</lable>
+				&nbsp;&nbsp;&nbsp;
+				<input type="radio" value="네이버페이" id="naverPay" name="paymentMethod">
+				<lable for="naverPay" class="payLable">&nbsp;네이버페이</lable>
+			</form>
+		</div>
+		<div class="table-head">결제금액</div>
+		<div id="finalStep">
+			<h3 id="finalAmount"></h3>
+		</div>
+		<div>
+			<div id="payBtn">결제하기</div>
+		</div>
+	</div>
+	<!-- 결제 구간 -->
 </section>
 <!-- 예매 섹션 -->
 <!-- 예매확인 섹션 -->
@@ -122,12 +143,17 @@
 		</div>
 		<div id="paymentCheck" class="check4">
 			<h3>결제</h3>
+			<div id="paymentList"></div>
 			<p id="checkTotalPayment">총금액 <span></span></p>
 		</div>
 		<div class="check nextStep">
-			<div id="nextStepBtn">
+			<div id="selectSeatBtn" class="nextStepBtn">
 				<h3>></h3>
 				<p>좌석선택</p>
+			</div>
+			<div id="selectPaymentBtn" class="nextStepBtn">
+				<h3>></h3>
+				<p>결제선택</p>
 			</div>
 		</div>
 	</div>
@@ -275,6 +301,11 @@ window.onload = () =>{
 			reservationDay.style.color = "#ad2727";
 	});
 }
+
+// 리셋 버튼 메서드
+document.querySelector("#resetBtn").addEventListener("click", (e)=>{
+	location.href = "${pageContext.request.contextPath}/reservation/reservation.do";
+});
 
 // 영화 필터 선택 메서드
 document.querySelectorAll(".filter").forEach((filter)=>{
@@ -568,11 +599,11 @@ const selectSchedule = (schedule) => {
 	title.dataset.endTime = schedule.dataset.endTime;
 	document.querySelector("#checkTheater span").innerText = schedule.dataset.theaterNo + "관";
 	document.querySelector("#checkSchedule span").dataset.scheduleNo = schedule.dataset.scheduleNo;
-	document.querySelector("#nextStepBtn").style.display = "flex";
+	document.querySelector("#selectSeatBtn").style.display = "flex";
 }; // 상영 스케쥴 선택 효과 메서드 end
 
 // 좌석선택 버튼 클릭 메서드
-document.querySelector("#nextStepBtn").addEventListener("click", (e)=>{
+document.querySelector("#selectSeatBtn").addEventListener("click", (e)=>{
 	// 다음 페이지 넘기기
 	document.querySelector(".steps1").style.display = "none";
 	document.querySelector(".steps2").style.display = "flex";
@@ -623,7 +654,7 @@ document.querySelector("#nextStepBtn").addEventListener("click", (e)=>{
 		error: console.log
 	}); // ajax end
 	
-	e.target.style.display = "none";
+	document.querySelector("#selectSeatBtn").style.display = "none";
 	
 }); // 좌석선택 버튼 클릭 메서드 end
 
@@ -636,6 +667,9 @@ document.querySelectorAll(".numberOfPeople").forEach((numberOfPeople)=>{
 		
 		// 예약정보 확인에 넣기
 		checkPeople();
+		
+		// 결제창 넘어가기 버튼 활성화 메서드
+		selectPaymentBtnActivation();
 		
 	});
 });
@@ -736,6 +770,9 @@ const selectSeat = (seat) => {
 	// 결제금액 계산 및 효과 메서드
 	totalPayment();
 	
+	// 결제창 넘어가기 버튼 활성화 메서드
+	selectPaymentBtnActivation();
+	
 }; // 좌석 선택 효과 메서드 end
 
 // 총결제 금액 계산 및 효과 메서드
@@ -754,11 +791,10 @@ const totalPayment = () => {
 	document.querySelectorAll(".numberOfPeople").forEach((np)=>{
 			
 			if(np.value > 0){
-				
 				switch(np.previousSibling.innerText){
-				case "일반" : generalCnt++; break;
-				case "청소년" : teenagerCnt++; break;
-				case "경로" : oldmanCnt++; break;
+				case "일반" : generalCnt = np.value; break;
+				case "청소년" : teenagerCnt = np.value; break;
+				case "경로" : oldmanCnt = np.value; break;
 				};
 			}
 	});
@@ -768,36 +804,76 @@ const totalPayment = () => {
 		selectCnt++;
 	});
 	
-	for(let i = 0; i < selectCnt; i++){
-		console.log(generalCnt, teenagerCnt, oldmanCnt);
+	console.log(generalCnt, teenagerCnt, oldmanCnt);
+	
+	const paymentList = document.querySelector("#paymentList");
+	paymentList.innerText = "";
 		
-		if(generalCnt > 0){
-			const generalP = document.createElement("p");
-			generalP.innerText = "일반 14,000원 X " + generalCnt;
-			document.querySelector("#paymentCheck").insertBefore(generalP, checkTotalPayment);
-			totalPayment += 14000 * generalCnt;
-			break;
-		}
-		if(teenagerCnt > 0){
-			const teenagerP = document.createElement("p");
-			teenagerP.innerText = "청소년 11,000원 X " + teenagerCnt;
-			document.querySelector("#paymentCheck").insertBefore(teenagerP, checkTotalPayment);
-			totalPayment += 11000 * teenagerCnt;
-			break;
-		}
-		if(oldmanCnt > 0){
-			const oldmanP = document.createElement("p");
-			oldmanP.innerText = "청소년 7,000원 X " + oldmanCnt;
-			document.querySelector("#paymentCheck").insertBefore(oldmanP, checkTotalPayment);
-			totalPayment += 7000 * generalCnt;
-			break;
-		}
+	if(generalCnt > 0){
+		const generalP = document.createElement("p");
+		generalP.innerText = "일반 ";
+		const generalSpan = document.createElement("span");
+		generalSpan.innerText = "14,000원 X " + generalCnt;
+		generalP.append(generalSpan);
+		paymentList.append(generalP);
+		totalPayment += 14000 * generalCnt;
+	}
+	if(teenagerCnt > 0){
+		const teenagerP = document.createElement("p");
+		teenagerP.innerText = "청소년 ";
+		const teenagerSpan = document.createElement("span");
+		teenagerSpan.innerText = "11,000원 X " + teenagerCnt;
+		teenagerP.append(teenagerSpan);
+		paymentList.append(teenagerP);
+		totalPayment += 11000 * teenagerCnt;
+	}
+	if(oldmanCnt > 0){
+		const oldmanP = document.createElement("p");
+		oldmanP.innerText = "경로 ";
+		const oldmanSpan = document.createElement("span");
+		oldmanSpan.innerText = "7,000원 X " + oldmanCnt;
+		oldmanP.append(oldmanSpan);
+		paymentList.append(oldmanP);
+		totalPayment += 7000 * oldmanCnt;
 	}
 	
+	document.querySelector("#checkTotalPayment span").innerText = totalPayment.toLocaleString() + "원";
 	
-	
-};
+}; // 총결제 금액 계산 및 효과 메서드 end
 
+// 결제창 넘어가기 버튼 활성화 메서드
+const selectPaymentBtnActivation = () => {
+	
+	const selectPaymentBtn = document.querySelector("#selectPaymentBtn");
+	
+	let numberOfPeopleCnt = 0;
+
+	document.querySelectorAll(".numberOfPeople").forEach((np)=>{
+		numberOfPeopleCnt += Number(np.value);
+	});
+	
+	let selectSeatCnt = 0;
+	
+	document.querySelectorAll(".seatSelected").forEach((seatSelected)=>{
+		selectSeatCnt++;
+	});
+	
+	if(numberOfPeopleCnt !== 0 && numberOfPeopleCnt === selectSeatCnt)
+		selectPaymentBtn.style.display = "flex";
+	else if(numberOfPeopleCnt !== selectSeatCnt)
+		selectPaymentBtn.style.display = "none";
+	
+	console.log(numberOfPeopleCnt, selectSeatCnt);
+	
+}; // 결제창 넘어가기 버튼 활성화 메서드 end
+
+// 결제선택 버튼 클릭 메서드
+document.querySelector("#selectPaymentBtn").addEventListener("click", (e)=>{
+	document.querySelector(".steps2").style.display = "none";
+	document.querySelector(".steps3").style.display = "flex";
+	document.querySelector("#selectPaymentBtn").style.display = "none";
+	document.querySelector("#finalAmount").innerText = document.querySelector("#checkTotalPayment span").innerText.toLocaleString();
+});
 </script>
 </body>
 </html>
