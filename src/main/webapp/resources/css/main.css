@@ -22,7 +22,7 @@ ol, ul, li,  form, label, legend, table, tbody,
 thead, tr, th, td {
 	font-size:100%; 
 	margin:0; 
-	padding:0; 
+	padding:0;
 	border:0; 
 	vertical-align:baseline; 
 	word-break:break-all;
@@ -160,4 +160,17 @@ a:active {
 
 #searchtext{
 	height: 30px;
+}
+
+.cols-content .col-aside .snb > ul > li > a {
+    height: 34px;
+    padding-left: 5px;
+    color: #222;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 34px;
+}
+
+.col-aside{
+	padding:30px;
 }

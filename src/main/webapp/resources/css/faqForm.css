@@ -3,7 +3,7 @@ ul, li, form, label, legend, table,tbody,
 tfoot, thead, tr, th, td {
 	font-size:100%;
 	margin:0;
-	padding:0;
+/* 	padding:0; */
 	border:0;
 	vertical-align:baseline;
 	word-break:break-all;
@@ -140,7 +140,7 @@ a {
 }
 
 .cols-content .col-aside .snb > ul > li > a {
-	width:155px; 
+	/* width:155px;  */
 	height:34px; 
 	padding-left:5px; 
 	color:#222; 
