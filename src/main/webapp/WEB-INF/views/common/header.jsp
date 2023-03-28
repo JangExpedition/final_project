@@ -82,7 +82,7 @@ console.log(msg);
 		  </sec:authorize>
 		</div>
 	  </div>
-  </div>
+   </div>
   <!-- 서비스 메뉴 -->
 </div>
 <!-- 서브 메뉴 -->
