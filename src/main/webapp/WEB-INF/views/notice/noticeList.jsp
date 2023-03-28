@@ -10,7 +10,6 @@
 
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/noticeList.css"/>
    
-   
 <div id="contaniner">
 	<div id="contents">
 		<div class="cols-content">
