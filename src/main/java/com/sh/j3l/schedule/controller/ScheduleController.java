@@ -35,7 +35,7 @@ public class ScheduleController {
 	@Autowired
 	private ScheduleService scheduleService;
 	
-	@GetMapping("/insertSchedule2.do")
+	@GetMapping("/insertSchedule.do")
 	public void insertSchedule(Model model) {
 		String now = LocalDate.now().toString();
 		List<Movie> movieList = movieService.selectAllMovieOnScreenOrderByTitle(now);

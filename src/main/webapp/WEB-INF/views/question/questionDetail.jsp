@@ -23,14 +23,13 @@
 					<li class=''><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
 					<li class='on'><a href="${ pageContext.request.contextPath }/question/questionList.do">문의
 							관리<i></i></a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/schedule/insertSchedule2.do">상영
+					<li class=''><a href="${ pageContext.request.contextPath }/schedule/insertSchedule.do">상영
 							관리<i></i></a></li>
 				</ul>
 			</div>
 		</div>
 		<h1>문의 답변</h1>
 		<table class="ttbl">
-			<input type="hidden" name="no" value="${question.no}">
 			<tr>
 				<td class="tit">제목</td>
 				<td>${question.title}</td>

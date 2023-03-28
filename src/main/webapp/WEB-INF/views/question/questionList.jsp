@@ -22,7 +22,7 @@
 					<li class=''><a href="${ pageContext.request.contextPath }/movie/movieList.do">영화 관리<i></i></a></li>
 					<li class='on'><a href="${ pageContext.request.contextPath }/question/questionList.do">문의
 							관리<i></i></a></li>
-					<li class=''><a href="${ pageContext.request.contextPath }/schedule/insertSchedule2.do">상영
+					<li class=''><a href="${ pageContext.request.contextPath }/schedule/insertSchedule.do">상영
 							관리<i></i></a></li>
 				</ul>
 			</div>
@@ -37,7 +37,7 @@
 			<div class="c_tab_wrap">
 			</div>
 			<div class="tbl_area">
-				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
+				<table class="tbl_notice_list">
 					<thead>
 						<tr>
 							<th scope="col">문의 번호</th>

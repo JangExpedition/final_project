@@ -89,7 +89,7 @@ textarea {
 }
 
 .cols-content .col-aside .snb > ul > li > a {
-	width:155px; 
+	/* width:155px;  */
 	height:34px; 
 	padding-left:5px; 
 	color:#222; 
@@ -128,7 +128,7 @@ textarea {
 }
 
 .cols-content .col-aside .snb > ul > li > a {
-    width: 155px;
+    /* width: 155px; */
     height: 34px;
     padding-left: 5px;
     color: #222;
@@ -172,4 +172,9 @@ h1 {
 
 body{
   line-height: 1.5;
+}
+
+a:link{
+	color:black;
+	text-decoration:none;
 }

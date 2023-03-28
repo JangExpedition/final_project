@@ -173,7 +173,7 @@ legend {
 }
 
 .cols-content .col-aside .snb > ul > li > a {
-	width:155px; 
+	/* width:155px;  */
 	height:34px; 
 	padding-left:5px; 
 	color:#222; 
@@ -255,9 +255,9 @@ legend {
 	border-left:solid 1px #000;
 }
 
-.qu_txt span a:hover, .qu_txt span a:active { 
+/* .qu_txt span a:hover, .qu_txt span a:active { 
 	text-decoration:underline;
-}
+} */
 
 
 
@@ -305,7 +305,7 @@ legend {
 
 .tbl_notice_list .txt a:hover, .tbl_notice_list .txt a:active {
 	font-weight:500;
-	text-decoration:underline;
+/* 	text-decoration:underline; */
 }
 
 .tbl_notice_list .num { 
@@ -501,7 +501,7 @@ font, img, ins, ol, ul, li, fieldset, form, label, legend, table, tbody,
 tfoot, thead, tr, th, td {
 	font-size:100%; 
 	margin:0; 
-	padding:0; 
+/* 	padding:0; */ 
 	border:0; 
 	word-break:break-all;
 }
@@ -566,4 +566,9 @@ td[colspan="2"] input[type="text"] {
 
 #phone{
 	width: 200px;
+}
+
+a:link{
+	color:black;
+	text-decoration:none;
 }
