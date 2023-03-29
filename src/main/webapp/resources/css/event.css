@@ -1,0 +1,114 @@
+.tit-evt {
+    position: relative;
+}
+
+.tit-heading-wrap {
+    position: relative;
+    height: 60px;
+    padding-top: 30px;
+    border-bottom: 3px solid #241d1e;
+}
+
+div {
+    display: block;
+}
+
+.evt-tab-menu li a.on {
+    color: #fb4357;
+    font-weight: 600;
+}
+
+.evt-tab-menu li a {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 50px;
+}
+
+a:link{
+	text-decoration:none;
+}
+
+a {
+	color : inherit;
+}
+
+.tit-heading-wrap {
+	position:relative; 
+	height:60px; 
+	padding-top:30px; 
+	border-bottom:3px solid #241d1e;
+	height: 110px;
+}
+
+.evt-nav-area {
+	position: relative;
+	height:50px;
+	border-bottom:1px solid #ccc
+}
+
+.evt-tab-menu li {
+	display: inline-block;
+	margin:0 67px 0 0;
+	line-height: 50px;
+	font-size:0
+}
+
+.evt-tab-menu li a {
+	font-size:16px;
+	font-weight: 500;
+	line-height: 50px;
+}
+
+.evt-tab-menu li a.on {
+	color:#fb4357;
+	font-weight: 600;
+}
+
+#contents {
+	position:relative; 
+	width:980px; 
+	margin:0 auto;
+}
+
+.sect-evt-item-list {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+	padding-top: 25px;
+}
+
+.sect-evt-item-list > li {
+	width: 100%;
+	height: auto;
+}
+
+.sect-evt-item-list > li .evt-thumb {
+	margin-bottom: 8px;
+}
+
+.sect-evt-item-list > li .evt-thumb img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+ol, ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cols-content {
+	width: 980px;
+	margin: 0 auto;
+}
+
+.sect-evt-item-list li .evt-desc{
+	min-height: 90px;
+    padding-bottom: 17px;
+    border: 1px solid #dddfe2;
+    border-top: 0;
+}
+
+h3 {
+    font-size: 2.75rem;
+}

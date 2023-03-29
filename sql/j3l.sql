@@ -640,3 +640,31 @@ CREATE TABLE FAQ (
 
 -- 자주묻는 질문 시퀀스
 create sequence seq_faq_no;
+
+-- 이벤트 게시판 테이블
+CREATE TABLE event (
+    no number NOT NULL,
+    title varchar2(3000) NOT NULL,
+    content varchar2(4000) NOT NULL,
+    category varchar2(50) NOT NULL,
+    created_at date default sysdate,
+    constraint pk_event_no primary key(no)
+);
+
+-- 이벤트 테이블 시퀀스
+create sequence seq_event_no;
+
+
+-- 이벤트 첨부파일 테이블
+CREATE TABLE event_attachment (
+	no number NOT NULL,
+	event_no number NOT NULL,
+	original_filename varchar2(2000) NULL,
+	renamed_filename varchar2(2000) NULL,
+    constraint pk_event_attachment_no primary key(no),
+    constraint fk_event_attachment_event_no foreign key(event_no)
+                                    references event
+                                    on delete cascade
+);
+-- 영화 첨부파일 시퀀스
+create sequence seq_event_attach_no;

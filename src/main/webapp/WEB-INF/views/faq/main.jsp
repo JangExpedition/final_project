@@ -19,17 +19,17 @@
 					<div class="snb">
 						<ul class="ul1">
 							<li class='on'><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터
-									메인<i></i></a>
+									메인</a>
 							</li>
 							<li class=''><a href="${ pageContext.request.contextPath }/faq/faqList.do">자주찾는
-									질문<i></i></a></li>
+									질문</a></li>
 							<li class=''><a
 									href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
 							</li>
 							<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1
-									문의<i></i></a></li>
+									문의</a></li>
 							<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의
-									내역 확인<i></i></a></li>
+									내역 확인</a></li>
 						</ul>
 					</div>
 				</div>
@@ -83,8 +83,6 @@
 								<li><a href="" target="_blank" title="새창열기" class="list1"><br /></a></li>
 								<li><a href="${pageContext.request.contextPath}/member/findId.do" target="_blank"
 										title="새창열기" class="list1">아이디/<br />비밀번호 찾기</a></li>
-								<li><a href="" target="_blank" title="새창열기" class="list1"><br /></a></li>
-								<li><a href="" target="_blank" title="새창열기" class="list1"><br /></a></li>
 							</ul>
 						</div>
 						<div class="notice_area">
