@@ -100,6 +100,9 @@ console.log(msg);
 		  	<c:if test="${ pageContext.request.servletPath eq '/WEB-INF/views/reservation/reservation.jsp' }">red</c:if>" 
 		  	href="${ pageContext.request.contextPath }/reservation/reservation.do">예매</a>
 		</li>
+		<li class="nav-item active">
+		   <a class="nav-link" href="${ pageContext.request.contextPath }/event/event.do">이벤트</a>
+		</li>
 		<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<li class="nav-item">
 		   <a class="nav-link disabled" href="${ pageContext.request.contextPath }/member/memberList.do">관리자</a>
