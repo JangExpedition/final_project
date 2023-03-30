@@ -430,6 +430,7 @@ CREATE TABLE reservation (
     no VARCHAR(255)	NOT NULL,
 	id varchar2(50) NOT NULL,
 	schedule_no number NOT NULL,
+    seat_no varchar2(3) not null,
     CONSTRAINT PK_RESERVATION_NO PRIMARY KEY(NO),
     CONSTRAINT FK_RESERVATION_MEMBER_ID FOREIGN KEY(ID)
                             REFERENCES MEMBER

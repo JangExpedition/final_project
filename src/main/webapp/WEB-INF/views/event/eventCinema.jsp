@@ -6,10 +6,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp">
-    <jsp:param value="극장|영화 그 이상의 감동. J3L" name="title" />
+    <jsp:param value="이벤트|영화 그 이상의 감동. J3L" name="title" />
 </jsp:include>
 
-<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/event.css" />
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/eventSpecial.css" />
 
 
 <div id="contents">
@@ -19,14 +19,19 @@
 
     <div class="evt-nav-area">
         <ul class="evt-tab-menu">
-            <li><a href="" title="" class="on">SPECIAL</a></li>
-            <li><a href="" title="" class="">영화/예매</a></li>
-            <li><a href="" title="" class="">멤버십/CLUB</a></li>
-            <li><a href="" title="" class="">CGV 극장별</a></li>
-            <li><a href="" title="" class="">제휴/할인</a></li>
+            <li><a href="${ pageContext.request.contextPath }/event/eventSpecial.do" title="" class="">SPECIAL</a></li>
+            <li><a href="${ pageContext.request.contextPath }/event/eventMovie.do" title="" class="">영화/예매</a></li>
+            <li><a href="${ pageContext.request.contextPath }/event/eventMembership.do" title="" class="">멤버십/CLUB</a></li>
+            <li><a href="${ pageContext.request.contextPath }/event/eventSale.do" title="" class="">제휴/할인</a></li>
         </ul>
     </div>
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<div class="parent">
+								<a href="#" id="btn-add">글쓰기</a>
+							</div>
+			</sec:authorize>
 </div>
+
 
 <div class="cols-content">
     <div class="col-detail event">
@@ -125,5 +130,12 @@
         </ul>
     </div>
 </div>
+
+<script>
+document.querySelector("#btn-add").addEventListener('click', (e) => {
+	location.href = '${pageContext.request.contextPath}/event/eventForm.do';
+});
+
+</script>
 </body>
 </html>
