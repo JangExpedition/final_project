@@ -888,6 +888,7 @@ document.querySelector("#payBtn").addEventListener("click", (e)=>{
 	
 	const scheduleNo = document.querySelector("#checkSchedule span").dataset.scheduleNo;
 	const seatArr = document.querySelector("#checkSeatNumber span").innerText.split(', ');
+	const id = "${loginMember.id}";
 	
 	IMP.init("imp28385606");
 	
@@ -909,12 +910,14 @@ document.querySelector("#payBtn").addEventListener("click", (e)=>{
     	
 		if(rsp.success) {
 			
+			console.log(rsp);
+			
 	    	$.ajax({
 	    		url: "${pageContext.request.contextPath}/reservation/reservationComplete.do",
 	    		type: 'POST',
 	    		traditional: true,
 	    		dataType: 'json',
-	    		data: {scheduleNo, seatArr},
+	    		data: {scheduleNo, seatArr, id},
 	    		headers,
 	    		success(data) {
 	    		    console.log(data);
@@ -936,5 +939,15 @@ document.querySelector("#payBtn").addEventListener("click", (e)=>{
   
 }); // 결제 메서드 end
 </script>
+<c:if test="${not empty movieNo}">
+	<script>
+		document.querySelectorAll(".movieTitle").forEach((movieTitle)=>{
+			console.log(movieTitle.dataset.movieNo);
+			if(movieTitle.dataset.movieNo == ${movieNo}){
+				console.log("asdfodsjof");
+			}
+		});
+	</script>
+</c:if>
 </body>
 </html>

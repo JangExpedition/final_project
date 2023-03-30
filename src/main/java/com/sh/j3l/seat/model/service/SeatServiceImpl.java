@@ -20,16 +20,4 @@ public class SeatServiceImpl implements SeatService {
 		return seatDao.selectAllSeat(scheduleNo);
 	}
 
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public int reservationComplete(int scheduleNo, String[] seatArr) {
-		int result = 0;
-		
-		for(int i = 0; i < seatArr.length; i++) {
-			result = seatDao.insertSeat(scheduleNo, seatArr[i]);
-		}
-		
-		return result;
-	}
-
 }
