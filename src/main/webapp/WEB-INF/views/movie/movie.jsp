@@ -9,7 +9,7 @@
 <%@ page import="java.util.Date" %>
 <!DOCTYPE html>
 <jsp:include page="/WEB-INF/views/common/header.jsp">
-	<jsp:param value="예매|영화 그 이상의 감동. J3L" name="title"/>
+	<jsp:param value="무비차트<무비차트|영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/movie.css"/>
 <section id="movieSection">
@@ -48,7 +48,7 @@
 							<p class="movieTitle">${ movie.title }</p>
 							<p class="movieOpenDt">${ movie.openDt } 개봉</p>
 							<div class="goReservation">
-								<input class="reservationBtn" type="button" value="예매하기"/>
+								<input class="reservationBtn" type="button" value="예매하기" data-movie-no="${ movie.no }"/>
 							</div>
 						</div>
 					</c:when>
@@ -84,7 +84,7 @@
 							<p class="movieTitle">${ movie.title }</p>
 							<p class="movieOpenDt">${ movie.openDt } 개봉</p>
 							<div class="goReservation">
-								<input class="reservationBtn" type="button" value="예매하기"/>
+								<input class="reservationBtn" type="button" value="예매하기" data-movie-no="${ movie.no }"/>
 							</div>
 						</div>
 					</c:when>
@@ -120,7 +120,7 @@
 							<p class="movieTitle">${ movie.title }</p>
 							<p class="movieOpenDt">${ movie.openDt } 개봉</p>
 							<div class="goReservation">
-								<input class="reservationBtn" type="button" value="예매하기"/>
+								<input class="reservationBtn" type="button" value="예매하기" data-movie-no="${ movie.no }"/>
 							</div>
 						</div>
 					</c:when>
@@ -133,6 +133,9 @@
 <form name="onScreenFilterFrm" action="${pageContext.request.contextPath}/movie/onScreenFilter.do">
 	<input type="hidden" name="checked"/>
 </form>
+<form name="goReservationFrm" action="${pageContext.request.contextPath}/reservation/reservation.do">
+	<input type="hidden" name="movieNo"/>
+</form>
 <script>
 $("#onScreenFilter").change(function(){
    	const form = document.onScreenFilterFrm;
@@ -143,6 +146,16 @@ $("#onScreenFilter").change(function(){
     	form.checked.value = "0"
     	form.submit();
     }
+});
+
+document.querySelectorAll(".reservationBtn").forEach((reservationBtn)=>{
+	
+	reservationBtn.addEventListener("click", (e)=>{
+		const frm = document.goReservationFrm;
+		frm.movieNo.value = e.target.dataset.movieNo;
+		frm.submit();
+	});
+	
 });
 </script>
 </body>

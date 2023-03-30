@@ -23,6 +23,7 @@ import com.sh.j3l.cinema.model.dto.Location;
 import com.sh.j3l.cinema.model.service.CinemaService;
 import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.movie.model.service.MovieService;
+import com.sh.j3l.reservation.model.service.ReservationService;
 import com.sh.j3l.schedule.model.dto.Schedule;
 import com.sh.j3l.schedule.model.service.ScheduleService;
 import com.sh.j3l.seat.model.dto.Seat;
@@ -51,13 +52,19 @@ public class ReservationController {
 	
 	@Autowired
 	private SeatService seatService;
+	
+	@Autowired
+	private ReservationService reservationService;
 
 	@GetMapping("/reservation.do")
-	public void reservation(Model model) {
+	public void reservation(Model model, @RequestParam(required = false) String movieNo) {
 		List<Cinema> cinemaList = cinemaService.selectAllCinema();
 		List<Location> locationList = cinemaService.selectAllLocation();
 		model.addAttribute("cinemaList", cinemaList);
 		model.addAttribute("locationList", locationList);
+		if(movieNo != null) {
+			model.addAttribute("movieNo", movieNo);
+		}
 	}
 	
 	@GetMapping("/selectAllMovieOrderBy.do")
@@ -100,8 +107,9 @@ public class ReservationController {
 	
 	@PostMapping("/reservationComplete.do")
 	@ResponseBody
-	public String reservationComplete(@RequestParam int scheduleNo, @RequestParam String[] seatArr) {
-		int result = seatService.reservationComplete(scheduleNo, seatArr);
+	public String reservationComplete(@RequestParam int scheduleNo, @RequestParam String[] seatArr, @RequestParam String id) {
+		
+		int result = reservationService.reservationComplete(scheduleNo, seatArr, id);
 		
 	    Map<String, Object> responseData = new HashMap<>();
 	    responseData.put("msg", "결제가 완료되었습니다.");

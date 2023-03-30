@@ -8,6 +8,4 @@ public interface SeatService {
 
 	List<Seat> selectAllSeat(int scheduleNo);
 
-	int reservationComplete(int scheduleNo, String[] seatArr);
-
 }

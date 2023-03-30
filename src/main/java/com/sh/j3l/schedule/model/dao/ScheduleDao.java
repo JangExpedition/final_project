@@ -17,5 +17,8 @@ public interface ScheduleDao {
 
 	@Select("select * from schedule where movie_no = #{movieNo} and theater_no = #{theaterNo} order by start_time")
 	List<Schedule> selectScheduleList(@Param("movieNo") int movieNo, @Param("theaterNo") int theaterNo);
+
+	@Select("select movie_no from schedule where no = #{scheduleNo}")
+	int getMovieNoFromSchedule(int scheduleNo);
 	
 }
