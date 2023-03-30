@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/eventSpecial.css" />
 
 
+
 <div id="contents">
     <div class="tit-heading-wrap tit-evt">
         <h3>EVENT</h3>
