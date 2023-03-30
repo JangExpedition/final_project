@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.movie.model.service.MovieService;
@@ -54,11 +55,11 @@ public class ScheduleController {
 	
 	// 스케쥴 입력 메서드
 	@PostMapping("insertSchedule.do")
-	public String insertSchedule(Schedule schedule, Model model) {
+	public String insertSchedule(Schedule schedule, RedirectAttributes redirectAttr) {
 		log.debug("schedule = {}", schedule);
 		int result = scheduleService.insertSchedule(schedule);
-		model.addAttribute("msg", "상영스케쥴 등록완료!");
-		return "schedule/insertSchedule2";
+		redirectAttr.addFlashAttribute("msg", "상영스케쥴 등록완료!");
+		return "redirect:/schedule/insertSchedule.do";
 	}
 		
 }

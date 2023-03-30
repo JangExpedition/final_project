@@ -2,17 +2,22 @@ package com.sh.j3l.reservation.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sh.j3l.cinema.model.dto.Cinema;
 import com.sh.j3l.cinema.model.dto.Location;
 import com.sh.j3l.cinema.model.service.CinemaService;
@@ -92,4 +97,25 @@ public class ReservationController {
 	public List<Seat> selectAllSeat(@RequestParam int scheduleNo){
 		return seatService.selectAllSeat(scheduleNo);
 	}
+	
+	@PostMapping("/reservationComplete.do")
+	@ResponseBody
+	public String reservationComplete(@RequestParam int scheduleNo, @RequestParam String[] seatArr) {
+		int result = seatService.reservationComplete(scheduleNo, seatArr);
+		
+	    Map<String, Object> responseData = new HashMap<>();
+	    responseData.put("msg", "결제가 완료되었습니다.");
+
+	    // Convert the map to a JSON string using Jackson
+	    ObjectMapper mapper = new ObjectMapper();
+	    String jsonResponse = "";
+	    try {
+	        jsonResponse = mapper.writeValueAsString(responseData);
+	    } catch (JsonProcessingException e) {
+	        e.printStackTrace();
+	    }
+
+	    return jsonResponse;
+	};
+	
 }

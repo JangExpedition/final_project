@@ -12,7 +12,7 @@ public interface TheaterDao {
 
 	List<Theater> selectAllTheater();
 
-	@Select("select * from theater where cinema_name = #{cinemaName}")
+	@Select("select * from theater where cinema_name = #{cinemaName} order by theater_no desc")
 	List<Theater> selectTheaterList(String cinemaName);
 
 }

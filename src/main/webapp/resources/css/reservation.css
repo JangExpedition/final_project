@@ -416,8 +416,16 @@
 }
 
 .notAllow{
-	cursor: default !important;
-	background-color: #666 !important;
+	width: 15px;
+	height: 15px;
+	font-size: 10px;
+	background-color: #999;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #f2f0e5;
+	cursor: default;
 	disabled: true;
 }
 
@@ -434,22 +442,6 @@
 	justify-content: center;
 }
 
-#paymentMethod{
-	width: 100%;
-	height: 60px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid #cdcdcd;
-	margin-bottom: 30px;
-}
-
-.payLable{
-	color: #333;
-	font-size: 14px;
-	font-weight: bold;
-}
-
 #finalStep{
 	display: flex;
 	flex-direction: column;
@@ -460,6 +452,11 @@
 	padding: 10px;
 }
 
+.finalCheck{
+	font-weight: bold;
+	color: #333;
+}
+
 #finalAmount{
 	width: 100%;
 	font-weight: bold;
@@ -468,14 +465,11 @@
 }
 
 #payBtn{
-	font-size: 30px;
-	font-weight: bold;
+	background-size: cover;
+	background-image: url("../images/payment_icon_yellow_large.png");
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #fff;
-	background-color: #bf2828;
-	border-radius: 10px;
 	width: 200px;
 	height: 80px;
 	cursor: pointer;
@@ -610,7 +604,7 @@
 	display: none;
 	width: 50%;
 	height: 100%;
-	backgorund-size: cover;
+	background-size: cover;
 	margin-right: 5px;
 }
 
