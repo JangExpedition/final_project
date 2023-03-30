@@ -124,3 +124,18 @@ h3 {
 #btn-add:hover {
   cursor: pointer;
 }
+
+.parent {
+  text-align: right;
+  margin-top: 20px;
+}
+
+#btn-add {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #666666;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
