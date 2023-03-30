@@ -9,7 +9,9 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="예매|영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/reservation.css"/>
+<sec:authentication property="principal" var="loginMember"/>
 <!-- 예매 섹션 -->
 <section class="reservation-section">
 	<!-- 예매 초기화 -->
@@ -100,22 +102,16 @@
 	<!-- 예매 구간2 -->
 	<!-- 결제 구간 -->
 	<div class="steps steps3">
-		<div class="table-head">결제수단</div>
-		<div id="paymentMethod">
-			<form>
-				<input type="radio" value="카카오페이" id="kakaoPay" name="paymentMethod">
-				<lable for="kakaoPay" class="payLable">&nbsp;카카오페이</lable>
-				&nbsp;&nbsp;&nbsp;
-				<input type="radio" value="네이버페이" id="naverPay" name="paymentMethod">
-				<lable for="naverPay" class="payLable">&nbsp;네이버페이</lable>
-			</form>
-		</div>
-		<div class="table-head">결제금액</div>
+		<div class="table-head">결제내용</div>
 		<div id="finalStep">
+			<p id="finalCheckCinema" class="finalCheck"></p>
+			<p id="finalCheckSchedule" class="finalCheck"></p>
+			<p id="finalCheckMovie" class="finalCheck"></p>
+			<p id="finalCheckPeople" class="finalCheck"></p>
 			<h3 id="finalAmount"></h3>
 		</div>
 		<div>
-			<div id="payBtn">결제하기</div>
+			<div id="payBtn"></div>
 		</div>
 	</div>
 	<!-- 결제 구간 -->
@@ -621,6 +617,12 @@ document.querySelector("#selectSeatBtn").addEventListener("click", (e)=>{
 		url: "${pageContext.request.contextPath}/reservation/selectAllSeat.do",
 		data: {scheduleNo},
 		success(notAllowSeatList){
+			
+			const notAllowSeatNo = [];
+			
+			for(let i = 0; i < notAllowSeatList.length; i++){
+				notAllowSeatNo[i] = notAllowSeatList[i].seatNo;
+			}
 		
 			const seatList = document.querySelector("#seatList");
 			
@@ -640,8 +642,8 @@ document.querySelector("#selectSeatBtn").addEventListener("click", (e)=>{
 					seat.innerText = j;
 					
 					// 이미 예약된 좌석인 경우
-					if(notAllowSeatList.includes(seat.innerText))
-						seat.classList.add("notAllow");
+					if(notAllowSeatNo.includes(seat.dataset.seatNo))
+						seat.className = "notAllow";
 					
 					row.append(seat);
 					
@@ -804,8 +806,6 @@ const totalPayment = () => {
 		selectCnt++;
 	});
 	
-	console.log(generalCnt, teenagerCnt, oldmanCnt);
-	
 	const paymentList = document.querySelector("#paymentList");
 	paymentList.innerText = "";
 		
@@ -863,8 +863,6 @@ const selectPaymentBtnActivation = () => {
 	else if(numberOfPeopleCnt !== selectSeatCnt)
 		selectPaymentBtn.style.display = "none";
 	
-	console.log(numberOfPeopleCnt, selectSeatCnt);
-	
 }; // 결제창 넘어가기 버튼 활성화 메서드 end
 
 // 결제선택 버튼 클릭 메서드
@@ -872,8 +870,71 @@ document.querySelector("#selectPaymentBtn").addEventListener("click", (e)=>{
 	document.querySelector(".steps2").style.display = "none";
 	document.querySelector(".steps3").style.display = "flex";
 	document.querySelector("#selectPaymentBtn").style.display = "none";
+	document.querySelector("#finalCheckCinema").innerText = document.querySelector("#checkCinema span").innerText + document.querySelector("#checkTheater span").innerText;
+	document.querySelector("#finalCheckSchedule").innerText = document.querySelector("#checkSchedule span").innerText;
+	document.querySelector("#finalCheckMovie").innerHTML = document.querySelector("#reservationMovieTitle").innerHTML;
+	document.querySelector("#finalCheckPeople").innerText = document.querySelector("#checkPeople span").innerText;
 	document.querySelector("#finalAmount").innerText = document.querySelector("#checkTotalPayment span").innerText.toLocaleString();
 });
+
+// 결제 메서드
+document.querySelector("#payBtn").addEventListener("click", (e)=>{
+	
+	const payMethod = $(":input:radio[class=payRadio]:checked").val();
+	const totalPayAmount = document.querySelector("#checkTotalPayment span").innerText;
+	const productName = document.querySelector("#reservationMovieTitle").innerText + " X " 
+						+ document.querySelector("#checkPeople span").innerText
+						+ "(" + document.querySelector("#checkSeatNumber span").innerText + ")";
+	
+	const scheduleNo = document.querySelector("#checkSchedule span").dataset.scheduleNo;
+	const seatArr = document.querySelector("#checkSeatNumber span").innerText.split(', ');
+	
+	IMP.init("imp28385606");
+	
+	IMP.request_pay({
+	    pg : payMethod,
+	    pay_method : 'card',
+	    merchant_uid: scheduleNo + document.querySelector("#checkSeatNumber span").innerText,
+	    name : productName,
+	    amount : totalPayAmount,
+	    buyer_email : '${loginMember.email}',
+	    buyer_name : '${loginMember.id}',
+	    buyer_tel : '${loginMember.phone}'
+	}, function(rsp) { 
+
+		const csrfHeader = "${_csrf.headerName}";
+    	const csrfToken = "${_csrf.token}";
+    	const headers = {};
+    	headers[csrfHeader] = csrfToken;
+    	
+		if(rsp.success) {
+			
+	    	$.ajax({
+	    		url: "${pageContext.request.contextPath}/reservation/reservationComplete.do",
+	    		type: 'POST',
+	    		traditional: true,
+	    		dataType: 'json',
+	    		data: {scheduleNo, seatArr},
+	    		headers,
+	    		success(data) {
+	    		    console.log(data);
+	    		    let msg = data.msg;
+	    			
+	    			alert(msg);
+	    			
+	    			location.href = "${pageContext.request.contextPath}";
+	    		}
+	    	});
+	    } 
+		else {
+	        var msg = '결제에 실패하였습니다.';
+	        msg += '에러내용 : ' + rsp.error_msg;
+	        
+	        alert(msg);
+	    }
+	}); // 카카오페이 결제 end
+  
+}); // 결제 메서드 end
 </script>
 </body>
 </html>
