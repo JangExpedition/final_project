@@ -105,7 +105,7 @@ console.log(msg);
 		  	href="${ pageContext.request.contextPath }/reservation/reservation.do">예매</a>
 		</li>
 		<li class="nav-item active">
-		   <a class="nav-link" href="${ pageContext.request.contextPath }/event/event.do">이벤트</a>
+		   <a class="nav-link" href="${ pageContext.request.contextPath }/event/eventSpecial.do">이벤트</a>
 		</li>
 		<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<li class="nav-item">
