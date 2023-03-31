@@ -118,14 +118,14 @@
 		});
 	};
 
+	// 공지사항 클릭시 해당 페이지로 이동
+	const titleElement = document.querySelector('.title');
 
-		// 공지사항 클릭시 해당 페이지로 이동
-		const titleElement = document.querySelector('.title');
+	titleElement.addEventListener('click', () => {
+
+		window.location.href = '${pageContext.request.contextPath}/notice/noticeDetail.do?no=182';
+	});
 	
-		titleElement.addEventListener('click', () => {
-	
-			window.location.href = '${pageContext.request.contextPath}/notice/noticeDetail.do?no=182';
-		});
 </script>
 </body>
 </html>

@@ -23,6 +23,7 @@ import com.sh.j3l.cinema.model.dto.Location;
 import com.sh.j3l.cinema.model.service.CinemaService;
 import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.movie.model.service.MovieService;
+import com.sh.j3l.reservation.model.dto.Reservation;
 import com.sh.j3l.reservation.model.service.ReservationService;
 import com.sh.j3l.schedule.model.dto.Schedule;
 import com.sh.j3l.schedule.model.service.ScheduleService;
@@ -114,7 +115,6 @@ public class ReservationController {
 	    Map<String, Object> responseData = new HashMap<>();
 	    responseData.put("msg", "결제가 완료되었습니다.");
 
-	    // Convert the map to a JSON string using Jackson
 	    ObjectMapper mapper = new ObjectMapper();
 	    String jsonResponse = "";
 	    try {
@@ -126,4 +126,12 @@ public class ReservationController {
 	    return jsonResponse;
 	};
 	
+	@GetMapping("/getMyReservation.do")
+	@ResponseBody
+	public List<Reservation> getMyReservation(@RequestParam String id) {
+		
+		String oneMonthAgo = LocalDate.now().minusMonths(1).toString();
+		
+		return reservationService.getMyReservationList(id, oneMonthAgo);
+	}
 }

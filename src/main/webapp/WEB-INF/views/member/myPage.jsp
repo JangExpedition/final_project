@@ -24,7 +24,7 @@
 				</div>
 				<div id="grade">
 					<h5>고객님은 일반입니다.</h5>
-					<input id="userGradeBtn" type="button" value="나의 지난 등급이력 보기"/>
+					<input id="myReservationCheck" type="button" value="예매내역 확인하기"/>
 				</div>
 			</div>
 		</div>
@@ -288,6 +288,26 @@
 			</div>
 		</div>
 	</div>
+	<div id="myReservation">
+		<h3>예약내역</h3>
+		<p>지난 <span>1개월</span>까지의 예매내역을 확인하실 수 있습니다.</p>
+		<table id="myReservationTable" class="myReservationTable">
+			<thead>
+				<tr>
+					<th>상영관</th>
+					<th>영화</th>
+					<th>장르</th>
+					<th>연령제한</th>
+					<th>시작시간</th>
+					<th>종료시간</th>
+					<th>좌석번호</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			</tbody>
+		</table>
+	</div>
 </section>
 <script>
 // 비밀번호 인증 메서드
@@ -324,6 +344,44 @@ const certifiedPwd = (id, password) => {
 	
 	return result;
 }
+
+// 예약내역 확인 메서드
+document.querySelector("#myReservationCheck").addEventListener("click", (e)=>{
+	
+	$.ajax({
+		url: "${pageContext.request.contextPath}/reservation/getMyReservation.do",
+		data: {id : "${loginMember.id}"},
+		success(myScheduleList){
+			myScheduleList.forEach((mySchedule)=>{
+				console.log(mySchedule);
+				const {cinemaName, endTime, genre, id, limitAge, runningTime, seatNo, startTime, theaterNo, title} = mySchedule;
+				
+				const tbody = document.querySelector("#myReservationTable tbody");
+				
+				const tr = document.createElement("tr");
+				const cinemaTd = document.createElement("td");
+				cinemaTd.innerText = cinemaName + " " + theaterNo + "관";
+				const movieTd = document.createElement("td");
+				movieTd.innerText = title;
+				const genreTd = document.createElement("td");
+				genreTd.innerText = genre;
+				const limitAgeTd = document.createElement("td");
+				limitAgeTd.innerText = limitAge == 0 ? "전체이용가" : limitAge + "세 이용가";
+				const startTimeTd = document.createElement("td");
+				startTimeTd.innerHTML = startTime.slice(0, 10) + "</br>" + startTime.slice(11);
+				const endTimeTd = document.createElement("td");
+				endTimeTd.innerHTML = endTime.slice(0, 10) + "</br>" + endTime.slice(11);
+				const seatTd = document.createElement("td");
+				seatTd.innerText = seatNo;
+				tr.append(cinemaTd, movieTd, genreTd, limitAgeTd, startTimeTd, endTimeTd, seatTd);
+				tbody.append(tr);
+			});
+		},
+		error: console.log
+	});
+	
+	document.querySelector("#myReservation").style.display = "inline-block";
+});
 </script>
 </body>
 </html>

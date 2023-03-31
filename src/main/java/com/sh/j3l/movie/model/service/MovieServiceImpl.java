@@ -47,7 +47,10 @@ public class MovieServiceImpl implements MovieService {
 	
 	@Override
 	public Movie selectOneMovie(int no) {
-		return movieDao.selectOneMovie(no);
+		Movie movie = movieDao.selectOneMovie(no);
+		List<Attachment> attachList = movieDao.selectOneAttachment(movie.getNo());
+		movie.setAttachments(attachList);
+		return movie;
 	}
 
 	@Override

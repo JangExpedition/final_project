@@ -28,7 +28,7 @@
 							<div class="movieRank top3">
 								No.${ vs.count }
 							</div>
-							<div class="moviePoster">
+							<div class="moviePoster" data-movie-no="${ movie.no }">
 								<c:choose>
 									<c:when test="${ movie.limitAge == 0 }">
 										<span class="badge badge-success">All</span>
@@ -60,11 +60,11 @@
 			<c:forEach items="${ movieList }" var="movie" varStatus="vs">
 				<c:choose>
 					<c:when test="${ vs.count >= 4 && vs.count <= 7 }">
-						<div class="oneMovie">
+						<div class="oneMovie" >
 							<div class="movieRank">
 								No.${ vs.count }
 							</div>
-							<div class="moviePoster">
+							<div class="moviePoster" data-movie-no="${ movie.no }">
 								<c:choose>
 									<c:when test="${ movie.limitAge == 0 }">
 										<span class="badge badge-success">All</span>
@@ -96,11 +96,11 @@
 			<c:forEach items="${ movieList }" var="movie" varStatus="vs">
 				<c:choose>
 					<c:when test="${ vs.count >= 8 && vs.count <= 11 }">
-						<div class="oneMovie">
+						<div class="oneMovie" >
 							<div class="movieRank">
 								No.${ vs.count }
 							</div>
-							<div class="moviePoster">
+							<div class="moviePoster" data-movie-no="${ movie.no }">
 								<c:choose>
 									<c:when test="${ movie.limitAge == 0 }">
 										<span class="badge badge-success">All</span>
@@ -133,9 +133,6 @@
 <form name="onScreenFilterFrm" action="${pageContext.request.contextPath}/movie/onScreenFilter.do">
 	<input type="hidden" name="checked"/>
 </form>
-<form name="goReservationFrm" action="${pageContext.request.contextPath}/reservation/reservation.do">
-	<input type="hidden" name="movieNo"/>
-</form>
 <script>
 $("#onScreenFilter").change(function(){
    	const form = document.onScreenFilterFrm;
@@ -151,11 +148,21 @@ $("#onScreenFilter").change(function(){
 document.querySelectorAll(".reservationBtn").forEach((reservationBtn)=>{
 	
 	reservationBtn.addEventListener("click", (e)=>{
-		const frm = document.goReservationFrm;
-		frm.movieNo.value = e.target.dataset.movieNo;
-		frm.submit();
+		location.href="${pageContext.request.contextPath}/reservation/reservation.do";
 	});
 	
+});
+
+document.querySelectorAll(".moviePoster").forEach((moviePoster)=>{
+	
+	moviePoster.addEventListener("click", (e)=>{
+		
+		let parentDiv = e.target;
+		while(parentDiv.tagName !== 'DIV')
+			parentDiv = parentDiv.parentElement;
+		
+		location.href="${pageContext.request.contextPath}/movie/movieInfo.do?no=" + parentDiv.dataset.movieNo;
+	});
 });
 </script>
 </body>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.reservation.model.dao.ReservationDao">
+<select id="getMyReservationList" resultMap="reservationMap">
+	select 
+		id, 
+		seat_no, 
+		t.theater_no, 
+		start_time, 
+		end_time, 
+		cinema_name, 
+		title, 
+		genre, 
+		running_time, 
+		limit_age  
+	from 
+		reservation r left join schedule s 
+			on r.schedule_no = s.no 
+				left join theater t 
+					on s.theater_no = t.no 
+						left join movie m 
+							on s.movie_no = m.no 
+	where 
+		id = #{id}
+		and
+		start_time > #{oneMonthAgo}
+</select>
+<resultMap type="reservation" id="reservationMap"></resultMap>
+</mapper>
