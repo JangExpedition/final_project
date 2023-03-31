@@ -16,4 +16,8 @@ public interface EventService {
 
 	Event selectOneEvent(int no);
 
+	List<Event> selectEventByCategoryAndOffset(Category category, int offset, int size);
+
+	int countEventByCategory(Category category);
+
 }

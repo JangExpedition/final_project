@@ -41,15 +41,31 @@ public class EventController {
 	@Autowired
 	private ServletContext application;
 	
-	@GetMapping("/eventSpecial.do")
-	public void eventSpecial(Model model) {
-		//Category가 SPECIAL인 이벤트만 가져오기
-		List<Event> eventList = eventService.selectAllEvent(Category.SPECIAL);
-		model.addAttribute("eventList", eventList);
-		log.debug("eventList", eventList);
-		
-	}
+//	@GetMapping("/eventSpecial.do")
+//	public void eventSpecial(Model model) {
+//		//Category가 SPECIAL인 이벤트만 가져오기
+//		List<Event> eventList = eventService.selectAllEvent(Category.SPECIAL);
+//		model.addAttribute("eventList", eventList);
+//		log.debug("eventList", eventList);
+//		
+//	}
 	
+	@GetMapping("/eventSpecial.do")
+	public String eventSpecial(Model model,
+	@RequestParam(defaultValue = "1") int page,
+	@RequestParam(defaultValue = "10") int size) {
+	int offset = (page - 1) * size;
+	List<Event> eventList = eventService.selectEventByCategoryAndOffset(Category.SPECIAL, offset, size);
+	model.addAttribute("eventList", eventList);
+	
+	int totalCount = eventService.countEventByCategory(Category.SPECIAL);
+	int totalPages = (int) Math.ceil((double) totalCount / size);
+	model.addAttribute("totalPages", totalPages);
+	model.addAttribute("currentPage", page);
+
+	return "eventSpecial";
+	
+	}
 
 
 	
@@ -61,7 +77,6 @@ public class EventController {
 		
 		Event event = eventService.selectOneEvent(no);
 		log.debug("event = {}", event);
-		
 		
 		model.addAttribute("event", event);
 		model.addAttribute("no", no);
