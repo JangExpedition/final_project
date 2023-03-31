@@ -211,7 +211,6 @@ table caption {
 .cols-content .col-aside .snb > ul > li:hover, 
 .cols-content .col-aside .snb > ul > li:focus, 
 .cols-content .col-aside .snb > ul > li.on {
-	margin-top:1px; 
 	border-top:0 none;
 }
 
@@ -340,6 +339,8 @@ table caption {
 
 .ul1{
 	list-style:none;
+	padding: 0;
+	margin: 0;
 }
 
 .c_tab_wrap {

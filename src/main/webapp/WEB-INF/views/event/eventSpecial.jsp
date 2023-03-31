@@ -37,9 +37,9 @@
     <div class="col-detail event">
         <ul class="sect-evt-item-list">
             <c:forEach items="${eventList}" var="event" varStatus="status">
-            <li data-no="${event.no}">
+            <li>
                 <a id="tile_${status.index}" href="">
-                    <div class="evt-thumb">
+                    <div data-no="${event.no}" class="evt-thumb">
                         <img src="${ pageContext.request.contextPath }/resources/upload/event/${event.attachments[0].renamedFilename }"
                              alt="썸네일"/>
                         <div class="evt-desc">
@@ -54,31 +54,14 @@
         </ul> 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
     document.querySelector("#btn-add").addEventListener('click', (e) => {
         location.href = '${pageContext.request.contextPath}/event/eventForm.do';
     });
 
-    document.querySelectorAll("li[data-no]").forEach((li) => {
-        li.addEventListener('click', (e) => {
-            const no = li.dataset.no;
+    document.querySelectorAll("ul[data-no]").forEach((ul) => {
+        ul.addEventListener('click', (e) => {
+            const no = ul.dataset.no;
             console.log(no);
             location.href = '${pageContext.request.contextPath}/event/eventDetail.do?no=' + no;
         });

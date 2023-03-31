@@ -5,6 +5,8 @@ body {
 
 ol, ul {
 	list-style:none;
+	padding: 0;
+	margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -255,12 +257,6 @@ legend {
 	border-left:solid 1px #000;
 }
 
-/* .qu_txt span a:hover, .qu_txt span a:active { 
-	text-decoration:underline;
-} */
-
-
-
 .tbl_area { 
 	overflow:hidden;
 	padding-top:10px;
@@ -500,8 +496,7 @@ html, body, div, span, em,
 font, img, ins, ol, ul, li, fieldset, form, label, legend, table, tbody,
 tfoot, thead, tr, th, td {
 	font-size:100%; 
-	margin:0; 
-/* 	padding:0; */ 
+	margin:0;  
 	border:0; 
 	word-break:break-all;
 }

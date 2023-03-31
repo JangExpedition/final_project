@@ -19,6 +19,15 @@
         </collection>
     </resultMap>
     
+     <select id="selectOneEvent" resultMap="eventMap">
+    	select
+    		*
+    	from
+    		event
+    	where
+    		no = #{no}
+    </select>
+    
     <select id="selectAllEvent" resultMap="eventMap">
        	select 
        		*
@@ -68,17 +77,6 @@
         where
         no = #{no}
     </delete>
-    
-    <resultMap type="event" id="eventMap2"></resultMap>
-    
-    <select id="selectOneEvent" resultMap="eventMap2">
-    	select
-    		*
-    	from
-    		event
-    	where
-    		no = #{no}
-    </select>
 
 
 </mapper>
