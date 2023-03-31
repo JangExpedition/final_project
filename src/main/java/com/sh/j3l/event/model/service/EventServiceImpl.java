@@ -54,4 +54,14 @@ public class EventServiceImpl implements EventService{
 		return eventDao.selectOneEvent(no);
 	}
 
+	@Override
+	public List<Event> selectEventByCategoryAndOffset(Category category, int offset, int size) {
+		return eventDao.selectEventByCategoryAndOffset(category, offset, size);
+	}
+
+	@Override
+	public int countEventByCategory(Category category) {
+		return eventDao.countEventByCategory(category);
+	}
+
 }
