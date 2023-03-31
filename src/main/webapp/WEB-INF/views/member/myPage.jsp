@@ -23,7 +23,8 @@
 					${ loginMember.id }
 				</div>
 				<div id="grade">
-					<h5>고객님은 일반입니다.</h5>
+					<h5>고객님은 ${ loginMember.grade }입니다.</h5>
+					<p>현재 보유하신 포인트는 <span>${ loginMember.point }point</span> 입니다.</p>
 					<input id="myReservationCheck" type="button" value="예매내역 확인하기"/>
 				</div>
 			</div>

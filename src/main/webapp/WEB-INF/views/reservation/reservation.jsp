@@ -108,6 +108,10 @@
 			<p id="finalCheckSchedule" class="finalCheck"></p>
 			<p id="finalCheckMovie" class="finalCheck"></p>
 			<p id="finalCheckPeople" class="finalCheck"></p>
+			<div class="pointBox">
+				<input id="point" type="number" min="0" max="${ loginMember.point }" placeholder="포인트를 사용하시겠습니까? 보유포인트 : ${ loginMember.point }" />
+				<input id="pointAll" type="button" value="모두 사용하기" />
+			</div>
 			<h3 id="finalAmount"></h3>
 		</div>
 		<div>
@@ -882,11 +886,36 @@ document.querySelector("#selectPaymentBtn").addEventListener("click", (e)=>{
 	document.querySelector("#finalAmount").innerText = document.querySelector("#checkTotalPayment span").innerText.toLocaleString();
 });
 
+// 포인트 사용 메서드
+document.querySelector("#point").addEventListener("change", (e)=>{
+	usePoint();
+});
+
+// 포인트 모두 사용하기 버튼 클릭 메서드
+document.querySelector("#pointAll").addEventListener("click", (e)=>{
+	document.querySelector("#point").value = ${loginMember.point};
+	usePoint();
+});
+
+// 총 결제금액에서 사용 포인트 차감 메서드
+const usePoint = () => {
+	const point = document.querySelector("#point").value;
+	if(point > ${ loginMember.point }){
+		alert("현재 보유하신 포인트보다 많이 입력됐습니다.")
+		point = "";
+	}
+	else{
+		document.querySelector("#finalAmount").innerText
+			= (document.querySelector("#checkTotalPayment span").innerText.replace(/,/, '').replace(/원/g, '')
+				- point).toLocaleString() + "원";
+	}
+};
+
 // 결제 메서드
 document.querySelector("#payBtn").addEventListener("click", (e)=>{
 	
 	const payMethod = $(":input:radio[class=payRadio]:checked").val();
-	const totalPayAmount = document.querySelector("#checkTotalPayment span").innerText;
+	const totalPayAmount = document.querySelector("#finalAmount").innerText.replace(/,/, '').replace(/원/g, '');
 	const productName = document.querySelector("#reservationMovieTitle").innerText + " X " 
 						+ document.querySelector("#checkPeople span").innerText
 						+ "(" + document.querySelector("#checkSeatNumber span").innerText + ")";
@@ -894,6 +923,11 @@ document.querySelector("#payBtn").addEventListener("click", (e)=>{
 	const scheduleNo = document.querySelector("#checkSchedule span").dataset.scheduleNo;
 	const seatArr = document.querySelector("#checkSeatNumber span").innerText.split(', ');
 	const id = "${loginMember.id}";
+	const usePoint = document.querySelector("#point").value == "" ? 0 : document.querySelector("#point").value;
+	
+	alert(usePoint);
+	
+	console.log(totalPayAmount);
 	
 	IMP.init("imp28385606");
 	
@@ -915,14 +949,12 @@ document.querySelector("#payBtn").addEventListener("click", (e)=>{
     	
 		if(rsp.success) {
 			
-			console.log(rsp);
-			
 	    	$.ajax({
 	    		url: "${pageContext.request.contextPath}/reservation/reservationComplete.do",
 	    		type: 'POST',
 	    		traditional: true,
 	    		dataType: 'json',
-	    		data: {scheduleNo, seatArr, id},
+	    		data: {scheduleNo, seatArr, id, totalPayAmount, usePoint},
 	    		headers,
 	    		success(data) {
 	    		    console.log(data);
