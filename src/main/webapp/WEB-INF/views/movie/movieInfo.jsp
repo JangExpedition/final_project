@@ -15,6 +15,20 @@
 <section class="movieInfoSection">
 	<div class="movieInfoWrapper">
 		<div class="moviePoster">
+			<c:choose>
+				<c:when test="${ movie.limitAge == 0 }">
+					<span class="badge badge-success">All</span>
+				</c:when>
+				<c:when test="${ movie.limitAge == 12 }">
+					<span class="badge badge-primary">${ movie.limitAge }</span>
+				</c:when>
+				<c:when test="${ movie.limitAge == 15 }">
+					<span class="badge badge-warning">${ movie.limitAge }</span>
+				</c:when>
+				<c:when test="${ movie.limitAge == 18 }">
+					<span class="badge badge-danger">${ movie.limitAge }</span>
+				</c:when>
+			</c:choose>
 			<img src="${ pageContext.request.contextPath }/resources/upload/movie/${ movie.attachments[0].renamedFilename }">
 		</div>
 		<div class="movieData">
