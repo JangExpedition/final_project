@@ -45,7 +45,7 @@
                         <div class="evt-desc">
                             <p class="txt1">${ event.title }</p>
                             <p class="txt2">${ event.content }<span></span><em></em></p>
-                            <p class="txt2">${ event.startTime } ~ ${ event.endTime }<span></span><em></em></p>
+                            <%-- <p class="txt2">${ event.startTime } ~ ${ event.endTime }<span></span><em></em></p> --%>
                             
                         </div>
                     </div>
