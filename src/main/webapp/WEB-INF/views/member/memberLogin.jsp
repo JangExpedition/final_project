@@ -16,12 +16,6 @@
 			<div class="menu on">
 				로그인
 			</div>
-			<div class="menu">
-				비회원 예매
-			</div>
-			<div class="menu">
-				비회원 예매확인
-			</div>
 		</div>
 		<div class="login-box">
 			<form:form action="${ pageContext.request.contextPath }/member/memberLogin.do" id="loginFrm" name="loginFrm" method="POST">

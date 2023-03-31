@@ -205,5 +205,11 @@ public class MovieController {
 	    return "movie/movieList";
 	}
 	
+	@GetMapping("/movieInfo.do")
+	public void movieInfo(@RequestParam int no, Model model) {
+		Movie movie = movieService.selectOneMovie(no);
+		model.addAttribute("movie", movie);
+	}
+	
 
 }

@@ -365,21 +365,26 @@ const filterEffect = (filterName) =>{
 
 // 영화 선택 메서드
 $(document).on("click", ".movieTitle", function(e){
-	selectMovie(e.target);
+		selectMovie(e.target.dataset.movieNo);
 });
 
 // 영화선택 효과 메서드
-const selectMovie = (movie) => {
+const selectMovie = (movieNo) => {
+	
+	let movie = null;
 	
 	document.querySelectorAll(".movieTitle").forEach((movieTitle)=>{
 		
-		if(movie.dataset.movieNo === movieTitle.dataset.movieNo){
+		if(movieNo === movieTitle.dataset.movieNo){
 			movieTitle.classList += " movieTitleSelected";
+			movie = movieTitle;
 		}
 		else{
 			movieTitle.classList = "movieTitle";
 		}
+		
 	});
+	
 	
 	document.querySelector("#MovieCheck h3").style.display = "none";
 	
@@ -939,15 +944,5 @@ document.querySelector("#payBtn").addEventListener("click", (e)=>{
   
 }); // 결제 메서드 end
 </script>
-<c:if test="${not empty movieNo}">
-	<script>
-		document.querySelectorAll(".movieTitle").forEach((movieTitle)=>{
-			console.log(movieTitle.dataset.movieNo);
-			if(movieTitle.dataset.movieNo == ${movieNo}){
-				console.log("asdfodsjof");
-			}
-		});
-	</script>
-</c:if>
 </body>
 </html>
