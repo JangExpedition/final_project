@@ -178,7 +178,7 @@ public class MovieController {
 	}
 	
 	// 영화 삭제 요청
-	@PostMapping("deleteMovie.do")
+	@PostMapping("/deleteMovie.do")
 	public String deleteMovie(int no, RedirectAttributes redirectAttr) {
 		
 		int result = movieService.deleteMovie(no);
