@@ -62,6 +62,7 @@ public class EventController {
 		Event event = eventService.selectOneEvent(no);
 		log.debug("event = {}", event);
 		
+		
 		model.addAttribute("event", event);
 		model.addAttribute("no", no);
 	}
