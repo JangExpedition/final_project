@@ -64,6 +64,7 @@ public class EventController {
 	model.addAttribute("currentPage", page);
 
 	return "eventSpecial";
+	
 	}
 
 
