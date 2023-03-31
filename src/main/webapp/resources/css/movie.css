@@ -68,6 +68,11 @@
 	position: relative;	
 	width: 200px;
 	height: 285px;
+	cursor: pointer;
+}
+
+.moviePoster:hover{
+	filter: brightness(70%);
 }
 
 .moviePoster>img{
