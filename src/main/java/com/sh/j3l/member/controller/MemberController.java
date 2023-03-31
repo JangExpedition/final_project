@@ -130,7 +130,7 @@ public class MemberController {
 	@GetMapping("/duplicationCheck.do")
 	public String duplicationCheck(@RequestParam String name, @RequestParam String birth, @RequestParam String phone, Model model) {
 		phone = "010" + phone;
-		Member member = new Member(null, null, name, phone, null, birth, 0, null, null);
+		Member member = new Member(null, null, name, null, 0, phone, null, birth, 0, null, null);
 		model.addAttribute("member", member);
 		member = memberService.duplicationCheck(member);
 		if(member != null) {

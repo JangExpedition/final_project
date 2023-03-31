@@ -464,6 +464,29 @@
 	text-align: center;
 }
 
+.pointBox{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+#point{
+	width: 400px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#pointAll{
+	background-color: #333;
+	color: #cdcdcd;
+	font-weight: bold;
+	font-size: 16px;
+	border: 0;
+	border-radius: 5px;
+	padding: 5px 10px;
+}
+
 #payBtn{
 	background-size: cover;
 	background-image: url("../images/payment_icon_yellow_large.png");
@@ -474,6 +497,7 @@
 	height: 80px;
 	cursor: pointer;
 	margin: 20px 0;
+	cursor: pointer;
 }
 
 /* 예매확인 세션 */
