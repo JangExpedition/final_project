@@ -49,8 +49,8 @@
 										</select>
 									</td>
 								</tr>
-								
 								<tr>
+								
 									<td class="tit">첨부파일</td>
 									<td>
 										<input type="file" name="upFile" id="upFile" multiple />

@@ -2,6 +2,7 @@ package com.sh.j3l.event.model.service;
 
 import java.util.List;
 
+import com.sh.j3l.event.model.dto.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,8 +39,9 @@ public class EventServiceImpl implements EventService{
 	}
 
 	@Override
-	public List<Event> selectAllEvent() {
-		return eventDao.selectAllEvent();
+	public List<Event> selectAllEvent(Category category) {
+		//Category가 SPECIAL인 이벤트만 가져오기 -> 쿼리는 /src/main/resources/mapper/event/event-mapper.xml 확인
+		return eventDao.selectAllEvent(category);
 	}
 
 	@Override

@@ -18,16 +18,8 @@
             <result column="RENAMED_FILENAME" property="renamedFilename"/>
         </collection>
     </resultMap>
-    
-     <select id="selectOneEvent" resultMap="eventMap">
-    	select
-    		*
-    	from
-    		event
-    	where
-    		no = #{no}
-    </select>
-    
+
+    <!--파라미터를 Enum클래스로 받으므로, category(Enum).value로 String 값가져오기-->
     <select id="selectAllEvent" resultMap="eventMap">
        	select 
        		*
@@ -35,6 +27,7 @@
         	event e
         left join 
         	EVENT_ATTACHMENT EA ON e.NO = EA.EVENT_NO
+        WHERE e.CATEGORY = #{category.value}
         order by 
         	e.NO DESC
     </select>
@@ -73,10 +66,21 @@
 
     <delete id="deleteEvent">
         delete from
-        event
+        	event
         where
-        no = #{no}
+        	no = #{no}
     </delete>
+    
+    <resultMap type="event" id="eventMap2"></resultMap>
+    
+    <select id="selectOneEvent" resultMap="eventMap2">
+    	select
+    		*
+    	from
+    		event
+    	where
+    		no = #{no}
+    </select>
 
 
 </mapper>
