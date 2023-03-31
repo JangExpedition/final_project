@@ -56,21 +56,21 @@
 													src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png" /></label>
 										</th>
 										<td colspan="3">
-											<input type="text" id="name" name="name" class="inp01" value="${ loginMember.name }"/>
+											<input type="text" id="name" name="name" class="inp01" value="${ loginMember.name }" readonly/>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row">휴대전화
 										</th>
 										<td>
-											<input type="text" id="phone" name="phone" value="${ loginMember.phone }"/>
+											<input type="text" id="phone" name="phone" value="${ loginMember.phone }" readonly/>
 										</td>
 
 										<th scope="row">이메일<img
 												src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png" />
 										</th>
 										<td>
-											<input type="text" id="email" name="email" value="${ loginMember.email }"/>
+											<input type="text" id="email" name="email" value="${ loginMember.email }" readonly/>
 										</td>
 
 									</tr>

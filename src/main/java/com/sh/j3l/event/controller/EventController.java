@@ -2,7 +2,9 @@ package com.sh.j3l.event.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.socket.sockjs.transport.handler.EventSourceTransportHandler;
@@ -46,6 +49,9 @@ public class EventController {
 		log.debug("eventList", eventList);
 		
 	}
+	
+
+
 	
 	// 이벤트 디테일 폼
 	@GetMapping("/eventDetail.do")
@@ -101,7 +107,7 @@ public class EventController {
 	}
 	
 	// 이벤트 삭제
-	@PostMapping("deleteEvent.do")
+	@PostMapping("/deleteEvent.do")
 	public String deleteEvent(int no, RedirectAttributes redirectAttr) {
 		
 		int result = eventService.deleteEvent(no);
