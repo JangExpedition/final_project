@@ -1,5 +1,7 @@
 package com.sh.j3l.event.model.dto;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;

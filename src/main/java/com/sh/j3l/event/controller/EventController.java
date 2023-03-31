@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import com.sh.j3l.event.model.dto.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,8 +40,8 @@ public class EventController {
 	
 	@GetMapping("/eventSpecial.do")
 	public void eventSpecial(Model model) {
-		
-		List<Event> eventList = eventService.selectAllEvent();
+		//Category가 SPECIAL인 이벤트만 가져오기
+		List<Event> eventList = eventService.selectAllEvent(Category.SPECIAL);
 		model.addAttribute("eventList", eventList);
 		log.debug("eventList", eventList);
 		
@@ -120,8 +121,9 @@ public class EventController {
 	
 	@GetMapping("/eventMovie.do")
 	public void eventMovie(Model model) {
-		
-		List<Event> eventList = eventService.selectAllEvent();
+
+		//Category가 MOVIEYEME인 이벤트만 가져오기
+		List<Event> eventList = eventService.selectAllEvent(Category.MOVIEYEME);
 		model.addAttribute("eventList", eventList);
 		log.debug("eventList", eventList);
 		
@@ -130,7 +132,8 @@ public class EventController {
 	@GetMapping("/eventMembership.do")
 	public void eventMembership(Model model) {
 		
-		List<Event> eventList = eventService.selectAllEvent();
+		//Category가 MEMBERSHIP인 이벤트만 가져오기
+		List<Event> eventList = eventService.selectAllEvent(Category.MEMBERSHIP);
 		model.addAttribute("eventList", eventList);
 		log.debug("eventList", eventList);
 		
@@ -139,7 +142,8 @@ public class EventController {
 	@GetMapping("/eventCinema.do")
 	public void eventCinema(Model model) {
 		
-		List<Event> eventList = eventService.selectAllEvent();
+		//Category가 MOVIEYEME인 이벤트만 가져오기 -> 추후 CINEMA 탭 추가 시, 변경 요망
+		List<Event> eventList = eventService.selectAllEvent(Category.MOVIEYEME);
 		model.addAttribute("eventList", eventList);
 		log.debug("eventList", eventList);
 		
@@ -147,8 +151,8 @@ public class EventController {
 	
 	@GetMapping("/eventSale.do")
 	public void eventSale(Model model) {
-		
-		List<Event> eventList = eventService.selectAllEvent();
+		//Category가 JAEHYUSALE인 이벤트만 가져오기
+		List<Event> eventList = eventService.selectAllEvent(Category.JAEHYUSALE);
 		model.addAttribute("eventList", eventList);
 		log.debug("eventList", eventList);
 		

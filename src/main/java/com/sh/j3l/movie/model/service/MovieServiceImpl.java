@@ -54,11 +54,6 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public Movie selectOneMovieCollection(int no) {
-		return movieDao.selectOneMovieCollection(no);
-	}
-
-	@Override
 	public int updateMovie(Movie movie) {
 		return movieDao.updateMovie(movie);
 	}

@@ -2,13 +2,15 @@ package com.sh.j3l.event.model.service;
 
 import java.util.List;
 
+import com.sh.j3l.event.model.dto.Category;
 import com.sh.j3l.event.model.dto.Event;
 
 public interface EventService {
 
 	int insertEvent(Event event);
 
-	List<Event> selectAllEvent();
+	//EventServiceImpl에서 구현
+	List<Event> selectAllEvent(Category category);
 
 	int deleteEvent(int no);
 

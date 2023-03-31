@@ -11,7 +11,9 @@
 		order by
 			no asc
 	</select>
+	
 	<resultMap type="movie" id="movieMap"></resultMap>
+	
 	<insert id="insertMovie">
 	    insert into 
 	        movie (no, title, genre, director, actors, synopsis, limit_age, running_time, open_dt)

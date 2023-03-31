@@ -46,7 +46,7 @@ textarea {
 }
 
 .cols-content .col-aside {
-	width:160px; 
+	/* width:160px; */ 
 	float:right
 }
 
@@ -78,13 +78,12 @@ textarea {
 }
 
 .cols-content .col-aside .snb > ul {
-	margin-bottom:10px;
+	margin-top:8.3px;
 }
 
 .cols-content .col-aside .snb > ul > li:hover, 
 .cols-content .col-aside .snb > ul > li:focus, 
 .cols-content .col-aside .snb > ul > li.on {
-	margin-top:1px; 
 	border-top:0 none;
 }
 
@@ -128,7 +127,7 @@ textarea {
 }
 
 .cols-content .col-aside .snb > ul > li > a {
-    /* width: 155px; */
+    width: 160px;
     height: 34px;
     padding-left: 5px;
     color: #222;
@@ -143,6 +142,8 @@ h1 {
 
 .ul1 {
 	list-style:none;
+	padding: 0;
+	margin: 0;
 }
 
 .fn1 {

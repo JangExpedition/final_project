@@ -356,6 +356,7 @@ a {
 .button {
 	display: inline-block; 
 	vertical-align: middle;
+	background: url(../images/btn-prev.png) no-repeat 0 2px;
 }
 
 .button-group {

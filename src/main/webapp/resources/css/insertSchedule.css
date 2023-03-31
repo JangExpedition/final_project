@@ -86,7 +86,7 @@ textarea {
 }
 
 .cols-content .col-aside .snb > ul {
-	margin-bottom:10px;
+	margin-top:9px;
 }
 
 .cols-content .col-aside .snb > ul > li:hover, 
@@ -149,8 +149,10 @@ h1 {
   text-align: center;
 }
 
-.ul1 {
+.ul1{
 	list-style:none;
+	padding: 0;
+	margin: 0;
 }
 
 .fn1 {
