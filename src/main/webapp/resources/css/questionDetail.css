@@ -86,7 +86,7 @@ textarea {
 }
 
 .cols-content .col-aside .snb > ul {
-	margin-bottom:10px;
+	margin-top:8.3px;
 }
 
 .cols-content .col-aside .snb > ul > li:hover, 
@@ -149,8 +149,10 @@ h1 {
   text-align: center;
 }
 
-.ul1 {
+.ul1{
 	list-style:none;
+	padding: 0;
+	margin: 0;
 }
 
 .fn1 {
@@ -176,10 +178,19 @@ body{
     background-color: #fff;
 }
 
-textarea, input[id="submit"] {
+input[id="submit"] {
   box-sizing: border-box;
   width: 100%;
   height: 50px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 150px;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
