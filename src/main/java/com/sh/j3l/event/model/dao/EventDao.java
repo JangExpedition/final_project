@@ -3,6 +3,7 @@ package com.sh.j3l.event.model.dao;
 
 import java.util.List;
 
+import com.sh.j3l.event.model.dto.Category;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.sh.j3l.event.model.dto.Event;
@@ -15,7 +16,7 @@ public interface EventDao {
 
 	int insertEventAttachment(EventAttachment attach);
 
-	List<Event> selectAllEvent();
+	List<Event> selectAllEvent(Category category);
 
 	int deleteEvent();
 

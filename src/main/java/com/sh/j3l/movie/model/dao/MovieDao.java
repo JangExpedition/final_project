@@ -20,8 +20,6 @@ public interface MovieDao {
 
 	Movie selectOneMovie(int no);
 
-	Movie selectOneMovieCollection(int no);
-
 	int updateMovie(Movie movie);
 
 	int deleteMovie(Integer no);
