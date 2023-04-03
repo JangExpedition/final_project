@@ -72,7 +72,7 @@
 		insert into
 			member
 		values(
-			#{id}, #{password}, #{name}, #{phone}, #{email}, #{birth}, #{age}, default
+			#{id}, #{password}, #{name}, default, default, #{phone}, #{email}, #{birth}, #{age}, default
 		)
 	</insert>
 	

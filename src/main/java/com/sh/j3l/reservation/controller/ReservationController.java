@@ -1,5 +1,7 @@
 package com.sh.j3l.reservation.controller;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +10,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +26,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sh.j3l.cinema.model.dto.Cinema;
 import com.sh.j3l.cinema.model.dto.Location;
 import com.sh.j3l.cinema.model.service.CinemaService;
+import com.sh.j3l.member.model.dto.Member;
+import com.sh.j3l.member.model.service.MemberService;
 import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.movie.model.service.MovieService;
 import com.sh.j3l.reservation.model.dto.Reservation;
@@ -56,6 +63,9 @@ public class ReservationController {
 	
 	@Autowired
 	private ReservationService reservationService;
+	
+	@Autowired
+	private MemberService memberService;
 
 	@GetMapping("/reservation.do")
 	public void reservation(Model model, @RequestParam(required = false) String movieNo) {
@@ -106,11 +116,26 @@ public class ReservationController {
 		return seatService.selectAllSeat(scheduleNo);
 	}
 	
+	// 예약 결제 완료 메서드
 	@PostMapping("/reservationComplete.do")
 	@ResponseBody
-	public String reservationComplete(@RequestParam int scheduleNo, @RequestParam String[] seatArr, @RequestParam String id) {
+	public String reservationComplete
+		(@RequestParam int scheduleNo, 
+		 @RequestParam String[] seatArr, 
+		 @RequestParam String id, 
+		 @RequestParam int totalPayAmount, 
+		 @RequestParam int usePoint, 
+		 Authentication authentication) {
 		
-		int result = reservationService.reservationComplete(scheduleNo, seatArr, id);
+		int result = reservationService.reservationComplete(scheduleNo, seatArr, id, totalPayAmount, usePoint);
+		
+		Member newMember = memberService.selectOneMember(id);
+		Authentication newAuthentication = new UsernamePasswordAuthenticationToken(
+				newMember,
+				authentication.getCredentials(),
+				authentication.getAuthorities()
+				);
+		SecurityContextHolder.getContext().setAuthentication(newAuthentication);
 		
 	    Map<String, Object> responseData = new HashMap<>();
 	    responseData.put("msg", "결제가 완료되었습니다.");
