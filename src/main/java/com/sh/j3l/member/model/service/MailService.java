@@ -6,4 +6,6 @@ public interface MailService {
 	
 	String resetPassword(String email);
 
+	String changeEmail(String email);
+
 }

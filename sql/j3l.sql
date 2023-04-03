@@ -24,7 +24,7 @@ select * from seat;
 --===============================
 
 insert into member
-values('admin', '1234', '어드민', '01012341234', 'admin@gmail.com', '19930803', 29, default);
+values('admin', '1234', '어드민', default, default, '01012341234', 'admin@gmail.com', '19930803', 29, default);
 
 update member set password='$2a$10$Tk1XefztVv5IGUVOY3KiA.yH4mSCQ8c/.ytxD.t/lF5.Z0BIDZrLu' where id='admin';
 
@@ -403,6 +403,8 @@ CREATE TABLE member (
 	id varchar2(50)	NOT NULL,
 	password varchar2(300) NOT NULL,
 	name varchar2(30) NOT NULL,
+    grade varchar2(10) default 'FAMILY' not null,
+    point number default 1000 not null,
 	phone char(11) NOT NULL,
 	email varchar2(50) NOT NULL,
 	birth char(8) NOT NULL,
@@ -669,3 +671,17 @@ CREATE TABLE event_attachment (
 );
 -- 영화 첨부파일 시퀀스
 create sequence seq_event_attach_no;
+
+-- 매점 테이블
+create table store (
+    name varchar2(100) not null,
+    cinema_name varchar2(30) not null,
+    price number not null,
+    original_filename varchar2(2000) NULL,
+	renamed_filename varchar2(2000) NULL,
+    snack_category varchar2(50) not null,
+    constraint pk_store_name primary key(name),
+    constraint fk_store_cinema_name foreign key (cinema_name)
+                                    references cinema
+                                    on delete cascade
+);
