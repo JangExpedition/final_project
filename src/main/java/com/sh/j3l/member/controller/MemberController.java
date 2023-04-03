@@ -163,7 +163,7 @@ public class MemberController {
 	@GetMapping("/authentication.do")
 	@ResponseBody
 	public String mailCheck(@RequestParam String email) {
-		return mailService.joinEmail(email);
+		return mailService.changeEmail(email);
 	}
 	
 	// 회원가입 메서드

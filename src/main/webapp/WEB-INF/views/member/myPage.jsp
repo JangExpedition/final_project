@@ -15,7 +15,7 @@
 	<div id="memberDataWrapper">
 		<div id="myData">
 			<div id="profileImg">
-				<img src="${ pageContext.request.contextPath }/resources/images/default.png">
+				<img src="${ pageContext.request.contextPath }/resources/images/${ loginMember.grade }.png">
 			</div>
 			<div id="personData">
 				<div id="idName">
@@ -23,8 +23,9 @@
 					${ loginMember.id }
 				</div>
 				<div id="grade">
+					<p id="checkGradeBenefit" class="pointColor">멤버십 등급별 혜택 확인하기</p>
 					<h5>고객님은 ${ loginMember.grade }입니다.</h5>
-					<p>현재 보유하신 포인트는 <span>${ loginMember.point }point</span> 입니다.</p>
+					<p>현재 보유하신 포인트는 <span class="pointColor">${ loginMember.point }point</span> 입니다.</p>
 					<input id="myReservationCheck" type="button" value="예매내역 확인하기"/>
 				</div>
 			</div>
@@ -310,6 +311,77 @@
 		</table>
 	</div>
 </section>
+<div id="gradeCheckBenefitModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">멤버십 등급별 혜택</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="gradeCheckBenefitModalBody" class="modal-body">
+      	<table class="gradeBenefitTable">
+      		<thead>
+      			<tr>
+	      			<th>등급</th>
+	      			<th>혜택</th>
+      			</tr>
+      		</thead>
+      		<tbody>
+      			<tr>
+      				<td class="imgTd">
+      					<img src="${ pageContext.request.contextPath }/resources/images/FAMILY.png"/>
+      				</td>
+      				<td rowspan="2">결제금액의 1% 포인트적립</td>
+      			</tr>
+      			<tr class="borderTr">
+      				<td>
+      					FAMILY
+      				</td>
+      			</tr>
+      			<tr>
+      				<td class="imgTd">
+      					<img src="${ pageContext.request.contextPath }/resources/images/SILVER.png"/>
+      				</td>
+      				<td rowspan="2">결제금액의 3% 포인트적립</td>
+      			</tr>
+      			<tr class="borderTr">
+      				<td>
+      					SILVER
+      				</td>
+      			</tr>
+      			<tr>
+      				<td class="imgTd">
+      					<img src="${ pageContext.request.contextPath }/resources/images/GOLD.png"/>
+      				</td>
+      				<td rowspan="2">결제금액의 5% 포인트적립</td>
+      			</tr>
+      			<tr class="borderTr">
+      				<td>
+      					GOLD
+      				</td>
+      			</tr>
+      			<tr>
+      				<td class="imgTd">
+      					<img src="${ pageContext.request.contextPath }/resources/images/VIP.png"/>
+      				</td>
+      				<td rowspan="2">결제금액의 7% 포인트적립</td>
+      			</tr>
+      			<tr class="borderTr">
+      				<td>
+      					VIP
+      				</td>
+      			</tr>
+      		</tbody>
+      	</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
 // 비밀번호 인증 메서드
 document.querySelector("#authenticationPwdBtn").addEventListener("click", (e)=>{
@@ -382,6 +454,10 @@ document.querySelector("#myReservationCheck").addEventListener("click", (e)=>{
 	});
 	
 	document.querySelector("#myReservation").style.display = "inline-block";
+});
+
+document.querySelector("#checkGradeBenefit").addEventListener("click", (e)=>{
+	$("#gradeCheckBenefitModal").modal("show");
 });
 </script>
 </body>

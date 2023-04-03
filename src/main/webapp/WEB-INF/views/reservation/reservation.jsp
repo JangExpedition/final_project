@@ -238,6 +238,11 @@ window.onload = () =>{
 			`;
 			
 			for(let i = 0; i < date.length; i++){
+				
+				if(date[i] < 10){
+					date[i] = "0" + date[i];
+				}
+				
 				if(i === 0){
 					dayList.innerHTML += `
 					<div>
@@ -248,7 +253,6 @@ window.onload = () =>{
 				else {
 					dayList.innerHTML += `
 						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					</div>
 					`;
 				}
@@ -257,6 +261,10 @@ window.onload = () =>{
 		}
 		// 년도가 하나이면서 월은 두개인 경우
 		else{
+			
+			if(date[i] < 10){
+				date[i] = "0" + date[i];
+			}
 		
 			dayList.innerHTML = `
 			<div>
@@ -519,6 +527,8 @@ const getSchedule = () => {
 	const movieNo = document.querySelector(".movieTitleSelected").dataset.movieNo;
 	const cinemaName = document.querySelector(".selectedCinema").innerText;
 	const reservationDay = document.querySelector(".selectedDay").dataset.reservationday.slice(0,10);
+	
+	console.log(movieNo, cinemaName, reservationDay);
 
 	$.ajax({
 		url: "${pageContext.request.contextPath}/reservation/selectTheaterList.do",
@@ -535,6 +545,8 @@ const getSchedule = () => {
 					url: "${pageContext.request.contextPath}/reservation/selectScheduleList.do",
 					data: {movieNo, theaterNo : theater.no, reservationDay},
 					success(scheduleList){
+						
+						console.log(scheduleList);
 						
 						if(scheduleList.length > 0){
 							
@@ -914,25 +926,19 @@ const usePoint = () => {
 // 결제 메서드
 document.querySelector("#payBtn").addEventListener("click", (e)=>{
 	
-	const payMethod = $(":input:radio[class=payRadio]:checked").val();
 	const totalPayAmount = document.querySelector("#finalAmount").innerText.replace(/,/, '').replace(/원/g, '');
 	const productName = document.querySelector("#reservationMovieTitle").innerText + " X " 
 						+ document.querySelector("#checkPeople span").innerText
 						+ "(" + document.querySelector("#checkSeatNumber span").innerText + ")";
-	
 	const scheduleNo = document.querySelector("#checkSchedule span").dataset.scheduleNo;
 	const seatArr = document.querySelector("#checkSeatNumber span").innerText.split(', ');
 	const id = "${loginMember.id}";
 	const usePoint = document.querySelector("#point").value == "" ? 0 : document.querySelector("#point").value;
 	
-	alert(usePoint);
-	
-	console.log(totalPayAmount);
-	
 	IMP.init("imp28385606");
 	
 	IMP.request_pay({
-	    pg : payMethod,
+	    pg : "kakaopay",
 	    pay_method : 'card',
 	    merchant_uid: scheduleNo + document.querySelector("#checkSeatNumber span").innerText,
 	    name : productName,
