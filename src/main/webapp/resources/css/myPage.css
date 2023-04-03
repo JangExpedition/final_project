@@ -25,7 +25,7 @@
 #profileImg{
 	width: 150px;
 	height: 150px;
-	margin-right: 10px;
+	margin-right: 30px;
 }
 
 #profileImg>img{
@@ -55,6 +55,11 @@
 	margin-right: 10px;
 }
 
+#grade>p{
+	width: 100%;
+	margin-bottom: 5px;
+}
+
 #grade{
 	margin-top: 10px;
 	width: 100%;
@@ -64,8 +69,17 @@
 	justify-content: flex-start;
 }
 
+#checkGradeBenefit{
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.pointColor{
+	color: #fb4357;
+}
+
 #myReservationCheck{
-	margin-top: 10px;
+	/* margin-top: 10px; */
 	border: 2px solid #333;
 	font-weight: bold;
     font-size: 12px;
@@ -89,6 +103,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	margin-top: 10px;
 }
 
 #emailImg{
@@ -236,4 +251,33 @@ input{
 	font-size: 14px;
 	border-bottom: 1px solid #dee2e6;
 	text-align: center;
+}
+
+#gradeCheckBenefitModalBody{
+	padding: 0;
+}
+
+.gradeBenefitTable, .gradeBenefitTable>thead{
+	width: 100%;
 }	
+
+.gradeBenefitTable>thead{
+	border-bottom: 1px solid #e9ecef;	
+	background-color: #e9ecef;
+}
+
+.gradeBenefitTable>thead>tr>th, .gradeBenefitTable>tbody>tr>td{
+	text-align: center;
+	font-weight: bold;
+	border: 0;
+	width: 50%;
+	padding: 10px;
+}
+
+.imgTd{
+	padding: 0 !important;
+}
+
+.borderTr:not(:last-child){
+	border-bottom: 1px solid #e9ecef;
+}

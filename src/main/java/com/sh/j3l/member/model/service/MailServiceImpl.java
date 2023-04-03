@@ -37,6 +37,21 @@ public class MailServiceImpl implements MailService {
 			return code;
 		}
 		
+		// 이메일 수정 메서드
+		public String changeEmail(String email) {
+			makeRandomNumber();
+			String setFrom = "jangssssi@naver.com"; // email-config에 설정한 자신의 이메일 주소를 입력 
+			String toMail = email;
+			String title = "J3L 인증 이메일 입니다."; // 이메일 제목 
+			String content = 
+							"<br><br>" + 
+							"인증 번호는 " + code + "입니다." + 
+							"<br>" + 
+							"해당 인증번호를 인증번호 확인란에 기입하여 주세요."; //이메일 내용 삽입
+			mailSend(setFrom, toMail, title, content);
+			return code;
+		}
+		
 		//이메일 전송 메소드
 		public void mailSend(String setFrom, String toMail, String title, String content) { 
 			MimeMessage message = mailSender.createMimeMessage();

@@ -101,6 +101,11 @@ console.log(msg);
 		</li>
 		<li class="nav-item active">
 		  <a class="nav-link 
+		  	<c:if test="${ pageContext.request.servletPath eq '/WEB-INF/views/reservation/store.jsp' }">red</c:if>" 
+		  	href="${ pageContext.request.contextPath }/store/store.do">스토어</a>
+		</li>
+		<li class="nav-item active">
+		  <a class="nav-link 
 		  	<c:if test="${ pageContext.request.servletPath eq '/WEB-INF/views/reservation/reservation.jsp' }">red</c:if>" 
 		  	href="${ pageContext.request.contextPath }/reservation/reservation.do">예매</a>
 		</li>

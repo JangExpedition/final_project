@@ -152,6 +152,8 @@ const filterSelected = (name) => {
 					const movieName = document.createElement("h4");
 					const movieRank = document.createElement("h1");
 					
+					moviePoster.dataset.movieNo = movie.no;
+					
 					const {renamedFilename} = movie.attachments[0];
 					
 					moviePoster.style.backgroundImage = 
@@ -219,6 +221,17 @@ autoBtn.addEventListener("click", () => {
   }
 });
 
+};
+
+$(document).on("click", ".moviePoster", function(e){
+	
+	let parentDiv = e.target;
+	while(parentDiv.tagName !== 'DIV')
+		parentDiv = parentDiv.parentElement;
+	
+	location.href="${pageContext.request.contextPath}/movie/movieInfo.do?no=" + parentDiv.dataset.movieNo;
+	
+});
 </script>
 </body>
 </html>
