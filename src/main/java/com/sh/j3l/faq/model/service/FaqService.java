@@ -11,7 +11,7 @@ public interface FaqService {
 
 	int insertFaq(Faq faq);
 
-	List<Faq> selectAllFaq(Map<String, Object> param);
+	List<Faq> selectAllFaq();
 
 	List<Faq> searchByTitle(String title);
 

@@ -47,8 +47,8 @@ public class FaqServiceImpl implements FaqService{
 	}
 
 	@Override
-	public List<Faq> selectAllFaq(Map<String, Object> param) {
-		return faqDao.selectAllFaq(param);
+	public List<Faq> selectAllFaq() {
+		return faqDao.selectAllFaq();
 	}
 
 

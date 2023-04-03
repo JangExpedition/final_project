@@ -55,7 +55,7 @@
 	
 	<update id="faqUpdate">
 		update 
-			FAQ
+		   FAQ
 		set
 			title = #{title},
 			content = #{content},

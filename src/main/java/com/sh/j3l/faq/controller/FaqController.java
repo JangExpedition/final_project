@@ -54,30 +54,19 @@ public class FaqController {
 	
 	// 자주찾는 질문 전체조회 with 페이징처리	
 	@GetMapping("/faqList.do")
-	public void faqList(Model model, HttpServletRequest request) {
-		
-		// 1. 컨텐츠 영역
-	    final int limit = 5;
-		int page = 1;
-		try {
-			page = Integer.parseInt(request.getParameter("page"));
-		} catch (NumberFormatException e) {}
-		
-		Map<String, Object> param = new HashMap<>();
-		param.put("page", page);
-		param.put("limit", limit);
-		
-		List<Faq> faqList = faqService.selectAllFaq(param);
-	    
-	    
-	    // 2. 페이지바 영역
-	    // 2-1 전체 게시물수
-//	    String pagebar = HelloMvcUtils.getPagebar(page, pageSize, totalFaqs, url);
-//
-//	    model.addAttribute("faqList", faqsInPage);
-//	    model.addAttribute("currentPage", page);
-//	    model.addAttribute("totalPages", totalPages);
-//		model.addAttribute("pagebar", pagebar);
+	public void faqList(Model model, @RequestParam(defaultValue = "1") int page) {
+	    int pageSize = 5;
+	    List<Faq> faqList = faqService.selectAllFaq();
+	    int totalFaqs = faqList.size();
+	    int totalPages = (int) Math.ceil((double) totalFaqs / pageSize);
+
+	    int start = (page - 1) * pageSize;
+	    int end = Math.min(start + pageSize, totalFaqs);
+	    List<Faq> faqsInPage = faqList.subList(start, end);
+
+	    model.addAttribute("faqList", faqsInPage);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("totalPages", totalPages);
 	}
 	
 	
