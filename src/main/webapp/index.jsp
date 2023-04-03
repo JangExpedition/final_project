@@ -77,42 +77,7 @@
 <script>
 window.onload = () => {
 	filterSelected("무비차트");
-	
-	/* $.ajax({
-		  url : "${ pageContext.request.contextPath }/event/selectAllEventList.do",
-		  data: {},
-		  success(data){
-			  
-			console.log(data);
 
-		    
-			const content = document.querySelector(".slider__container");
-
-		    content.innerHTML = `
-		        <div class="slider__header">
-		          <h2>EVENT</h2>
-		          <button class="slider__autoplay on">
-		            <img id="pause" src="./pause.png" alt="pause btn" />
-		            <img id="play" src="./play.png" alt="pause btn" />
-		          </button>
-		        </div>
-		        `;
-		        
-		        
-		        
-			content.innerHTML += `
-		        <div class="slider">
-		          <div class="slider__content">
-		            <img src="./test.jpeg" alt="" />
-		            <p>[테스트] 111</p>
-		            <p>2023-04-02</p>
-		        </div>
-		    `;
-		    
-		    
-			},
-			error: console.log
-		}); */
 }
 
 // 영화필터 선택 메서드
