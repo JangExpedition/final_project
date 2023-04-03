@@ -20,4 +20,8 @@ public interface NoticeService {
 
 	Notice selectNoticeByNo(int i);
 
+	List<Notice> searchByContent(String keyword);
+
+	int noticeUpdate(Notice notice);
+
 }

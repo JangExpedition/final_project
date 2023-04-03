@@ -30,9 +30,18 @@
 		select
 			*
 		from
-			FAQ
+			faq
 		where
 			title like '%' || #{title} || '%'
+	</select>
+	
+	<select id="searchByContent" parameterType="String" resultType="Faq">
+		select
+			*
+		from
+			faq
+		where
+			content like '%' || #{title} || '%'
 	</select>
 	
 	<select id="selectOneFaq" resultMap="faqMap">
@@ -44,18 +53,16 @@
 			no = #{no}
 	</select>
 	
-<!-- 	<update id="updateFaq">
+	<update id="faqUpdate">
 		update 
 			FAQ
 		set
 			title = #{title},
 			content = #{content},
-			read_count = #{readCount},
-			created_at = #{createdAt},
 			classify = #{classify}
 		where
 			no = #{no}
-	</update> -->
+	</update>
 	
 	<delete id="deleteFaq">
 		delete from

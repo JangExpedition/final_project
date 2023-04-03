@@ -39,7 +39,7 @@ html, body, div, span, em,
 font, img, ins, ol, ul, li, fieldset, form, label, legend, table, tbody,
 tfoot, thead, tr, th, td {
 	margin:0; 
-/* 	padding:0; */ 
+	padding:0; 
 	border:0; 
 	word-break:break-all;
 }
@@ -89,6 +89,12 @@ table thead th {
 a:focus, a:hover {
 	text-decoration:none;
 }
+
+li a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
 
 a:active {
 	background-color:transparent;
@@ -414,7 +420,7 @@ p {
 }
 
 #myElement {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .tbl_notice_list tbody tr:hover td:nth-child(3) {
@@ -432,6 +438,62 @@ p {
 	color: gray;
 }
 
-a:hover {
-  color : white;
+.btn-paging {
+    display: inline-block;
+    min-width: 56px;
+    min-height: 40px;
+    margin: 0 2px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #222;
+    background: url(../images/btn_paging.gif) no-repeat;
+    border: 1px solid #d8d8d8;
+}
+
+.btn-paging.next {
+    margin-left: 16px;
+    padding: 8px 24px 0 10px;
+    vertical-align: top;
+    background-position: calc(100% - 2px) -45px;
+    border-radius: 4px;
+}
+
+.btn-paging.end {
+    min-width: 40px;
+    padding: 0;
+    vertical-align: top;
+    background-position: 12px -149px;
+    font: 0/0 a;
+    zoom: 1;
+    border-radius: 4px;
+}
+
+.number {
+	line-height: 40px;
+	padding: 0 8px;
+}
+
+.first{
+	padding: 10px;
+	line-height: 40px;
+}
+
+.btn-paging.prev {
+    margin-right: 16px;
+    padding: 8px 10px 0 24px;
+    vertical-align: top;
+    background-position: 2px 7px;
+    border-radius: 4px;
+}
+
+.contentss {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: -15px;
+    margin-right: -150px;
+}
+
+.c_select{
+	width:100px;
+	margin-right: 5px;
 }

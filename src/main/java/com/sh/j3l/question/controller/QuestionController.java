@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.j3l.member.model.dto.Member;
+import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.question.model.dto.Question;
 import com.sh.j3l.question.model.service.QuestionService;
 import com.sh.j3l.questionAnswer.model.dto.QuestionAnswer;
@@ -38,14 +39,28 @@ public class QuestionController {
 	@GetMapping("/question.do")
 	public void question() {}
 	
+	
+	
+	// 사용자용 문의 내역 조회 with 페이징처리
 	@GetMapping("/myQuestionList.do")
-	public void myQuestionList(Model model) {
+	public void myQuestionList(Model model, @RequestParam(defaultValue = "1") int page) {
+		int pageSize = 10;
 		List<Question> questionList = questionService.selectAllQuestion();
-		model.addAttribute("questionList", questionList);
-		log.debug("questionList", questionList);
+		int totalQuestions = questionList.size();
+		int totalPages = (int) Math.ceil((double) totalQuestions / pageSize);
+		
+		int start = (page - 1) * pageSize;
+		int end = Math.min(start + pageSize, totalQuestions);
+		List<Question> questionsInPage = questionList.subList(start, end);
+		
+		model.addAttribute("questionList", questionsInPage);
+		model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", totalPages);
 	}
 	
 	
+	
+
 	// 이름으로 문의 내역 검색
 	@GetMapping("/searchByName")
 	public String searchQuestion(@RequestParam(name = "name") String name, Model model) {
@@ -58,14 +73,23 @@ public class QuestionController {
 		return "question/myQuestionList";
 	}
 
-	// 관리자용 문의 내역 전체 조회
-	@GetMapping("/questionList.do")
-	public void questionList(Model model) {
-		List<Question> questionList = questionService.selectAllQuestion();
-		model.addAttribute("questionList", questionList);
-		log.debug("questionList", questionList);
-	}
 	
+	// 관리자용 문의 내역 조회 with 페이징처리
+	@GetMapping("/questionList.do")
+	public void questionList(Model model, @RequestParam(defaultValue = "1") int page) {
+		int pageSize = 10;
+		List<Question> questionList = questionService.selectAllQuestion();
+		int totalQuestions = questionList.size();
+		int totalPages = (int) Math.ceil((double) totalQuestions / pageSize);
+		
+		int start = (page - 1) * pageSize;
+		int end = Math.min(start + pageSize, totalQuestions);
+		List<Question> questionsInPage = questionList.subList(start, end);
+		
+		model.addAttribute("questionList", questionsInPage);
+		model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", totalPages);
+	}
 	
 	// 관리자용 문의 내역 확인 폼
 	@GetMapping("/questionDetail.do")

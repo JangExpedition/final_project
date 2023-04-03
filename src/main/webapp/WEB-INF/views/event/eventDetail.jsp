@@ -27,12 +27,14 @@
 								<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd" />
 					</li>
 				</ul>
-
-
+				
 				<div class="view_area">
 					<p id="text">${event.content} 
 					<img src="${ pageContext.request.contextPath }/resources/upload/event/${event.attachments[0].renamedFilename }"/></p>
 
+					<div class="button">
+						<a href="${pageContext.request.contextPath}/event/events.do?category=SPECIAL">목록</a>
+					</div>
 				</div>
 				<div class="button-group">
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
@@ -46,13 +48,6 @@
 					</div>
 					</sec:authorize>
 
-					<div class="button">
-						<a href="${pageContext.request.contextPath}/event/eventSpecial.do">
-							<button type="button" class="round inblack" id="btn_list">
-								<span>목록으로</span>
-							</button>
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>

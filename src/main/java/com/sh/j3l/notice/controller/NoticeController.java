@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.j3l.faq.model.dto.Faq;
+import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.notice.model.dto.Notice;
 import com.sh.j3l.notice.model.service.NoticeService;
 
@@ -30,19 +31,24 @@ public class NoticeController {
 	@GetMapping("/noticeForm.do")
 	public void noticeForm() {}
 	
+	// 영화 목록 조회 with 페이징처리
 	@GetMapping("/noticeList.do")
-	public void noticeList(@RequestParam(defaultValue = "1") int cpage, Model model) {
-		// 페이징처리 RowBounds
-		int limit = 15; // 한 페이지에 15개 출력
-		int offset = (cpage - 1) * limit;
-		RowBounds rowBounds = new RowBounds(offset, limit);
-		
-		List<Notice> noticeList = noticeService.selectAllNotice();
-		model.addAttribute("noticeList", noticeList);
-		log.debug("noticeList = {}", noticeList);
+	public void noticeList(Model model, @RequestParam(defaultValue = "1") int page) {
+	    int pageSize = 5;
+	    List<Notice> noticeList = noticeService.selectAllNotice();
+	    int totalNotices = noticeList.size();
+	    int totalPages = (int) Math.ceil((double) totalNotices / pageSize);
 
+	    int start = (page - 1) * pageSize;
+	    int end = Math.min(start + pageSize, totalNotices);
+	    List<Notice> noticesInPage = noticeList.subList(start, end);
+
+	    model.addAttribute("noticeList", noticesInPage);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("totalPages", totalPages);
 	}
 	
+	// 공지사항 작성
 	@PostMapping("/noticeEnroll.do")
 	public String noticeEnroll(Notice notice, RedirectAttributes redirectAttr) {
 		
@@ -61,17 +67,24 @@ public class NoticeController {
 	}
 	
 	
-	@GetMapping("searchNotice")
-	public String searchNotice(@RequestParam(name = "title") String title, Model model) {
-	    
-	    List<Notice> searchNotice = noticeService.searchByTitle(title);
+	// 공지사항 검색 + 제목별, 내용별 검색
+	@GetMapping("/searchNotice")
+	public String searchNotice(@RequestParam(name = "searchType") String searchType, @RequestParam(name = "keyword") String keyword, Model model) {
+	    List<Notice> searchNotice = null;
+	    if(searchType.equals("title")) {
+	        searchNotice = noticeService.searchByTitle(keyword);
+	    } else if(searchType.equals("content")) {
+	    	searchNotice = noticeService.searchByContent(keyword);
+	    }
 	    log.debug("searchNotice = {}", searchNotice);
 	    
 	    model.addAttribute("noticeList", searchNotice);
 	    
 	    return "notice/noticeList";
 	}
+
 	
+	// 공지사항 상세페이지
 	@GetMapping("/noticeDetail.do")
 	public void noticeDetail(@RequestParam int no, Model model) {
 		log.debug("no = {}", no);
@@ -82,6 +95,7 @@ public class NoticeController {
 		model.addAttribute("notice", notice);
 	}
 	
+	// 공지사항 삭제
 	@PostMapping("/deleteNotice.do")
 	public String deleteNotice(Integer no, RedirectAttributes redirectAttr) {
 		
@@ -95,5 +109,28 @@ public class NoticeController {
 		}
 		return "redirect:/notice/noticeList.do";
 	}
+	
+	// 공지사항 수정 페이지 이동
+	@GetMapping("/noticeUpdate.do")
+	public void noticeUpdate(@RequestParam int no, Model model) {
+		model.addAttribute("notice", noticeService.selectOneNotice(no));
+	}
+	
+	// 공지사항 업데이트
+	@PostMapping("/noticeUpdate.do")
+	public String noticeUpdate(Notice notice, RedirectAttributes redirectAttr) {
+		
+		int result = noticeService.noticeUpdate(notice);
+		log.debug("notice = {}", notice);
+		
+		if(result > 0) {
+			redirectAttr.addFlashAttribute("msg", "Notice 수정 성공");
+		} else {
+			redirectAttr.addFlashAttribute("msg", "Notice 수정 실패");
+		}
+		
+		return "redirect:/notice/noticeList.do";
+	}
+	
 
 }

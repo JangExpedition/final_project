@@ -9,6 +9,7 @@
 		from
 			member
 	</select>
+	
 	<resultMap type="member" id="memberMap"></resultMap>
 
 	<select id="selectOneMember" resultMap="memberMap">
@@ -34,6 +35,24 @@
 	  	member
 	  where 
 	  	id like '%' || #{id} || '%'
+	</select>
+	
+	<select id="searchByName" parameterType="String" resultType="Member">
+	  select 
+	  	*
+	  from 
+	  	member
+	  where 
+	  	name like '%' || #{name} || '%'
+	</select>
+	
+	<select id="searchByPhone" parameterType="String" resultType="Member">
+	  select 
+	  	*
+	  from 
+	  	member
+	  where 
+	  	phone like '%' || #{phone} || '%'
 	</select>
 
 	<select id="duplicationCheck" resultMap="memberMap">

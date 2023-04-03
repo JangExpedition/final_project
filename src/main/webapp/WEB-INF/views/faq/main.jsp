@@ -54,15 +54,15 @@
 
 							<div class="c_qu">
 								<a
-									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=현금영수증">현금영수증</a>
+									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&keyword=현금영수증">현금영수증</a>
 								<a
-									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=관람권">관람권</a>
+									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&keyword=관람권">관람권</a>
 								<a
-									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=예매">예매</a>
+									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&keyword=예매">예매</a>
 								<a
-									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=환불">환불</a>
+									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&keyword=환불">환불</a>
 								<a
-									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&title=취소">취소</a>
+									href="${ pageContext.request.contextPath }/faq/searchFaq?searchType=title&keyword=취소">취소</a>
 								<a href="#none"></a>
 
 							</div>
@@ -94,11 +94,15 @@
 							<span class="tit">공지/뉴스</span>
 						</a>
 						<ul class="txt">
-							<c:forEach var="notice" items="${noticeList}">
-								<li><a
-										href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=${notice.no}">${notice.title}</a>
+							<c:forEach var="notice" items="${noticeList}" varStatus="loop">
+								<c:if test="${loop.index <= 4}">
+									<li><a href="${pageContext.request.contextPath}/notice/noticeDetail.do?no=${notice.no}">
+										${notice.title}
+									</a>
 									<fmt:parseDate value="${notice.createdAt}" pattern="yyyy-MM-dd" var="createdAt" />
 									<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd" />
+									</li>
+								</c:if>
 							</c:forEach>
 						</ul>
 

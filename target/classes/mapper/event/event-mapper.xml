@@ -11,7 +11,8 @@
         <result column="content" property="content"/>
         <result column="category" property="category"/>
         <result column="created_at" property="createdAt"/>
-        <collection property="attachments" ofType="com.sh.j3l.event.model.dto.EventAttachment" javaType="java.util.ArrayList" >
+        <collection property="attachments" ofType="com.sh.j3l.event.model.dto.EventAttachment"
+                    javaType="java.util.ArrayList">
             <result column="NO" property="no"/>
             <result column="EVENT_NO" property="eventNo"/>
             <result column="ORIGINAL_FILENAME" property="originalFilename"/>
@@ -21,21 +22,37 @@
 
     <!--파라미터를 Enum클래스로 받으므로, category(Enum).value로 String 값가져오기-->
     <select id="selectAllEvent" resultMap="eventMap">
-       	select 
-       		*
-        from 
-        	event e
-        left join 
-        	EVENT_ATTACHMENT EA ON e.NO = EA.EVENT_NO
+        select
+        *
+        from
+        event e
+        left join
+        EVENT_ATTACHMENT EA ON e.NO = EA.EVENT_NO
         WHERE e.CATEGORY = #{category.value}
-        order by 
-        	e.NO DESC
+        order by
+        e.NO DESC
+    </select>
+    
+    <select id="pagingAllEvent" resultMap="eventMap">
+        SELECT
+        e.*,
+        a.*
+        FROM EVENT e
+        LEFT OUTER JOIN EVENT_ATTACHMENT a
+        ON e.NO = a.EVENT_NO
+        WHERE e.CATEGORY = #{category.key}
+        ORDER BY e.CREATED_AT DESC
+        OFFSET #{offset} ROWS FETCH NEXT #{pageSize} ROWS ONLY
+    </select>
+    
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM EVENT WHERE CATEGORY = #{category.key}
     </select>
 
 
     <insert id="insertEvent">
         insert into
-        	event
+        event
         values
         (
         seq_event_no.nextval,
@@ -70,17 +87,37 @@
         where
         	no = #{no}
     </delete>
+
+    <select id="selectOneEvent" resultMap="eventMap">
+        select
+        *
+        from
+        event e
+        left join EVENT_ATTACHMENT EA ON e.NO = EA.EVENT_NO
+        WHERE e.NO = #{no}
+    </select>
     
-    <resultMap type="event" id="eventMap2"></resultMap>
     
-    <select id="selectOneEvent" resultMap="eventMap2">
-    	select
+<!--     <resultMap type="event" id="eventMap2"></resultMap>
+    
+    <select id="selectAllEventList" resultMap="eventMap2">
+    	select 
     		*
     	from
     		event
-    	where
-    		no = #{no}
     </select>
-
+    
+      <resultMap type="eventAttachment" id="eventMap3"></resultMap>
+    
+    
+    <select id="selectEventAttachment" resultMap="eventMap3">
+    	select
+    		*
+    	from
+    		event_attachment
+    	where
+    		event_no = #{no}
+    </select> -->
+    
 
 </mapper>

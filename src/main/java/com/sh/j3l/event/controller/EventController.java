@@ -2,6 +2,7 @@ package com.sh.j3l.event.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 
 import com.sh.j3l.event.model.dto.Category;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,152 +35,113 @@ import oracle.jdbc.proxy.annotation.Post;
 @Controller
 @Slf4j
 @RequestMapping("/event")
+@RequiredArgsConstructor
 public class EventController {
-	
-	@Autowired
-	private EventService eventService;
-	
-	@Autowired
-	private ServletContext application;
-	
-//	@GetMapping("/eventSpecial.do")
-//	public void eventSpecial(Model model) {
-//		//Category가 SPECIAL인 이벤트만 가져오기
-//		List<Event> eventList = eventService.selectAllEvent(Category.SPECIAL);
-//		model.addAttribute("eventList", eventList);
-//		log.debug("eventList", eventList);
-//		
-//	}
-	
-	@GetMapping("/eventSpecial.do")
-	public String eventSpecial(Model model,
-	@RequestParam(defaultValue = "1") int page,
-	@RequestParam(defaultValue = "10") int size) {
-	int offset = (page - 1) * size;
-	List<Event> eventList = eventService.selectEventByCategoryAndOffset(Category.SPECIAL, offset, size);
-	model.addAttribute("eventList", eventList);
-	
-	int totalCount = eventService.countEventByCategory(Category.SPECIAL);
-	int totalPages = (int) Math.ceil((double) totalCount / size);
-	model.addAttribute("totalPages", totalPages);
-	model.addAttribute("currentPage", page);
 
-	return "eventSpecial";
-	
-	}
+    private final EventService eventService;
+
+    private final ServletContext application;
+
+    private static final int PAGE_LIMIT = 3;
+
+    // 이벤트 게시판 전체 조회 및 페이징 처리
+    @GetMapping("/events.do")
+    public String eventSpecial(Model model, @RequestParam(value = "page", required = false) Integer page, @RequestParam Category category) {
+        if (page == null || page == 0) {
+            page = 1;
+        }
+        
+        List<Event> eventList = eventService.pagingAllEvent(category, page, PAGE_LIMIT);
+        int totalPage = eventService.totalPageCount(category, PAGE_LIMIT);
+        model.addAttribute("eventList", eventList);
+        model.addAttribute("page", page);
+        model.addAttribute("totalPages", totalPage);
+		model.addAttribute("category", category);
+
+        log.debug("eventList", eventList);
+		return "event/eventList";
+
+    }
+    
+    
+//    // 이벤트 리스트 비동기 요청
+//    @GetMapping("/selectAllEventList.do")
+//    @ResponseBody
+//    public List<Event> selectAllEventList() {
+//        List<Event> eventList = eventService.selectAllEventList();
+//        
+//        log.debug("eventList = {}", eventList);
+//        
+//        return eventList;
+//    }
 
 
-	
-	// 이벤트 디테일 폼
-	@GetMapping("/eventDetail.do")
-	public void eventDetail(@RequestParam int no, Model model) {
-		
-		log.debug("no = {}", no);
-		
-		Event event = eventService.selectOneEvent(no);
-		log.debug("event = {}", event);
-		
-		model.addAttribute("event", event);
-		model.addAttribute("no", no);
-	}
-	
-	
-	// 이벤트 등록 폼
-	@GetMapping("/eventForm.do")
-	public void eventForm() {}
-	
-	//이벤트 게시물 등록
-	@PostMapping("/eventEnroll.do")
-	public String eventEnroll(Event event, RedirectAttributes redirectAttr, @RequestParam("upFile") List<MultipartFile> upFiles) {
-		
-		String saveDirectory = application.getRealPath("/resources/upload/event");
-		
-		for(MultipartFile upFile : upFiles) {
-			
-			if(upFile.getSize() > 0) {
-				
-				String renamedFilename = HelloSpringUtils.renameMultipartFile(upFile);
-				String originalFilename = upFile.getOriginalFilename();
-				File destFile = new File(saveDirectory, renamedFilename);
-				try {
-					upFile.transferTo(destFile);
-				} catch (IllegalStateException | IOException e) {
-					log.error(e.getMessage(), e);
-				}
-				
-				EventAttachment attach = new EventAttachment();
-				attach.setRenamedFilename(renamedFilename);
-				attach.setOriginalFilename(originalFilename);
-				event.addAttachment(attach);
-			}
-		}
-		
-		log.debug("event = {}", event);
-		int result = eventService.insertEvent(event);
-		
-		redirectAttr.addFlashAttribute("msg", "이벤트 정보 등록 성공");
-		
-		return "redirect:/event/eventSpecial.do";
-		
-	}
-	
-	// 이벤트 삭제
-	@PostMapping("/deleteEvent.do")
-	public String deleteEvent(int no, RedirectAttributes redirectAttr) {
-		
-		int result = eventService.deleteEvent(no);
-		log.debug("no = {}", no);
-		
-		if(result > 0) {
-			redirectAttr.addFlashAttribute("msg", "게시물 삭제 성공");
-		} else {
-			redirectAttr.addFlashAttribute("msg", "게시물 삭제 실패");
-		}
-		return "redirect:/event/eventSpecial.do";
-	}
-	
-	
-	
-	
-	
-	@GetMapping("/eventMovie.do")
-	public void eventMovie(Model model) {
 
-		//Category가 MOVIEYEME인 이벤트만 가져오기
-		List<Event> eventList = eventService.selectAllEvent(Category.MOVIEYEME);
-		model.addAttribute("eventList", eventList);
-		log.debug("eventList", eventList);
-		
-	}
-	
-	@GetMapping("/eventMembership.do")
-	public void eventMembership(Model model) {
-		
-		//Category가 MEMBERSHIP인 이벤트만 가져오기
-		List<Event> eventList = eventService.selectAllEvent(Category.MEMBERSHIP);
-		model.addAttribute("eventList", eventList);
-		log.debug("eventList", eventList);
-		
-	}
-	 
-	@GetMapping("/eventCinema.do")
-	public void eventCinema(Model model) {
-		
-		//Category가 MOVIEYEME인 이벤트만 가져오기 -> 추후 CINEMA 탭 추가 시, 변경 요망
-		List<Event> eventList = eventService.selectAllEvent(Category.MOVIEYEME);
-		model.addAttribute("eventList", eventList);
-		log.debug("eventList", eventList);
-		
-	}
-	
-	@GetMapping("/eventSale.do")
-	public void eventSale(Model model) {
-		//Category가 JAEHYUSALE인 이벤트만 가져오기
-		List<Event> eventList = eventService.selectAllEvent(Category.JAEHYUSALE);
-		model.addAttribute("eventList", eventList);
-		log.debug("eventList", eventList);
-		
-	}
-	
-	
+    // 이벤트 디테일 폼
+    @GetMapping("/eventDetail.do")
+    public void eventDetail(@RequestParam int no, Model model) {
+
+        log.debug("no = {}", no);
+
+        Event event = eventService.selectOneEvent(no);
+        log.debug("event = {}", event);
+
+        model.addAttribute("event", event);
+        model.addAttribute("no", no);
+    }
+
+    // 이벤트 등록 폼
+    @GetMapping("/eventForm.do")
+    public void eventForm() {
+    }
+    
+    //이벤트 게시물 등록
+    @PostMapping("/eventEnroll.do")
+    public String eventEnroll(Event event, RedirectAttributes redirectAttr, @RequestParam("upFile") List<MultipartFile> upFiles) {
+
+        String saveDirectory = application.getRealPath("/resources/upload/event");
+
+        for (MultipartFile upFile : upFiles) {
+
+            if (upFile.getSize() > 0) {
+
+                String renamedFilename = HelloSpringUtils.renameMultipartFile(upFile);
+                String originalFilename = upFile.getOriginalFilename();
+                File destFile = new File(saveDirectory, renamedFilename);
+                try {
+                    upFile.transferTo(destFile);
+                } catch (IllegalStateException | IOException e) {
+                    log.error(e.getMessage(), e);
+                }
+
+                EventAttachment attach = new EventAttachment();
+                attach.setRenamedFilename(renamedFilename);
+                attach.setOriginalFilename(originalFilename);
+                event.addAttachment(attach);
+            }
+        }
+
+        log.debug("event = {}", event);
+        int result = eventService.insertEvent(event);
+
+        redirectAttr.addFlashAttribute("msg", "이벤트 정보 등록 성공");
+
+        return String.format("redirect:/event/events.do?category=%s", event.getCategory().name());
+
+    }
+    
+    
+    @PostMapping("/deleteEvent.do")
+    public String deleteEvent(int no, RedirectAttributes redirectAttr) {
+
+        int result = eventService.deleteEvent(no);
+        log.debug("no = {}", no);
+
+        if (result > 0) {
+            redirectAttr.addFlashAttribute("msg", "게시물 삭제 성공");
+        } else {
+            redirectAttr.addFlashAttribute("msg", "게시물 삭제 실패");
+        }
+        return "redirect:/event/events.do?category=SPECIAL";
+    }
 }

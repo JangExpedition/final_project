@@ -2,11 +2,13 @@ package com.sh.j3l.member.controller;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mock.web.server.MockWebSession;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,10 +26,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.sh.j3l.event.model.service.EventService;
 import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.member.model.service.MailService;
 import com.sh.j3l.member.model.service.MemberService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -39,20 +43,27 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-
 	@Autowired
 	private MailService mailService;
 
-	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
-	// 회원 목록 조회
+	// 회원 목록 조회 with 페이징처리
 	@GetMapping("/memberList.do")
-	public void memberList(Model model) {
-		List<Member> members = memberService.selectAllMember();
-		model.addAttribute("members", members);
-		log.debug("members = {}", members);
+	public void memberList(Model model, @RequestParam(defaultValue = "1") int page) {
+	    int pageSize = 10;
+	    List<Member> members = memberService.selectAllMember();
+	    int totalMembers = members.size();
+	    int totalPages = (int) Math.ceil((double) totalMembers / pageSize);
+
+	    int start = (page - 1) * pageSize;
+	    int end = Math.min(start + pageSize, totalMembers);
+	    List<Member> membersInPage = members.subList(start, end);
+
+	    model.addAttribute("members", membersInPage);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("totalPages", totalPages);
 	}
 
 	// 로그인 페이지 이동 메서드
@@ -104,11 +115,18 @@ public class MemberController {
 		return "redirect:/member/memberList.do";
 	}
 	
-	// 회원 검색
+	// 회원 검색 + 이름별, ID별, 전화번호별 검색
 	@GetMapping("/searchMember")
-	public String searchMember(@RequestParam("id") String id, Model model) {
+	public String searchMember(@RequestParam(name = "searchType") String searchType, @RequestParam(name = "keyword") String keyword, Model model) {
 	    
-		List<Member> searchMember = memberService.searchById(id);
+		List<Member> searchMember = null;
+		if(searchType.equals("name")) {
+			searchMember = memberService.searchByName(keyword);
+		} else if(searchType.equals("id")) {
+			searchMember = memberService.searchById(keyword);
+		} else if(searchType.equals("phone")) {
+			searchMember = memberService.searchByPhone(keyword);
+		}
 	    log.debug("searchMember = {}", searchMember);
 	    
 	    model.addAttribute("members", searchMember);

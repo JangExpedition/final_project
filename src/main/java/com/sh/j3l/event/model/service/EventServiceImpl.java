@@ -1,5 +1,6 @@
 package com.sh.j3l.event.model.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.sh.j3l.event.model.dto.Category;
@@ -10,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sh.j3l.event.model.dao.EventDao;
 import com.sh.j3l.event.model.dto.Event;
 import com.sh.j3l.event.model.dto.EventAttachment;
-import com.sh.j3l.movie.model.dto.Attachment;
 
 @Service
 public class EventServiceImpl implements EventService{
@@ -45,8 +45,24 @@ public class EventServiceImpl implements EventService{
 	}
 
 	@Override
+	public List<Event> pagingAllEvent(Category category, int page, int pageSize) {
+		int offset = (page - 1) * pageSize;
+		return eventDao.pagingAllEvent(category, offset, pageSize);
+	}
+
+	@Override
+	public int totalPageCount(Category category, int pageSize) {
+		int totalCount = eventDao.count(category);
+		int pageCount = totalCount / pageSize;
+		if(totalCount % pageSize > 0) {
+			pageCount++;
+		}
+		return pageCount;
+	}
+
+	@Override
 	public int deleteEvent(int no) {
-		return eventDao.deleteEvent();
+		return eventDao.deleteEvent(no);
 	}
 
 	@Override
@@ -54,14 +70,21 @@ public class EventServiceImpl implements EventService{
 		return eventDao.selectOneEvent(no);
 	}
 
-	@Override
-	public List<Event> selectEventByCategoryAndOffset(Category category, int offset, int size) {
-		return eventDao.selectEventByCategoryAndOffset(category, offset, size);
-	}
+//	@Transactional(rollbackFor = Exception.class)
+//	@Override
+//	public List<Event> selectAllEventList() {
+//		
+//		List<Event> eventList = eventDao.selectAllEventList();
+//		
+//		 for (Event event : eventList) {
+//	            List<EventAttachment> attachments = eventDao.selectEventAttachment(event.getNo());
+//	            for (EventAttachment attachment : attachments) {
+//	                event.addAttachment(attachment);
+//	            }
+//	        }
+//		
+//		return eventList;
+//	}
 
-	@Override
-	public int countEventByCategory(Category category) {
-		return eventDao.countEventByCategory(category);
-	}
 
 }

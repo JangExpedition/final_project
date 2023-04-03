@@ -27,6 +27,17 @@
 		)
 	</insert>
 	
+	<update id="noticeUpdate">
+		update
+			notice
+		set
+			title = #{title},
+			content = #{content},
+			classifyy = #{classifyy}
+		where
+			no = #{no}
+	</update>
+	
 	<select id="searchByTitle" parameterType="String" resultType="Notice">
 		select
 			*
@@ -36,7 +47,15 @@
 			title like '%' || #{title} || '%'
 	</select>
 	
-	
+	<select id="searchByContent" parameterType="String" resultType="Notice">
+		select
+			*
+		from
+			notice
+		where
+			content like '%' || #{title} || '%'
+	</select>
+		
 	<select id="selectOneNotice" resultMap="noticeMap">
 		select
 			*

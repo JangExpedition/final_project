@@ -401,6 +401,19 @@ a {
 }
 
 a:link{
-	color:black;
 	text-decoration:none;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button2 {
+  display: flex;
+  align-items: center;
+}
+
+#btn_delete{
+	margin-right:10px;
 }

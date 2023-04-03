@@ -106,8 +106,8 @@ console.log(msg);
 		</li>
 		<li class="nav-item active">
 		   <a class="nav-link
-		   <c:if test="${ pageContext.request.servletPath eq '/WEB-INF/views/event/eventSpecial.jsp' }">red</c:if>" 
-		   href="${ pageContext.request.contextPath }/event/eventSpecial.do">이벤트</a>
+		   <c:if test="${ pageContext.request.servletPath eq '/WEB-INF/views/event/eventList.jsp' }">red</c:if>"
+		   href="${ pageContext.request.contextPath }/event/events.do?category=SPECIAL">이벤트</a>
 		</li>
 		<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<li class="nav-item">

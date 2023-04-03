@@ -25,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.sh.j3l.common.HelloSpringUtils;
+import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.movie.model.service.MovieService;
@@ -78,17 +79,21 @@ public class MovieController {
 		return "redirect:/movie/movie.do";
 	}
 	
-	// 영화 목록 조회
+	// 영화 목록 조회 with 페이징처리
 	@GetMapping("/movieList.do")
-	public String moiveList(@RequestParam(defaultValue = "1") int cpage, Model model) {
-		//페이징처리 RowBounds 이용 
-		int limit = 20;
-		int offset = (cpage - 1) * limit; 
-		RowBounds rowBounds = new RowBounds(offset, limit);
-		
-		List<Movie> movieList = movieService.selectAllMovie();
-		model.addAttribute("movieList", movieList);
-		return "movie/movieList";
+	public void memberList(Model model, @RequestParam(defaultValue = "1") int page) {
+	    int pageSize = 5;
+	    List<Movie> movieList = movieService.selectAllMovie();
+	    int totalMovies = movieList.size();
+	    int totalPages = (int) Math.ceil((double) totalMovies / pageSize);
+
+	    int start = (page - 1) * pageSize;
+	    int end = Math.min(start + pageSize, totalMovies);
+	    List<Movie> moviesInPage = movieList.subList(start, end);
+
+	    model.addAttribute("movieList", moviesInPage);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("totalPages", totalPages);
 	}
 	
 	// 영화 목록 가져오기 비동기

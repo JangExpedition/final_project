@@ -32,7 +32,7 @@
 			</div>
 			<div class="board_view_area">
 				<ul class="top_title_faq">
-					<li class="title">${notice.classifyy.koreanNamee} ${notice.title}</li>
+					<li class="title">${notice.title}</li>
 					<li class="stit_area">
 						<span>등록일<em class="regist_day">
 								<fmt:parseDate value="${notice.createdAt}" pattern="yyyy-MM-dd" var="createdAt" />
@@ -45,16 +45,20 @@
 					<p id="text">${notice.content}</p>
 				</div>
 				<div class="button-group">
-					<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<div class="button2">
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
 						<form:form name="noticeDeleteFrm"
 							action="${pageContext.request.contextPath}/notice/deleteNotice.do" method="post"
 							onsubmit="return confirm('해당 게시물을 삭제하시겠습니까?')">
 							<input type="hidden" name="no" value="${notice.no}" />
 							<input type="submit" class="round inblack" id="btn_delete" value="삭제" />
 						</form:form>
-					</div>
+						<form:form name="faqUpdateFrm" action="${pageContext.request.contextPath}/notice/noticeUpdate.do" method="get">
+						    <input type="hidden" name="no" value="${notice.no}" />
+						    <input type="submit" class="round inblack" id="btn_update" value="수정" />
+						</form:form>
 					</sec:authorize>
+					</div>
 					<div class="button">
 						<a href="${pageContext.request.contextPath}/notice/noticeList.do">
 							<button type="button" class="round inblack" id="btn_list">

@@ -10,6 +10,13 @@
 			question
 	</select>
 	
+	<select id="selectAllmyQuestion" resultMap="questionMap">
+		select
+			*
+		from
+			question
+	</select>
+	
 	<resultMap type="question" id="questionMap"></resultMap>
 	
 	<insert id="sendQuestion">
