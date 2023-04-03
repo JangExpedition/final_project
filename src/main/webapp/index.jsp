@@ -60,8 +60,8 @@
 				<div class="slider__content">
 					<img src="${ pageContext.request.contextPath }
 					/resources/upload/event/${event.attachments[0].renamedFilename }" alt=""/>
-					<p>${event.title}</p>
-					<p>${event.startDate}</p>
+					<p>${ event.title }</p>
+					<p>${ event.startDate }</p>
 				</div>
 			</c:forEach>
 		</div>
