@@ -1,6 +1,7 @@
 package com.sh.j3l.faq.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,6 @@ public class FaqServiceImpl implements FaqService{
 	}
 
 	@Override
-	public List<Faq> selectAllFaq(RowBounds rowBounds) {
-		return faqDao.selectAllFaq(rowBounds);
-	}
-
-	@Override
 	public List<Faq> searchByTitle(String title) {
 		return faqDao.searchByTitle(title);
 	}
@@ -36,13 +32,23 @@ public class FaqServiceImpl implements FaqService{
 	}
 
 	@Override
-	public int updateFaq(Faq faq) {
-		return faqDao.updateFaq(faq);
+	public int deleteFaq(Integer no) {
+		return faqDao.deleteFaq(no);
 	}
 
 	@Override
-	public int deleteFaq(Integer no) {
-		return faqDao.deleteFaq(no);
+	public List<Faq> searchByContent(String keyword) {
+		return faqDao.searchByContent(keyword);
+	}
+
+	@Override
+	public int faqUpdate(Faq faq) {
+		return faqDao.faqUpdate(faq);
+	}
+
+	@Override
+	public List<Faq> selectAllFaq() {
+		return faqDao.selectAllFaq();
 	}
 
 

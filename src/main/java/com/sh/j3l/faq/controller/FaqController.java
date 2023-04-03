@@ -1,6 +1,11 @@
 package com.sh.j3l.faq.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.naming.spi.DirStateFactory.Result;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.sh.j3l.common.HelloMvcUtils;
+import com.sh.j3l.common.HelloSpringUtils;
+import com.sh.j3l.event.model.dto.Event;
+import com.sh.j3l.event.model.service.EventService;
 import com.sh.j3l.faq.model.dto.Faq;
 import com.sh.j3l.faq.model.service.FaqService;
+import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.notice.model.dto.Notice;
 import com.sh.j3l.notice.model.service.NoticeService;
 
@@ -30,30 +40,37 @@ public class FaqController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	
+	// 고객센터 메인
 	@GetMapping("/main.do")
 	public void main(Model model) {
-		
 		List<Notice> noticeList = noticeService.selectAllNotice();
 		model.addAttribute("noticeList", noticeList);
 	}
 	
+	// 자주찾는 질문 글쓰기 폼
 	@GetMapping("/faqForm.do")
 	public void faqForm() {}
 	
+	
+	// 자주찾는 질문 전체조회 with 페이징처리	
 	@GetMapping("/faqList.do")
-	public void faqList(@RequestParam(defaultValue = "1") int cpage, Model model) {
-		// 페이징처리 RowBounds
-		int limit = 15; // 한 페이지에 15개 출력
-		int offset = (cpage - 1) * limit;
-		RowBounds rowBounds = new RowBounds(offset, limit);
-		
-		List<Faq> faqList = faqService.selectAllFaq(rowBounds);
-		model.addAttribute("faqList", faqList);
-		log.debug("faqList = {}", faqList);
+	public void faqList(Model model, @RequestParam(defaultValue = "1") int page) {
+	    int pageSize = 5;
+	    List<Faq> faqList = faqService.selectAllFaq();
+	    int totalFaqs = faqList.size();
+	    int totalPages = (int) Math.ceil((double) totalFaqs / pageSize);
 
+	    int start = (page - 1) * pageSize;
+	    int end = Math.min(start + pageSize, totalFaqs);
+	    List<Faq> faqsInPage = faqList.subList(start, end);
+
+	    model.addAttribute("faqList", faqsInPage);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("totalPages", totalPages);
 	}
 	
+	
+	// 자주찾는 질문 글 작성
 	@PostMapping("/faqEnroll.do")
 	public String faqEnroll(Faq faq, RedirectAttributes redirectAttr) {
 		
@@ -71,10 +88,15 @@ public class FaqController {
 		
 	}
 	
-	@GetMapping("searchFaq")
-	public String searchFaq(@RequestParam(name = "title", required = false) String title, Model model) {
-	    
-	    List<Faq> searchFaq = faqService.searchByTitle(title);
+	// 자주찾는 질문 검색 + 제목별, 내용별 검색
+	@GetMapping("/searchFaq")
+	public String searchFaq(@RequestParam(name = "searchType") String searchType, @RequestParam(name = "keyword") String keyword, Model model) {
+		List<Faq> searchFaq = null;
+	    if(searchType.equals("title")) {
+	        searchFaq = faqService.searchByTitle(keyword);
+	    } else if(searchType.equals("content")) {
+	    	searchFaq = faqService.searchByContent(keyword);
+	    }
 	    log.debug("searchFaq = {}", searchFaq);
 	    
 	    model.addAttribute("faqList", searchFaq);
@@ -82,7 +104,9 @@ public class FaqController {
 	    return "faq/faqList";
 	}
 	
-	
+			
+			
+	// 자주찾는 질문 상세페이지
 	@GetMapping("/faqDetail.do")
 	public void faqDetail(@RequestParam int no, Model model) {
 		log.debug("no = {}", no);
@@ -93,7 +117,7 @@ public class FaqController {
 		model.addAttribute("faq", faq);
 	}
 	
-	
+	// 자주찾는 질문 삭제 
 	@PostMapping("/deleteFaq.do")
 	public String deleteFaq(Integer no, RedirectAttributes redirectAttr) {
 		
@@ -107,9 +131,29 @@ public class FaqController {
 		}
 		return "redirect:/faq/faqList.do";
 	}
+	
+	
+	// FAQ 게시글 수정 페이지 이동
+    @GetMapping("/faqUpdate.do")
+    public void faqUpdate(@RequestParam int no, Model model) {
+	  model.addAttribute("faq", faqService.selectOneFaq(no));
+    } 
+    
+    // FAQ 업데이트
+    @PostMapping("/faqUpdate.do")
+    public String faqUpdate(Faq faq, RedirectAttributes redirectAttr) {
+    	
 
-	
-	
+    	int result = faqService.faqUpdate(faq);
+    	log.debug("faq = {}", faq);
+    	
+    	if(result > 0) {
+    		redirectAttr.addFlashAttribute("msg", "Faq 수정 성공");
+    	} else {
+    		redirectAttr.addFlashAttribute("msg", "Faq 수정 실패");
+    	}
+    	
+    	return "redirect:/faq/faqList.do";
+    }
 
-	
 }

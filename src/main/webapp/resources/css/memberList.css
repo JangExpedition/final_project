@@ -26,7 +26,7 @@ tr[data-no] {
     line-height: 22px;
     padding-left: 10px;
     border: 1px solid #b5b5b5;
-    margin-right: 10px;
+    margin-right: 5px;
 }
  
 #se{
@@ -41,7 +41,6 @@ ul, li, form, label, legend, table,tbody,
 tfoot, thead, tr, th, td {
 	font-size:100%;
 	margin:0;
-/* 	padding:0; */
 	border:0;
 	vertical-align:baseline;
 	word-break:break-all;
@@ -357,11 +356,6 @@ table caption {
     justify-content: center;
 }
 
-/* form {
-  margin: auto;
-  width: 50%;
-} */
-
 .input-group {
 	width:100%;
 	display: flex;
@@ -392,4 +386,68 @@ table caption {
     border: 1px solid #5b5b58;
     box-sizing: border-box;
     font-size: 12px;
+}
+
+.btn-paging {
+    display: inline-block;
+    min-width: 56px;
+    min-height: 40px;
+    margin: 0 2px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #222;
+    background: url(../images/btn_paging.gif) no-repeat;
+    border: 1px solid #d8d8d8;
+}
+
+.btn-paging.next {
+    margin-left: 16px;
+    padding: 8px 24px 0 10px;
+    vertical-align: top;
+    background-position: calc(100% - 2px) -45px;
+    border-radius: 4px;
+}
+
+.btn-paging.end {
+    min-width: 40px;
+    padding: 0;
+    vertical-align: top;
+    background-position: 12px -149px;
+    font: 0/0 a;
+    zoom: 1;
+    border-radius: 4px;
+}
+
+.number {
+	line-height: 40px;
+	padding: 0 8px;
+}
+
+.first{
+	padding: 10px;
+	line-height: 40px;
+}
+
+.btn-paging.prev {
+    margin-right: 16px;
+    padding: 8px 10px 0 24px;
+    vertical-align: top;
+    background-position: 2px 7px;
+    border-radius: 4px;
+}
+
+.contentss{
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: 25px;
+	margin-right: -120px;
+}
+
+.c_select{
+    height: 25px;
+    margin-right: 5px;
+}
+
+#button-addon2{
+	height: 25px;
 }

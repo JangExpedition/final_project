@@ -19,7 +19,11 @@ public interface MemberDao {
 
 	int deleteMember(String id);
 
-	List<Member> searchById(String id);
+	List<Member> searchById(String keyword);
+	
+	List<Member> searchByPhone(String keyword);
+	
+	List<Member> searchByName(String keyword);
 
 	Member duplicationCheck(Member member);
 
@@ -40,3 +44,5 @@ public interface MemberDao {
 	int updateGrade(@Param("id") String id, @Param("grade") Grade grade);
 
 }
+
+

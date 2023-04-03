@@ -17,22 +17,6 @@
 	background: url(../images/back.png) no-repeat 0 -287px;
 }
 
-html, body, div, span, h1, h3, h4, h5, h6, p,
-ol, ul, li,  form, label, legend, table, tbody,
-thead, tr, th, td {
-	font-size:100%; 
-	margin:0; 
-	padding:0;
-	border:0; 
-	vertical-align:baseline; 
-	word-break:break-all;
-}
-
-body, input, textarea, select, button, table {
-	line-height:1.5; 
-	font-weight:400
-}
-
 table thead th {
 	font-weight:500;
 }
@@ -130,20 +114,6 @@ a:active {
     text-align: left;
     background-color: #fff;
 }
-
-/* .qna_search .search_box input {
-    float: left;
-    width: 126px;
-    height: 30px;
-    padding: 15px;
-    font-size: 12px;
-    line-height: 12px;
-    text-indent: 7px;
-    vertical-align: middle;
-    border: none;
-    background-color: #fff;
-    
-}*/
 
 .qna_search .search_box .btn_search {
     float: right;
@@ -509,4 +479,35 @@ button{
 	text-indent:-999px;
 	*display:inline;
 	*zoom:1;
+}
+
+.notice_area .more {
+    position: absolute;
+    top: 3;
+    left: 75px;
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+    background: url(../images/bg_c_main.png) no-repeat -159px -287px;
+    text-indent: -999px;
+}
+
+html, body, div, span, h1, h3, h4, h5, h6, p,
+ol, ul, li,  form, label, legend, table, tbody,
+thead, tr, th, td {
+	font-size:100%; 
+	margin:0; 
+	padding:0;
+	border:0; 
+	vertical-align:baseline; 
+	word-break:break-all;
+}
+
+body, input, textarea, select, button, table {
+	line-height:1.5; 
+	font-weight:400
+}
+
+.c_qu{
+	margin: -5px;
 }

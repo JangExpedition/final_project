@@ -23,7 +23,7 @@ public class MemberServiceImpl implements MemberService {
 	public List<Member> selectAllMember() {
 		return memberDao.selectAllMember();
 	}
-
+	
 	@Override
 	public Member selectOneMember(String id) {
 		return memberDao.selectOneMember(id);
@@ -32,11 +32,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int deleteMember(String id) {
 		return memberDao.deleteMember(id);
-	}
-
-	@Override
-	public List<Member> searchById(String id) {
-		return memberDao.searchById(id);
 	}
 
 	public Member duplicationCheck(Member member) {
@@ -63,6 +58,21 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String findIdByEmail(String email) {
 		return memberDao.findIdByEmail(email);
+	}
+
+	@Override
+	public List<Member> searchByName(String keyword) {
+		return memberDao.searchByName(keyword);
+	}
+
+	@Override
+	public List<Member> searchByPhone(String keyword) {
+		return memberDao.searchByPhone(keyword);
+	}
+
+	@Override
+	public List<Member> searchById(String keyword) {
+		return memberDao.searchById(keyword);
 	}
 
 

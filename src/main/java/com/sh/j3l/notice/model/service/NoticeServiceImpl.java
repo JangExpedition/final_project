@@ -44,6 +44,16 @@ public class NoticeServiceImpl implements NoticeService{
 	public Notice selectNoticeByNo(int i) {
 		return noticeDao.selectNoticeByNo(i);
 	}
+
+	@Override
+	public List<Notice> searchByContent(String keyword) {
+		return noticeDao.searchByContent(keyword);
+	}
+
+	@Override
+	public int noticeUpdate(Notice notice) {
+		return noticeDao.noticeUpdate(notice);
+	}
 	
 
 }

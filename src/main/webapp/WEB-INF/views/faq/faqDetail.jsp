@@ -32,7 +32,7 @@
 			</div>
 			<div class="board_view_area">
 				<ul class="top_title_faq">
-					<li class="title">${faq.classify.koreanName} ${faq.title}</li>
+					<li class="title">${faq.title}</li>
 					<li class="stit_area">
 						<span>등록일<em class="regist_day"></em></span>
 						<fmt:parseDate value="${faq.createdAt}" pattern="yyyy-MM-dd"
@@ -51,7 +51,12 @@
 						    <input type="hidden" name="no" value="${faq.no}" />
 						    <input type="submit" class="round inblack" id="btn_delete" value="삭제" />
 						  </form:form>
+							<form:form name="faqUpdateFrm" action="${pageContext.request.contextPath}/faq/faqUpdate.do" method="get">
+							    <input type="hidden" name="no" value="${faq.no}" />
+							    <input type="submit" class="round inblack" id="btn_update" value="수정" />
+							</form:form>
 						</sec:authorize>
+						
 					</div>
 					<div class="button">
 						<a href="${pageContext.request.contextPath}/faq/faqList.do">
