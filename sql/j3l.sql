@@ -539,25 +539,6 @@ CREATE TABLE movie_attachment (
 -- 영화 첨부파일 시퀀스
 create sequence seq_movie_attach_no;
 
--- 간식 테이블
-CREATE TABLE snack (
-	no number NOT NULL,
-    cinema_name varchar2(30) not null,
-	name varchar2(50) NOT NULL,
-	price number NOT NULL,
-	information varchar2(1000) NOT NULL,
-	category varchar2(50) NOT NULL,
-	original_filename varchar2(2000) NULL,
-	renamed_filename varchar2(2000) NULL,
-    constraint pk_snack_no primary key(no),
-    constraint fk_snack_cinema_no foreign key(cinema_name)
-                            references cinema
-                            on delete cascade
-);
-
--- 간식 테이블 시퀀스
-create sequence seq_snack_no;
-
 -- 문의게시판 테이블
 CREATE TABLE question (
 	no number	NOT NULL,
