@@ -655,14 +655,18 @@ create sequence seq_event_attach_no;
 
 -- 매점 테이블
 create table store (
+    no number NOT NULL,
     name varchar2(100) not null,
     cinema_name varchar2(30) not null,
     price number not null,
     original_filename varchar2(2000) NULL,
-	renamed_filename varchar2(2000) NULL,
+    renamed_filename varchar2(2000) NULL,
     snack_category varchar2(50) not null,
-    constraint pk_store_name primary key(name),
+    constraint pk_store primary key(no),
     constraint fk_store_cinema_name foreign key (cinema_name)
                                     references cinema
                                     on delete cascade
 );
+
+-- 매점 테이블 시퀀스
+create sequence seq_store_no;
