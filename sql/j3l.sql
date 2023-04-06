@@ -11,7 +11,7 @@ select * from theater;
 select * from schedule;
 select * from movie;
 select * from movie_attachment;
-select * from snack;
+select * from store;
 select * from question;
 select * from question_attachment;
 select * from question_answer;
@@ -539,25 +539,6 @@ CREATE TABLE movie_attachment (
 -- 영화 첨부파일 시퀀스
 create sequence seq_movie_attach_no;
 
--- 간식 테이블
-CREATE TABLE snack (
-	no number NOT NULL,
-    cinema_name varchar2(30) not null,
-	name varchar2(50) NOT NULL,
-	price number NOT NULL,
-	information varchar2(1000) NOT NULL,
-	category varchar2(50) NOT NULL,
-	original_filename varchar2(2000) NULL,
-	renamed_filename varchar2(2000) NULL,
-    constraint pk_snack_no primary key(no),
-    constraint fk_snack_cinema_no foreign key(cinema_name)
-                            references cinema
-                            on delete cascade
-);
-
--- 간식 테이블 시퀀스
-create sequence seq_snack_no;
-
 -- 문의게시판 테이블
 CREATE TABLE question (
 	no number	NOT NULL,
@@ -674,18 +655,15 @@ create sequence seq_event_attach_no;
 
 -- 매점 테이블
 create table store (
-    no number NOT NULL,
     name varchar2(100) not null,
     cinema_name varchar2(30) not null,
     price number not null,
     original_filename varchar2(2000) NULL,
     renamed_filename varchar2(2000) NULL,
     snack_category varchar2(50) not null,
-    constraint pk_store primary key(no),
+    constraint pk_store primary key(name),
     constraint fk_store_cinema_name foreign key (cinema_name)
                                     references cinema
                                     on delete cascade
 );
 
--- 매점 테이블 시퀀스
-create sequence seq_store_no;

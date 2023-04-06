@@ -126,7 +126,7 @@ textarea {
 	top:0; left:-18px; 
 	width:18px; 
 	height:34px; 
-	background:url(../images/common/bg/ribon_left.png) no-repeat 0 0;
+	/* background:url(../images/common/bg/ribon_left.png) no-repeat 0 0; */
 }
 
 .ttbl {

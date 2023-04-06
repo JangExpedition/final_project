@@ -2,9 +2,7 @@ package com.sh.j3l.store.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.UUID;
 
 import javax.servlet.ServletContext;
 
@@ -21,8 +19,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sh.j3l.cinema.model.dto.Cinema;
 import com.sh.j3l.cinema.model.service.CinemaService;
 import com.sh.j3l.common.HelloSpringUtils;
-import com.sh.j3l.movie.model.dto.Attachment;
-import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.store.model.dto.SnackCategory;
 import com.sh.j3l.store.model.dto.Store;
 import com.sh.j3l.store.model.service.StoreService;
@@ -40,8 +36,15 @@ public class StoreController {
 	@Autowired
 	private CinemaService cinemaService;
 	
+	@Autowired
+	private ServletContext application;
+	
 	@GetMapping("/store.do")
-	public void stored() {}
+	public void stored(@RequestParam(value = "category", required = false) SnackCategory snackCategory, Model model) {
+		log.debug("category = {}", snackCategory);
+		List<Store> storeList = storeService.selectAllStoreList(snackCategory);
+		model.addAttribute("storeList", storeList);
+	}
 	
 	@GetMapping("/snackEnroll.do")
 	public void snackForm(Model model) {
@@ -52,6 +55,32 @@ public class StoreController {
 		
 		model.addAttribute("cinemaList", cinemaList);
 		
+	}
+	
+	
+	@PostMapping("/snackEnroll.do")
+	public String snackEnroll(Store store, MultipartFile upFile, RedirectAttributes redirectAttr) {
+		
+		String saveDirectory = application.getRealPath("/resources/upload/store");
+		
+		String renamedFilename = HelloSpringUtils.renameMultipartFile(upFile);
+		String originalFilename = upFile.getOriginalFilename();
+		File destFile = new File(saveDirectory, renamedFilename);
+		
+		try {
+			upFile.transferTo(destFile);
+		} catch (IllegalStateException | IOException e) {
+			log.error(e.getMessage(), e);
+		}
+		
+		store.setOriginalFilename(originalFilename);
+		store.setRenamedFilename(renamedFilename);
+		
+		int result = storeService.insertStore(store);
+		
+		redirectAttr.addFlashAttribute("msg", "메뉴 등록 성공!");
+		
+		return "redirect:/store/snackEnroll.do";
 	}
 	
 }
