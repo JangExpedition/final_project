@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Store {
 
-	private int no;
 	private String name;
 	private String cinemaName;
 	private String originalFilename;

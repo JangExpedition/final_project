@@ -58,3 +58,68 @@
 	color: #000;
 	cursor: pointer;
 }
+
+.snackList{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.oneStoreLine{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.oneMenu{
+	width: 220px;
+	height: 300px;		
+	margin-right: 20px;
+}
+
+.menuImg{
+	position: relative;	
+	width: 220px;
+	height: 220px; 
+	cursor: pointer;
+}
+
+.menuImg:hover .menuImgFile{
+	filter: brightness(70%);
+}
+
+.menuImg>img{
+	position: absolute;
+	left: 0;
+	top: 0;	
+	width: 100%;
+	height: 100%;
+}
+
+.inputCart{
+	position: absolute;
+	left: 85px;
+	top: 92.5px;
+	color: #fff;
+	display: none;	
+	width: 50px;
+	height: 35px;
+	margin: 0;
+}
+
+.menuImg:hover .inputCart{
+	display: inline-block;
+}
+
+.menuName, .menuPrice{
+	font-weight: bold;
+}
+
+.red{
+	color: #fb4357 !important;
+}

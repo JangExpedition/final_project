@@ -33,17 +33,17 @@
       <table class="ttbl">
         <tr>
           <td class="tit">이름</td>
-          <td><input type="text" placeholder="이름" name="name" class="input_txt" maxlength="30" value="맛동산" required>
+          <td><input type="text" placeholder="이름" name="name" class="input_txt" maxlength="30" value="" required>
           </td>
         </tr>
         <tr>
           <td class="tit">가격</td>
-          <td><input type="text" placeholder="가격" name="price" id="price" class="input_txt" value="4000"></td>
+          <td><input type="number" placeholder="가격" name="price" id="price" min="0" class="input_txt" value=""></td>
         </tr>
         <tr>
           <td class="tit">상영관</td>
           <td>
-            <select>
+            <select name="cinemaName">
               <c:forEach items="${cinemaList}" var="cinema">
                 <option value="${cinema.name}">${cinema.name}</option>
               </c:forEach>
@@ -63,7 +63,7 @@
         <tr>
           <td class="tit">첨부파일</td>
           <td>
-            <input type="file" name="upFile" id="upFile" multiple />
+            <input type="file" name="upFile" id="upFile"/>
           </td>
         </tr>
         <tr>

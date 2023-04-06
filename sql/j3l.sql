@@ -11,7 +11,7 @@ select * from theater;
 select * from schedule;
 select * from movie;
 select * from movie_attachment;
-select * from snack;
+select * from store;
 select * from question;
 select * from question_attachment;
 select * from question_answer;
@@ -655,18 +655,15 @@ create sequence seq_event_attach_no;
 
 -- 매점 테이블
 create table store (
-    no number NOT NULL,
     name varchar2(100) not null,
     cinema_name varchar2(30) not null,
     price number not null,
     original_filename varchar2(2000) NULL,
     renamed_filename varchar2(2000) NULL,
     snack_category varchar2(50) not null,
-    constraint pk_store primary key(no),
+    constraint pk_store primary key(name),
     constraint fk_store_cinema_name foreign key (cinema_name)
                                     references cinema
                                     on delete cascade
 );
 
--- 매점 테이블 시퀀스
-create sequence seq_store_no;

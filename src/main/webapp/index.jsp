@@ -186,8 +186,6 @@ autoBtn.addEventListener("click", () => {
   }
 });
 
-};
-
 $(document).on("click", ".moviePoster", function(e){
 	
 	let parentDiv = e.target;
