@@ -28,7 +28,7 @@
 				<div id="SNACK" class="menuCategory <c:if test="${ param.category eq 'SNACK' }">red</c:if>">
 				스낵</div>
 			</div>
-			<div class="cart">장바구니</div>
+			<div class="cart">장바구니<span id="cartCount" class="badge badge-danger">${ totalCartCount }</span></div>
 		</div>
 	</div>
 	<div class="snackList">
@@ -37,7 +37,7 @@
 				<div class="oneStoreLine">
 			</c:if>
 				<div class="oneMenu">
-					<div class="menuImg">
+					<div class="menuImg" data-store-name="${ store.name }" data-store-price="${ store.price }">
 						<img class="menuImgFile" src="${ pageContext.request.contextPath }/resources/upload/store/${ store.renamedFilename }"/>
 						<h3 class="inputCart">담기</h3>
 					</div>
@@ -65,21 +65,50 @@ document.querySelectorAll(".menuCategory").forEach((menuCategory)=>{
 	});
 });
 
+// 장바구니 담기 메서드
+const inputCart = (menu) => {
+	
+	const name = menu.dataset.storeName;
+	const price = menu.dataset.storePrice;
+	const id = "<sec:authentication property='principal.username'/>";
+	
+	const csrfHeader = "${_csrf.headerName}";
+	const csrfToken = "${_csrf.token}";
+	const headers = {};
+	headers[csrfHeader] = csrfToken;
+	
+	$.ajax({
+		url: "${pageContext.request.contextPath}/cart/insertCart.do",
+		method: "POST",
+		data: {name, id, price},
+		headers,
+		success(data){
+			document.querySelector("#cartCount").innerText = data;
+		},
+		error: console.log
+	});
+};
+
 // 메뉴 담기 클릭 메서드
 document.querySelectorAll(".menuImg").forEach((menu)=>{
+	
 	menu.addEventListener("click", (e)=>{
+			
 		let parentDiv = e.target;
-		while(parentDiv.tageName !== "DIV")
+		
+		if(parentDiv.tagName !== "DIV")
 			parentDiv = e.target.parentElement;
 		
 		inputCart(parentDiv);
+		
 	});
+	
 });
 
-const inputCart = (menu) => {
-	console.log(menu);	
-};
-
+// 장바구니 이동 메서드
+document.querySelector(".cart").addEventListener("click", ()=>{
+	location.href = "${pageContext.request.contextPath}/cart/cart.do";
+});
 </script>
 </body>
 </html>

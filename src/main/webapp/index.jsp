@@ -9,6 +9,7 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
     <jsp:param value="영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
+<sec:authentication property="principal" var="loginMember"/>
 <html>
 <head>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -34,7 +35,6 @@
         </div>
         <div id="movieContainer">
             <div id="movieConveyer">
-
             </div>
         </div>
     </div>
@@ -61,97 +61,83 @@
         </div>
     </div>
 </section>
-
 <script>
-    window.onload = () => {
-        filterSelected("무비차트");
+window.onload = () => {
+    filterSelected("무비차트");
 
-    }
+}
 
-    // 영화필터 선택 메서드
-    document.querySelectorAll(".movieFilter").forEach((movieFilter) => {
-        movieFilter.addEventListener("click", (e) => {
-            filterSelected(e.target.innerText);
-        });
+// 영화필터 선택 메서드
+document.querySelectorAll(".movieFilter").forEach((movieFilter) => {
+    movieFilter.addEventListener("click", (e) => {
+        filterSelected(e.target.innerText);
     });
+});
 
-    // 영화필터 선택 효과 메서드
-    const filterSelected = (name) => {
-
-        console.log(name);
-
-        document.querySelectorAll(".movieFilter").forEach((movieFilter) => {
-            if (movieFilter.innerText === name) {
-                movieFilter.classList += " filterSelected";
-            } else {
-                movieFilter.classList = "movieFilter";
-            }
-
-            $.ajax({
-                url: "${pageContext.request.contextPath}/movie/selectAllMovieList.do",
-                data: {name: name},
-                success(data) {
-
-
-                    const movieConveyer = document.querySelector("#movieConveyer");
-                    movieConveyer.innerHTML = "";
-
-                    data.forEach((movie, index) => {
-
-                        const movieCard = document.createElement("div");
-                        const moviePoster = document.createElement("div");
-                        const movieLimitAge = document.createElement("span");
-                        const movieName = document.createElement("h4");
-                        const movieRank = document.createElement("h1");
-
-                        moviePoster.dataset.movieNo = movie.no;
-
-                        const {renamedFilename} = movie.attachments[0];
-
-                        moviePoster.style.backgroundImage =
-                            "linear-gradient(to bottom, #00000000, #000000cc), url('${pageContext.request.contextPath}/resources/upload/movie/" + renamedFilename + "')";
-                        movieName.innerText = movie.title;
-                        movieRank.innerText = index + 1;
-
-                        movieCard.classList = "movieCard";
-                        moviePoster.classList = "moviePoster";
-                        movieLimitAge.classList = "movieLimitAge badge";
-                        movieName.classList = "movieName";
-                        movieRank.classList = "movieRank";
-
-                        switch (movie.limitAge) {
-                            case 0 :
-                                movieLimitAge.classList += " badge-success";
-                                movieLimitAge.innerText = "All";
-                                break;
-                            case 12 :
-                                movieLimitAge.classList += " badge-primary";
-                                movieLimitAge.innerText = movie.limitAge;
-                                break;
-                            case 15 :
-                                movieLimitAge.classList += " badge-warning";
-                                movieLimitAge.innerText = movie.limitAge;
-                                break;
-                            case 18 :
-                                movieLimitAge.classList += " badge-danger";
-                                movieLimitAge.innerText = movie.limitAge;
-                                break;
-                        }
-
-                        moviePoster.append(movieLimitAge);
-                        moviePoster.append(movieRank);
-
-                        movieCard.append(moviePoster);
-                        movieCard.append(movieName);
-
-                        movieConveyer.append(movieCard);
-                    }); // forEach end
-                },
-                error: console.log
-            }); // ajax end
-
-        });
-    };
+// 영화필터 선택 효과 메서드
+const filterSelected = (name) => {
+	
+	document.querySelectorAll(".movieFilter").forEach((movieFilter)=>{
+		if(movieFilter.innerText === name){
+			movieFilter.classList += " filterSelected";
+		}
+		else{
+			movieFilter.classList = "movieFilter";
+		}
+		
+		$.ajax({
+			url: "${pageContext.request.contextPath}/movie/selectAllMovieList.do",
+			data: {name: name},
+			success(data){
+				
+				
+				const movieConveyer = document.querySelector("#movieConveyer");
+				movieConveyer.innerHTML = "";
+				
+				data.forEach((movie, index)=>{
+					
+					const movieCard = document.createElement("div");
+					const moviePoster = document.createElement("div");
+					const movieLimitAge = document.createElement("span");
+					const movieName = document.createElement("h4");
+					const movieRank = document.createElement("h1");
+					
+					moviePoster.dataset.movieNo = movie.no;
+					
+					const {renamedFilename} = movie.attachments[0];
+					
+					moviePoster.style.backgroundImage = 
+						"linear-gradient(to bottom, #00000000, #000000cc), url('${pageContext.request.contextPath}/resources/upload/movie/" + renamedFilename + "')";
+					movieName.innerText = movie.title;
+					movieRank.innerText = index + 1;
+					
+					movieCard.classList = "movieCard";
+					moviePoster.classList = "moviePoster";
+					movieLimitAge.classList = "movieLimitAge badge";
+					movieName.classList = "movieName";
+					movieRank.classList = "movieRank";
+					
+					switch(movie.limitAge){
+					case 0 : movieLimitAge.classList += " badge-success"; movieLimitAge.innerText = "All"; break; 
+					case 12 : movieLimitAge.classList += " badge-primary"; movieLimitAge.innerText = movie.limitAge; break; 
+					case 15 : movieLimitAge.classList += " badge-warning"; movieLimitAge.innerText = movie.limitAge; break; 
+					case 18 : movieLimitAge.classList += " badge-danger"; movieLimitAge.innerText = movie.limitAge; break; 
+					}
+					
+					moviePoster.append(movieLimitAge);
+					moviePoster.append(movieRank);
+					
+					movieCard.append(moviePoster);
+					movieCard.append(movieName);
+					
+					movieConveyer.append(movieCard);
+				}); // forEach end
+			},
+			error: console.log
+		}); // ajax end
+		
+	});	
+};	
     
     // 무비 인포 이동
     $(document).on("click", ".moviePoster", function (e) {
@@ -246,9 +232,6 @@
             location.href = '${pageContext.request.contextPath}/event/eventDetail.do?no=' + no;
         });
     });
-
-
-
 
 </script>
 </body>

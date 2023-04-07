@@ -18,6 +18,7 @@ select * from question_answer;
 select * from notice;
 select * from faq;
 select * from seat;
+select * from cart;
 select * from event;
 select * from event_attachment;
 
@@ -669,3 +670,23 @@ create table store (
                                     on delete cascade
 );
 
+-- 장바구니 테이블 생성
+create table cart(
+    no number not null,
+    id varchar2(50) not null,
+    store_name varchar2(100) not null,
+    store_price number not null,
+    store_count number default 1 not null,
+    constraint pk_cart_no primary key(no),
+    constraint fk_cart_member_id foreign key (id)
+                            references member
+                            on delete cascade,
+    constraint fk_cart_store_name foreign key (store_name)
+                            references store
+                            on delete cascade
+);
+
+drop table cart;
+
+-- 장바구니 시퀀스 생성  
+create sequence seq_cart_no;
