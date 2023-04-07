@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import com.sh.j3l.faq.model.dto.Faq;
@@ -26,6 +27,10 @@ public interface FaqDao {
 	List<Faq> searchByContent(String keyword);
 
 	int faqUpdate(Faq faq);
+
+	List<Faq> pagingAllFaq(@Param("offset") int offset, @Param("pageSize") int pageSize);
+
+	int count();
 
 
 }

@@ -19,8 +19,8 @@ select * from notice;
 select * from faq;
 select * from seat;
 select * from cart;
-
-select c.*, s.renamed_filename from cart c left join store s on c.storeName == s.name where id = ?
+select * from event;
+select * from event_attachment;
 
 --===============================
 -- 관리자 계정 생성

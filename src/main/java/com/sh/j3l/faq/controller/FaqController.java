@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sh.j3l.common.HelloMvcUtils;
 import com.sh.j3l.common.HelloSpringUtils;
+import com.sh.j3l.event.model.dto.Category;
 import com.sh.j3l.event.model.dto.Event;
 import com.sh.j3l.event.model.service.EventService;
 import com.sh.j3l.faq.model.dto.Faq;
@@ -40,6 +41,8 @@ public class FaqController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	private static final int PAGE_LIMIT = 5;
+	
 	// 고객센터 메인
 	@GetMapping("/main.do")
 	public void main(Model model) {
@@ -53,21 +56,21 @@ public class FaqController {
 	
 	
 	// 자주찾는 질문 전체조회 with 페이징처리	
-	@GetMapping("/faqList.do")
-	public void faqList(Model model, @RequestParam(defaultValue = "1") int page) {
-	    int pageSize = 5;
-	    List<Faq> faqList = faqService.selectAllFaq();
-	    int totalFaqs = faqList.size();
-	    int totalPages = (int) Math.ceil((double) totalFaqs / pageSize);
+    @GetMapping("/faqList.do")
+    public void faqList(Model model, @RequestParam(value = "page", required = false) Integer page) {
+        if (page == null || page == 0) {
+            page = 1;
+        }
+        
+        List<Faq> faqList = faqService.pagingAllFaq(page, PAGE_LIMIT);
+        int totalPage = faqService.totalPageCount(PAGE_LIMIT);
+        model.addAttribute("faqList", faqList);
+        model.addAttribute("page", page);
+        model.addAttribute("totalPages", totalPage);
 
-	    int start = (page - 1) * pageSize;
-	    int end = Math.min(start + pageSize, totalFaqs);
-	    List<Faq> faqsInPage = faqList.subList(start, end);
+        log.debug("faqList", faqList);
 
-	    model.addAttribute("faqList", faqsInPage);
-	    model.addAttribute("currentPage", page);
-	    model.addAttribute("totalPages", totalPages);
-	}
+    }
 	
 	
 	// 자주찾는 질문 글 작성

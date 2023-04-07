@@ -23,5 +23,9 @@ public interface QuestionService {
 
 	List<Question> cinemaQues();
 
+	List<Question> pagingAllQuestion(int page, int pageSize);
+
+	int totalPageCount(int pageSize);
+
 
 }

@@ -10,6 +10,25 @@
 			FAQ
 	</select>
 	
+	<select id="pagingAllFaq" resultMap="faqMap">
+		select
+			*
+		from
+			faq
+		order by
+			created_at desc
+		offset 
+			#{offset} rows fetch next #{pageSize} rows only
+	</select>
+	
+	<select id="count" resultType="int">
+		select 
+			count(*) 
+		from 
+			faq
+	</select>
+	
+	
 	<resultMap type="faq" id="faqMap"></resultMap>
 	
 	<insert id="insertFaq">

@@ -19,8 +19,14 @@ tr[data-no] {
 }
 
 #myElement {
-   max-width: 200px;
-   height: 38px;
+    max-width: 275px;
+    height: 38px;
+    display: inline-block;
+    height: 25px;
+    line-height: 22px;
+    padding-left: 10px;
+    border: 1px solid #b5b5b5;
+    margin-right: 5px;
 }
  
 #se{
@@ -30,14 +36,14 @@ tr[data-no] {
     height: 35px;
 }
 
-html, body, div, span,a, em, ol, 
+html, em, ol, 
 ul, li, form, label, legend, table,tbody,
 tfoot, thead, tr, th, td {
 	font-size:100%;
 	margin:0;
-/* 	padding:0; */
 	border:0;
 	vertical-align:baseline;
+	word-break:break-all;
 }
 
 body {
@@ -103,14 +109,6 @@ hr {
 table caption {
 	font:0/0 a; 
 	zoom:1;
-}
-
-#contents {
-  clear: both;
-  padding-bottom: 50px;
-  position: relative;
-  width: 980px;
-  margin: 0 auto;
 }
 
 
@@ -247,7 +245,6 @@ table caption {
 	top:0; left:-18px; 
 	width:18px; 
 	height:34px; 
-	background:url(../images/common/bg/ribon_left.png) no-repeat 0 0;
 }
 
 .tbl_notice_list a {
@@ -379,6 +376,17 @@ table caption {
 	white-space:nowrap;
 }
 
+.btn-outline-secondary {
+    background: #222222;
+    border: 2px solid #222222;
+    color: #ffffff;
+    line-height: 21px;
+    padding: 0 12px;
+    border: 1px solid #5b5b58;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
 .btn-paging {
     display: inline-block;
     min-width: 56px;
@@ -431,8 +439,14 @@ table caption {
 	text-align: center;
 	margin-bottom: 30px;
 	margin-top: 25px;
+	margin-right: -120px;
 }
 
-.first{
-	margin-right: -100px;
+.c_select{
+    height: 25px;
+    margin-right: 5px;
+}
+
+#button-addon2{
+	height: 25px;
 }

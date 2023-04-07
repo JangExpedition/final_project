@@ -11,7 +11,7 @@
 
 <div class="flex container mx-auto pt-2">
   <div class="adm-side-bar">
-    <aside class="w-44 flex flex-col rounded-xl bg-gray-600 text-gray-100">
+    <aside class="w-44 flex flex-col rounded-xl -gray-600 text-gray-100">
       <div class="h-12 flex justify-center items-center p-4 text-lg font-bold border-b box-border">
         <span>관리자 메뉴</span>
       </div>
@@ -34,7 +34,7 @@
  <div class="shadow-xl border border-gray-200 rounded-xl w-full min-h-screen ml-2 mb-4">
     <table class="admMemberList w-11/12 mx-auto mt-4">
       <thead>
-        <tr class="bg-gray-600 text-white grid-adm-members text-center font-bold py-2 px-1">
+        <tr class="-gray-600 text-white grid-adm-members text-center font-bold py-2 px-1">
         <!--   <td>
             <input type="checkbox">
           </td> -->

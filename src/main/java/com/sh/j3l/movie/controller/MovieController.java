@@ -43,6 +43,8 @@ public class MovieController {
 	@Autowired
 	private ServletContext application;
 	
+	private static final int PAGE_LIMIT = 5;
+	
 	@GetMapping("/movie.do")
 	public void movie(HttpServletRequest request,@RequestParam int checked, Model model) {
 		
@@ -81,19 +83,19 @@ public class MovieController {
 	
 	// 영화 목록 조회 with 페이징처리
 	@GetMapping("/movieList.do")
-	public void memberList(Model model, @RequestParam(defaultValue = "1") int page) {
-	    int pageSize = 5;
-	    List<Movie> movieList = movieService.selectAllMovie();
-	    int totalMovies = movieList.size();
-	    int totalPages = (int) Math.ceil((double) totalMovies / pageSize);
+	public void movieList(Model model, @RequestParam(value = "page", required = false) Integer page) {
+		if (page == null || page == 0) {
+			page = 1;
+		}
+		
+		List<Member> movieList = movieService.pagingAllMovie(page, PAGE_LIMIT);
+		int totalPage = movieService.totalPageCount(PAGE_LIMIT);
 
-	    int start = (page - 1) * pageSize;
-	    int end = Math.min(start + pageSize, totalMovies);
-	    List<Movie> moviesInPage = movieList.subList(start, end);
-
-	    model.addAttribute("movieList", moviesInPage);
-	    model.addAttribute("currentPage", page);
-	    model.addAttribute("totalPages", totalPages);
+	    model.addAttribute("movieList", movieList);
+	    model.addAttribute("page", page);
+	    model.addAttribute("totalPages", totalPage);
+	    
+	    log.debug("movieList", movieList);
 	}
 	
 	// 영화 목록 가져오기 비동기

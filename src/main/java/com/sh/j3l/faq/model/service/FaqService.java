@@ -23,4 +23,8 @@ public interface FaqService {
 
 	int faqUpdate(Faq faq);
 
+	List<Faq> pagingAllFaq(int page, int pageSize);
+
+	int totalPageCount(int pageSize);
+
 }

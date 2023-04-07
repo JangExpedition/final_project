@@ -6,6 +6,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sh.j3l.faq.model.dao.FaqDao;
 import com.sh.j3l.notice.model.dao.NoticeDao;
 import com.sh.j3l.notice.model.dto.Notice;
 
@@ -53,6 +54,22 @@ public class NoticeServiceImpl implements NoticeService{
 	@Override
 	public int noticeUpdate(Notice notice) {
 		return noticeDao.noticeUpdate(notice);
+	}
+
+	@Override
+	public List<Notice> pagingAllNotice(int page, int pageSize) {
+		int offset = (page - 1) * pageSize;
+		return noticeDao.pagingAllNotice(offset, pageSize);
+	}
+
+	@Override
+	public int totalPageCount(int pageSize) {
+		int totalCount = noticeDao.count();
+		int pageCount = totalCount / pageSize;
+		if(totalCount % pageSize > 0) {
+			pageCount++;
+		}
+		return pageCount;
 	}
 	
 

@@ -26,26 +26,28 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	
+	private static final int PAGE_LIMIT = 5;
 
 	
 	@GetMapping("/noticeForm.do")
 	public void noticeForm() {}
 	
-	// 영화 목록 조회 with 페이징처리
+	// 공지 목록 조회 with 페이징처리
 	@GetMapping("/noticeList.do")
-	public void noticeList(Model model, @RequestParam(defaultValue = "1") int page) {
-	    int pageSize = 5;
-	    List<Notice> noticeList = noticeService.selectAllNotice();
-	    int totalNotices = noticeList.size();
-	    int totalPages = (int) Math.ceil((double) totalNotices / pageSize);
+	public void noticeList(Model model, @RequestParam(value = "page", required = false) Integer page) {
+	    if (page == null || page == 0) {
+	    	page = 1;
+	    }
+	    
+	    List<Notice> noticeList = noticeService.pagingAllNotice(page, PAGE_LIMIT);
+	    int totalPage = noticeService.totalPageCount(PAGE_LIMIT);
 
-	    int start = (page - 1) * pageSize;
-	    int end = Math.min(start + pageSize, totalNotices);
-	    List<Notice> noticesInPage = noticeList.subList(start, end);
-
-	    model.addAttribute("noticeList", noticesInPage);
-	    model.addAttribute("currentPage", page);
-	    model.addAttribute("totalPages", totalPages);
+	    model.addAttribute("noticeList", noticeList);
+	    model.addAttribute("page", page);
+	    model.addAttribute("totalPages", totalPage);
+	    
+	    log.debug("noticeList", noticeList);
 	}
 	
 	// 공지사항 작성

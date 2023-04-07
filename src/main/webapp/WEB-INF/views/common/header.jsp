@@ -86,7 +86,7 @@ console.log(msg);
   <!-- 서비스 메뉴 -->
 </div>
 <!-- 서브 메뉴 -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+<nav class="navbar navbar-expand-lg navbar-light -light" id="nav">
 	<div id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 		<li class="nav-item active">
@@ -114,11 +114,11 @@ console.log(msg);
 		   <c:if test="${ pageContext.request.servletPath eq '/WEB-INF/views/event/eventList.jsp' }">red</c:if>"
 		   href="${ pageContext.request.contextPath }/event/events.do?category=SPECIAL">이벤트</a>
 		</li>
-<%-- 		<sec:authorize access="hasRole('ROLE_ADMIN')"> --%>
+ 		<sec:authorize access="hasRole('ROLE_ADMIN')"> 
 		<li class="nav-item">
 		   <a class="nav-link disabled" href="${ pageContext.request.contextPath }/member/memberList.do">관리자</a>
 		</li>
-<%-- 		</sec:authorize> --%>
+ 		</sec:authorize> 
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<input id="searchMovie" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">

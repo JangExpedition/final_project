@@ -12,8 +12,23 @@
 <%-- 페이지 번호 계산 --%>
 <c:set var="currentPage" value="${not empty param.page ? param.page : 1}"/>
 <c:set var="pageSize" value="${10}"/>
-<c:set var="startPage" value="${(currentPage - 1) / 10 * 10 + 1}"/>
-<c:set var="endPage" value="${(startPage + 9) > param.totalPages ? param.totalPages : (startPage + 9)}"/>
+<c:choose>
+    <%--1 ~ pageSize--%>
+    <c:when test="${currentPage < pageSize+1}">
+        <c:set var="startPage" value="1"/>
+        <c:set var="endPage" value="${pageSize}"/>
+    </c:when>
+    <c:otherwise>
+        <fmt:parseNumber var="currentBlock" integerOnly="true" value="${(currentPage-1)/pageSize}"/>
+        <c:set var="startPage" value="${pageSize * (currentBlock) +1}"/>
+        <c:set var="endPage" value="${pageSize * (currentBlock+1)}"/>
+    </c:otherwise>
+</c:choose>
+
+<c:if test="${endPage > param.totalPages}">
+    <c:set var="startPage" value="${1}"/>
+    <c:set var="endPage" value="${param.totalPages}"/>
+</c:if>
 
 <%-- 페이지 링크 생성 --%>
 <c:url var="prevPageLink" value="${param.nowURL}">
@@ -30,9 +45,6 @@
 
 <%-- 페이지 링크 표시 --%>
 <div class="contentss">
-    <c:if test="${currentPage > 1}">
-        <a class="btn-paging prev" href="${prevPageLink}">이전</a>
-    </c:if>
 
     <c:forEach var="page" begin="${startPage}" end="${endPage}">
         <c:url var="pageLink" value="${param.nowURL}">
@@ -40,7 +52,7 @@
         </c:url>
 
         <c:choose>
-            <c:when  test="${page == currentPage}">
+            <c:when test="${page == currentPage}">
                 <b class="first">${page}</b>
             </c:when>
             <c:otherwise>
@@ -49,12 +61,8 @@
         </c:choose>
     </c:forEach>
 
-    <c:if test="${currentPage < param.totalPages}">
-        <a href="${nextPageLink}" class="btn-paging next" >다음</a>
-    </c:if>
-
     <c:if test="${currentPage != param.totalPages}">
-        <a href="${lastPageLink}" class="btn-paging end" >마지막</a>
+        <a href="${lastPageLink}" class="btn-paging end">마지막</a>
     </c:if>
 </div>
 
