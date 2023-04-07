@@ -176,7 +176,7 @@
             url: `${pageContext.request.contextPath}/event/api/events.do`,
             method: "get"
         }).done(res => {
-/*             console.log(res) */
+        	console.log(res)
             let html = ''
             res.forEach(event => {
             	console.log(event.no);
@@ -236,19 +236,12 @@
 	       	let parentDiv = e.target;
 	       	while(parentDiv.tagName !== "DIV")
 	       		parentDiv = parentDiv.parentElement;
-	       	
-        	console.log(parentDiv);
         	
             const no = parentDiv.dataset.eventNo;
-            
-            console.log(no);
             
             location.href = '${pageContext.request.contextPath}/event/eventDetail.do?no=' + no;
         });
     });
-
-
-
 
 </script>
 </body>

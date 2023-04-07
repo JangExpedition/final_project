@@ -42,7 +42,7 @@ public class EventController {
 
     private final ServletContext application;
 
-    private static final int PAGE_LIMIT = 3;
+    private static final int PAGE_LIMIT = 9;
 
     // 이벤트 게시판 전체 조회 및 페이징 처리
     @GetMapping("/events.do")
