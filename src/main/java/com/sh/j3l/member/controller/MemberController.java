@@ -49,21 +49,23 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
+	private static final int PAGE_LIMIT = 3;
+	
 	// 회원 목록 조회 with 페이징처리
 	@GetMapping("/memberList.do")
-	public void memberList(Model model, @RequestParam(defaultValue = "1") int page) {
-	    int pageSize = 10;
-	    List<Member> members = memberService.selectAllMember();
-	    int totalMembers = members.size();
-	    int totalPages = (int) Math.ceil((double) totalMembers / pageSize);
+	public void memberList(Model model, @RequestParam(value = "page", required = false) Integer page) {
+		if (page == null || page == 0) {
+			page = 1;
+		}
+		
+		List<Member> members = memberService.pagingAllMember(page, PAGE_LIMIT);
+		int totalPage = memberService.totalPageCount(PAGE_LIMIT);
 
-	    int start = (page - 1) * pageSize;
-	    int end = Math.min(start + pageSize, totalMembers);
-	    List<Member> membersInPage = members.subList(start, end);
-
-	    model.addAttribute("members", membersInPage);
-	    model.addAttribute("currentPage", page);
-	    model.addAttribute("totalPages", totalPages);
+	    model.addAttribute("members", members);
+	    model.addAttribute("page", page);
+	    model.addAttribute("totalPages", totalPage);
+	    
+	    log.debug("members", members);
 	}
 
 	// 로그인 페이지 이동 메서드

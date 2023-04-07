@@ -22,7 +22,8 @@ public interface EventService {
 
 	Event selectOneEvent(int no);
 
-//	List<Event> selectAllEventList();
+	int eventUpdate(Event event);
+
 
 
 

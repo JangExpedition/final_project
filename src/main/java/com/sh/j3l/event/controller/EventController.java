@@ -64,16 +64,16 @@ public class EventController {
     }
     
     
-//    // 이벤트 리스트 비동기 요청
-//    @GetMapping("/selectAllEventList.do")
-//    @ResponseBody
-//    public List<Event> selectAllEventList() {
-//        List<Event> eventList = eventService.selectAllEventList();
-//        
-//        log.debug("eventList = {}", eventList);
-//        
-//        return eventList;
-//    }
+    // 이벤트 리스트 비동기 요청
+    @GetMapping("/api/events.do")
+    @ResponseBody
+    public List<Event> selectAllEventList() {
+        List<Event> eventList = eventService.selectAllEvent(null);
+
+        log.debug("eventList = {}", eventList);
+
+        return eventList;
+    }
 
 
 
@@ -130,7 +130,7 @@ public class EventController {
 
     }
     
-    
+    // 이벤트 삭제
     @PostMapping("/deleteEvent.do")
     public String deleteEvent(int no, RedirectAttributes redirectAttr) {
 
@@ -143,5 +143,26 @@ public class EventController {
             redirectAttr.addFlashAttribute("msg", "게시물 삭제 실패");
         }
         return "redirect:/event/events.do?category=SPECIAL";
+    }
+    
+    // 이벤트 게시글 수정 페이지 이동
+    @GetMapping("/eventUpdate.do")
+    public void eventUpdate(@RequestParam int no, Model model) {
+	  model.addAttribute("event", eventService.selectOneEvent(no));
+    } 
+    
+    // 이벤트 수정
+    @PostMapping("/eventUpdate.do")
+    public String eventUpdate(Event event, RedirectAttributes redirectAttr) {
+    	
+    	int result = eventService.eventUpdate(event);
+    	log.debug("event ={}", event);
+    	
+    	if (result > 0) {
+    		redirectAttr.addFlashAttribute("msg", "이벤트 게시물 수정 성공");
+    	} else {
+    		redirectAttr.addFlashAttribute("msg", "이벤트 게시물 수정 실패");
+    	}
+    	return "redirect:/event/events.do?category=SPECIAL";
     }
 }

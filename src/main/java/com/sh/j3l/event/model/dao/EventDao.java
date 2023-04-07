@@ -24,17 +24,11 @@ public interface EventDao {
 
 	Event selectOneEvent(int no);
 
-	List<Event> selectEventByCategoryAndOffset(Category category, int offset, int size);
-
-	int countEventByCategory(Category category);
-
 	List<Event> pagingAllEvent(@Param("category") Category category, @Param("offset") int offset, @Param("pageSize") int pageSize);
 
 	int count(Category category);
 
-	List<EventAttachment> selectEventAttachment(int no);
-
-	List<Event> selectAllEventList();
+	int eventUpdate(Event event);
 
 	
 }

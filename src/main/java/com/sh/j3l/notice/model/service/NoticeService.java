@@ -24,4 +24,8 @@ public interface NoticeService {
 
 	int noticeUpdate(Notice notice);
 
+	List<Notice> pagingAllNotice(int page, int pageSize);
+
+	int totalPageCount(int pageSize);
+
 }

@@ -36,6 +36,8 @@ public class QuestionController {
 	@Autowired
 	private QuestionAnswerService questionAnswerService;
 	
+	private static final int PAGE_LIMIT = 5;
+	
 	@GetMapping("/question.do")
 	public void question() {}
 	
@@ -43,19 +45,19 @@ public class QuestionController {
 	
 	// 사용자용 문의 내역 조회 with 페이징처리
 	@GetMapping("/myQuestionList.do")
-	public void myQuestionList(Model model, @RequestParam(defaultValue = "1") int page) {
-		int pageSize = 10;
-		List<Question> questionList = questionService.selectAllQuestion();
-		int totalQuestions = questionList.size();
-		int totalPages = (int) Math.ceil((double) totalQuestions / pageSize);
+	public void myQuestionList(Model model, @RequestParam(value = "page", required = false) Integer page) {
+		if (page == null || page == 0) {
+			page = 1;
+		}
 		
-		int start = (page - 1) * pageSize;
-		int end = Math.min(start + pageSize, totalQuestions);
-		List<Question> questionsInPage = questionList.subList(start, end);
-		
-		model.addAttribute("questionList", questionsInPage);
-		model.addAttribute("currentPage", page);
-		model.addAttribute("totalPages", totalPages);
+		List<Question> questionList = questionService.pagingAllQuestion(page, PAGE_LIMIT);
+		int totalPage = questionService.totalPageCount(PAGE_LIMIT);
+
+	    model.addAttribute("questionList", questionList);
+	    model.addAttribute("page", page);
+	    model.addAttribute("totalPages", totalPage);
+	    
+	    log.debug("questionList", questionList);
 	}
 	
 	
@@ -76,20 +78,22 @@ public class QuestionController {
 	
 	// 관리자용 문의 내역 조회 with 페이징처리
 	@GetMapping("/questionList.do")
-	public void questionList(Model model, @RequestParam(defaultValue = "1") int page) {
-		int pageSize = 10;
-		List<Question> questionList = questionService.selectAllQuestion();
-		int totalQuestions = questionList.size();
-		int totalPages = (int) Math.ceil((double) totalQuestions / pageSize);
+	public void questionList(Model model, @RequestParam(value = "page", required = false) Integer page) {
+		if (page == null || page == 0) {
+			page = 1;
+		}
 		
-		int start = (page - 1) * pageSize;
-		int end = Math.min(start + pageSize, totalQuestions);
-		List<Question> questionsInPage = questionList.subList(start, end);
-		
-		model.addAttribute("questionList", questionsInPage);
-		model.addAttribute("currentPage", page);
-		model.addAttribute("totalPages", totalPages);
+		List<Question> questionList = questionService.pagingAllQuestion(page, PAGE_LIMIT);
+		int totalPage = questionService.totalPageCount(PAGE_LIMIT);
+
+	    model.addAttribute("questionList", questionList);
+	    model.addAttribute("page", page);
+	    model.addAttribute("totalPages", totalPage);
+	    
+	    log.debug("questionList", questionList);
 	}
+
+	
 	
 	// 관리자용 문의 내역 확인 폼
 	@GetMapping("/questionDetail.do")
@@ -122,6 +126,7 @@ public class QuestionController {
 	}
 		
 	
+	// 사용자용 문의 등록
 	@PostMapping("/questionEnroll.do")
 	public String questionEnroll(Question question, RedirectAttributes redirectAttr) {
 		
@@ -151,7 +156,7 @@ public class QuestionController {
 		} else {
 			redirectAttr.addFlashAttribute("msg", "문의 삭제 실패");
 		}
-		return "redirect:/question/myQuestionList.do";
+		return "redirect:/question/questionList.do";
 	}
 	
 	// 극장탭 출력용

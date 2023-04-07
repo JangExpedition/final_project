@@ -12,6 +12,24 @@
 			no asc
 	</select>
 	
+	<select id="pagingAllMovie" resultMap="movieMap">
+		select
+			*
+		from
+			movie
+		order by
+			no asc
+		offset 
+			#{offset} rows fetch next #{pageSize} rows only
+	</select>
+	
+	<select id="count" resultType="int">
+		select 
+			count(*) 
+		from 
+			movie
+	</select>
+	
 	<resultMap type="movie" id="movieMap"></resultMap>
 	
 	<insert id="insertMovie">

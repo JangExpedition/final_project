@@ -29,6 +29,10 @@ public interface MemberService {
 
 	String findIdByEmail(String email);
 
+	List<Member> pagingAllMember(int page, int pageSize);
+
+	int totalPageCount(int pageSize);
+
 
 
 }

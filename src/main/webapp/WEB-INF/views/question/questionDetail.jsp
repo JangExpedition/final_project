@@ -25,6 +25,7 @@
 							관리<i></i></a></li>
 					<li class=''><a href="${ pageContext.request.contextPath }/schedule/insertSchedule.do">상영
 							관리<i></i></a></li>
+					<li class=''><a href="${ pageContext.request.contextPath }/store/snackEnroll.do">메뉴 관리<i></i></a></li>
 				</ul>
 			</div>
 		</div>

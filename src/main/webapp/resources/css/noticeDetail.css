@@ -82,9 +82,17 @@ a {
 }
 
 
-#contaniner {/*overflow:hidden;*/ position:relative; width:100%; z-index:7}
-#contaniner.bg-bricks {background:url(https://img.cgv.co.kr/r2014/images/common/bg/bg_c_bricks.png) repeat-x 0 29px}
-#contaniner .contents{width:980px; height:100%; margin:0 auto}
+#contaniner {
+	position:relative; 
+	width:100%; 
+	z-index:7
+}
+
+#contaniner .contents{
+	width:980px; 
+	height:100%; 
+	margin:0 auto
+}
 
 
 
@@ -209,12 +217,13 @@ a {
 }
 
 .customer_top .tit { 
-	font-size:16px;
+	font-size: 1.5rem;
 }
 
 .customer_top .stit {
 	margin-top:5px;
-	font-size:14px;
+	font-size:17px;
+	color: gray;
 }
 
 .board_view_area {
@@ -230,7 +239,7 @@ a {
 
 .top_title_faq .title {
 	float:left;
-	font-size:12px;
+	font-size:15px;
 	font-weight:500;
 	display:block;
 	overflow:hidden;
