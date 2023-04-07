@@ -21,6 +21,8 @@
 		<intercept-url pattern="/reservation/reservation.do" access="isAuthenticated()"/>
 		<intercept-url pattern="/question/question.do" access="isAuthenticated()"/>
 		<intercept-url pattern="/question/myQuestionList.do" access="isAuthenticated()"/>
+		<intercept-url pattern="/store/store.do" access="isAuthenticated()"/>
+		<intercept-url pattern="/cart/cart.do" access="isAuthenticated()"/>
 		<!-- <intercept-url pattern="/**" access="isAuthenticated()"/> -->
 		
 		<form-login

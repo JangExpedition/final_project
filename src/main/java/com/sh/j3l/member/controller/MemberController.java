@@ -2,13 +2,11 @@ package com.sh.j3l.member.controller;
 
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mock.web.server.MockWebSession;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,12 +24,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sh.j3l.event.model.service.EventService;
+import com.sh.j3l.cart.model.dto.Cart;
+import com.sh.j3l.cart.model.service.CartService;
 import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.member.model.service.MailService;
 import com.sh.j3l.member.model.service.MemberService;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -45,6 +43,8 @@ public class MemberController {
 	
 	@Autowired
 	private MailService mailService;
+	
+	@Autowired CartService cartService;
 
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -84,6 +84,17 @@ public class MemberController {
 		
 		log.debug("location = {}", location);
 		
+		// 장바구니 세션에 저장
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Member loginMember = (Member) authentication.getPrincipal();
+		String id = loginMember.getId();
+		List<Cart> cartList = cartService.selectAllMyCart(id);
+		int totalCartCount = 0;
+		for(Cart cart : cartList) {
+			totalCartCount += cart.getStoreCount();
+		}
+		session.setAttribute("totalCartCount", totalCartCount);
+		
 		return "redirect:" + location;
 	}
 	
@@ -93,10 +104,19 @@ public class MemberController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
 		if(authentication != null) {
+			
+			// 장바구니 삭제
+			Member loginMember = (Member) authentication.getPrincipal();
+			String id = loginMember.getId();
+			int result = cartService.deleteMyCart(id);
+			HttpSession session = request.getSession();
+			session.removeAttribute("totalCartCount");
+			
 			new SecurityContextLogoutHandler().logout(request, response, authentication);
 		}
 		
 		log.debug("redirectAttr = {}", redirectAttr.getAttribute("msg"));
+		
 		
 		return "redirect:/";
 	}

@@ -9,12 +9,13 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="영화 그 이상의 감동. J3L" name="title"/>
 </jsp:include>
+<sec:authentication property="principal" var="loginMember"/>
 <html>
 <head>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/> -->
  
 <!-- index.css -->
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/index.css"/>
@@ -38,7 +39,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="eventBox">
+	<%-- <div id="eventBox">
 		<div class="slider__container">
 			<div class="slider__header">
 				<h2>EVENT</h2>
@@ -71,9 +72,8 @@
 		</div>
   		
   		
-	</div>
+	</div> --%>
 </section>
-
 <script>
 window.onload = () => {
 	filterSelected("무비차트");
@@ -89,8 +89,6 @@ document.querySelectorAll(".movieFilter").forEach((movieFilter)=>{
 
 // 영화필터 선택 효과 메서드
 const filterSelected = (name) => {
-	
-	console.log(name);
 	
 	document.querySelectorAll(".movieFilter").forEach((movieFilter)=>{
 		if(movieFilter.innerText === name){
@@ -154,9 +152,7 @@ const filterSelected = (name) => {
 	});	
 };	
 
-
-	    
-// 효과 설정
+/* // 효과 설정
 $(document).ready(function () {
   $(".slider").slick({
     autoplay: true,
@@ -194,7 +190,7 @@ $(document).on("click", ".moviePoster", function(e){
 	
 	location.href="${pageContext.request.contextPath}/movie/movieInfo.do?no=" + parentDiv.dataset.movieNo;
 	
-});
+}); */
 </script>
 </body>
 </html>
