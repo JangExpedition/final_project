@@ -10,6 +10,24 @@
 		from
 			notice
 	</select>
+	
+	<select id="pagingAllNotice" resultMap="noticeMap">
+		select
+			*
+		from
+			notice
+		order by
+			created_at desc
+		offset
+			#{offset} rows fetch next #{pageSize} rows only
+	</select>
+	
+	<select id="count" resultType="int">
+		select 
+			count(*) 
+		from 
+			notice
+	</select>
 
 	<resultMap type="notice" id="noticeMap"></resultMap>
 	

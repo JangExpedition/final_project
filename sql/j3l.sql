@@ -18,6 +18,8 @@ select * from question_answer;
 select * from notice;
 select * from faq;
 select * from seat;
+select * from event;
+select * from event_attachment;
 
 --===============================
 -- 관리자 계정 생성

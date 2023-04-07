@@ -80,54 +80,11 @@
 	</div>
 </div>
 
-<%-- 페이지 번호 계산 --%>
-<c:set var="currentPage" value="${not empty param.page ? param.page : 1}"/>
-<c:set var="pageSize" value="${5}"/>
-<c:set var="startPage" value="${(currentPage - 1) / 10 * 10 + 1}"/>
-<c:set var="endPage" value="${(startPage + 5) > totalPages ? totalPages : (startPage + 5)}"/>
-
-<%-- 페이지 링크 생성 --%>
-<c:url var="prevPageLink" value="/question/myQuestion.do">
-    <c:param name="page" value="${currentPage - 1}"/>
-</c:url>
-
-<c:url var="nextPageLink" value="/question/myQuestion.do">
-    <c:param name="page" value="${currentPage + 1}"/>
-</c:url>
-
-<c:url var="lastPageLink" value="/question/myQuestion.do">
-    <c:param name="page" value="${totalPages}"/>
-</c:url>	
-
-<%-- 페이지 링크 표시 --%>
-<div class="contentss">
-    <c:if test="${currentPage > 1}">
-        <a class="btn-paging prev" href="${prevPageLink}">이전</a>
-    </c:if>
-
-    <c:forEach var="page" begin="${startPage}" end="${endPage}">
-    <c:url var="pageLink" value="/question/myQuestion.do">
-        <c:param name="page" value="${page}"/>
-    </c:url>
-
-    <c:choose>
-        <c:when  test="${page == currentPage}">
-            <b class="first">${page}</b>
-        </c:when>
-        <c:otherwise>
-            <a class="number" href="${pageLink}">${page}</a>
-        </c:otherwise>
-    </c:choose>
-</c:forEach>
-
-    <c:if test="${currentPage < totalPages}">
-        <a href="${nextPageLink}" class="btn-paging next" >다음</a>
-    </c:if>
-
-    <c:if test="${currentPage != totalPages}">
-        <a href="${lastPageLink}" class="btn-paging end" >마지막</a>
-    </c:if>
-</div>
+<jsp:include page="/WEB-INF/views/common/paging.jsp">
+    <jsp:param value="${page}" name="page"/>
+    <jsp:param value="${totalPages}" name="totalPages"/>
+    <jsp:param value="/question/myQuestionList.do" name="nowURL"/>
+</jsp:include>
 
 
 <script>

@@ -75,5 +75,21 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.searchById(keyword);
 	}
 
+	@Override
+	public List<Member> pagingAllMember(int page, int pageSize) {
+		int offset = (page - 1) * pageSize;
+		return memberDao.pagingAllMember(offset, pageSize);
+	}
+
+	@Override
+	public int totalPageCount(int pageSize) {
+		int totalCount = memberDao.count();
+		int pageCount = totalCount / pageSize;
+		if(totalCount % pageSize > 0) {
+			pageCount++;
+		}
+		return pageCount;
+	}
+
 
 }

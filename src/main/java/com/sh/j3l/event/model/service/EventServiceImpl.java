@@ -70,21 +70,10 @@ public class EventServiceImpl implements EventService{
 		return eventDao.selectOneEvent(no);
 	}
 
-//	@Transactional(rollbackFor = Exception.class)
-//	@Override
-//	public List<Event> selectAllEventList() {
-//		
-//		List<Event> eventList = eventDao.selectAllEventList();
-//		
-//		 for (Event event : eventList) {
-//	            List<EventAttachment> attachments = eventDao.selectEventAttachment(event.getNo());
-//	            for (EventAttachment attachment : attachments) {
-//	                event.addAttachment(attachment);
-//	            }
-//	        }
-//		
-//		return eventList;
-//	}
+	@Override
+	public int eventUpdate(Event event) {
+		return eventDao.eventUpdate(event);
+	}
 
 
 }

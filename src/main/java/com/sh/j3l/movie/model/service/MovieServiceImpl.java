@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.movie.model.dao.MovieDao;
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
@@ -124,6 +125,22 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public int getMovieRunningTime(int movieNo) {
 		return movieDao.getMovieRunningTime(movieNo);
+	}
+
+	@Override
+	public List<Member> pagingAllMovie(int page, int pageSize) {
+		int offset = (page - 1) * pageSize;
+		return movieDao.pagingAllMovie(offset, pageSize);
+	}
+
+	@Override
+	public int totalPageCount(int pageSize) {
+		int totalCount = movieDao.count();
+		int pageCount = totalCount / pageSize;
+		if(totalCount % pageSize > 0) {
+			pageCount++;
+		}
+		return pageCount;
 	}
 
 

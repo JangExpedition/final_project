@@ -8,34 +8,17 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/faqForm.css"/>
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/eventUpdate.css"/>
 
 
 <div id="contaniner">
 	<div id="contents">
-		<div class="cols-content">
-			<div class="col-aside">
-				<h2>
-					고객센터 메뉴</h2>
-				<div class="snb">
-					<ul class="ul1">
-						<li class=''><a href="${ pageContext.request.contextPath }/faq/main.do">고객센터 메인<i></i></a></li>
-						<li class='on'><a href="${ pageContext.request.contextPath }/faq/faqList.do" title="현재선택">자주찾는 질문<i></i></a></li>
-						<li class=''><a href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
-						</li>
-						<sec:authorize access="hasRole('ROLE_USER')"> 
-						<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의</a></li>
-						<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인</a></li>
-						</sec:authorize> 
-					</ul>
-				</div>
-			</div>
-			
+		<div class="cols-content">	
 			<div class="customer_top">
-				<h2 class="tit">자주찾는 질문 작성</h2>
+				<h2 class="tit">이벤트 게시물 작성</h2>
 			</div>
 			
-			<form:form name="faqFrm" action="${pageContext.request.contextPath}/faq/faqEnroll.do" method="post">
+			<form:form name="eventUpdateFrm" action="${pageContext.request.contextPath}/event/eventUpdate.do" method="post">
 				<input type="hidden" id="hIsTemp" name="hIsTemp" value="N" />
 				<input type="hidden" id="hIdx" name="hIdx" value="" />
 				<fieldset>
@@ -51,21 +34,25 @@
 								<tr>
 									<th scope="row"><label for="inp_title">제목</label></th>
 									<td colspan="3">
-										<input type="text" id="title" name="title" class="inp01"
-											style="width: 672px;" />
+										<input type="text" id="title" name="title" class="inp01" value="${ event.title }"/>
 									</td>
 								</tr>
 
 								<tr>
 									<th scope="row">구분</th>
 									<td colspan="3">
-										<select class="form-select" name="classify">
-											<option value="YEME">예매 관련</option>
-											<option value="HAWNBULL">환불 관련</option>
-											<option value="HOEWON">회원 관련</option>
-											<option value="BUNSILMOOL">분실물 관련</option>
-											<option value="GITA">기타</option>
+										<select class="form-select" name="category">
+											<option value="SPECIAL" ${ evnet.category=='SPECIAL' ? 'selected' : '' }>스페셜</option>
+											<option value="MOVIEYEME" ${ evnet.category=='MOVIEYEME' ? 'selected' : '' }>영화/예매</option>
+											<option value="MEMBERSHIP" ${ evnet.category=='MEMBERSHIP' ? 'selected' : '' }>멤버십</option>
+											<option value="JAEHYUSALE" ${ evnet.category=='JAEHYUSALE' ? 'selected' : '' }>제휴/할인</option>
 										</select>
+									</td>
+								</tr>
+								<tr>
+									<td class="tit">첨부파일</td>
+									<td>
+										<input type="file" name="upFile" id="upFile" multiple />
 									</td>
 								</tr>
 								<tr>
@@ -74,7 +61,7 @@
 									</th>
 									<td colspan="3">
 										<textarea id="content" name="content"
-											class="inp_txtbox01"></textarea>
+											class="inp_txtbox01">${ event.content }</textarea>
 									</td>
 								</tr>
 							</tbody>
@@ -82,7 +69,8 @@
 					</div>
 					<div class="box-btn qna_email">
 						<div class="parent">
-							<input type="submit" value="등록" />
+							<input type="hidden" name="no" value="${event.no}" />
+							<input type="submit" value="수정" />
 						</div>
 					</div>
 				</fieldset>

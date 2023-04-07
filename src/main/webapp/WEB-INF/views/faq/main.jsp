@@ -26,10 +26,12 @@
 						<li class=''><a
 								href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
 						</li>
+						<sec:authorize access="hasRole('ROLE_USER')"> 
 						<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1
 								문의</a></li>
 						<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의
 								내역 확인</a></li>
+						</sec:authorize> 
 					</ul>
 				</div>
 			</div>
@@ -84,9 +86,14 @@
 					<div class="service_area">
 						<span class="tit">자주찾는 서비스</span>
 						<ul class="list">
-							<li><a href="" target="_blank" title="새창열기" class="list1"><br /></a></li>
+							<li><a href="${ pageContext.request.contextPath}/reservation/reservation.do" target="_blank" 
+								   title="새창열기" class="list1">영화 예매/<br />조회</a></li>
 							<li><a href="${pageContext.request.contextPath}/member/findId.do" target="_blank"
-									title="새창열기" class="list1">아이디/<br />비밀번호 찾기</a></li>
+								   title="새창열기" class="list1">아이디/<br />비밀번호 찾기</a></li>
+							<li><a href="${pageContext.request.contextPath}/event/events.do?category=SPECIAL" target="_blank"
+								   title="새창열기" class="list1">이벤트/<br />이벤트 조회</a></li>
+							<li><a href="${pageContext.request.contextPath}/member/myPage.do" target="_blank"
+								   title="새창열기" class="list1">마이페이지/<br />예매 내역 확인</a></li>
 						</ul>
 					</div>
 					<div class="notice_area">

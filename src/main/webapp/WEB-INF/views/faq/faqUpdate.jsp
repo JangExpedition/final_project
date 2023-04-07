@@ -25,11 +25,10 @@
 						<li class=''><a
 								href="${ pageContext.request.contextPath }/notice/noticeList.do">공지/뉴스<i></i></a>
 						</li>
-						<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1
-								문의<i></i></a>
-						</li>
-						<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역
-								확인<i></i></a></li>
+						<sec:authorize access="hasRole('ROLE_USER')"> 
+						<li class=''><a href="${ pageContext.request.contextPath }/question/question.do">1:1 문의</a></li>
+						<li class=''><a href="${ pageContext.request.contextPath }/question/myQuestionList.do">문의 내역 확인</a></li>
+						</sec:authorize> 
 					</ul>
 				</div>
 			</div>

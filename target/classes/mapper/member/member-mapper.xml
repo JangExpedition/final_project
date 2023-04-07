@@ -21,6 +21,22 @@
 			id = #{id}
 	</select>	
 	
+	<select id="pagingAllMember" resultMap="memberMap">
+		select
+			*
+		from
+			member
+		offset 
+			#{offset} rows fetch next #{pageSize} rows only
+	</select>
+	
+	<select id="count" resultType="int">
+		select 
+			count(*) 
+		from 
+			member
+	</select>
+	
 	<delete id="deleteMember">
 		delete from
 			member

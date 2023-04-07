@@ -3,6 +3,7 @@ package com.sh.j3l.question.model.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.sh.j3l.member.model.dto.Member;
@@ -26,5 +27,9 @@ public interface QuestionDao {
 	int deleteQuestion(int no);
 
 	List<Question> cinemaQues();
+
+	List<Question> pagingAllQuestion(@Param("offset") int offset, @Param("pageSize") int pageSize);
+
+	int count();
 
 }

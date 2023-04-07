@@ -3,9 +3,11 @@ package com.sh.j3l.movie.model.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
 
@@ -49,5 +51,9 @@ public interface MovieDao {
 
 	@Update("update movie set reservation_count = reservation_count + 1 where no = #{movieNo}")
 	int updateMovieReservationCount(int movieNo);
+
+	List<Member> pagingAllMovie(@Param("offset") int offset, @Param("pageSize") int pageSize);
+
+	int count();
 
 }

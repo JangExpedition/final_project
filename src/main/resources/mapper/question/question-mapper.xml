@@ -17,6 +17,24 @@
 			question
 	</select>
 	
+	<select id="pagingAllQuestion" resultMap="questionMap">
+		select
+			*
+		from
+			question
+		order by
+			no asc
+		offset 
+			#{offset} rows fetch next #{pageSize} rows only
+	</select>
+	
+	<select id="count" resultType="int">
+		select 
+			count(*) 
+		from 
+			question
+	</select>
+	
 	<resultMap type="question" id="questionMap"></resultMap>
 	
 	<insert id="sendQuestion">

@@ -2,6 +2,7 @@ package com.sh.j3l.movie.model.service;
 
 import java.util.List;
 
+import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.movie.model.dto.Attachment;
 import com.sh.j3l.movie.model.dto.Movie;
 
@@ -37,5 +38,9 @@ public interface MovieService {
 	List<Movie> selectAllMovieToBeScreened(String now);
 
 	int getMovieRunningTime(int movieNo);
+
+	List<Member> pagingAllMovie(int page, int pageSize);
+
+	int totalPageCount(int pageSize);
 
 }

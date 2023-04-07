@@ -13,18 +13,20 @@
 
 <div id="contaniner">
 	<div id="contents">
-		<div class="cols-content">	
+		<div class="cols-content">
 			<div class="customer_top">
 				<h2 class="tit">이벤트 게시물 작성</h2>
 			</div>
-			
-			<form:form name="movieFrm" action="${pageContext.request.contextPath}/event/eventEnroll.do?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data">
+
+			<form:form name="eventFrm"
+				action="${pageContext.request.contextPath}/event/eventEnroll.do?${_csrf.parameterName}=${_csrf.token}"
+				method="POST" enctype="multipart/form-data">
 				<input type="hidden" id="hIsTemp" name="hIsTemp" value="N" />
 				<input type="hidden" id="hIdx" name="hIdx" value="" />
 				<fieldset>
 					<div class="tbl_area">
 						<table cellspacing="0" cellpadding="0" class="tbl_notice_list tbl_left">
- 							<colgroup>
+							<colgroup>
 								<col style="width:96px" />
 								<col style="width:303px" />
 								<col style="width:96px" />
@@ -34,7 +36,7 @@
 								<tr>
 									<th scope="row"><label for="inp_title">제목</label></th>
 									<td colspan="3">
-										<input type="text" id="title" name="title" class="inp01"/>
+										<input type="text" id="title" name="title" class="inp01" />
 									</td>
 								</tr>
 
@@ -51,8 +53,8 @@
 								</tr>
 								<tr>
 									<td class="tit">첨부파일</td>
-									<td>
-										<input type="file" name="upFile" id="upFile" multiple />
+									<td colspan="3">
+										<input type="file" name="upFile" id="upFile" multiple>
 									</td>
 								</tr>
 								<tr>
@@ -60,8 +62,7 @@
 													src="${ pageContext.request.contextPath }/resources/images/ico_redstar.png" /></em></label>
 									</th>
 									<td colspan="3">
-										<textarea id="content" name="content"
-											class="inp_txtbox01"></textarea>
+										<textarea id="content" name="content" class="inp_txtbox01"></textarea>
 									</td>
 								</tr>
 							</tbody>
@@ -78,4 +79,5 @@
 	</div>
 </div>
 </body>
+
 </html>

@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.Update;
 import com.sh.j3l.member.model.dto.Grade;
 import com.sh.j3l.member.model.dto.Member;
 
+import lombok.experimental.PackagePrivate;
+
 
 @Mapper
 public interface MemberDao {
@@ -42,6 +44,10 @@ public interface MemberDao {
 
 	@Update("update member set grade = #{grade} where id = #{id}")
 	int updateGrade(@Param("id") String id, @Param("grade") Grade grade);
+
+	List<Member> pagingAllMember(@Param("offset") int offset, @Param("pageSize") int pageSize);
+
+	int count();
 
 }
 

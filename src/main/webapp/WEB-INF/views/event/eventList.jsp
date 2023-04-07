@@ -53,11 +53,13 @@
                 <li data-no="${event.no}">
                     <a id="tile_${status.index}" href="eventDetail.do?no=${event.no}">
                         <div class="evt-thumb">
-                            <img src="${ pageContext.request.contextPath }/resources/upload/event/${event.attachments[0].renamedFilename }"
-                                 alt="썸네일"/>
+                            <img src="${ pageContext.request.contextPath }/resources/upload/event/${event.attachments[0].renamedFilename }"/>
                             <div class="evt-desc">
                                 <p class="txt1">${ event.title }</p>
-                                <p class="txt2">${ event.content }<span></span><em></em></p>
+                                <p>
+									<fmt:parseDate value="${event.createdAt}" pattern="yyyy-MM-dd" var="createdAt" />
+									<fmt:formatDate value="${createdAt}" pattern="yy/MM/dd" />
+								</p>
                             </div>
                         </div>
                     </a>
@@ -74,6 +76,7 @@
     <jsp:param value="/event/events.do?category=${category}" name="nowURL"/>
 </jsp:include>
 
+
 <script>
     document.querySelector("#btn-add").addEventListener('click', (e) => {
         location.href = '${pageContext.request.contextPath}/event/eventForm.do';
@@ -88,5 +91,6 @@
     });
 
 </script>
+
 </body>
 </html>
