@@ -507,5 +507,4 @@ document.querySelector("#myStoreOrderCheck").addEventListener("click", (e)=>{
 	document.querySelector("#myStoreOrder").style.display = "inline-block";
 });
 </script>
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
