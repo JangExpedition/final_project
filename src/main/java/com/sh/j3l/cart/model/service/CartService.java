@@ -16,4 +16,6 @@ public interface CartService {
 
 	int updateCart(int no, int count);
 
+	int cartPayment(String id, int totalPayment, int usePoint, String pickupZone);
+
 }
