@@ -963,7 +963,6 @@ document.querySelector("#payBtn").addEventListener("click", (e)=>{
 	    		data: {scheduleNo, seatArr, id, totalPayAmount, usePoint},
 	    		headers,
 	    		success(data) {
-	    		    console.log(data);
 	    		    let msg = data.msg;
 	    			
 	    			alert(msg);
@@ -982,5 +981,4 @@ document.querySelector("#payBtn").addEventListener("click", (e)=>{
   
 }); // 결제 메서드 end
 </script>
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

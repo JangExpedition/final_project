@@ -24,9 +24,12 @@
 				</div>
 				<div id="grade">
 					<p id="checkGradeBenefit" class="pointColor">멤버십 등급별 혜택 확인하기</p>
-					<h5>고객님은 ${ loginMember.grade }입니다.</h5>
+					<h5>고객님은 <span class="pointColor">${ loginMember.grade }</span>입니다.</h5>
 					<p>현재 보유하신 포인트는 <span class="pointColor">${ loginMember.point }point</span> 입니다.</p>
-					<input id="myReservationCheck" type="button" value="예매내역 확인하기"/>
+					<div class="myCheckBox">
+						<input id="myReservationCheck" type="button" value="예매내역 확인하기"/>
+						<input id="myStoreOrderCheck" type="button" value="주문내역 확인하기"/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -310,6 +313,33 @@
 			</tbody>
 		</table>
 	</div>
+	<div id="myStoreOrder">
+		<h3>주문내역</h3>
+		<table id="myReservationTable" class="myReservationTable">
+			<thead>
+				<tr>
+					<th>상품명</th>
+					<th>수량</th>
+					<th>가격</th>
+					<th>총 금액</th>
+					<th>주문일시</th>
+					<th>수령 영화관</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${ myOrderList }" var="order">
+					<tr>
+						<td>${ order.storeName }</td>
+						<td>${ order.storeCount }</td>
+						<td>${ order.storePrice }</td>
+						<td>${ order.storeCount * order.storePrice }</td>
+						<td>${ order.orderDate }</td>
+						<td>${ order.pickupZone }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </section>
 <div id="gradeCheckBenefitModal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -325,6 +355,7 @@
       		<thead>
       			<tr>
 	      			<th>등급</th>
+	      			<th>기준</th>
 	      			<th>혜택</th>
       			</tr>
       		</thead>
@@ -333,7 +364,10 @@
       				<td class="imgTd">
       					<img src="${ pageContext.request.contextPath }/resources/images/FAMILY.png"/>
       				</td>
-      				<td rowspan="2">결제금액의 1% 포인트적립</td>
+      				<td rowspan="2">
+      					최근 한 달 내에<br/>영화예매 3회 이하
+      				</td>
+      				<td rowspan="2">결제금액의<br/>1% 포인트적립</td>
       			</tr>
       			<tr class="borderTr">
       				<td>
@@ -344,7 +378,10 @@
       				<td class="imgTd">
       					<img src="${ pageContext.request.contextPath }/resources/images/SILVER.png"/>
       				</td>
-      				<td rowspan="2">결제금액의 3% 포인트적립</td>
+      				<td rowspan="2">
+      					최근 한 달 내에<br/>영화예매 4 ~ 5회
+      				</td>
+      				<td rowspan="2">결제금액의<br/>3% 포인트적립</td>
       			</tr>
       			<tr class="borderTr">
       				<td>
@@ -355,7 +392,10 @@
       				<td class="imgTd">
       					<img src="${ pageContext.request.contextPath }/resources/images/GOLD.png"/>
       				</td>
-      				<td rowspan="2">결제금액의 5% 포인트적립</td>
+      				<td rowspan="2">
+      					최근 한 달 내에<br/>영화예매 6 ~ 7회
+      				</td>
+      				<td rowspan="2">결제금액의<br/>5% 포인트적립</td>
       			</tr>
       			<tr class="borderTr">
       				<td>
@@ -366,7 +406,10 @@
       				<td class="imgTd">
       					<img src="${ pageContext.request.contextPath }/resources/images/VIP.png"/>
       				</td>
-      				<td rowspan="2">결제금액의 7% 포인트적립</td>
+      				<td rowspan="2">
+      					최근 한 달 내에<br/>영화예매 7회 이상
+      				</td>
+      				<td rowspan="2">결제금액의<br/>7% 포인트적립</td>
       			</tr>
       			<tr class="borderTr">
       				<td>
@@ -459,6 +502,9 @@ document.querySelector("#myReservationCheck").addEventListener("click", (e)=>{
 document.querySelector("#checkGradeBenefit").addEventListener("click", (e)=>{
 	$("#gradeCheckBenefitModal").modal("show");
 });
+
+document.querySelector("#myStoreOrderCheck").addEventListener("click", (e)=>{
+	document.querySelector("#myStoreOrder").style.display = "inline-block";
+});
 </script>
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

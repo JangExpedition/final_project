@@ -56,10 +56,12 @@
 			</c:forEach>
 		</div>
 		
-		<div class="oneLine">
-			<c:forEach items="${ movieList }" var="movie" varStatus="vs">
+		<c:forEach items="${ movieList }" var="movie" varStatus="vs">
+			<c:if test="${ vs.count % 4 == 0 }">
+				<div class="oneLine">
+			</c:if>
 				<c:choose>
-					<c:when test="${ vs.count >= 4 && vs.count <= 7 }">
+					<c:when test="${ vs.count >= 4}">
 						<div class="oneMovie" >
 							<div class="movieRank">
 								No.${ vs.count }
@@ -89,45 +91,10 @@
 						</div>
 					</c:when>
 				</c:choose>
-			</c:forEach>
-		</div>
-		
-		<div class="oneLine">
-			<c:forEach items="${ movieList }" var="movie" varStatus="vs">
-				<c:choose>
-					<c:when test="${ vs.count >= 8 && vs.count <= 11 }">
-						<div class="oneMovie" >
-							<div class="movieRank">
-								No.${ vs.count }
-							</div>
-							<div class="moviePoster" data-movie-no="${ movie.no }">
-								<c:choose>
-									<c:when test="${ movie.limitAge == 0 }">
-										<span class="badge badge-success">All</span>
-									</c:when>
-									<c:when test="${ movie.limitAge == 12 }">
-										<span class="badge badge-primary">${ movie.limitAge }</span>
-									</c:when>
-									<c:when test="${ movie.limitAge == 15 }">
-										<span class="badge badge-warning">${ movie.limitAge }</span>
-									</c:when>
-									<c:when test="${ movie.limitAge == 18 }">
-										<span class="badge badge-danger">${ movie.limitAge }</span>
-									</c:when>
-								</c:choose>
-								<img src="${ pageContext.request.contextPath }/resources/upload/movie/${ movie.attachments[0].renamedFilename }">
-							</div>
-							<p class="movieTitle">${ movie.title }</p>
-							<p class="movieOpenDt">${ movie.openDt } 개봉</p>
-							<div class="goReservation">
-								<input class="reservationBtn" type="button" value="예매하기" data-movie-no="${ movie.no }"/>
-							</div>
-						</div>
-					</c:when>
-				</c:choose>
-			</c:forEach>
-		</div>
-		
+			<c:if test="${ vs.count % 4 == 3 }">
+				</div>
+			</c:if>
+		</c:forEach>
 	</div>
 </section>
 <form name="onScreenFilterFrm" action="${pageContext.request.contextPath}/movie/onScreenFilter.do">
@@ -165,5 +132,4 @@ document.querySelectorAll(".moviePoster").forEach((moviePoster)=>{
 	});
 });
 </script>
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

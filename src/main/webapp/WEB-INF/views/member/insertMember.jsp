@@ -71,5 +71,4 @@ document.duplicationFrm.addEventListener("submit", (e)=>{
 	e.target.submit();
 });
 </script>
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

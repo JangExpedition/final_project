@@ -55,5 +55,4 @@
 			window.location.href = '${pageContext.request.contextPath}/schedule/insertSchedule.do';
 		});
 	</script>
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

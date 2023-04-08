@@ -95,6 +95,4 @@
     <jsp:param value="${totalPages}" name="totalPages"/>
     <jsp:param value="/member/memberList.do" name="nowURL"/>
 </jsp:include>
-
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
