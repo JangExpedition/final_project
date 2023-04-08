@@ -110,5 +110,4 @@ document.querySelector(".cart").addEventListener("click", ()=>{
 	location.href = "${pageContext.request.contextPath}/cart/cart.do";
 });
 </script>
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
