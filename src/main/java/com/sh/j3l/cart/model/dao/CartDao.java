@@ -34,4 +34,7 @@ public interface CartDao {
 	@Update("update cart set store_count = #{count} where no = #{no}")
 	int updateCart(@Param("no") int no, @Param("count") int count);
 
+	@Update("update cart set pickup_zone = #{pickupZone} where id = #{id}")
+	int updateCartPickupZone(@Param("id") String id, @Param("pickupZone") String pickupZone);
+
 }

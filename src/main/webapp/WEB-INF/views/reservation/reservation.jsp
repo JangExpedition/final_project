@@ -963,7 +963,6 @@ document.querySelector("#payBtn").addEventListener("click", (e)=>{
 	    		data: {scheduleNo, seatArr, id, totalPayAmount, usePoint},
 	    		headers,
 	    		success(data) {
-	    		    console.log(data);
 	    		    let msg = data.msg;
 	    			
 	    			alert(msg);

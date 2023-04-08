@@ -8,6 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sh.j3l.cart.model.dao.CartDao;
 import com.sh.j3l.cart.model.dto.Cart;
+import com.sh.j3l.member.model.dao.MemberDao;
+import com.sh.j3l.member.model.dto.Grade;
+import com.sh.j3l.member.model.dto.Member;
+import com.sh.j3l.storeOrder.model.dao.StoreOrderDao;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,6 +21,10 @@ public class CartServiceImpl implements CartService{
 
 	@Autowired
 	private CartDao cartDao;
+	@Autowired
+	private StoreOrderDao storeOrderDao;
+	@Autowired
+	private MemberDao memberDao;
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -66,5 +74,29 @@ public class CartServiceImpl implements CartService{
 	@Override
 	public int updateCart(int no, int count) {
 		return cartDao.updateCart(no, count);
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int cartPayment(String id, int totalPayment, int usePoint, String pickupZone) {
+		int result = 0;
+		List<Cart> cartList = cartDao.selectAllMyCart(id);
+		for(Cart cart : cartList) {
+			result = storeOrderDao.insertOrder(cart, pickupZone);
+		}
+		
+		result = cartDao.deleteMyCart(id);
+		
+		// 포인트 적립
+		Member loginMember = memberDao.selectOneMember(id);
+		Grade grade = loginMember.getGrade();
+		switch(grade) {
+		case FAMILY : result = memberDao.updatePoint(id, usePoint, (int) Math.round(totalPayment * 0.01)); break;
+		case SILVER : result = memberDao.updatePoint(id, usePoint, (int) Math.round(totalPayment * 0.03)); break;
+		case GOLD : result = memberDao.updatePoint(id, usePoint, (int) Math.round(totalPayment * 0.05)); break;
+		case VIP : result = memberDao.updatePoint(id, usePoint, (int) Math.round(totalPayment * 0.07)); break;
+		}
+		
+		return result;
 	}
 }

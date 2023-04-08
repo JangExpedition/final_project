@@ -29,6 +29,8 @@ import com.sh.j3l.cart.model.service.CartService;
 import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.member.model.service.MailService;
 import com.sh.j3l.member.model.service.MemberService;
+import com.sh.j3l.storeOrder.model.dto.StoreOrder;
+import com.sh.j3l.storeOrder.model.service.StoreOrderService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -44,7 +46,11 @@ public class MemberController {
 	@Autowired
 	private MailService mailService;
 	
-	@Autowired CartService cartService;
+	@Autowired 
+	private CartService cartService;
+	
+	@Autowired
+	private StoreOrderService storeOrderService;
 
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -247,7 +253,13 @@ public class MemberController {
 	
 	// 마이페이지 이동 메서드
 	@GetMapping("/myPage.do")
-	public void myPage() {}
+	public void myPage(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Member loginMember = (Member) authentication.getPrincipal();
+		String id = loginMember.getId();
+		List<StoreOrder> myOrderList = storeOrderService.selectAllMyOrderList(id);
+		model.addAttribute("myOrderList", myOrderList);
+	}
 
 	// 회원정보 수정 관련 메서드
 	// 비밀번호 인증 메서드

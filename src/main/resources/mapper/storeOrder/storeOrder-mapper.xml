@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.storeOrder.model.dao.StoreOrderDao">
+	<insert id="insertOrder">
+		insert into 
+			store_order 
+		values(seq_store_order_no.nextval, #{cart.id}, #{pickupZone}, #{cart.storeName}, #{cart.storePrice}, #{cart.storeCount}, sysdate)
+	</insert>
+</mapper>

@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class Store {
 
 	private String name;
-	private String cinemaName;
 	private String originalFilename;
 	private String renamedFilename;
 	private int price;

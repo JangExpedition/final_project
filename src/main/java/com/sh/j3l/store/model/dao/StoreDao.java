@@ -12,10 +12,8 @@ import com.sh.j3l.store.model.dto.Store;
 @Mapper
 public interface StoreDao {
 
-	@Insert("insert into store values(#{name}, #{cinemaName}, #{price}, #{originalFilename}, #{renamedFilename}, #{snackCategory})")
+	@Insert("insert into store values(#{name}, #{price}, #{originalFilename}, #{renamedFilename}, #{snackCategory})")
 	int insertStore(Store store);
 
-	// List<Store> selectAllStoreList(SnackCategory snackCategory);
-	
 	List<Store> selectAllStoreList(Map<String, SnackCategory> snackCateMap);
 }

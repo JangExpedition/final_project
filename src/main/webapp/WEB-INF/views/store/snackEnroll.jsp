@@ -41,16 +41,6 @@
           <td><input type="number" placeholder="가격" name="price" id="price" min="0" class="input_txt" value=""></td>
         </tr>
         <tr>
-          <td class="tit">상영관</td>
-          <td>
-            <select name="cinemaName">
-              <c:forEach items="${cinemaList}" var="cinema">
-                <option value="${cinema.name}">${cinema.name}</option>
-              </c:forEach>
-            </select>
-          </td>
-        </tr>
-        <tr>
           <td class="tit">카테고리</td>
           <td>
             <input type="radio" value="POPCORN" name="snackCategory" />팝콘
