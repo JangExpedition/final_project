@@ -21,6 +21,7 @@ select * from seat;
 select * from cart;
 select * from event;
 select * from event_attachment;
+select * from store_order;
 
 --===============================
 -- 관리자 계정 생성
@@ -659,15 +660,11 @@ create sequence seq_event_attach_no;
 -- 매점 테이블
 create table store (
     name varchar2(100) not null,
-    cinema_name varchar2(30) not null,
     price number not null,
     original_filename varchar2(2000) NULL,
     renamed_filename varchar2(2000) NULL,
     snack_category varchar2(50) not null,
-    constraint pk_store primary key(name),
-    constraint fk_store_cinema_name foreign key (cinema_name)
-                                    references cinema
-                                    on delete cascade
+    constraint pk_store primary key(name)
 );
 
 -- 장바구니 테이블 생성
@@ -686,7 +683,23 @@ create table cart(
                             on delete cascade
 );
 
-drop table cart;
-
 -- 장바구니 시퀀스 생성  
 create sequence seq_cart_no;
+
+create table store_order(
+    no number not null,
+    id varchar2(50) not null,
+    pickup_zone varchar2(30),
+    store_name varchar2(100) not null,
+    store_price number not null,
+    store_count number default 1 not null,
+    order_date date default sysdate not null,
+    constraint fk_store_order_member_id foreign key (id)
+                            references member
+                            on delete cascade,
+    constraint fk_store_order_pickup_zone foreign key (pickup_zone)
+                            references cinema
+                            on delete cascade
+);
+
+create sequence seq_store_order_no;
