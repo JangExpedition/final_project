@@ -26,7 +26,10 @@
 				</ul>
 			</div>
 		</div>
-
+		
+		<form:form name="movieFrm"
+				action="${pageContext.request.contextPath}/movie/movieEnroll.do?${_csrf.parameterName}=${_csrf.token}"
+				method="POST" enctype="multipart/form-data">
 		<h1>영화 등록</h1>
 		<table class="ttbl">
 			<tr>
@@ -98,6 +101,7 @@
 				</td>
 			</tr>
 		</table>
+		</form:form>
 	</div>
 </div>
 </body>

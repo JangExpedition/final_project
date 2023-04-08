@@ -41,7 +41,7 @@ public class FaqController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	private static final int PAGE_LIMIT = 5;
+	private static final int PAGE_LIMIT = 8;
 	
 	// 고객센터 메인
 	@GetMapping("/main.do")

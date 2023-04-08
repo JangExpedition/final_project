@@ -70,6 +70,7 @@ insert into theater values(seq_theater_no.nextval, 7, '강남점');
 insert into theater values(seq_theater_no.nextval, 8, '강남점');
 insert into theater values(seq_theater_no.nextval, 9, '강남점');
 insert into theater values(seq_theater_no.nextval, 10, '강남점');
+
 -- 건대입구점
 insert into theater values(seq_theater_no.nextval, 1, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 2, '건대입구점');
@@ -81,6 +82,7 @@ insert into theater values(seq_theater_no.nextval, 7, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 8, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 9, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 10, '건대입구점');
+
 --광명역점
 insert into theater values(seq_theater_no.nextval, 1, '광명역점');
 insert into theater values(seq_theater_no.nextval, 2, '광명역점');
@@ -92,6 +94,7 @@ insert into theater values(seq_theater_no.nextval, 7, '광명역점');
 insert into theater values(seq_theater_no.nextval, 8, '광명역점');
 insert into theater values(seq_theater_no.nextval, 9, '광명역점');
 insert into theater values(seq_theater_no.nextval, 10, '광명역점');
+
 --범계점
 insert into theater values(seq_theater_no.nextval, 1, '범계점');
 insert into theater values(seq_theater_no.nextval, 2, '범계점');
@@ -103,6 +106,7 @@ insert into theater values(seq_theater_no.nextval, 7, '범계점');
 insert into theater values(seq_theater_no.nextval, 8, '범계점');
 insert into theater values(seq_theater_no.nextval, 9, '범계점');
 insert into theater values(seq_theater_no.nextval, 10, '범계점');
+
 --송도타임스페이스점
 insert into theater values(seq_theater_no.nextval, 1, '송도타임스페이스점');
 insert into theater values(seq_theater_no.nextval, 2, '송도타임스페이스점');
@@ -114,6 +118,151 @@ insert into theater values(seq_theater_no.nextval, 7, '송도타임스페이스�
 insert into theater values(seq_theater_no.nextval, 8, '송도타임스페이스점');
 insert into theater values(seq_theater_no.nextval, 9, '송도타임스페이스점');
 insert into theater values(seq_theater_no.nextval, 10, '송도타임스페이스점');
+
+-- 인천점
+insert into theater values(seq_theater_no.nextval, 1, '인천점');
+insert into theater values(seq_theater_no.nextval, 2, '인천점');
+insert into theater values(seq_theater_no.nextval, 3, '인천점');
+insert into theater values(seq_theater_no.nextval, 4, '인천점');
+insert into theater values(seq_theater_no.nextval, 5, '인천점');
+insert into theater values(seq_theater_no.nextval, 6, '인천점');
+insert into theater values(seq_theater_no.nextval, 7, '인천점');
+insert into theater values(seq_theater_no.nextval, 8, '인천점');
+insert into theater values(seq_theater_no.nextval, 9, '인천점');
+insert into theater values(seq_theater_no.nextval, 10, '인천점');
+
+--강릉점
+insert into theater values(seq_theater_no.nextval, 1, '강릉점');
+insert into theater values(seq_theater_no.nextval, 2, '강릉점');
+insert into theater values(seq_theater_no.nextval, 3, '강릉점');
+insert into theater values(seq_theater_no.nextval, 4, '강릉점');
+insert into theater values(seq_theater_no.nextval, 5, '강릉점');
+insert into theater values(seq_theater_no.nextval, 6, '강릉점');
+insert into theater values(seq_theater_no.nextval, 7, '강릉점');
+insert into theater values(seq_theater_no.nextval, 8, '강릉점');
+insert into theater values(seq_theater_no.nextval, 9, '강릉점');
+insert into theater values(seq_theater_no.nextval, 10, '강릉점');
+
+--춘천점
+insert into theater values(seq_theater_no.nextval, 1, '춘천점');
+insert into theater values(seq_theater_no.nextval, 2, '춘천점');
+insert into theater values(seq_theater_no.nextval, 3, '춘천점');
+insert into theater values(seq_theater_no.nextval, 4, '춘천점');
+insert into theater values(seq_theater_no.nextval, 5, '춘천점');
+insert into theater values(seq_theater_no.nextval, 6, '춘천점');
+insert into theater values(seq_theater_no.nextval, 7, '춘천점');
+insert into theater values(seq_theater_no.nextval, 8, '춘천점');
+insert into theater values(seq_theater_no.nextval, 9, '춘천점');
+insert into theater values(seq_theater_no.nextval, 10, '춘천점');
+
+--대전점
+insert into theater values(seq_theater_no.nextval, 1, '대전점');
+insert into theater values(seq_theater_no.nextval, 2, '대전점');
+insert into theater values(seq_theater_no.nextval, 3, '대전점');
+insert into theater values(seq_theater_no.nextval, 4, '대전점');
+insert into theater values(seq_theater_no.nextval, 5, '대전점');
+insert into theater values(seq_theater_no.nextval, 6, '대전점');
+insert into theater values(seq_theater_no.nextval, 7, '대전점');
+insert into theater values(seq_theater_no.nextval, 8, '대전점');
+insert into theater values(seq_theater_no.nextval, 9, '대전점');
+insert into theater values(seq_theater_no.nextval, 10, '대전점');
+
+--천안점
+insert into theater values(seq_theater_no.nextval, 1, '천안점');
+insert into theater values(seq_theater_no.nextval, 2, '천안점');
+insert into theater values(seq_theater_no.nextval, 3, '천안점');
+insert into theater values(seq_theater_no.nextval, 4, '천안점');
+insert into theater values(seq_theater_no.nextval, 5, '천안점');
+insert into theater values(seq_theater_no.nextval, 6, '천안점');
+insert into theater values(seq_theater_no.nextval, 7, '천안점');
+insert into theater values(seq_theater_no.nextval, 8, '천안점');
+insert into theater values(seq_theater_no.nextval, 9, '천안점');
+insert into theater values(seq_theater_no.nextval, 10, '천안점');
+
+--대구점
+insert into theater values(seq_theater_no.nextval, 1, '대구점');
+insert into theater values(seq_theater_no.nextval, 2, '대구점');
+insert into theater values(seq_theater_no.nextval, 3, '대구점');
+insert into theater values(seq_theater_no.nextval, 4, '대구점');
+insert into theater values(seq_theater_no.nextval, 5, '대구점');
+insert into theater values(seq_theater_no.nextval, 6, '대구점');
+insert into theater values(seq_theater_no.nextval, 7, '대구점');
+insert into theater values(seq_theater_no.nextval, 8, '대구점');
+insert into theater values(seq_theater_no.nextval, 9, '대구점');
+insert into theater values(seq_theater_no.nextval, 10, '대구점');
+
+--센텀시티점
+insert into theater values(seq_theater_no.nextval, 1, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 2, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 3, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 4, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 5, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 6, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 7, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 8, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 9, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 10, '센텀시티점');
+
+--울산동구점
+insert into theater values(seq_theater_no.nextval, 1, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 2, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 3, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 4, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 5, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 6, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 7, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 8, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 9, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 10, '울산동구점');
+
+--창원점
+insert into theater values(seq_theater_no.nextval, 1, '창원점');
+insert into theater values(seq_theater_no.nextval, 2, '창원점');
+insert into theater values(seq_theater_no.nextval, 3, '창원점');
+insert into theater values(seq_theater_no.nextval, 4, '창원점');
+insert into theater values(seq_theater_no.nextval, 5, '창원점');
+insert into theater values(seq_theater_no.nextval, 6, '창원점');
+insert into theater values(seq_theater_no.nextval, 7, '창원점');
+insert into theater values(seq_theater_no.nextval, 8, '창원점');
+insert into theater values(seq_theater_no.nextval, 9, '창원점');
+insert into theater values(seq_theater_no.nextval, 10, '창원점');
+
+--마산점
+insert into theater values(seq_theater_no.nextval, 1, '마산점');
+insert into theater values(seq_theater_no.nextval, 2, '마산점');
+insert into theater values(seq_theater_no.nextval, 3, '마산점');
+insert into theater values(seq_theater_no.nextval, 4, '마산점');
+insert into theater values(seq_theater_no.nextval, 5, '마산점');
+insert into theater values(seq_theater_no.nextval, 6, '마산점');
+insert into theater values(seq_theater_no.nextval, 7, '마산점');
+insert into theater values(seq_theater_no.nextval, 8, '마산점');
+insert into theater values(seq_theater_no.nextval, 9, '마산점');
+insert into theater values(seq_theater_no.nextval, 10, '마산점');
+
+--광주터미널점
+insert into theater values(seq_theater_no.nextval, 1, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 2, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 3, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 4, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 5, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 6, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 7, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 8, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 9, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 10, '광주터미널점');
+
+--제주점
+insert into theater values(seq_theater_no.nextval, 1, '제주점');
+insert into theater values(seq_theater_no.nextval, 2, '제주점');
+insert into theater values(seq_theater_no.nextval, 3, '제주점');
+insert into theater values(seq_theater_no.nextval, 4, '제주점');
+insert into theater values(seq_theater_no.nextval, 5, '제주점');
+insert into theater values(seq_theater_no.nextval, 6, '제주점');
+insert into theater values(seq_theater_no.nextval, 7, '제주점');
+insert into theater values(seq_theater_no.nextval, 8, '제주점');
+insert into theater values(seq_theater_no.nextval, 9, '제주점');
+insert into theater values(seq_theater_no.nextval, 10, '제주점');
+
 
 --===============================
 -- 좌석 데이터 
@@ -623,8 +772,6 @@ create table cart(
                             references store
                             on delete cascade
 );
-
-drop table cart;
 
 -- 장바구니 시퀀스 생성  
 create sequence seq_cart_no;
