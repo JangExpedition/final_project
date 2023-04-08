@@ -23,7 +23,7 @@
 
 <section id="mainSection">
     <div id="previewBox">
-        <iframe width="980" height="489" src="https://www.youtube.com/embed/enPPU3GCSEM?autoplay=1&mute=1"
+       <iframe width="980" height="489" src="https://www.youtube.com/embed/enPPU3GCSEM?&autoplay=1&mute=1"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>

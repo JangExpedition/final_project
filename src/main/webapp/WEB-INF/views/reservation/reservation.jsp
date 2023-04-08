@@ -227,78 +227,70 @@ window.onload = () =>{
 	
 	// 년도가 하나인 경우
 	if(years.length === 1){
-		
-		// 년도가 하나이면서 월도 하나인 경우
-		if(months.length === 1){
 			
-			dayList.innerHTML = `
-			<div>
-				<p class="reservationYear">\${ years[0] }</p>
-			</div>
-			`;
-			
-			for(let i = 0; i < date.length; i++){
-				
-				if(date[i] < 10){
-					date[i] = "0" + date[i];
-				}
-				
-				if(i === 0){
-					dayList.innerHTML += `
-					<div>
-						<h1 class="reservationMonth">\${ months[0] }</h1>
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-					`;
-				}
-				else {
-					dayList.innerHTML += `
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-					</div>
-					`;
-				}
-			};
-			
-		}
-		// 년도가 하나이면서 월은 두개인 경우
-		else{
+		for(let i = 0; i < date.length; i++){
 			
 			if(date[i] < 10){
 				date[i] = "0" + date[i];
 			}
-		
-			dayList.innerHTML = `
-			<div>
-				<p class="reservationYear">\${ years[0] }</p>
-			</div>
-			`;
 			
-			for(let i = 0; i < date.length; i++){
-				if(i === 0){
-					dayList.innerHTML += `
+			if(i === 0){
+				dayList.innerHTML += `
 					<div>
-						<h1 class="reservationMonth">\${ months[0] }</h1>
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+						<p class="reservationYear">\${ years[0] }</p>
+					</div>
+					<h1 class="reservationMonth">\${ months[0] }</h1>
+					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+				`;
+			}
+			else if(date[i] > date[i-1]){
+				dayList.innerHTML += `
+					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+				`;
+			}
+			else{
+				dayList.innerHTML += `
+						<h1 class="reservationMonth">\${ months[1] }</h1>
+						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[1]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
 					`;
-				}
-				else if(date[i] > date[i-1]){
-					dayList.innerHTML += `
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-					`;
-				}
-				else{
-					dayList.innerHTML += `
-							<h1 class="reservationMonth">\${ months[1] }</h1>
-							<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[1]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-						</div>
-						`;
-				}
-			};
-		}
+			}
+		};
 		
 	}
 	// 년도가 2개이면서 월이 2개인 경우
 	else{
-		// 귀찮.. 나중에
+		
+		if(date[i] < 10){
+			date[i] = "0" + date[i];
+		}
+		
+		for(let i = 0; i < date.length; i++){
+			if(i === 0){
+				dayList.innerHTML += `
+					<div>
+						<p class="reservationYear">\${ years[0] }</p>
+					</div>
+					<h1 class="reservationMonth">\${ months[0] }</h1>
+					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+				`;
+			}
+			else if(date[i] > date[i-1]){
+				dayList.innerHTML += `
+					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+				`;
+			}
+			else{
+				dayList.innerHTML += `
+					<div>
+						<p class="reservationYear">\${ years[1] }</p>
+					</div>
+					<h1 class="reservationMonth">\${ months[1] }</h1>
+					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[1]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+				`;
+			}
+			
+		}; 
+		
 	}
 	
 	// 토요일, 일요일 색상 변경
