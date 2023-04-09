@@ -56,8 +56,8 @@
             </div>
         </div>
 
-        <div data-no="${event.no}" class=slider__container>
-            <div id="eventTab" class="slider"></div>
+        <div class=slider__container>
+            <div data-no="${event.no}"  id="eventTab" class="slider"></div>
         </div>
     </div>
 </section>
