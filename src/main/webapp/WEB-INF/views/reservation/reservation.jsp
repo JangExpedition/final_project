@@ -55,12 +55,14 @@
 			</div>
 		</div>
 		<!-- 극장선택 구간 -->
+		<!-- 날짜선택 구간 -->
 		<div class="step step3">
 			<div class="table-head">날짜</div>
 			<div id="dayList" class="table-body">
 			
 			</div>
 		</div>
+		<!-- 날짜선택 구간 -->
 		<div class="step step4">
 			<div class="table-head">시간</div>
 			<div id="scheduleList" class="table-body">
