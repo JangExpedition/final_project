@@ -43,7 +43,7 @@ public class MovieController {
 	@Autowired
 	private ServletContext application;
 	
-	private static final int PAGE_LIMIT = 5;
+	private static final int PAGE_LIMIT = 10;
 	
 	@GetMapping("/movie.do")
 	public void movie(HttpServletRequest request,@RequestParam int checked, Model model) {
