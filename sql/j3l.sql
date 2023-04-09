@@ -21,7 +21,259 @@ select * from seat;
 select * from cart;
 select * from event;
 select * from event_attachment;
+select * from cart;
 select * from store_order;
+
+
+select * from schedule where start_time = '2023-04-11 22:00' and end_time = '2023-04-12 12:14';
+
+delete from schedule where movie_no = '22';
+
+
+
+--강남점
+INSERT INTO schedule VALUES (913, 13, 10,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (914, 13, 10,'2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (915, 13, 10,'2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (916, 13, 10,'2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (917, 13, 10,'2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (711, 12, 7, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (712, 12, 7, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (713, 12, 7, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (714, 12, 7, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (715, 12, 7, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (716, 12, 7, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--건대입구점
+INSERT INTO schedule VALUES (918, 13, 20,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (919, 13, 20,'2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (920, 13, 20,'2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (921, 13, 20,'2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (922, 13, 20 ,'2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (751, 13, 17, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (752, 13, 17, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (753, 13, 17, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (754, 13, 17, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (755, 13, 17, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (756, 13, 17, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--광명역점 
+INSERT INTO schedule VALUES (923, 13, 30,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (924, 13, 30,'2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (925, 13, 30,'2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (926, 13, 30,'2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (927, 13, 30,'2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (761, 13, 27, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (762, 13, 27, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (763, 13, 27, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (764, 13, 27, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (765, 13, 27, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (766, 13, 27, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--범계점
+INSERT INTO schedule VALUES (789, 13, 40,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (794, 13, 40,'2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (795, 13, 40,'2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (796, 13, 40,'2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (797, 13, 40,'2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (771, 13, 37, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (772, 13, 37, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (773, 13, 37, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (774, 13, 37, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (775, 13, 37, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (776, 13, 37, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--송도점
+INSERT INTO schedule VALUES (798, 13, 50,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (799, 13, 50,'2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (800, 13, 50,'2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (801, 13, 50,'2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (802, 13, 50,'2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (781, 13, 47, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (782, 13, 47, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (783, 13, 47, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (784, 13, 47, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (785, 13, 47, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (786, 13, 47, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--인천점
+INSERT INTO schedule VALUES (803, 13, 60,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (804, 13, 60,'2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (805, 13, 60,'2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (806, 13, 60,'2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (807, 13, 60,'2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (791, 13, 57, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (792, 13, 57, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (793, 13, 57, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (794, 13, 57, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (795, 13, 57, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (796, 13, 57, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--강릉점
+INSERT INTO schedule VALUES (808, 13, 70,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (809, 13, 70,'2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (810, 13, 70,'2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (811, 13, 70,'2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (812, 13, 70,'2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (700, 13, 67, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (701, 13, 67, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (702, 13, 67, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (703, 13, 67, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (704, 13, 67, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (705, 13, 67, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--춘천점
+INSERT INTO schedule VALUES (813, 13, 80,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (814, 13, 80,'2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (815, 13, 80,'2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (816, 13, 80,'2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (817, 13, 80,'2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (710, 13, 77, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (711, 13, 77, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (713, 13, 77, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (713, 13, 77, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (714, 13, 77, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (715, 13, 77, '2023-04-11 22:50', '2023-04-12 24:42');
+
+
+--대전
+INSERT INTO schedule VALUES (818, 13, 90,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (819, 13, 90,'2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (820, 13, 90,'2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (821, 13, 90,'2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (813, 13, 90,'2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (720, 13, 87, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (721, 13, 87, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (713, 13, 87, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (723, 13, 87, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (724, 13, 87, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (725, 13, 87, '2023-04-11 22:50', '2023-04-12 24:42');
+
+
+--대구점
+INSERT INTO schedule VALUES (823, 13, 101,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (824, 13, 101, '2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (825, 13, 101, '2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (826, 13, 101, '2023-04-11 22:00', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (827, 13, 101, '2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (730, 13, 98, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (731, 13, 98, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (732, 13, 98, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (733, 13, 98, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (734, 13, 98, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (735, 13, 98, '2023-04-11 22:50', '2023-04-12 24:42');
+
+-- 센텀시티점
+INSERT INTO schedule VALUES (828, 13, 111,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (829, 13, 111, '2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (830, 13, 111, '2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (831, 13, 111, '2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (832, 13, 111, '2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (740, 13, 108, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (741, 13, 108, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (742, 13, 108, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (743, 13, 108, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (744, 13, 108, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (745, 13, 108, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--울산동구점
+INSERT INTO schedule VALUES (833, 13, 121,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (834, 13, 121, '2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (835, 13, 121, '2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (836, 13, 121, '2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (887, 13, 121, '2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (750, 13, 118, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (751, 13, 118, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (752, 13, 118, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (753, 13, 118, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (754, 13, 118, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (755, 13, 118, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--창원점
+INSERT INTO schedule VALUES (888, 13, 131,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (889, 13, 131, '2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (890, 13, 131, '2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (891, 13, 131, '2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (892, 13, 131, '2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (761, 13, 128, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (762, 13, 128, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (763, 13, 128, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (764, 13, 128, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (765, 13, 128, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (766, 13, 128, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--마산점
+INSERT INTO schedule VALUES (893, 13, 141,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (894, 13, 141, '2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (895, 13, 141, '2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (896, 13, 141, '2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (897, 13, 141, '2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (771, 13, 138, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (772, 13, 138, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (773, 13, 138, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (774, 13, 138, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (775, 13, 138, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (776, 13, 138, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--광주터미널점
+INSERT INTO schedule VALUES (898, 13, 151,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (899, 13, 151, '2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (900, 13, 151, '2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (901, 13, 151, '2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (902, 13, 151, '2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (781, 13, 148, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (782, 13, 148, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (783, 13, 148, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (784, 13, 148, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (785, 13, 148, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (786, 13, 148, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--제주점
+INSERT INTO schedule VALUES (903, 13, 161,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (904, 13, 161, '2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (905, 13, 161, '2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (906, 13, 161, '2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (907, 13, 161, '2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (791, 13, 158, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (792, 13, 158, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (793, 13, 158, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (794, 13, 158, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (799, 13, 158, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (698, 13, 158, '2023-04-11 22:50', '2023-04-12 24:42');
+
+--천안점
+INSERT INTO schedule VALUES (908, 13, 230,'2023-04-11 09:30', '2023-04-11 11:06');
+INSERT INTO schedule VALUES (909, 13, 230, '2023-04-11 14:30', '2023-04-11 16:06');
+INSERT INTO schedule VALUES (910, 13, 230, '2023-04-11 16:40', '2023-04-11 18:16');
+INSERT INTO schedule VALUES (911, 13, 230, '2023-04-11 19:30', '2023-04-11 21:06');
+INSERT INTO schedule VALUES (912, 13, 230, '2023-04-11 22:00', '2023-04-11 23:36');
+
+--INSERT INTO schedule VALUES (703, 13, 227, '2023-04-11 10:10', '2023-04-11 12:02');
+--INSERT INTO schedule VALUES (704, 13, 227, '2023-04-11 12:40', '2023-04-11 14:32');
+--INSERT INTO schedule VALUES (705, 13, 227, '2023-04-11 15:20', '2023-04-11 17:12');
+--INSERT INTO schedule VALUES (706, 13, 227, '2023-04-11 17:50', '2023-04-11 19:42');
+--INSERT INTO schedule VALUES (707, 13, 227, '2023-04-11 20:20', '2023-04-11 22:12');
+--INSERT INTO schedule VALUES (708, 12, 227, '2023-04-11 22:50', '2023-04-12 24:42');
+
+
+commit;
+
 
 --===============================
 -- 관리자 계정 생성
@@ -53,35 +305,6 @@ insert into location values(seq_location_no.nextval, 'GYEONGSANG');
 insert into location values(seq_location_no.nextval, 'JEONLLAJEJU');
 
 
---===============================
--- 영화관 데이터
---===============================
--- 서울
-insert into cinema values('강남점', 'SEOUL', '서울특별시 강남구 강남대로 438 (역삼동, 스타플렉스)');
-insert into cinema values('건대입구점', 'SEOUL', '서울특별시 광진구 아차산로30길 26');
--- 경기
-insert into cinema values('광명역점', 'GYEONGGI', '경기도 광명시 일직동 514 GIDC B동 지하2층');
-insert into cinema values('범계점', 'GYEONGGI', '경기도 안양시 동안구 동안로 119 (호계동, 뉴코아 아울렛 11층)');
--- 인천
-insert into cinema values('송도타임스페이스점', 'INCHEON', '인천광역시 연수구 하모니로 158 지하1층');
-insert into cinema values('인천점', 'INCHEON', '인천광역시 남동구 예술로 198 (구월동, SEE"&"SEEE 4층)');
--- 강원
-insert into cinema values('강릉점', 'KANGWON', '강원도 강릉시 경강로 2120 (옥천동, 씨네몰 6층)');
-insert into cinema values('춘천점', 'KANGWON', '강원도 춘천시 지석로 80 (퇴계동, 투탑시티 3층)');
--- 대전/충청
-insert into cinema values('대전점', 'CHUNGCHEONG', '대전광역시 중구 계백로 1700 (문화동, 세이2 6층)');
-insert into cinema values('천안점', 'CHUNGCHEONG', '충청남도 천안시 동남구 명동길 47, 5층 (대흥동)');
--- 대구
-insert into cinema values('대구점', 'DAEGU', '대구광역시 북구 칠성동2가 20-1 스펙트럼시티 4층');
--- 부산/울산
-insert into cinema values('센텀시티점', 'BUSANULSAN', '부산광역시 해운대구 센텀남대로 35 (우동, 신세계센텀시티 7층)');
-insert into cinema values('울산동구점', 'BUSANULSAN', '울산광역시 동구 등대로50');
--- 경상
-insert into cinema values('창원점', 'GYEONGSANG', '경상남도 창원시 의창구 창원대로397번길 6 (팔용동, 뉴코아아울렛 8층)');
-insert into cinema values('마산점', 'GYEONGSANG', '경상남도 창원시 마산회원구 3·15대로 736 (합성동, 보보스존 8층)');
--- 광주/전라/제주
-insert into cinema values('광주터미널점', 'JEONLLAJEJU', '광주광역시 서구 무진대로 904 (광천동, 유스퀘어 2층)');
-insert into cinema values('제주점', 'JEONLLAJEJU', '제주특별자치도 제주시 이도2동 메카플러스 3~7층');
 
 
 --===============================
@@ -95,9 +318,10 @@ insert into theater values(seq_theater_no.nextval, 4, '강남점');
 insert into theater values(seq_theater_no.nextval, 5, '강남점');
 insert into theater values(seq_theater_no.nextval, 6, '강남점');
 insert into theater values(seq_theater_no.nextval, 7, '강남점');
-insert into theater values(seq_theater_no.nextval, 8, '강남점');
+insert into theater values(seq_theater_no.nextval, 10, '강남점');
 insert into theater values(seq_theater_no.nextval, 9, '강남점');
 insert into theater values(seq_theater_no.nextval, 10, '강남점');
+
 -- 건대입구점
 insert into theater values(seq_theater_no.nextval, 1, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 2, '건대입구점');
@@ -106,9 +330,10 @@ insert into theater values(seq_theater_no.nextval, 4, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 5, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 6, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 7, '건대입구점');
-insert into theater values(seq_theater_no.nextval, 8, '건대입구점');
+insert into theater values(seq_theater_no.nextval, 10, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 9, '건대입구점');
 insert into theater values(seq_theater_no.nextval, 10, '건대입구점');
+
 --광명역점
 insert into theater values(seq_theater_no.nextval, 1, '광명역점');
 insert into theater values(seq_theater_no.nextval, 2, '광명역점');
@@ -117,9 +342,10 @@ insert into theater values(seq_theater_no.nextval, 4, '광명역점');
 insert into theater values(seq_theater_no.nextval, 5, '광명역점');
 insert into theater values(seq_theater_no.nextval, 6, '광명역점');
 insert into theater values(seq_theater_no.nextval, 7, '광명역점');
-insert into theater values(seq_theater_no.nextval, 8, '광명역점');
+insert into theater values(seq_theater_no.nextval, 10, '광명역점');
 insert into theater values(seq_theater_no.nextval, 9, '광명역점');
 insert into theater values(seq_theater_no.nextval, 10, '광명역점');
+
 --범계점
 insert into theater values(seq_theater_no.nextval, 1, '범계점');
 insert into theater values(seq_theater_no.nextval, 2, '범계점');
@@ -128,9 +354,10 @@ insert into theater values(seq_theater_no.nextval, 4, '범계점');
 insert into theater values(seq_theater_no.nextval, 5, '범계점');
 insert into theater values(seq_theater_no.nextval, 6, '범계점');
 insert into theater values(seq_theater_no.nextval, 7, '범계점');
-insert into theater values(seq_theater_no.nextval, 8, '범계점');
+insert into theater values(seq_theater_no.nextval, 10, '범계점');
 insert into theater values(seq_theater_no.nextval, 9, '범계점');
 insert into theater values(seq_theater_no.nextval, 10, '범계점');
+
 --송도타임스페이스점
 insert into theater values(seq_theater_no.nextval, 1, '송도타임스페이스점');
 insert into theater values(seq_theater_no.nextval, 2, '송도타임스페이스점');
@@ -139,9 +366,154 @@ insert into theater values(seq_theater_no.nextval, 4, '송도타임스페이스�
 insert into theater values(seq_theater_no.nextval, 5, '송도타임스페이스점');
 insert into theater values(seq_theater_no.nextval, 6, '송도타임스페이스점');
 insert into theater values(seq_theater_no.nextval, 7, '송도타임스페이스점');
-insert into theater values(seq_theater_no.nextval, 8, '송도타임스페이스점');
+insert into theater values(seq_theater_no.nextval, 10, '송도타임스페이스점');
 insert into theater values(seq_theater_no.nextval, 9, '송도타임스페이스점');
 insert into theater values(seq_theater_no.nextval, 10, '송도타임스페이스점');
+
+-- 인천점
+insert into theater values(seq_theater_no.nextval, 1, '인천점');
+insert into theater values(seq_theater_no.nextval, 2, '인천점');
+insert into theater values(seq_theater_no.nextval, 3, '인천점');
+insert into theater values(seq_theater_no.nextval, 4, '인천점');
+insert into theater values(seq_theater_no.nextval, 5, '인천점');
+insert into theater values(seq_theater_no.nextval, 6, '인천점');
+insert into theater values(seq_theater_no.nextval, 7, '인천점');
+insert into theater values(seq_theater_no.nextval, 10, '인천점');
+insert into theater values(seq_theater_no.nextval, 9, '인천점');
+insert into theater values(seq_theater_no.nextval, 10, '인천점');
+
+--강릉점
+insert into theater values(seq_theater_no.nextval, 1, '강릉점');
+insert into theater values(seq_theater_no.nextval, 2, '강릉점');
+insert into theater values(seq_theater_no.nextval, 3, '강릉점');
+insert into theater values(seq_theater_no.nextval, 4, '강릉점');
+insert into theater values(seq_theater_no.nextval, 5, '강릉점');
+insert into theater values(seq_theater_no.nextval, 6, '강릉점');
+insert into theater values(seq_theater_no.nextval, 7, '강릉점');
+insert into theater values(seq_theater_no.nextval, 10, '강릉점');
+insert into theater values(seq_theater_no.nextval, 9, '강릉점');
+insert into theater values(seq_theater_no.nextval, 10, '강릉점');
+
+--춘천점
+insert into theater values(seq_theater_no.nextval, 1, '춘천점');
+insert into theater values(seq_theater_no.nextval, 2, '춘천점');
+insert into theater values(seq_theater_no.nextval, 3, '춘천점');
+insert into theater values(seq_theater_no.nextval, 4, '춘천점');
+insert into theater values(seq_theater_no.nextval, 5, '춘천점');
+insert into theater values(seq_theater_no.nextval, 6, '춘천점');
+insert into theater values(seq_theater_no.nextval, 7, '춘천점');
+insert into theater values(seq_theater_no.nextval, 10, '춘천점');
+insert into theater values(seq_theater_no.nextval, 9, '춘천점');
+insert into theater values(seq_theater_no.nextval, 10, '춘천점');
+
+--대전점
+insert into theater values(seq_theater_no.nextval, 1, '대전점');
+insert into theater values(seq_theater_no.nextval, 2, '대전점');
+insert into theater values(seq_theater_no.nextval, 3, '대전점');
+insert into theater values(seq_theater_no.nextval, 4, '대전점');
+insert into theater values(seq_theater_no.nextval, 5, '대전점');
+insert into theater values(seq_theater_no.nextval, 6, '대전점');
+insert into theater values(seq_theater_no.nextval, 7, '대전점');
+insert into theater values(seq_theater_no.nextval, 10, '대전점');
+insert into theater values(seq_theater_no.nextval, 9, '대전점');
+insert into theater values(seq_theater_no.nextval, 10, '대전점');
+
+--천안점
+insert into theater values(seq_theater_no.nextval, 1, '천안점');
+insert into theater values(seq_theater_no.nextval, 2, '천안점');
+insert into theater values(seq_theater_no.nextval, 3, '천안점');
+insert into theater values(seq_theater_no.nextval, 4, '천안점');
+insert into theater values(seq_theater_no.nextval, 5, '천안점');
+insert into theater values(seq_theater_no.nextval, 6, '천안점');
+insert into theater values(seq_theater_no.nextval, 7, '천안점');
+insert into theater values(seq_theater_no.nextval, 10, '천안점');
+insert into theater values(seq_theater_no.nextval, 9, '천안점');
+insert into theater values(seq_theater_no.nextval, 10, '천안점');
+
+--대구점
+insert into theater values(seq_theater_no.nextval, 1, '대구점');
+insert into theater values(seq_theater_no.nextval, 2, '대구점');
+insert into theater values(seq_theater_no.nextval, 3, '대구점');
+insert into theater values(seq_theater_no.nextval, 4, '대구점');
+insert into theater values(seq_theater_no.nextval, 5, '대구점');
+insert into theater values(seq_theater_no.nextval, 6, '대구점');
+insert into theater values(seq_theater_no.nextval, 7, '대구점');
+insert into theater values(seq_theater_no.nextval, 10, '대구점');
+insert into theater values(seq_theater_no.nextval, 9, '대구점');
+insert into theater values(seq_theater_no.nextval, 10, '대구점');
+
+--센텀시티점
+insert into theater values(seq_theater_no.nextval, 1, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 2, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 3, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 4, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 5, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 6, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 7, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 10, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 9, '센텀시티점');
+insert into theater values(seq_theater_no.nextval, 10, '센텀시티점');
+
+--울산동구점
+insert into theater values(seq_theater_no.nextval, 1, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 2, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 3, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 4, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 5, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 6, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 7, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 10, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 9, '울산동구점');
+insert into theater values(seq_theater_no.nextval, 10, '울산동구점');
+
+--창원점
+insert into theater values(seq_theater_no.nextval, 1, '창원점');
+insert into theater values(seq_theater_no.nextval, 2, '창원점');
+insert into theater values(seq_theater_no.nextval, 3, '창원점');
+insert into theater values(seq_theater_no.nextval, 4, '창원점');
+insert into theater values(seq_theater_no.nextval, 5, '창원점');
+insert into theater values(seq_theater_no.nextval, 6, '창원점');
+insert into theater values(seq_theater_no.nextval, 7, '창원점');
+insert into theater values(seq_theater_no.nextval, 10, '창원점');
+insert into theater values(seq_theater_no.nextval, 9, '창원점');
+insert into theater values(seq_theater_no.nextval, 10, '창원점');
+
+--마산점
+insert into theater values(seq_theater_no.nextval, 1, '마산점');
+insert into theater values(seq_theater_no.nextval, 2, '마산점');
+insert into theater values(seq_theater_no.nextval, 3, '마산점');
+insert into theater values(seq_theater_no.nextval, 4, '마산점');
+insert into theater values(seq_theater_no.nextval, 5, '마산점');
+insert into theater values(seq_theater_no.nextval, 6, '마산점');
+insert into theater values(seq_theater_no.nextval, 7, '마산점');
+insert into theater values(seq_theater_no.nextval, 10, '마산점');
+insert into theater values(seq_theater_no.nextval, 9, '마산점');
+insert into theater values(seq_theater_no.nextval, 10, '마산점');
+
+--광주터미널점
+insert into theater values(seq_theater_no.nextval, 1, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 2, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 3, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 4, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 5, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 6, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 7, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 10, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 9, '광주터미널점');
+insert into theater values(seq_theater_no.nextval, 10, '광주터미널점');
+
+--제주점
+insert into theater values(seq_theater_no.nextval, 1, '제주점');
+insert into theater values(seq_theater_no.nextval, 2, '제주점');
+insert into theater values(seq_theater_no.nextval, 3, '제주점');
+insert into theater values(seq_theater_no.nextval, 4, '제주점');
+insert into theater values(seq_theater_no.nextval, 5, '제주점');
+insert into theater values(seq_theater_no.nextval, 6, '제주점');
+insert into theater values(seq_theater_no.nextval, 7, '제주점');
+insert into theater values(seq_theater_no.nextval, 10, '제주점');
+insert into theater values(seq_theater_no.nextval, 9, '제주점');
+insert into theater values(seq_theater_no.nextval, 10, '제주점');
+
 
 --===============================
 -- 좌석 데이터 
@@ -354,40 +726,6 @@ insert into seat values(1, 'M13', default);
 insert into seat values(1, 'M14', default);
 insert into seat values(1, 'M15', default);
 
-
-
---===============================
--- 영화 데이터 
---===============================
-
--- 액션
-insert into movie values(1, '범죄도시1', 'ACTION', '강윤성', '마동석, 윤계상', '한국의 불법 주정물 거래와 마약 카르텔 간의 대치를 그린 범죄 액션 영화', 15);
-insert into movie values(2, '범죄도시2', 'ACTION', '이상용', '마동석, 손석구', '한국의 대형 조직들이 서로 쟁탈하고 있는 대한민국 최대 광역단체인 신성파의 본거지를 둘러싸고 벌어지는 무력 충돌을 그리는 범죄 액션 영화', 15);
--- 코미디
-insert into movie values(3, '극한직업', 'COMEDY', '강윤성', '류승룡, 이하나', '대한민국 최고의 마약반 요원들이 범죄조직을 잡기 위해 위장 치킨집을 만들어 일어나는 일들을 보여주는 영화', 15);
-insert into movie values(4, '행오버', 'COMEDY', '토드 필립스', '브래들리 쿠퍼, 켄 정', '라스베이거스에서 벌어지는 4명의 친구들의 파티 이야기를 그린 코미디 영화', 15);
--- 로맨스
-insert into movie values(5, '노트북', 'ROMANCE', '닉 카사베티스', '라이언 고슬링, 레이첼 맥아담스', '니콜라스 스파크스의 소설을 원작으로 한 이 영화는, 두 사람의 첫사랑과 그 후 재회를 그리는 감동적인 이야기의 영화', 15);
-insert into movie values(6, '어바웃 타임', 'ROMANCE', '리처드 커티스', '돔놀 글리슨, 레이첼 맥아담스', '시간을 되돌릴 수 있는 능력을 가진 남자와 그의 연인 사이의 로맨스를 그린 영화', 12);
--- 애니메이션;
-insert into movie values(7, '슬램덩크', 'ANIMATION', '이노우에 다케히코', '키무라 스바루', '전국 제패를 꿈꾸는 북산고 농구부 5인방의 꿈과 열정, 멈추지 않는 도전을 그린 영화', 12);
-insert into movie values(8, '너의 이름은', '애ANIMATION니', '신카이 마코토', '카미키 류노스케', '하나의 소년과 소녀가 미스터리한 방법으로 서로의 몸과 삶을 교환하게 되면서 시작되는 내용을 그린 영화', 12);
--- 호러
-insert into movie values(9, '곡성', 'HORROR', '나홍진', '황정민, 곽도원', '곡성의 한 마을에서 갑작스럽게 이상 사건이 연이어 일어나게 되면서 벌어지는 공포스러운 이야기를 그린 영화', 15);
-insert into movie values(10, '겟 아웃', 'HORROR', '조던 필', '다니엘 칼루야', '흑인 청년 크리스가 백인 여자친구 로즈의 가족을 만나러 갔을 때 벌어지는 일을 그린 영화', 18);
--- 다큐멘터리
-insert into movie values(11, '멘 온 와이어', 'DOCUMENTARY', '제임스 마쉬', '필립 프티', '1974년 8월 7일, 프랑스의 노트르담 대성당과 에펠탑 사이의 거리 200피트(61m) 높이에서 와이어를 건너는 것을 목표로 한 프랑스 출신 와이어 워커 필립 페티의 이야기를 다룬 다큐멘터리 영화', 12);
-insert into movie values(12, '워낭소리', 'DOCUMENTARY', '이충렬', '최원균', '소로 농사를 짓는 시골 할아버지와 소의 이야기를 그리는 다큐멘터리 독립 영화', 12);
--- 드라마
-insert into movie values(13, '행복을 찾아서', 'DRAMA', '가브리엘 무치노', '윌 스미스, 제이든 스미스', '실존 인물인 크리스 가드너의 삶의 여정을 따라가며, 그의 어려움과 자존심 상실, 가족과의 갈등 등을 그린 영화', 12);
-insert into movie values(14, '블라인드 사이드', 'DRAMA', '존 리 핸콕', '산드라 블록', '대학 입시에 실패한 마이클 오어가, 좌절과 무기력함 속에서 우연히 만난 부유한 백인 가정의 가장인 리얼리에게 입양되며 벌어지게 된 이야기를 다룬 영화', 12);
-
-select * from movie;
-
-
-commit;
-
-
 --===============================
 -- 테이블 및 시퀀스 생성
 --===============================
@@ -400,17 +738,15 @@ create table persistent_logins (
     last_used timestamp not null
 );
 
-select * from persistent_logins;
-
 -- 회원테이블
 CREATE TABLE member (
-	id varchar2(50)	NOT NULL,
+	id varchar2(70)	NOT NULL,
 	password varchar2(300) NOT NULL,
 	name varchar2(30) NOT NULL,
     grade varchar2(10) default 'FAMILY' not null,
     point number default 1000 not null,
 	phone char(11) NOT NULL,
-	email varchar2(50) NOT NULL,
+	email varchar2(70) NOT NULL,
 	birth char(8) NOT NULL,
 	age	number	NOT NULL,
     enroll_date Date default sysdate not null,
@@ -418,13 +754,11 @@ CREATE TABLE member (
     constraint uq_member_email unique(email)
 );
 
---drop table member cascade constraints;
---drop table authority;
 
 -- 회원권한 테이블
 CREATE TABLE AUTHORITY(
-    ID VARCHAR2(50),
-    AUTH VARCHAR2(50),
+    ID VARCHAR2(70),
+    AUTH VARCHAR2(70),
     CONSTRAINT PK_AUTHORITY PRIMARY KEY(ID, AUTH),
     CONSTRAINT FK_AUTHORITY_MEMBER_ID FOREIGN KEY(ID)
                             REFERENCES MEMBER(ID)
@@ -434,7 +768,7 @@ CREATE TABLE AUTHORITY(
 -- 예약 테이블
 CREATE TABLE reservation (
     no VARCHAR(255)	NOT NULL,
-	id varchar2(50) NOT NULL,
+	id varchar2(70) NOT NULL,
 	schedule_no number NOT NULL,
     seat_no varchar2(3) not null,
     CONSTRAINT PK_RESERVATION_NO PRIMARY KEY(NO),
@@ -454,6 +788,7 @@ create table location(
     constraint uq_location unique(no)
     
 );
+
 
 -- 지역 테이블 시퀀스
 create sequence seq_location_no;
@@ -515,7 +850,7 @@ CREATE TABLE movie (
     no number NOT NULL,
 	title varchar2(100)	NOT NULL,
 	genre varchar2(30) NOT NULL,
-	director varchar2(50) NOT NULL,
+	director varchar2(70) NOT NULL,
 	actors varchar2(3000),
 	synopsis varchar2(4000)	NOT NULL,
     running_time number not null,
@@ -546,14 +881,14 @@ create sequence seq_movie_attach_no;
 -- 문의게시판 테이블
 CREATE TABLE question (
 	no number	NOT NULL,
-    name varchar2(50) NOT NULL,
-	id varchar2(50)	NOT NULL,
+    name varchar2(70) NOT NULL,
+	id varchar2(70)	NOT NULL,
     phone char(11),
-    email varchar2(50) NOT NULL,
+    email varchar2(70) NOT NULL,
 	title varchar2(1000)	NOT NULL,
 	content varchar2(4000)	NOT NULL,
 	reg_date Date DEFAULT sysdate NOT NULL,
-    type varchar2(50) NOT NULL,
+    type varchar2(70) NOT NULL,
     constraint pk_question_no primary key(no),
     constraint fk_question_member_id foreign key(id)
                                 references member
@@ -585,7 +920,7 @@ CREATE TABLE question_answer (
 	q_no number	NOT NULL,
 	content varchar2(4000) NOT NULL,
 	reg_date date DEFAULT sysdate NOT NULL,
-	id varchar2(50) NOT NULL,
+	id varchar2(70) NOT NULL,
     constraint pk_answer_no primary key(no),
     constraint fk_answer_q_no foreign key(q_no)
                         references question
@@ -603,7 +938,7 @@ create sequence seq_question_answer_no;
 CREATE TABLE notice (
 	no number NOT NULL,
 	title varchar2(3000) NOT NULL,
-    classifyy varchar2(50),
+    classifyy varchar2(70),
     read_count number default 0,
     created_at date default sysdate,
 	content varchar2(4000) NOT NULL,
@@ -620,7 +955,7 @@ CREATE TABLE FAQ (
 	no number	NOT NULL,
 	title varchar2(200)	NOT NULL,
 	content varchar2(4000) NOT NULL,
-    classify varchar2(50),
+    classify varchar2(70),
     read_count number default 0,
     created_at date default sysdate,
     constraint pk_faq_no primary key(no)
@@ -634,7 +969,7 @@ CREATE TABLE event (
     no number NOT NULL,
     title varchar2(3000) NOT NULL,
     content varchar2(4000) NOT NULL,
-    category varchar2(50) NOT NULL,
+    category varchar2(70) NOT NULL,
     created_at date default sysdate,
     constraint pk_event_no primary key(no)
 );
@@ -663,14 +998,14 @@ create table store (
     price number not null,
     original_filename varchar2(2000) NULL,
     renamed_filename varchar2(2000) NULL,
-    snack_category varchar2(50) not null,
+    snack_category varchar2(70) not null,
     constraint pk_store primary key(name)
 );
 
 -- 장바구니 테이블 생성
 create table cart(
     no number not null,
-    id varchar2(50) not null,
+    id varchar2(70) not null,
     store_name varchar2(100) not null,
     store_price number not null,
     store_count number default 1 not null,
@@ -688,7 +1023,7 @@ create sequence seq_cart_no;
 
 create table store_order(
     no number not null,
-    id varchar2(50) not null,
+    id varchar2(70) not null,
     pickup_zone varchar2(30),
     store_name varchar2(100) not null,
     store_price number not null,

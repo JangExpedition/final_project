@@ -56,8 +56,8 @@
             </div>
         </div>
 
-        <div data-no="${event.no}" class=slider__container>
-            <div id="eventTab" class="slider"></div>
+        <div class=slider__container>
+            <div data-no="${event.no}"  id="eventTab" class="slider"></div>
         </div>
     </div>
 </section>
@@ -162,7 +162,7 @@ const filterSelected = (name) => {
             url: `${pageContext.request.contextPath}/event/api/events.do`,
             method: "get"
         }).done(res => {
-/*             console.log(res) */
+        	console.log(res)
             let html = ''
             res.forEach(event => {
             	console.log(event.no);
@@ -222,12 +222,8 @@ const filterSelected = (name) => {
 	       	let parentDiv = e.target;
 	       	while(parentDiv.tagName !== "DIV")
 	       		parentDiv = parentDiv.parentElement;
-	       	
-        	console.log(parentDiv);
         	
             const no = parentDiv.dataset.eventNo;
-            
-            console.log(no);
             
             location.href = '${pageContext.request.contextPath}/event/eventDetail.do?no=' + no;
         });

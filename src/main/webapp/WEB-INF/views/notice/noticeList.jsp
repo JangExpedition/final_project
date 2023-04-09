@@ -53,6 +53,11 @@
 					<div class="parent">
 						<a href="#" id="btn-add">글쓰기</a>
 					</div>
+					<script>
+					document.querySelector("#btn-add").addEventListener('click', (e) => {
+						location.href = '${pageContext.request.contextPath}/notice/noticeForm.do';
+					});
+					</script>
 				</sec:authorize>
 
 				<div class="c_tab_wrap">
@@ -117,10 +122,6 @@
 
 
 <script>
-	document.querySelector("#btn-add").addEventListener('click', (e) => {
-		location.href = '${pageContext.request.contextPath}/notice/noticeForm.do';
-	});
-
 	document.querySelectorAll("tr[data-no]").forEach((tr) => {
 		tr.addEventListener('click', (e) => {
 			const no = tr.dataset.no;
