@@ -25,6 +25,7 @@ select * from cart;
 select * from store_order;
 
 
+
 select * from schedule where start_time = '2023-04-11 22:00' and end_time = '2023-04-12 12:14';
 
 delete from schedule where movie_no = '22';
@@ -32,11 +33,10 @@ delete from schedule where movie_no = '22';
 
 
 --강남점
-INSERT INTO schedule VALUES (913, 13, 10,'2023-04-11 09:30', '2023-04-11 11:06');
-INSERT INTO schedule VALUES (914, 13, 10,'2023-04-11 14:30', '2023-04-11 16:06');
-INSERT INTO schedule VALUES (915, 13, 10,'2023-04-11 16:40', '2023-04-11 18:16');
-INSERT INTO schedule VALUES (916, 13, 10,'2023-04-11 19:30', '2023-04-11 21:06');
-INSERT INTO schedule VALUES (917, 13, 10,'2023-04-11 22:00', '2023-04-11 23:36');
+INSERT INTO schedule VALUES (seq_schedule_no, 1, 77,'2023-04-11T12:30', '2023-04-11T14:34');
+INSERT INTO schedule VALUES (seq_schedule_no, 1, 77,'2023-04-11T15:00', '2023-04-11 17:04');
+INSERT INTO schedule VALUES (seq_schedule_no, 1, 77,'2023-04-11T17:30', '2023-04-11 19:34');
+INSERT INTO schedule VALUES (seq_schedule_no, 1, 77,'2023-04-11T20:00', '2023-04-11 22:04');
 
 --INSERT INTO schedule VALUES (711, 12, 7, '2023-04-11 10:10', '2023-04-11 12:02');
 --INSERT INTO schedule VALUES (712, 12, 7, '2023-04-11 12:40', '2023-04-11 14:32');
