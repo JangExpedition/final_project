@@ -48,8 +48,8 @@
 							<legend><label for="searchtext">검색</label></legend>
 							<div class="search_box">
 								<input type="hidden" name="searchType" value="title" />
-								<input type="text" class="form-control" id=myElement placeholder="검색어를 입력해주세요"
-									aria-label="Recipient's username" aria-describedby="button-addon2" name="title" />
+								<input type="text" class="form-control" id="myElement" placeholder="검색어를 입력해주세요"
+  								aria-label="Recipient's username" aria-describedby="button-addon2" name="keyword" />
 								<button type="submit" class="btn_search" id="btn_search">검색</button>
 							</div>
 
