@@ -70,6 +70,7 @@ document.querySelector("#authenticationBtn").addEventListener("click", (e)=>{
     		step1.style.display = "none";
     		step2.style.display = "flex";
     		document.enrollFrm.email.value = email;
+    		console.log(data);
     	},
     	error: console.log
     });

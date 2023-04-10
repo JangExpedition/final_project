@@ -560,13 +560,14 @@ const getSchedule = () => {
 								const scheduleDiv = document.createElement("div");
 								scheduleDiv.innerText = startTime.substr(11);
 								
+								
 								let nowTime = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(11, 16);
 								
 								scheduleDiv.dataset.endTime = endTime.substr(11);
 								scheduleDiv.dataset.theaterNo = theater.theaterNo;
 								scheduleDiv.dataset.scheduleNo = no;
 								
-								if(scheduleDiv.innerText < nowTime){
+								if(scheduleDiv.innerText < nowTime && startTime.slice(0, 10) < new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)){
 									scheduleDiv.className = "schduleEnd";
 								}
 								else{
