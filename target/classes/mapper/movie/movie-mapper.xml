@@ -87,7 +87,8 @@
 			synopsis = #{synopsis},
 			limit_age = #{limitAge},
 			running_time = #{runningTime},
-			open_dt = #{openDt}
+			open_dt = #{openDt},
+			reservation_count = #{reservationCount}
 		where
 			no = #{no}
 	</update>

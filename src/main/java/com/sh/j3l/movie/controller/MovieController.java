@@ -172,6 +172,7 @@ public class MovieController {
 	@PostMapping("/updateMovie.do")
 	public String updateMovie(Movie movie, RedirectAttributes redirectAttr) {
 		
+		
 		int result = movieService.updateMovie(movie);
 		log.debug("movie = {}", movie);
 		

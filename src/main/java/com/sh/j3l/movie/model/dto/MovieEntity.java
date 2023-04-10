@@ -23,5 +23,6 @@ public class MovieEntity {
 	private int limitAge;
 	private int runningTime;
 	private String openDt;
+	private int reservationCount;
 	
 }

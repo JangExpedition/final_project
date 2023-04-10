@@ -118,7 +118,7 @@
 										</th>
 										<td colspan="3">
 											<textarea cols="60" rows="5" id="content" name="content"
-												class="inp_txtbox01" style=" height:94px !important;"
+												class="inp_txtbox01"
 												placeholder="※문의 내용 내에 개인정보(신용카드번호, 계좌번호, 주민번호 등)가 포함되지 않도록 유의하시기 바랍니다."></textarea>
 											<p class="byte_info"><span id="sp_ad_content_size_1"></span><span><span
 														id="sp_ad_content_size_2"></span></span></p>
