@@ -2,6 +2,8 @@
 ---
 영화 예매 사이트
 
+![j3l gif](https://user-images.githubusercontent.com/114918904/233888604-cfe5ba8e-7f66-428f-bd41-bd061546d8d8.gif)
+
 https://youtu.be/tMNlRU8Ozog
 
 ### 개발환경
