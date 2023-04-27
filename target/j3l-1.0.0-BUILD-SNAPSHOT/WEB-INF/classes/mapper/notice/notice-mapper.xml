@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.notice.model.dao.NoticeDao">
+	<select id="selectAllNotice" resultMap="noticeMap">
+	
+		select
+			*
+		from
+			notice
+	</select>
+	
+	<select id="pagingAllNotice" resultMap="noticeMap">
+		select
+			*
+		from
+			notice
+		order by
+			created_at desc
+		offset
+			#{offset} rows fetch next #{pageSize} rows only
+	</select>
+	
+	<select id="count" resultType="int">
+		select 
+			count(*) 
+		from 
+			notice
+	</select>
+
+	<resultMap type="notice" id="noticeMap"></resultMap>
+	
+	<insert id="insertNotice">
+		insert into
+			notice(no, title, content, read_count, created_at, classifyy)
+		values
+		(
+			seq_notice_no.nextval,
+			#{title},
+			#{content},
+			#{readCount},
+			default,
+			#{classifyy}
+		)
+	</insert>
+	
+	<update id="noticeUpdate">
+		update
+			notice
+		set
+			title = #{title},
+			content = #{content},
+			classifyy = #{classifyy}
+		where
+			no = #{no}
+	</update>
+	
+	<select id="searchByTitle" parameterType="String" resultType="Notice">
+		select
+			*
+		from
+			notice
+		where
+			title like '%' || #{title} || '%'
+	</select>
+	
+	<select id="searchByContent" parameterType="String" resultType="Notice">
+		select
+			*
+		from
+			notice
+		where
+			content like '%' || #{title} || '%'
+	</select>
+		
+	<select id="selectOneNotice" resultMap="noticeMap">
+		select
+			*
+		from
+			notice
+		where
+			no = #{no}
+	</select>
+	
+	<delete id="deleteNotice">
+		delete from
+			notice
+		where 
+			no = #{no}
+	</delete>
+	
+	<select id="selectNoticeByNo" resultMap="noticeMap">
+		select
+			*
+		from
+			notice
+		where
+			no = #{no}
+	</select>
+
+</mapper>

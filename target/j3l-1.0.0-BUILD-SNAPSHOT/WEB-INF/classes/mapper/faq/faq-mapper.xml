@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.faq.model.dao.FaqDao">
+	<select id="selectAllFaq" resultMap="faqMap">
+		select
+			*
+		from
+			FAQ
+	</select>
+	
+	<select id="pagingAllFaq" resultMap="faqMap">
+		select
+			*
+		from
+			faq
+		order by
+			created_at asc
+		offset 
+			#{offset} rows fetch next #{pageSize} rows only
+	</select>
+	
+	<select id="count" resultType="int">
+		select 
+			count(*) 
+		from 
+			faq
+	</select>
+	
+	
+	<resultMap type="faq" id="faqMap"></resultMap>
+	
+	<insert id="insertFaq">
+		insert into
+			FAQ (no, title, content, read_count, created_at, classify)
+		values
+		(
+			seq_faq_no.nextval,
+			#{title},
+			#{content},
+			#{readCount},
+			default,
+			#{classify}
+		)
+	</insert>
+	
+	<select id="searchByTitle" parameterType="String" resultType="Faq">
+		select
+			*
+		from
+			faq
+		where
+			title like '%' || #{title} || '%'
+	</select>
+	
+	<select id="searchByContent" parameterType="String" resultType="Faq">
+		select
+			*
+		from
+			faq
+		where
+			content like '%' || #{title} || '%'
+	</select>
+	
+	<select id="selectOneFaq" resultMap="faqMap">
+		select
+			*
+		from
+			faq
+		where
+			no = #{no}
+	</select>
+	
+	<update id="faqUpdate">
+		update 
+		   FAQ
+		set
+			title = #{title},
+			content = #{content},
+			classify = #{classify}
+		where
+			no = #{no}
+	</update>
+	
+	<delete id="deleteFaq">
+		delete from
+			FAQ
+		where 
+			no = #{no}
+	</delete>
+	
+</mapper>

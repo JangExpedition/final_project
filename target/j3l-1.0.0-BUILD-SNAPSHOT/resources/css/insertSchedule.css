@@ -1,0 +1,170 @@
+table { 
+	border-collapse: collapse;
+}
+
+td { 
+	padding: 10px 10px  10px 10px; 
+	border: 1px solid #cccccc; 
+	border-left:none; 
+}
+
+.tit { 
+	border-right:1px solid #cccccc; 
+	background-color: darkgray;
+}
+
+.input_txt { 
+	width: 400px; 
+	height: 25px; 
+	border: 1px solid #cccccc; 
+}
+
+textarea { 
+	width:500px; 
+	height: 100px;
+}
+
+#contents {
+  clear: both;
+  padding-bottom: 50px;
+  position: relative;
+  width: 980px;
+  margin: 0 auto;
+}
+
+.cols-content {
+	margin-top:25px;
+}
+
+*+html .cols-content { 
+	zoom:1;
+}
+
+
+.cols-content:after { 
+	content:''; 
+	clear:both; 
+	display:block;
+}
+
+.cols-content .col-detail { 
+	position:relative; 
+	width:800px; 
+	float:left
+}
+
+.cols-content .col-aside {
+	width:160px; 
+	float:right
+}
+
+.cols-content .col-detail:first-child { 
+	float:left; 
+}
+
+.cols-content .col-detail + .col-aside { 
+	float:right;
+}
+
+.cols-content .col-aside:first-child { 
+	float:left;
+}
+
+.cols-content .col-aside + .col-detail { 
+	float:right;
+}
+
+.cols-content .col-aside h2 {
+	font:0/0 a; 
+	visibility:hidden; 
+	zoom:1;
+}
+
+.cols-content .col-aside .snb a {
+	display:block; 
+	position:relative;
+}
+
+.cols-content .col-aside .snb > ul {
+	margin-top:9px;
+}
+
+.cols-content .col-aside .snb > ul > li:hover, 
+.cols-content .col-aside .snb > ul > li:focus, 
+.cols-content .col-aside .snb > ul > li.on {
+	margin-top:1px; 
+	border-top:0 none;
+}
+
+.cols-content .col-aside .snb > ul > li > a {
+	/* width:155px;  */
+	height:34px; 
+	padding-left:5px; 
+	color:#222; 
+	font-weight:500; 
+	font-size:15px; 
+	line-height:34px;
+}
+
+.cols-content .col-aside .snb > ul > li:hover > a, 
+.cols-content .col-aside .snb > ul > li > a:focus,
+.cols-content .col-aside .snb > ul > li.on > a {
+	background-color: #f54357;
+	color:#fdfcf0;
+}
+
+
+.cols-content .col-aside .snb > ul > li > a > i {
+	display:none;
+}
+
+.cols-content .col-aside .snb > ul > li:hover > a > i, 
+.cols-content .col-aside .snb > ul > li > a:focus > i,
+.cols-content .col-aside .snb > ul > li.on > a > i {
+	display:block; 
+	position:absolute; 
+	top:0; left:-18px; 
+	width:18px; 
+	height:34px; 
+}
+
+.ttbl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cols-content .col-aside .snb > ul > li > a {
+   /*  width: 155px; */
+    height: 34px;
+    padding-left: 5px;
+    color: #222;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 34px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.ul1{
+	list-style:none;
+	padding: 0;
+	margin: 0;
+}
+
+.fn1 {
+  display: flex;
+  justify-content: center;
+  margin-top : 10px;
+  gap: 10px;
+}
+
+.ul {
+  width: 170px;
+}
+
+a:link{
+	text-decoration:none;
+}

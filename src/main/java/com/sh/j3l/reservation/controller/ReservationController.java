@@ -1,9 +1,9 @@
 package com.sh.j3l.reservation.controller;
 
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +30,7 @@ import com.sh.j3l.member.model.dto.Member;
 import com.sh.j3l.member.model.service.MemberService;
 import com.sh.j3l.movie.model.dto.Movie;
 import com.sh.j3l.movie.model.service.MovieService;
+import com.sh.j3l.reservation.model.dto.Lun;
 import com.sh.j3l.reservation.model.dto.Reservation;
 import com.sh.j3l.reservation.model.service.ReservationService;
 import com.sh.j3l.schedule.model.dto.Schedule;
@@ -83,7 +84,7 @@ public class ReservationController {
 	public List<Movie> selectAllMovieOrderBy(@RequestParam String filterName, Model model) {
 		String now = LocalDate.now().toString();
 		List<Movie> movieList = new ArrayList<>();
-		if(filterName == "예매율순") {
+		if(filterName.equals("예매율순")) {
 			movieList = movieService.selectAllOnScreenOrderByReservationCnt(now);
 		}
 		else {
@@ -151,6 +152,7 @@ public class ReservationController {
 	    return jsonResponse;
 	};
 	
+	// 내 에약목록 불러오기
 	@GetMapping("/getMyReservation.do")
 	@ResponseBody
 	public List<Reservation> getMyReservation(@RequestParam String id) {
@@ -159,4 +161,39 @@ public class ReservationController {
 		
 		return reservationService.getMyReservationList(id, oneMonthAgo);
 	}
+	
+	// 음력 공휴일 체크 메서드
+	@GetMapping("/isHoliday.do")
+	@ResponseBody
+	public boolean isHoliday(@RequestParam Date day) {
+		boolean bool = false;
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(day);
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH);
+		int date = calendar.get(Calendar.DATE);
+		
+		new Lun();
+		int[] lunDate = Lun.get(year, month, date);
+		String mon = "";
+		if(lunDate[1] < 10) {
+			mon = "0" + Integer.toString(lunDate[1]);
+		}else {
+			mon = Integer.toString(lunDate[1]);
+		}
+		String lunar = mon + Integer.toString(lunDate[2]);
+		
+		switch(lunar) {
+		case "1231" : bool = true; break;
+		case "0101" : bool = true; break;
+		case "0102" : bool = true; break;
+		case "0408" : bool = true; break;
+		case "0814" : bool = true; break;
+		case "0815" : bool = true; break;
+		case "0816" : bool = true; break;
+		}
+		
+		return bool;
+	};
+	
 }

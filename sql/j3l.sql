@@ -555,7 +555,7 @@ CREATE TABLE cinema (
     constraint fk_location_name foreign key(location_name) references location on delete cascade
 );
 
- 테이블
+-- 상영고영고ㅓ테이블
 CREATE TABLE theater (
 	no	number NOT NULL,
 	theater_no number NOT NULL,
@@ -644,6 +644,7 @@ CREATE TABLE question (
 
 );
 
+select * from movie where open_dt < '2023-04-10' order by reservation_count desc;
 
 
 

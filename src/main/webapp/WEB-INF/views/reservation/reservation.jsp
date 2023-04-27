@@ -172,33 +172,48 @@ window.onload = () =>{
 	filterEffect("예매율순");
 	selectLocation("서울");
 	
+	loadDate();
+	
+}
+
+// 날짜 출력 메서드
+const loadDate = () =>{
+	
+	// 21일 계산
+	const days = tweentyOneDays();
+	
+	// 화면에 날짜 출력
+	printDate(days);
+	
+	// 주말, 공휴일 색상 변경 
+	coloringHolidays(days);
+
+};
+
+// 21일 계산 메서드
+const tweentyOneDays = () => {
+	
 	const today = new Date();
 	
-	const yearArr = [];
-	const monthArr = [];
-	const date = [];
 	const days = [];
 	
 	for(let i = 0; i < 21; i++){
 		
-		let day = null;
-		if(i === 0){
-			day = new Date(today.setDate(today.getDate()));
-		}
-		else{
-			day = new Date(today.setDate(today.getDate() + 1));
-		}
+		let day = new Date(new Date().setDate(today.getDate() + i));
 		
-		yearArr.push(day.getFullYear());
-		monthArr.push(day.getMonth()+1);
-		date.push(day.getDate());
-		days.push(day.getDay());
+		days.push(day);
 	}
 	
-	// 요일 지정
+	return days;
+	
+};
+
+//요일 숫자에서 문자로 변경 메서드
+const intToCharDay = (dayArr) => {
+	
 	const weekday = [];
 	
-	days.forEach((day)=>{
+	dayArr.forEach((day)=>{
 		switch(day){
 		case 0 : weekday.push("일"); break;
 		case 1 : weekday.push("월"); break;
@@ -210,99 +225,128 @@ window.onload = () =>{
 		}	
 	});
 	
-	// 중복제거
-	const years = [];
-	const months = [];
+	return weekday;
+};
+
+// 날짜 출력 메서드
+const printDate = (days) => {
 	
-	yearArr.forEach((year)=>{
-		if(!years.includes(year))
-			years.push(year);
+	const yearArr = [];
+	const monthArr = [];
+	const date = [];
+	const dayArr = [];
+	
+	days.forEach((day)=>{
+		yearArr.push(day.getFullYear());
+		monthArr.push(day.getMonth()+1);
+		date.push(day.getDate());
+		dayArr.push(day.getDay());
 	});
 	
-	monthArr.forEach((month)=>{
-		const monthStr = ("0" + month).slice(-2);
-		if(!months.includes(monthStr))
-			months.push(monthStr);
-	});
+	// 요일 숫자에서 문자로 변경
+	const weekday = intToCharDay(dayArr);
 	
 	const dayList = document.querySelector("#dayList");
 	
-	// 년도가 하나인 경우
-	if(years.length === 1){
-			
-		for(let i = 0; i < date.length; i++){
-			
-			if(date[i] < 10){
-				date[i] = "0" + date[i];
-			}
-			
-			if(i === 0){
-				dayList.innerHTML += `
-					<div>
-						<p class="reservationYear">\${ years[0] }</p>
-					</div>
-					<h1 class="reservationMonth">\${ months[0] }</h1>
-					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-				`;
-			}
-			else if(date[i] > date[i-1]){
-				dayList.innerHTML += `
-					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-				`;
-			}
-			else{
-				dayList.innerHTML += `
-						<h1 class="reservationMonth">\${ months[1] }</h1>
-						<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[1]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-					`;
-			}
-		};
-		
-	}
-	// 년도가 2개이면서 월이 2개인 경우
-	else{
+	for(let i = 0; i < date.length; i++){
 		
 		if(date[i] < 10){
 			date[i] = "0" + date[i];
 		}
 		
-		for(let i = 0; i < date.length; i++){
-			if(i === 0){
-				dayList.innerHTML += `
-					<div>
-						<p class="reservationYear">\${ years[0] }</p>
-					</div>
-					<h1 class="reservationMonth">\${ months[0] }</h1>
-					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-				`;
-			}
-			else if(date[i] > date[i-1]){
-				dayList.innerHTML += `
-					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[0]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-				`;
-			}
-			else{
-				dayList.innerHTML += `
-					<div>
-						<p class="reservationYear">\${ years[1] }</p>
-					</div>
-					<h1 class="reservationMonth">\${ months[1] }</h1>
-					<p class="reservationDay" data-reservationDay="\${years[0]}-\${months[1]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
-				`;
-			}
-			
-		}; 
+		if(monthArr[i] < 10){
+			monthArr[i] = "0" + monthArr[i];
+		}
 		
-	}
+		if(i === 0){
+			dayList.innerHTML += `
+				<div>
+					<p class="reservationYear">\${ yearArr[i] }</p>
+				</div>
+				<h1 class="reservationMonth">\${ monthArr[i] }</h1>
+				<p class="reservationDay" data-reservationDay="\${yearArr[i]}-\${monthArr[i]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+			`;
+		}
+		else if(date[i] > date[i-1]){
+			dayList.innerHTML += `
+				<p class="reservationDay" data-reservationDay="\${yearArr[i]}-\${monthArr[i]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+			`;
+		}
+		else{
+			if(yearArr[i-1] !== yearArr[i]){
+				dayList.innerHTML += `
+					<div>
+						<p class="reservationYear">\${ yearArr[i] }</p>
+					</div>
+				`;
+			}
+			dayList.innerHTML += `
+				<h1 class="reservationMonth">\${ monthArr[i] }</h1>
+				<p class="reservationDay" data-reservationDay="\${yearArr[i]}-\${monthArr[i]}-\${date[i]}(\${ weekday[i] })"><span class="reservationWeekday">\${ weekday[i] }</span><span class="reservationDate">\${ date[i] }</span></p>
+			`;
+		}
+	};
+};
+
+// 주말, 공휴일 색상 변경 메서드
+const coloringHolidays = (days) => {
+	
+	let holidays = [];
+	const solarHolidays = ["0101", "0301", "0505", "0606", "0815", "1003", "1009", "1225"];
+	
+	days.forEach((day)=>{
+		
+		// 양력 공휴일 저장
+		let mon = day.getMonth() + 1;
+		if(mon < 10){
+			mon = "0" + mon;
+		}
+		else{
+			mon = mon.toString();
+		}
+		let d = day.getDate();
+		if(d < 10){
+			d = "0" + d;
+		}
+		else{
+			d = d.toString();
+		}
+		
+		const sol = mon + d;
+		
+		if(solarHolidays.includes(sol)){
+			holidays.push(day.getFullYear() + "-" + mon + "-" + d);
+		}
+		
+		// 음력 공휴일 저장
+		$.ajax({
+			url: "${pageContext.request.contextPath}/reservation/isHoliday.do",
+			data: {day},
+			success(data){
+				if(data){
+					holidays.push(day.getFullYear() + "-" + mon + "-" + d);
+				};
+			},
+			error : console.log
+		});
+		
+	});
 	
 	// 토요일, 일요일 색상 변경
 	document.querySelectorAll(".reservationDay").forEach((reservationDay)=>{
+		
+		const day = reservationDay.dataset.reservationday.substring(0, 10);
+		
+		if(holidays.includes(day)){
+			reservationDay.style.color = "#ad2727";
+		}
+		
 		if(reservationDay.firstChild.innerText === "토")
 			reservationDay.style.color = "#31597e";
 		if(reservationDay.firstChild.innerText === "일")
 			reservationDay.style.color = "#ad2727";
 	});
-}
+};
 
 // 리셋 버튼 메서드
 document.querySelector("#resetBtn").addEventListener("click", (e)=>{
@@ -522,8 +566,6 @@ const getSchedule = () => {
 	const cinemaName = document.querySelector(".selectedCinema").innerText;
 	const reservationDay = document.querySelector(".selectedDay").dataset.reservationday.slice(0,10);
 	
-	console.log(movieNo, cinemaName, reservationDay);
-
 	$.ajax({
 		url: "${pageContext.request.contextPath}/reservation/selectTheaterList.do",
 		data: {cinemaName},
