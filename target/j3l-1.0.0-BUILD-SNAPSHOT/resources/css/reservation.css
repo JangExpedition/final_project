@@ -1,0 +1,639 @@
+/* 예매 섹션 */
+.reservation-section{
+	width: 100%;
+	height: 650px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #f2f0e5;
+}
+
+/* 초기화 구간 */
+.reset-wrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 50px;
+}
+
+.reset-box{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 950px;
+	height: 50px;
+}
+
+#resetBtn{
+	border: 1px solid #333;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 10px;
+	border-radius: 5px;
+	background-color: #f2f0e5;
+	cursor: pointer;
+}
+
+/* 예매 구간 */
+.steps{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 950px;
+	height: 600px;
+	box-sizing: boarder-box;
+	border-left: 2px solid #cdcdcd;
+	border-right: 2px solid #cdcdcd;
+}
+
+.step{
+	width: 25%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: #f2f0e5;
+	border-right: 2px solid #cdcdcd;
+}
+
+.table-head{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #333;
+	width: 100%;
+	height: 30px;
+	color: #cdcdcd;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.table-body{
+	width: 100%;
+	height: 570px;
+	padding: 10px;
+}
+
+.flex-box{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 영화선택 구간 */
+.click{
+	color: #333;
+}
+
+.non-click{
+	color: #cdcdcd;
+}
+
+.movie-filter{
+	width: 100%;
+	height: 30px;
+	font-size: 13px;
+	border-bottom: 2px solid #333;
+}
+
+.movie-list{
+	width: 100%;
+	height: 520px;
+	font-size: 13px;
+	overflow: scroll;
+}
+
+.filter{
+	padding: 0 10px;
+	cursor: pointer;
+}
+
+.movieTitle{
+	width: 100%;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.movieTitleSelected{
+	background-color: #333;
+	color: #fff;
+}
+
+.badge{
+	margin-right: 5px;
+}
+
+/* 극장선택 구간 */
+.location-box{
+	width: 50%;
+	height: 100%;
+}
+
+.cinema-box{
+	width: 50%;
+	height: 100%;
+}
+
+.location-tr{
+	font-size: 12px;
+	background-color: #e6e4d9;
+	margin-bottom: 1px;
+	padding: 5px 10px;
+	text-align: end;
+	cursor: pointer;
+}
+
+.cinemaName{
+	width: 100%;
+	font-size: 12px;
+	font-weight: bold;
+	cursor: pointer;
+	padding: 5px 10px;
+}
+
+.selected{
+	background-color: #f2f0e5;
+}
+
+.selectedCinema{
+	color: #fff;
+	background-color: #333;
+}
+
+
+/* 날짜선택 구간 */
+.step3{
+	width: 10% !important;
+}
+
+#dayList{
+	overflow: scroll;
+}
+
+.reservationYear{
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	color: #666;
+	margin: 5px 0;
+}
+
+.reservationMonth{	
+	font-weight: bold;
+	text-align: center;
+	color: #666;
+	margin: 5px 0;
+}
+
+.reservationDay{
+	text-align: center;
+	cursor: pointer;
+	color: #333;
+}
+
+.reservationWeekday{
+	font-size: 12px;
+	margin-right: 10px;
+}
+
+.reservationDate{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.selectedDay{
+	color: #fff !important;
+	background-color: #333;
+}
+
+/* 시간선택 구간 */
+.theaterName{
+	font-size: 12px;
+	font-weight: bold;
+	color: #333;
+}
+
+.oneTheater{
+	border-bottom: 1px solid #666;
+	margin-top: 10px;
+}
+
+.step4{
+	width: 40% !important;
+	border: none;
+}
+
+/* 상영 시케쥴 확인 세션 */
+.theaterName{
+	margin: 0;
+}
+
+.scheduleList{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 10px;
+}
+
+.scheduleTime{
+	border: 1px solid #666;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	margin-right: 10px;
+	padding: 3px;
+	cursor: pointer;
+}
+
+.schduleEnd{
+	border: 1px solid #666;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	margin-right: 10px;
+	padding: 3px;
+	text-decoration: line-through;
+	cursor: default;
+}
+
+.scheduleSelected{
+	background-color : #333;
+	color: #fff;
+}
+
+/* 예매구간2 */
+.steps2{
+	display: none;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+/* 인원 선택 및 예약내역 재확인 */
+.personnelAndSeat{
+	width: 100%;
+	height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	border-bottom: 2px solid #d4d3c9;
+}
+
+.personnelAndSeat>div{
+	width: 50%;
+	height: 100%;
+	padding: 0 10px;
+}
+
+#personnel{
+	border-right: 1px solid #d4d3c9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 12px;
+	color: #666;
+}
+
+#limitPeopleCnt{
+	width: 100%;
+	text-align: end;
+	color: #FF0000;
+	font-size: 11px;
+	margin-bottom: 5px;
+}
+
+#personnel>div{
+	display: flex;
+	margin-bottom: 5px;
+}
+
+#personnel>div>div{
+	width: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#personnel>div>input{
+	height: 20px;	
+}
+
+#reChecked{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#reChecked>div{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 10px;
+}
+
+#reChecked>div:first-child>span{
+	margin-right: 5px;
+	color: #333;
+}
+
+#reChecked>div:last-child>h3{
+	font-size: 23px;
+	color: #333;
+	font-wieght: bold;
+}
+
+/* 좌석 선택 */
+.selectSeat{
+	width: 100%;
+	height: 450px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 30px 50px;
+}
+
+#screen{
+	width: 100%;
+	background-image: url('../images/screen.png');
+	text-align: center;
+	font-weight: bold;
+	padding: 3px 0;
+}
+
+.selectSeat>div:last-child{
+	width: 100%;
+	height: 366px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#seatList{
+	width: 300px;
+	height: 250px;
+}
+
+.row{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 16px;
+}
+
+.rowName{
+	width: 15px;
+	height: 15px;
+	font-size: 10px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid #666;
+	border-right: 1px solid #666;
+}
+
+.seat{
+	width: 15px;
+	height: 15px;
+	font-size: 10px;
+	background-color: #333;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #f2f0e5;
+	cursor: pointer;
+}
+
+.notAllow{
+	width: 15px;
+	height: 15px;
+	font-size: 10px;
+	background-color: #999;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #f2f0e5;
+	cursor: default;
+	disabled: true;
+}
+
+.seatSelected{
+	background-color: #ff0000;
+}
+
+/* 결제구간 */
+.steps3{
+	display: none;
+	flex-direction: column;
+	padding: 10px 30px;
+	border: 0 !important;
+	justify-content: center;
+}
+
+#finalStep{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	border: 2px solid #cdcdcd;
+	padding: 10px;
+}
+
+.finalCheck{
+	font-weight: bold;
+	color: #333;
+}
+
+#finalAmount{
+	width: 100%;
+	font-weight: bold;
+	margin: 20px 0;
+	text-align: center;
+}
+
+.pointBox{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+#point{
+	width: 400px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#pointAll{
+	background-color: #333;
+	color: #cdcdcd;
+	font-weight: bold;
+	font-size: 16px;
+	border: 0;
+	border-radius: 5px;
+	padding: 5px 10px;
+}
+
+#payBtn{
+	background-size: cover;
+	background-image: url("../images/payment_icon_yellow_large.png");
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 200px;
+	height: 80px;
+	cursor: pointer;
+	margin: 20px 0;
+	cursor: pointer;
+}
+
+/* 예매확인 세션 */
+.reservation-check-section{
+	width: 100%;
+	height: 130px;
+	background-color: #1d1d1c;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.check-box{
+	display: flex;
+	width: 950px;
+	height: 100%;
+}
+
+.check1{
+	width: 25%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ccc;
+	padding: 10px;
+}
+
+.check2{
+	width: 25%;
+	height: 100%;
+	color: #ccc;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.check2>p{
+	font-size: 12px;
+	display: none;
+	margin-bottom: 5px;
+}
+
+.check2>p>span{
+	font-weight: bold;
+}
+
+.check3{
+	width: 20% !important;
+	height: 100%;
+	color: #ccc;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.check3>p{
+	font-size: 12px;
+	display: none;
+	margin-bottom: 5px;
+}
+
+.check3>p>span{
+	font-weight: bold;
+}
+
+.check4{
+	width: 20% !important;
+	height: 100%;
+	color: #ccc;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+#checkTotalPayment{
+	font-size: 12px;
+	display: none;
+	margin-bottom: 5px;
+}
+
+.check4>p>span{
+	font-weight: bold;
+	color: #bf2828;
+}
+
+#paymentList>p{
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+#paymentList>p>span{
+	font-weight: bold;
+}
+
+.nextStep{
+	width: 10%;
+	height: 100%;
+	padding: 10px;
+}
+
+.nextStepBtn{
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	background-color: #bf2828;
+	border-radius: 10px;
+	display: none;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.nextStepBtn>h3, .nextStepBtn>p{
+	text-align: center;
+	font-weight: bold;
+	width: 100%;
+}
+
+#moviePoster{
+	display: none;
+	width: 40%;
+	height: 100%;
+	background-size: cover;
+	margin-right: 5px;
+}
+
+#reservationMovieTitle{
+	display: none;
+	font-size: 12px;
+}

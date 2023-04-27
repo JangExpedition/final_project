@@ -1,0 +1,127 @@
+#movieSection{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#movieChart{
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#movieChartTitle{
+	width: 100%;
+	padding: 10px;
+	text-align: start;
+	margin-top: 10px;
+	border-bottom: 3px solid #000;
+}
+
+#movieFilterBox{
+	margin-top: 10px;
+	font-size: 13px;
+	color: #666;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.oneLine{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 30px 0;
+}
+
+.oneMovie{
+	width: 200px;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 30px;
+}
+
+.movieRank{
+	width: 100%;
+	height: 30px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	color: #fff;
+	background-color: #333;
+	margin-bottom: 5px;
+}
+
+.top3{
+	background-color: #fb4357 !important;
+}
+
+.moviePoster{
+	position: relative;	
+	width: 200px;
+	height: 285px;
+	cursor: pointer;
+}
+
+.moviePoster:hover{
+	filter: brightness(70%);
+}
+
+.moviePoster>img{
+	position: absolute;	
+	width: 200px;
+	height: 285px;
+	top: 0;
+	left: 0;
+}
+
+.moviePoster>span{
+	position: absolute;	
+	top: 1px;
+	left: 1px;
+	z-index: 2;
+}
+
+.movieTitle{
+	width: 100%;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 3px 0;
+	white-space: nowrap;
+	text-overflow : ellipsis;
+	overflow: hidden;
+}
+
+.movieOpenDt{
+	width: 100%;
+	font-size: 10px;
+	margin: 3px 0;
+	color: #666;
+}
+
+.goReservation{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.reservationBtn{
+	width: 100px;
+	height: 25px;
+	border: 0;
+	background-color: #fb4357;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 3px;
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.event.model.dao.EventDao">
+
+    <!-- Event resultMap -->
+    <resultMap id="eventMap" type="com.sh.j3l.event.model.dto.Event">
+        <id column="no" property="no"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="category" property="category"/>
+        <result column="created_at" property="createdAt"/>
+        <collection property="attachments" ofType="com.sh.j3l.event.model.dto.EventAttachment"
+                    javaType="java.util.ArrayList">
+            <result column="NO" property="no"/>
+            <result column="EVENT_NO" property="eventNo"/>
+            <result column="ORIGINAL_FILENAME" property="originalFilename"/>
+            <result column="RENAMED_FILENAME" property="renamedFilename"/>
+        </collection>
+    </resultMap>
+
+    <!--파라미터를 Enum클래스로 받으므로, category(Enum).value로 String 값가져오기-->
+    <select id="selectAllEvent" resultMap="eventMap">
+        select
+        *
+        from
+        event e
+        left join
+        EVENT_ATTACHMENT EA ON e.NO = EA.EVENT_NO
+        WHERE 1=1
+        <if test="category != null">
+            AND e.CATEGORY = #{category.value}
+        </if>
+        order by
+        e.NO DESC
+    </select>
+    
+    <select id="pagingAllEvent" resultMap="eventMap">
+        SELECT
+        e.*,
+        a.*
+        FROM EVENT e
+        LEFT OUTER JOIN EVENT_ATTACHMENT a
+        ON e.NO = a.EVENT_NO
+        WHERE e.CATEGORY = #{category.key}
+        ORDER BY e.CREATED_AT DESC
+        OFFSET #{offset} ROWS FETCH NEXT #{pageSize} ROWS ONLY
+    </select>
+    
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM EVENT WHERE CATEGORY = #{category.key}
+    </select>
+
+
+    <insert id="insertEvent">
+        insert into
+        event
+        values
+        (
+        seq_event_no.nextval,
+        #{title},
+        #{content},
+        #{category},
+        default
+        )
+        <selectKey order="AFTER" resultType="_int" keyProperty="no">
+            select
+            seq_event_no.currval
+            from
+            dual
+        </selectKey>
+    </insert>
+
+    <insert id="insertEventAttachment">
+        insert into
+        event_attachment
+        values
+        (
+        seq_event_attach_no.nextval,
+        #{eventNo},
+        #{originalFilename},
+        #{renamedFilename}
+        )
+    </insert>
+
+    <delete id="deleteEvent">
+        delete from
+        	event
+        where
+        	no = #{no}
+    </delete>
+
+    <select id="selectOneEvent" resultMap="eventMap">
+        select
+        *
+        from
+        event e
+        left join EVENT_ATTACHMENT EA ON e.NO = EA.EVENT_NO
+        WHERE e.NO = #{no}
+    </select>
+
+    
+   	<update id="eventUpdate">
+   		update 
+   			event
+   		set
+   			title = #{title},
+   			content = #{content},
+   			category = #{category}
+   		where
+   			no = #{no}
+   	</update>
+    
+
+</mapper>

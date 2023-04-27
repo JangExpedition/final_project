@@ -1,0 +1,121 @@
+ul,li {
+  list-style: none;
+}
+.faq_tap_menu {
+  width: 100%;
+  display: flex;
+  border: 1px solid #aaa;
+}
+.faq_tap_menu li {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  border-right: 1px solid #aaa;
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.faq_tap_menu li:hover {
+  color: #fff;
+  background-color: #55a5eb;
+}
+.faq_tap_menu li.active {
+  color: #fff;
+  background-color: #55a5eb;
+}
+.faq_tap_menu li:last-child {
+  border-right: none;
+}
+
+.search_wrap {
+  max-width: 420px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #cecece;
+  margin: 16px 0 16px auto;
+}
+.search_input {
+  width: calc(100% - 38px);
+  height: 100%;
+  padding-left: 0.7em;
+  border: none;
+}
+.search_input:focus {
+  outline: none;
+}
+.search_ico {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.search_ico > img {
+  width: 23px;
+  height: 23px;
+}
+
+.faq_list {
+  width: 100%;
+  display: none;
+}
+.faq_list.active {
+  display: block;
+}
+.faq_list li {
+  border-top: 1px solid #262626;
+  min-height: 63px;
+  cursor: pointer;
+}
+.faq_list li:last-child {
+  border-bottom: 1px solid #262626;
+}
+.faq_list li .list {
+  display: flex;
+  align-items: center;
+  min-height: 63px;
+  transition: 0.3s;
+}
+.faq_list li .list.q:hover {
+  background-color: #ebf5fe;
+}
+.faq_list li .list.a {
+  display: none;
+  background-color: #f6f6f6;
+  cursor: default;
+}
+
+.faq_list li .list.a.active {
+  display: flex;
+}
+.faq_list li .list .qa {
+  flex-basis: 8%;
+  text-align: center;
+  font-size: 22px;
+}
+.faq_list li .list .faq_desc {
+  flex-basis: 86%;
+  font-size: 18px;
+}
+.faq_list li .list.a .faq_desc {
+  padding: 25px 0;
+}
+.faq_list li .list .expand_arr {
+  flex-basis: 6%;
+  height: 23px;
+  text-align: center;
+}
+/* 리스트 펼칠 시 화살표 */
+/* .faq_list li .expand_arr img {
+  transition: 0.3s;
+} */
+.faq_list li:has(.list.a.active) .expand_arr .fa-solid {
+  transform: rotate(180deg);
+}

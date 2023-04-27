@@ -1,0 +1,55 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- #7.1. 암호화 처리 빈 BCryptPasswordBean 등록 -->
+	<beans:bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
+		id="bCryptPasswordEncoder"></beans:bean>
+
+	<!-- #7.2. 자원별 권한여부 설정 -->
+	<http pattern="/resources/**" security="none"/>
+	<http auto-config="true">
+		<intercept-url pattern="/" access="permitAll"/>
+		<intercept-url pattern="/index.jsp" access="permitAll"/>
+		<intercept-url pattern="/member/myPage.do" access="isAuthenticated()"/>
+		<intercept-url pattern="/reservation/reservation.do" access="isAuthenticated()"/>
+		<intercept-url pattern="/question/question.do" access="isAuthenticated()"/>
+		<intercept-url pattern="/question/myQuestionList.do" access="isAuthenticated()"/>
+		<intercept-url pattern="/store/store.do" access="isAuthenticated()"/>
+		<intercept-url pattern="/cart/cart.do" access="isAuthenticated()"/>
+		<!-- <intercept-url pattern="/**" access="isAuthenticated()"/> -->
+		
+		<form-login
+			login-page="/member/memberLogin.do"
+			login-processing-url="/member/memberLogin.do"
+			username-parameter="id"
+			authentication-success-forward-url="/member/loginSuccess.do"/>
+		<!-- <logout
+			logout-url="/member/memberLogout.do"
+			logout-success-url="/"/> -->
+		<remember-me 
+			data-source-ref="dataSource" 
+			token-validity-seconds="1209600"/><!--  60s * 60m * 24h * 14d 2주  -->
+			
+		<access-denied-handler error-page="/error/accessDenied.do"/>
+	</http>
+	
+	
+	<!-- #7.3. 인증매니저 설정 -->
+	<authentication-manager>
+		<authentication-provider user-service-ref="securityService">
+			<password-encoder ref="bCryptPasswordEncoder"/>
+		</authentication-provider>
+	</authentication-manager>
+	
+	<!--  #7.4. security service/ado 빈으로 등록 -->
+	<context:component-scan base-package="com.sh.security"/>
+	<mybatis-spring:scan base-package="com.sh.security.**.dao"/>
+	
+</beans:beans>

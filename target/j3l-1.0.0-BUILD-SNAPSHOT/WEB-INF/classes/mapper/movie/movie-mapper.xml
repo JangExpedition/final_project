@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.movie.model.dao.MovieDao">
+	<select id="selectAllMovie" resultMap="movieMap">
+		select 
+			*
+		from
+			movie
+		order by
+			no asc
+	</select>
+	
+	<select id="pagingAllMovie" resultMap="movieMap">
+		select
+			*
+		from
+			movie
+		order by
+			no asc
+		offset 
+			#{offset} rows fetch next #{pageSize} rows only
+	</select>
+	
+	<select id="count" resultType="int">
+		select 
+			count(*) 
+		from 
+			movie
+	</select>
+	
+	<resultMap type="movie" id="movieMap"></resultMap>
+	
+	<insert id="insertMovie">
+	    insert into 
+	        movie (no, title, genre, director, actors, synopsis, limit_age, running_time, open_dt)
+	    values 
+	    (
+	        seq_movie_no.nextval, 
+	        #{title}, 
+	        #{genre}, 
+	        #{director}, 
+	        #{actors}, 
+	        #{synopsis}, 
+	        #{limitAge},
+	        #{runningTime},
+	        #{openDt}
+	    )
+	    <selectKey order="AFTER" resultType="_int" keyProperty="no">
+			select
+				seq_movie_no.currval
+			from
+				dual
+		</selectKey>
+	</insert>
+	
+	<insert id="insertAttachment">
+		insert into
+			movie_attachment
+		values 
+		(
+			seq_movie_attach_no.nextval,
+			#{movieNo},
+			#{originalFilename},
+			#{renamedFilename}
+		)
+	</insert>
+	
+	<select id="selectOneMovie" resultMap="movieMap">
+		select
+			*
+		from
+			movie
+		where
+			no = #{no}
+	</select>
+	
+	<update id="updateMovie">
+		update
+			movie
+		set
+			title = #{title},
+			genre = #{genre},
+			director = #{director},
+			actors = #{actors},
+			synopsis = #{synopsis},
+			limit_age = #{limitAge},
+			running_time = #{runningTime},
+			open_dt = #{openDt},
+			reservation_count = #{reservationCount}
+		where
+			no = #{no}
+	</update>
+	
+	<delete id="deleteMovie">
+		delete from 
+			movie
+		where
+			no = #{no}
+	</delete>
+	
+	<select id="searchByTitle" parameterType="String" resultType="Movie">
+		select
+			*
+		from
+			movie
+		where
+			title like '%' || #{title} || '%'
+	</select>
+
+</mapper>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sh.j3l.question.model.dao.QuestionDao">
+	<select id="selectAllQuestion" resultMap="questionMap">
+		select
+			*
+		from
+			question
+	</select>
+	
+	<select id="selectAllmyQuestion" resultMap="questionMap">
+		select
+			*
+		from
+			question
+	</select>
+	
+	<select id="pagingAllQuestion" resultMap="questionMap">
+		select
+			*
+		from
+			question
+		order by
+			no asc
+		offset 
+			#{offset} rows fetch next #{pageSize} rows only
+	</select>
+	
+	<select id="count" resultType="int">
+		select 
+			count(*) 
+		from 
+			question
+	</select>
+	
+	<resultMap type="question" id="questionMap"></resultMap>
+	
+	<insert id="sendQuestion">
+		insert into
+			question (no, name, phone, email, content, reg_date, type, title)
+		values
+		(
+			seq_question_no.nextval,
+			#{name},
+			#{phone},
+			#{email},
+			#{content},
+			default,
+			#{type},
+			#{title}
+		)
+	</insert>
+	
+	<select id="selectOneQuestion" resultMap="questionMap">
+		select
+			*
+		from
+			question
+		where
+			no = #{no}
+	</select>
+    
+    <select id="searchByName" parameterType="String" resultType="Question">
+    	select
+    		*
+    	from
+    		question
+    	where
+    		name like '%' || #{name} || '%'
+    </select>
+    
+    <delete id="deleteQuestion">
+    	delete from
+    		question
+   		where
+   			no = #{no}
+    </delete>
+    
+    <select id="cinemaQues" resultMap="questionMap">
+    	select
+    		*
+    	from
+    		question
+    	where 
+    		no = #{no}
+    </select>
+
+</mapper>

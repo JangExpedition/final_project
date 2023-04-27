@@ -1,0 +1,50 @@
+#duplicationSection{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-top: 30px;
+}
+
+#duplicationCheck{
+	width: 80%;
+	border-top: 1px solid #666;
+	padding: 50px;
+	background-color: #f8f8f8;
+	text-align: center;
+}
+
+#findIdOrLogin{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#findIdOrLogin>a{
+	text-decoration: none;
+}
+
+#findIdOrLogin>a>div{
+	width: 160px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #000;
+}
+
+#findIdOrLogin>a:first-child{
+	background-color: #fff;
+	color: #333;
+	margin-right: 10px;
+}
+
+#findIdOrLogin>a:last-child{
+	background-color: #000;
+	color: #fff;
+}
+
+#pointColor{
+	color: #ee6900;
+}
